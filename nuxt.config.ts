@@ -6,5 +6,10 @@ export default defineNuxtConfig({
     client: false,
     server: false,
   },
-  modules: ["@nuxtjs/tailwindcss", "@vueuse/nuxt", "@nuxtjs/supabase"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@vueuse/nuxt",
+    "@nuxtjs/supabase",
+    "@pinia/nuxt",
+  ],
 });

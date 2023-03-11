@@ -96,6 +96,7 @@
 
 <script setup>
 const course = await useCourse();
+console.log(course);
 const firstLesson = useFirstLesson();
 definePageMeta({
   layout: "default",
