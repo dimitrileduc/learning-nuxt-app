@@ -46,8 +46,8 @@ definePageMeta({
   middleware: [
     async function ({ params }, from) {
       const course = await useCourse();
-
-      const chapter = course.value.chapters.find(
+      console.log(course.value);
+      const chapter = course?.value?.chapters.find(
         (chapter) => chapter.slug === params.chapterSlug
       );
 
