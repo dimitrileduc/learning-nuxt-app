@@ -34,6 +34,6 @@ const logout = async () => {
   } catch (error) {
     console.log(error);
   }
-  await navigateTo("/login");
+  await navigateTo("/");
 };
 </script>
