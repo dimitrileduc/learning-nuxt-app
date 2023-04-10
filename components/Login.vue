@@ -3,17 +3,23 @@
     <h1>Log in</h1>
     <button
       class="bg-blue-500 text-white font-bold py-2 px-4 rounded"
-      @click="login"
+      @click="handleClick"
+      :disabled="loading"
     >
-      Log in with GitHub
+      <span v-if="loading">loading</span>
+      <span v-else>Log in with github</span>
     </button>
   </div>
 </template>
 
 <script setup>
-const { query } = useRoute();
-const supabase = useSupabaseClient();
-const user = useSupabaseUser();
+import { useAuth } from "~/stores/useAuth";
+import { usePayment } from "~~/stores/usePayment";
+import { storeToRefs } from "pinia";
+const { loading, user } = storeToRefs(useAuth());
+const { login } = useAuth();
+
+const { showPayment, setShowPayment, amount, setAmount } = usePayment();
 
 const props = defineProps({
   toPayment: {
@@ -23,30 +29,11 @@ const props = defineProps({
   },
 });
 
-watchEffect(async () => {
-  if (user.value) {
-    console.log("watchEffect start", performance.now());
-    if (props.toPayment) {
-      await navigateTo("/payment", { replace: true });
-    } else {
-      await navigateTo("/", { replace: true });
-    }
+const handleClick = async () => {
+  if (props.toPayment) {
+    setShowPayment(true);
   }
-});
-
-const login = async () => {
-  const redirectTo = props.toPayment
-    ? `${window.location.origin}/payment`
-    : `${window.location.origin}$/`;
-
-  const { error } = await supabase.auth.signInWithOAuth({
-    provider: "github",
-    options: { redirectTo },
-  });
-
-  if (error) {
-    console.error(error);
-  }
+  await login(props.toPayment);
 };
 </script>
 

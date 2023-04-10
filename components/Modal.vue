@@ -13,11 +13,12 @@
 </template>
 
 <script setup lang="ts">
-const previousOverflow = ref('');
+//backdrop-blur-xl backdrop-brightness-50
+const previousOverflow = ref("");
 onMounted(() => {
   // Lock the scrollbar by removing overflow if we have any
   previousOverflow.value = document.body.style.overflow;
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow = "hidden";
 });
 
 onBeforeUnmount(() => {

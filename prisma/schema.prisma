@@ -9,50 +9,41 @@ generator client {
   output        = "../node_modules/.prisma/client"
 }
 
-model Course {
-  id        Int       @id @default(autoincrement())
-  title     String
-  chapters  Chapter[]
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+model Video {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  url         String
+  price       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
-model Chapter {
-  id        Int      @id @default(autoincrement())
-  title     String
-  slug      String
-  number    Int
-  lessons   Lesson[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  Course    Course   @relation(fields: [courseId], references: [id])
-  courseId  Int
-}
-
-model Lesson {
-  id             Int              @id @default(autoincrement())
-  title          String
-  slug           String
-  number         Int
-  downloadUrl    String
-  videoId        Int
-  text           String
-  sourceUrl      String?
-  createdAt      DateTime         @default(now())
-  updatedAt      DateTime         @updatedAt
-  Chapter        Chapter          @relation(fields: [chapterId], references: [id])
-  chapterId      Int
-  LessonProgress LessonProgress[]
-}
-
-model LessonProgress {
+model CreditPurchase {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  completed Boolean  @default(false)
-  Lesson    Lesson   @relation(fields: [lessonId], references: [id])
-  lessonId  Int
+  amount    Int
+  verified  Boolean  @default(false)
+  stripeId  String
   userEmail String
 
-  @@unique([lessonId, userEmail])
+  @@unique([stripeId])
+}
+
+model VideoPurchase {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  userEmail  String
+  videoId    Int
+  stripeId   String
+  creditUsed Int      @default(0)
+
+  @@unique([userEmail, videoId])
+}
+
+model CreditBalance {
+  userEmail String @unique
+  balance   Int    @default(0)
 }

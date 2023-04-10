@@ -6,34 +6,22 @@
     />
     <div class="text-right">
       <div class="font-medium">{{ name }}</div>
+      <div v-if="loading">loading</div>
+      <div v-if="credits">Credits: {{ credits }}</div>
       <button class="text-blue-500" @click="logout">Logout</button>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-const user = useSupabaseUser();
-const { auth } = useSupabaseClient();
+<script setup>
+import { useAuth } from "~/stores/useAuth";
+import { storeToRefs } from "pinia";
+const { user } = storeToRefs(useAuth());
+
+const { logout } = useAuth();
 
 const name = computed(() => user.value?.user_metadata.full_name);
 const profile = computed(() => user.value?.user_metadata.avatar_url);
-
-const logout = async () => {
-  console.log("login");
-  const { error } = await auth.signOut();
-  if (error) {
-    console.log(error);
-    return;
-  }
-  try {
-    await $fetch("api/_supabase/session", {
-      method: "POST",
-      body: { event: "SIGNED_OUT", session: null },
-    });
-    user.value = null;
-  } catch (error) {
-    console.log(error);
-  }
-  await navigateTo("/");
-};
+const { credits, loading } = await useCredits();
+console.log(credits, "credits");
 </script>
