@@ -51,7 +51,7 @@ async function handleSignUp(data: any) {
     } else console.log(error);
   } else {
     if (props.toPayment) {
-      setShowPayment(true);
+      //setShowPayment(true);
     }
     console.log("please confirm email");
     getEmailProviderUrl(data.email);
@@ -75,7 +75,11 @@ function redirectLogin() {
 <template>
   <div class="">
     <div class="text-3xl pb-9">Sign up</div>
-    <AuthForm @submit="handleSignUp" type="register" />
+    <AuthForm
+      @submit="handleSignUp"
+      type="register"
+      :toPayment="props.toPayment"
+    />
     <button v-if="showEmailButton" @click="redirectToEmail">
       Go to Email Provider {{ emailProviderUrl }}
     </button>

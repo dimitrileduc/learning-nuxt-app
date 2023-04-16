@@ -13,6 +13,11 @@ const props = defineProps({
     type: String,
     required: false,
   },
+  toPayment: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 });
 
 const labelButton = computed(() => {

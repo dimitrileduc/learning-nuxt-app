@@ -1,6 +1,6 @@
 <template>
   <Modal @close="$emit('close')">
-    <div class="bg-slate-200 p-8 rounded-xl w-full max-w-2xl">
+    <div class="bg-slate-200 p-8 rounded-xl w-full">
       {{ showPayment }}
       <div
         v-if="success"

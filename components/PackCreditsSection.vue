@@ -12,6 +12,10 @@
           {{ pack.label }}
         </option>
       </select>
+      <div class="flex inline-flex">
+        <Button small primary label="Débloquer small" @click="buyCredits" />
+        <Button label="Débloquer la video" @click="buyCredits" />
+      </div>
       <button
         class="bg-yellow-400 hover:bg-yellow-500 transition px-4 py-2 font-bold rounded-lg"
         @click="buyCredits"

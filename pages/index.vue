@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <h2>Hello in home</h2>
-    {{ showPayment }}
+  <div class="global">
+    <Header />
+    <div v-if="false">
+      {{ showPayment }}
+    </div>
 
-    <Hero />
-    <ProductsSection />
     <PackCreditsSection />
     <UserVideos />
     <ConfirmPurchase v-if="showPayment" @close="hidePayment" />
@@ -27,4 +27,7 @@ const hidePayment = () => {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.global {
+}
+</style>

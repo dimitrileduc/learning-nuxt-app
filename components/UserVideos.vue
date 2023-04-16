@@ -2,6 +2,7 @@
   <div class="border border-red-600">
     <ClientOnly>
       <div v-if="user">User videos {{ data }}</div>
+
       <div v-else>there is no video as user not logged {{ data }}</div>
     </ClientOnly>
   </div>

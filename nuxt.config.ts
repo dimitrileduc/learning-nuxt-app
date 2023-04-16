@@ -27,5 +27,19 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
+    "@nuxtjs/google-fonts",
+    "nuxt-icons",
   ],
+  buildModules: ["@nuxt/image"],
+  googleFonts: {
+    families: {
+      Lato: [300, 400, 500, 600, 700],
+    },
+  },
+  image: {
+    // Options
+  },
+  compilerOptions: {
+    types: ["@nuxt/types", "@nuxt/image"],
+  },
 });

@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const usePayment = defineStore(
   "usePayment",
   () => {
+    const toPayment = ref(false);
     const showPayment = ref(false);
     const amount = ref(10);
     const setShowPayment = (value: boolean) => {
@@ -13,7 +14,18 @@ export const usePayment = defineStore(
       console.log("set amount", value);
       amount.value = value;
     };
-    return { showPayment, setShowPayment, amount, setAmount };
+    const setToPayment = (value: boolean) => {
+      console.log("set to payment", value);
+      toPayment.value = value;
+    };
+    return {
+      showPayment,
+      setShowPayment,
+      amount,
+      setAmount,
+      toPayment,
+      setToPayment,
+    };
   },
   {
     persist: true,
