@@ -33,7 +33,7 @@ export default defineNuxtConfig({
   buildModules: ["@nuxt/image"],
   googleFonts: {
     families: {
-      Lato: [300, 400, 500, 600, 700],
+      Lato: [300, 400, 500, 600, 700, 900],
     },
   },
   image: {

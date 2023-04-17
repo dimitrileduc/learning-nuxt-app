@@ -6,6 +6,7 @@
     </div>
 
     <PackCreditsSection />
+    <About />
     <UserVideos />
     <ConfirmPurchase v-if="showPayment" @close="hidePayment" />
   </div>
