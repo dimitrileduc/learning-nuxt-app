@@ -80,9 +80,9 @@ const handleBlurInput = (e) => {
 
 <template>
   <div class="TextInput text-sm">
-    <label :for="name">{{ label }}</label>
-    {{ meta.dirty && !meta.valid }}
+    <label v-if="false" :for="name">{{ label }}</label>
     <input
+      class="input_field"
       :name="name"
       :id="name"
       :type="type"
@@ -96,7 +96,8 @@ const handleBlurInput = (e) => {
       }"
     />
     <Icon v-if="showExixstingEmailIcon" name="uil:github" />
-    <div class="m-8">
+
+    <div v-if="false" class="m-8">
       <p
         class="help-message"
         :class="{
@@ -121,19 +122,23 @@ const handleBlurInput = (e) => {
 }
 .TextInput {
   position: relative;
-  margin-bottom: calc(1em * 1.5);
+
   width: 100%;
 }
 
 label {
   display: block;
-  margin-bottom: 4px;
+
   width: 100%;
+}
+
+.input_field {
+  background-color: #eaf4f4;
 }
 
 input {
   border-radius: 5px;
-  border: 1.5px solid lightgray;
+
   padding: 10px 15px;
   outline: none;
 

@@ -7,7 +7,9 @@
 
     <PackCreditsSection />
     <About />
-    <UserVideos />
+    <RdvSection />
+    <ContactSection />
+    <UserVideos v-if="false" />
     <ConfirmPurchase v-if="showPayment" @close="hidePayment" />
   </div>
 </template>

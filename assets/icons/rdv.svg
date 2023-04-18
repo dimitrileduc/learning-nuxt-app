@@ -1,0 +1,24 @@
+<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 8.8999H33" stroke="url(#paint0_linear_42_2402)" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M32.75 1.8999H1.25C1.11193 1.8999 1 2.01183 1 2.1499V32.6499C1 32.788 1.11193 32.8999 1.25 32.8999H32.75C32.8881 32.8999 33 32.788 33 32.6499V2.1499C33 2.01183 32.8881 1.8999 32.75 1.8999Z" stroke="url(#paint1_linear_42_2402)" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M24 1V4.95" stroke="url(#paint2_linear_42_2402)" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M10 1V4.95" stroke="url(#paint3_linear_42_2402)" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+<defs>
+<linearGradient id="paint0_linear_42_2402" x1="nan" y1="nan" x2="nan" y2="nan" gradientUnits="userSpaceOnUse">
+<stop stop-color="#84CAE5"/>
+<stop offset="1" stop-color="#91D6EB"/>
+</linearGradient>
+<linearGradient id="paint1_linear_42_2402" x1="0" y1="17.3999" x2="34" y2="17.3999" gradientUnits="userSpaceOnUse">
+<stop stop-color="#84CAE5"/>
+<stop offset="1" stop-color="#91D6EB"/>
+</linearGradient>
+<linearGradient id="paint2_linear_42_2402" x1="nan" y1="nan" x2="nan" y2="nan" gradientUnits="userSpaceOnUse">
+<stop stop-color="#84CAE5"/>
+<stop offset="1" stop-color="#91D6EB"/>
+</linearGradient>
+<linearGradient id="paint3_linear_42_2402" x1="nan" y1="nan" x2="nan" y2="nan" gradientUnits="userSpaceOnUse">
+<stop stop-color="#84CAE5"/>
+<stop offset="1" stop-color="#91D6EB"/>
+</linearGradient>
+</defs>
+</svg>
