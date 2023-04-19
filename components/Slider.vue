@@ -18,7 +18,7 @@
           <Slide v-for="slide in 10" :key="slide">
             <div class="carousel__item border">
               <div class="flex flex-row items-center justify-center">
-                <PackCard />
+                <div class="bg:red-500">{{ slide }}</div>
               </div>
             </div>
           </Slide>
