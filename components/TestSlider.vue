@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="w-full border border-green-400 flex flex-row items-center justify-center"
-  >
+  <div class="border border-green-400 flex flex-row">
     <button class="border" @click="prev">Prev</button>
     <Carousel>
       <Slide v-for="slide in 10" :key="slide">
@@ -34,7 +32,7 @@ export default defineComponent({
 <style>
 .carousel__item {
   min-height: 200px;
-  width: 100%;
+  width: 100vw;
   background-color: var(--vc-clr-primary);
   color: var(--vc-clr-white);
   font-size: 20px;
