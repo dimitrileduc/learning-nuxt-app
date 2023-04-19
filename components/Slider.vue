@@ -18,7 +18,7 @@
           <Slide v-for="slide in 10" :key="slide">
             <div class="carousel__item border">
               <div class="flex flex-row items-center justify-center">
-                <div class="bg:red-500">{{ slide }}</div>
+                <PackCard />
               </div>
             </div>
           </Slide>
@@ -28,6 +28,20 @@
 
     <button class="border" @click="next">Next</button>
   </div>
+  <Carousel
+    ref="myCarousel"
+    v-bind="settings"
+    :breakpoints="breakpoints"
+    wrapAround="true"
+  >
+    <Slide v-for="slide in 10" :key="slide">
+      <div class="carousel__item border">
+        <div class="flex flex-row items-center justify-center">
+          <PackCard />
+        </div>
+      </div>
+    </Slide>
+  </Carousel>
 </template>
 
 <script setup>
