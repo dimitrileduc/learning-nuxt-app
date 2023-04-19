@@ -216,7 +216,7 @@
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.16.8.tgz#61c243a3875f7d0b0962b0543a33ece6ff2f1f17"
   integrity sha512-i7jDUfrVBWc+7OKcBzEe5n7fbv3i2fWtxKzzCvOjnzSxMfWMigAhtfJ7qzZNGFNMsCCd67+uz553dYKWXPvCKw==
 
-"@babel/parser@^7.0.0", "@babel/parser@^7.1.0", "@babel/parser@^7.16.4", "@babel/parser@^7.18.4", "@babel/parser@^7.20.7", "@babel/parser@^7.21.4":
+"@babel/parser@^7.0.0", "@babel/parser@^7.1.0", "@babel/parser@^7.16.4", "@babel/parser@^7.20.7", "@babel/parser@^7.21.4":
   version "7.21.4"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.21.4.tgz#94003fdfc520bbe2875d4ae557b43ddb6d880f17"
   integrity sha512-alVJj7k7zIxqBZ7BTRhz0IqJFxW1VJbm6N8JbcYhQ186df9ZBPbZBmWSqAMXwHGsCJdYks7z/voa3ibiS5bCIw==
@@ -2447,15 +2447,6 @@
     "@vue/compiler-core" "3.2.47"
     "@vue/shared" "3.2.47"
 
-"@vue/compiler-sfc@2.7.14":
-  version "2.7.14"
-  resolved "https://registry.yarnpkg.com/@vue/compiler-sfc/-/compiler-sfc-2.7.14.tgz#3446fd2fbb670d709277fc3ffa88efc5e10284fd"
-  integrity sha512-aNmNHyLPsw+sVvlQFQ2/8sjNuLtK54TC6cuKnVzAY93ks4ZBrvwQSnkkIh7bsbNhum5hJBS00wSDipQ937f5DA==
-  dependencies:
-    "@babel/parser" "^7.18.4"
-    postcss "^8.4.14"
-    source-map "^0.6.1"
-
 "@vue/compiler-sfc@3.2.47":
   version "3.2.47"
   resolved "https://registry.yarnpkg.com/@vue/compiler-sfc/-/compiler-sfc-3.2.47.tgz#1bdc36f6cdc1643f72e2c397eb1a398f5004ad3d"
@@ -3268,14 +3259,6 @@ builtins@^5.0.0:
   integrity sha512-qwVpFEHNfhYJIzNRBvd2C1kyo6jz3ZSMPyyuR47OPdiKWlbYnZNyDWuyR175qDnAJLiCo5fBBqPb3RiXgWlkOQ==
   dependencies:
     semver "^7.0.0"
-
-bukwild-stylus-library@^3.1.0:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/bukwild-stylus-library/-/bukwild-stylus-library-3.2.1.tgz#abea66a731d3339938daeb2dfc33bfa473bac1d4"
-  integrity sha512-MgaFjTgd0oJO2dwOTzKMig0bSMjzqndhNOCkV05rsPoNlmY/8weCdWFVWUwujGWMTdgRqYsa+oVjGy76KGBwLA==
-  dependencies:
-    stylus-easing "^1"
-    stylus-type-utils "^0"
 
 busboy@^1.6.0:
   version "1.6.0"
@@ -4202,11 +4185,6 @@ csstype@^2.6.8:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.21.tgz#2efb85b7cc55c80017c66a5ad7cbd931fda3a90e"
   integrity sha512-Z1PhmomIfypOpoMjRQB70jfvy/wxT50qW08YXO5lMIJkrdq4yOTR+AW7FqutScmB9NkLwxo+jU+kZLbofZZq/w==
 
-csstype@^3.1.0:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.2.tgz#1d4bf9d572f11c14031f0436e1c10bc1f571f50b"
-  integrity sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==
-
 cuint@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/cuint/-/cuint-0.2.2.tgz#408086d409550c2631155619e9fa7bcadc3b991b"
@@ -4741,11 +4719,6 @@ enhanced-resolve@^5.10.0:
   dependencies:
     graceful-fs "^4.2.4"
     tapable "^2.2.0"
-
-enquire.js@2.1.6:
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/enquire.js/-/enquire.js-2.1.6.tgz#3e8780c9b8b835084c3f60e166dbc3c2a3c89814"
-  integrity sha512-/KujNpO+PT63F7Hlpu4h3pE3TokKRHN26JYmQpPyjkRD/N57R7bPDNojMXdi7uveAKjYB7yQnartCxZnFWr0Xw==
 
 entities@^2.0.0, entities@^2.2.0:
   version "2.2.0"
@@ -6960,13 +6933,6 @@ json-schema-traverse@^1.0.0:
   resolved "https://registry.yarnpkg.com/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz#ae7bcb3656ab77a73ba5c49bf654f38e6b6860e2"
   integrity sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==
 
-json2mq@0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/json2mq/-/json2mq-0.2.0.tgz#b637bd3ba9eabe122c83e9720483aeb10d2c904a"
-  integrity sha512-SzoRg7ux5DWTII9J2qkrZrqV1gt+rTaoufMxEzXbS26Uid0NwaJd123HcoB80TgubEppxxIGdNxCx50fEoEWQA==
-  dependencies:
-    string-convert "^0.2.0"
-
 json5@^2.1.2, json5@^2.2.2:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.3.tgz#78cd6f1a19bdc12b73db5ad0c61efd66c1e29283"
@@ -7323,11 +7289,6 @@ lodash._reinterpolate@^3.0.0:
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
   integrity sha512-xYHt68QRoYGjeeM/XOE1uJtvXQAgvszfBhjV4yvsQH0u2i9I6cI6c6/eG4Hh3UAOVn0y/xAXwmTzEay49Q//HA==
 
-lodash.assign@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/lodash.assign/-/lodash.assign-4.2.0.tgz#0d99f3ccd7a6d261d19bdaeb9245005d285808e7"
-  integrity sha512-hFuH8TY+Yji7Eja3mGiuAxBqLagejScbG8GbG0j6o9vzn0YL14My+ktnqtZgFTosKymC9/44wP6s7xyuLfnClw==
-
 lodash.castarray@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.castarray/-/lodash.castarray-4.4.0.tgz#c02513515e309daddd4c24c60cfddcf5976d9115"
@@ -7352,11 +7313,6 @@ lodash.flatten@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.flatten/-/lodash.flatten-4.4.0.tgz#f31c22225a9632d2bbf8e4addbef240aa765a61f"
   integrity sha512-C5N2Z3DgnnKr0LOpv/hKCgKdb7ZZwafIrsesve6lmzvZIRZRGaZ/l6Q8+2W7NaT+ZwO3fFlSCzCzrDCFdJfZ4g==
-
-lodash.get@^4.4.2:
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
-  integrity sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==
 
 lodash.isarguments@^3.1.0:
   version "3.1.0"
@@ -8451,14 +8407,6 @@ nuxt-icons@^3.1.0:
   dependencies:
     "@nuxt/kit" "^3.0.0"
 
-nuxt-swiper@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/nuxt-swiper/-/nuxt-swiper-1.1.0.tgz#aeb143b9ac4be89c2b639f466b0ba55c5412efd9"
-  integrity sha512-DJFxKLIKvJw8BQ4VL/64Eu/znOL9UlQA07R4vA4fJCUxbk/vUvgrWEX1fRS7z7+vb2tEY8HIAxSLdoRSneFogA==
-  dependencies:
-    "@nuxt/kit" "^3.3.3"
-    swiper "^9.2.0"
-
 nuxt@3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-3.3.0.tgz#72145bca7114028315739eca530775c8ca9b191d"
@@ -9509,7 +9457,7 @@ postcss-values-parser@^6.0.2:
     is-url-superb "^4.0.0"
     quote-unquote "^1.0.0"
 
-postcss@^8.0.9, postcss@^8.1.10, postcss@^8.2.15, postcss@^8.4.14, postcss@^8.4.16, postcss@^8.4.21, postcss@^8.4.22:
+postcss@^8.0.9, postcss@^8.1.10, postcss@^8.2.15, postcss@^8.4.16, postcss@^8.4.21, postcss@^8.4.22:
   version "8.4.22"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.22.tgz#c29e6776b60ab3af602d4b513d5bd2ff9aa85dc1"
   integrity sha512-XseknLAfRHzVWjCEtdviapiBtfLdgyzExD50Rg2ePaucEesyh8Wv4VPdW0nbyDa1ydbrAxV19jvMT4+LFmcNUA==
@@ -10011,11 +9959,6 @@ requrl@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/requrl/-/requrl-3.0.2.tgz#d376104193b02a2d874dde68454c2db2dfeb0fac"
   integrity sha512-f3gjR6d8MhOpn46PP+DSJywbmxi95fxQm3coXBFwognjFLla9X6tr8BdNyaIKNOEkaRbRcm0/zYAqN19N1oyhg==
-
-resize-observer-polyfill@1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
-  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
 resolve-alpn@^1.0.0, resolve-alpn@^1.2.0:
   version "1.2.1"
@@ -10595,11 +10538,6 @@ split2@^4.0.0:
   resolved "https://registry.yarnpkg.com/split2/-/split2-4.2.0.tgz#c9c5920904d148bab0b9f67145f245a86aadbfa4"
   integrity sha512-UcjcJOWknrNkF6PLX83qcHM6KHgVKNkV62Y8a5uYDVv9ydGQVwAHMKqHdJje1VTWpljG0WYpCDhrCdAOYH4TWg==
 
-ssr-window@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/ssr-window/-/ssr-window-4.0.2.tgz#dc6b3ee37be86ac0e3ddc60030f7b3bc9b8553be"
-  integrity sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ==
-
 stable@^0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/stable/-/stable-0.1.8.tgz#836eb3c8382fe2936feaf544631017ce7d47a3cf"
@@ -10666,11 +10604,6 @@ strict-uri-encode@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
   integrity sha512-R3f198pcvnB+5IpnBlRkphuE9n46WyVl8I39W/ZUTZLz4nqSP/oLYUrcnJrw462Ds8he4YKMov2efsTIw1BDGQ==
-
-string-convert@^0.2.0:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/string-convert/-/string-convert-0.2.1.tgz#6982cc3049fbb4cd85f8b24568b9d9bf39eeff97"
-  integrity sha512-u/1tdPl4yQnPBjnVrmdLo9gtuLvELKsAoRapekWggdiQNvvvum+jYF329d84NAa660KQw7pB2n36KrIKVoXa3A==
 
 string-similarity@^4.0.4:
   version "4.0.4"
@@ -10818,16 +10751,6 @@ stylehacks@^5.1.1:
     browserslist "^4.21.4"
     postcss-selector-parser "^6.0.4"
 
-stylus-easing@^1:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/stylus-easing/-/stylus-easing-1.0.0.tgz#1ba3177903a3d3c9605c83ebf71f1895b9b9e5a1"
-  integrity sha512-M2/GG/RXnrVZpXlrWC1gs8JXCXXrLENF33W1KQMhcmxKwTbGup4a1cJh+uZalQL8mLtfegocM+6+u0YHqvcgyg==
-
-stylus-type-utils@^0:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/stylus-type-utils/-/stylus-type-utils-0.0.3.tgz#f048334728bb5144ecd599c627553db64ea0a6bb"
-  integrity sha512-E1yoznMW1fFSm2OUF+oEp41KWSXoTYPEBgpRVAASVPG45mrnCZzs7qmA+0bjegJ9vLRPoYeX38mU3RJFk6BphQ==
-
 sucrase@^3.29.0:
   version "3.32.0"
   resolved "https://registry.yarnpkg.com/sucrase/-/sucrase-3.32.0.tgz#c4a95e0f1e18b6847127258a75cf360bc568d4a7"
@@ -10895,13 +10818,6 @@ svgo@^2.7.0:
     csso "^4.2.0"
     picocolors "^1.0.0"
     stable "^0.1.8"
-
-swiper@^9.2.0, swiper@^9.2.3:
-  version "9.2.3"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-9.2.3.tgz#557b5872f711de0e9a80c8cb2901c645f7937b19"
-  integrity sha512-hxqcjIsYPP1fv+KIXPqGywl6ik8RBp0y0i9+TOIh55ca6SpZ5FrgNJ4QXPhsl6mlSBMEYPmh5zOKtZpI8zpWeQ==
-  dependencies:
-    ssr-window "^4.0.2"
 
 symbol-observable@^1.1.0:
   version "1.2.0"
@@ -11840,40 +11756,6 @@ vue-router@^4.1.6:
   integrity sha512-DYWYwsG6xNPmLq/FmZn8Ip+qrhFEzA14EI12MsMgVxvHFDYvlr4NXpVF5hrRH1wVcDP8fGi5F4rxuJSl8/r+EQ==
   dependencies:
     "@vue/devtools-api" "^6.4.5"
-
-vue-slick-carousel@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/vue-slick-carousel/-/vue-slick-carousel-1.0.6.tgz#8fbfe59a233b0fb7777e4934b60bbdf0a6a24f96"
-  integrity sha512-1CN/hpWC8m1U/eO7Kuc71jntJqdg6Z/ieLji21OPfQUhs8ZYnnGhQSu1covpa3IyuovM9T5puPCVgexs3DDF5A==
-  dependencies:
-    enquire.js "2.1.6"
-    json2mq "0.2.0"
-    lodash.assign "^4.2.0"
-    lodash.debounce "^4.0.8"
-    lodash.get "^4.4.2"
-    lodash.pick "^4.4.0"
-    resize-observer-polyfill "1.5.1"
-    vue "^2.6.10"
-
-vue-ssr-carousel@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/vue-ssr-carousel/-/vue-ssr-carousel-2.1.0.tgz#9d250c01f645767582b52ce533148b7c99d0b209"
-  integrity sha512-Mj0+Zg+ccvHUkeK0nRNGJwHHfvoRwOVFprwNg25gE/xJ4TtMLyjK6OhrkYwueHit+dAeR+4MEqEGPAsA1MdXTQ==
-  dependencies:
-    bukwild-stylus-library "^3.1.0"
-
-vue3-carousel@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/vue3-carousel/-/vue3-carousel-0.3.0.tgz#cf2e9bb2c40c7c48c923582a2d5bd61384a3bbd1"
-  integrity sha512-GeXj03XuvXNDCxhsANFZSQDwxDXWmKfCxVAVAZXQvRPpYrq70EG1NMJViuKimh841AOPX44AuPPkB0MaYPvh/Q==
-
-vue@^2.6.10:
-  version "2.7.14"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.7.14.tgz#3743dcd248fd3a34d421ae456b864a0246bafb17"
-  integrity sha512-b2qkFyOM0kwqWFuQmgd4o+uHGU7T+2z3T+WQp8UBjADfEv2n4FEMffzBmCKNP0IGzOEEfYjvtcC62xaSKeQDrQ==
-  dependencies:
-    "@vue/compiler-sfc" "2.7.14"
-    csstype "^3.1.0"
 
 vue@^3.2.47:
   version "3.2.47"

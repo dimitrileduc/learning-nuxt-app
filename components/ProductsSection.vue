@@ -13,7 +13,6 @@
         <VideoCard />
         <VideoCard unlocked />
       </div>
-
       <div v-if="false">
         <div class="mt-6" />
         <div v-if="user">Derniers tirage user logged {{ data }}</div>
