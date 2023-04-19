@@ -14,6 +14,7 @@
       <PackCard />
     </div>
     <div class="w-full">
+      <Slider />
       <TestSlider />
     </div>
     <div v-if="false">
