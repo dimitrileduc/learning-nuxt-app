@@ -8,11 +8,6 @@ export default defineNuxtConfig({
       stripeKey: "",
     },
   },
-  nitro: {
-    prerender: {
-      routes: ["/landing"],
-    },
-  },
   vite: {
     plugins: [vsharp()],
   },

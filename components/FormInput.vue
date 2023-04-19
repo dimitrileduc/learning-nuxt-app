@@ -2,7 +2,6 @@
 import { toRef, computed } from "vue";
 import { useAuth } from "~/stores/useAuth";
 import { useField } from "vee-validate";
-import { debounce } from "lodash";
 
 const props = defineProps({
   type: {
@@ -46,6 +45,8 @@ const {
 } = useField(name, undefined, {
   initialValue: props.value,
 });
+
+/*
 const debouncedCheckUserExist = debounce(async (email: string) => {
   const exist = await checkUserExist(email);
   console.log("exist", exist);
@@ -55,6 +56,7 @@ const debouncedCheckUserExist = debounce(async (email: string) => {
     showExixstingEmailIcon.value = false;
   }
 }, 5000);
+*/
 
 const showErrorMessage = computed(() => {
   if (props.name == "password") {
@@ -66,7 +68,7 @@ const showErrorMessage = computed(() => {
 const handleBlurEmailInput = (e) => {
   const value = e.target.value;
   if (value.includes("@")) {
-    debouncedCheckUserExist(value);
+    //debouncedCheckUserExist(value);
   }
 };
 
