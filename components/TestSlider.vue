@@ -1,14 +1,16 @@
 <template>
-  <Carousel v-bind="settings" :breakpoints="breakpoints" :wrapAround="true">
-    <Slide v-for="slide in 3" :key="slide">
-      <div class="carousel__item"><PackCard /></div>
-    </Slide>
+  <ClientOnly>
+    <Carousel v-bind="settings" :breakpoints="breakpoints" :wrapAround="true">
+      <Slide v-for="slide in 3" :key="slide">
+        <div class="carousel__item"><PackCard /></div>
+      </Slide>
 
-    <template #addons>
-      <Navigation />
-      <Pagination />
-    </template>
-  </Carousel>
+      <template #addons>
+        <Navigation />
+        <Pagination />
+      </template>
+    </Carousel>
+  </ClientOnly>
 </template>
 
 <script setup>
