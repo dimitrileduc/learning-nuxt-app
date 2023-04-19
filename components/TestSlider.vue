@@ -1,11 +1,17 @@
 <template>
-  <Carousel>
-    <Slide v-for="slide in 10" :key="slide">
-      <div class="carousel__item">
-        <PackCard />
-      </div>
-    </Slide>
-  </Carousel>
+  <div
+    class="w-full border border-green-400 flex flex-row items-center justify-center"
+  >
+    <button class="border" @click="prev">Prev</button>
+    <Carousel>
+      <Slide v-for="slide in 10" :key="slide">
+        <div class="carousel__item">
+          <PackCard />
+        </div>
+      </Slide>
+    </Carousel>
+    <button class="border" @click="next">Next</button>
+  </div>
 </template>
 
 <script>
