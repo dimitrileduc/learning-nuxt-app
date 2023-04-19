@@ -1,13 +1,29 @@
 <template>
-  <div class="border border-green-400 flex flex-row">
+  <div
+    class="container_car border bg-red-50 border-green-400 flex flex-row items-center justify-center"
+  >
     <button class="border" @click="prev">Prev</button>
-    <Carousel>
-      <Slide v-for="slide in 10" :key="slide">
-        <div class="carousel__item">
-          <PackCard />
-        </div>
-      </Slide>
-    </Carousel>
+    <div
+      class="border border-red-500 flex flex-row items-center justify-center"
+    >
+      <div class="container-slider w-[304px]">
+        <Carousel
+          ref="myCarousel"
+          v-bind="settings"
+          :breakpoints="breakpoints"
+          wrapAround="true"
+        >
+          <Slide v-for="slide in 10" :key="slide">
+            <div class="carousel__item border">
+              <div class="flex flex-row items-center justify-center">
+                <div class="carousel__item"><PackCard /></div>
+              </div>
+            </div>
+          </Slide>
+        </Carousel>
+      </div>
+    </div>
+
     <button class="border" @click="next">Next</button>
   </div>
 </template>
@@ -30,13 +46,9 @@ export default defineComponent({
 </script>
 
 <style>
+.container_car {
+}
 .carousel__item {
-  min-height: 200px;
-  width: 100vw;
-  background-color: var(--vc-clr-primary);
-  color: var(--vc-clr-white);
-  font-size: 20px;
-  border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
