@@ -24,7 +24,15 @@ export default defineNuxtConfig({
     "@pinia-plugin-persistedstate/nuxt",
     "@nuxtjs/google-fonts",
     "nuxt-icons",
+    "nuxt-swiper",
   ],
+  swiper: {
+    // Swiper options
+    //----------------------
+    // prefix: 'Swiper',
+    // styleLang: 'css',
+    // modules: ['navigation', 'pagination'], // all modules are imported by default
+  },
   buildModules: ["@nuxt/image"],
   googleFonts: {
     families: {

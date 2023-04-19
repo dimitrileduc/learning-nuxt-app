@@ -13,7 +13,9 @@
       <PackCard />
       <PackCard />
     </div>
-
+    <div class="w-full">
+      <Slider />
+    </div>
     <div v-if="false">
       <div v-if="loading">Loading...</div>
       <div v-else-if="user">

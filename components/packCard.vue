@@ -1,5 +1,5 @@
 <template>
-  <div class="global w-[304px]">
+  <div class="global">
     <div class="bg-white rounded flex flex-col items-center">
       <div class="container-image flex flex-col items-center w-full pt-4">
         <img src="../static/lunepack.svg" />
