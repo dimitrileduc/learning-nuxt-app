@@ -24,6 +24,7 @@ export default defineNuxtConfig({
     "@pinia-plugin-persistedstate/nuxt",
     "@nuxtjs/google-fonts",
     "nuxt-icons",
+    "nuxt-swiper",
   ],
   buildModules: ["@nuxt/image"],
   googleFonts: {

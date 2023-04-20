@@ -8,13 +8,9 @@
       nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut
       wisi enim ad minim veniam.
     </div>
-    <div class="flex flex-col items-center lg:flex-row gap-4">
-      <PackCard />
-      <PackCard />
-      <PackCard />
-    </div>
-    <div class="w-full bg-red-200">
-      <TestSlider />
+
+    <div class="w-full sm:max-w-[644px] lg:max-w-[944px]">
+      <SwiperBox />
     </div>
 
     <div v-if="false">
