@@ -1,8 +1,9 @@
 <template>
   <div class="global">
     <button
-      :class="[primary ? 'primary' : 'secondary', small ? 'w-40' : 'w-56']"
+      :class="[primary ? 'primary' : 'secondary']"
       :disabled="disabled"
+      class="xs:w-56 px-5 xs:px-0"
       @click="handleClick"
     >
       <div class="label">{{ label }}</div>

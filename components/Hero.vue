@@ -26,7 +26,9 @@
           vero eros et accumsan et iusto odio dignissim qui blandit praesent
           luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
         </div>
-        <div class="buttons_container mt-8 flex flex-col md:flex-row gap-3">
+        <div
+          class="buttons_container mt-8 flex flex-col md:flex-row gap-3 items-center"
+        >
           <Button primary label="Tirage" />
           <Button label="Rendez-vous" />
         </div>
