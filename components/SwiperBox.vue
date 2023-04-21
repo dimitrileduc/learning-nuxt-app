@@ -9,9 +9,21 @@
       :modules="[SwiperController, SwiperNavigation, SwiperPagination]"
       class="rounded"
     >
-      <SwiperSlide class="rounded"> <PackCard /></SwiperSlide>
-      <SwiperSlide class="rounded"> <PackCard /></SwiperSlide>
-      <SwiperSlide class="rounded"> <PackCard /></SwiperSlide>
+      <SwiperSlide class="rounded flex flex-col">
+        <PackCard />
+        <div class="shadow_container px-10 mt-4">
+          <img src="../static/pack_shadow.svg" /></div
+      ></SwiperSlide>
+      <SwiperSlide class="rounded flex flex-col">
+        <PackCard />
+        <div class="shadow_container px-10 mt-4">
+          <img src="../static/pack_shadow.svg" /></div
+      ></SwiperSlide>
+      <SwiperSlide class="rounded flex flex-col">
+        <PackCard />
+        <div class="shadow_container px-10 mt-4">
+          <img src="../static/pack_shadow.svg" /></div
+      ></SwiperSlide>
     </Swiper>
 
     <div

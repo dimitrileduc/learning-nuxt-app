@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full">
+  <div class="w-full h-full m-w-[320px]">
     <div class="container w-full h-full">
       <div class="content bg-green-100 w-full"><slot /></div>
       <div class="nav mt-0 sm:mt-2 lg:mt-4"><NavBar /></div>

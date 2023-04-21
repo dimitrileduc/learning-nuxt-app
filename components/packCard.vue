@@ -38,9 +38,6 @@
         </div>
       </div>
     </div>
-    <div class="shadow_container px-10 w-full mt-4">
-      <img src="../static/pack_shadow.svg" />
-    </div>
   </div>
 </template>
 
