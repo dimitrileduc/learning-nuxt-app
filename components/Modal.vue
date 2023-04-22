@@ -29,6 +29,6 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .modal {
-  z-index: 1000;
+  z-index: 75;
 }
 </style>

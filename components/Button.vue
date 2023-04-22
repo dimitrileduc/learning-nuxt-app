@@ -42,7 +42,7 @@ const handleClick = () => {
 
 <style scoped>
 .label {
-  z-index: 100;
+  z-index: 50;
 }
 .secondary {
   box-sizing: border-box;

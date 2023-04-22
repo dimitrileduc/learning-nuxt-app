@@ -19,8 +19,10 @@
         <nuxt-icon class="text-[24px]" name="youtube" filled />
         <nuxt-icon class="text-[24px]" name="tiktok" filled />
       </div>
-      <div class="mt-3">Termes et conditions</div>
-      <div class="mt-2">Copyright 2023 - Moon Energy. All rights reserved.</div>
+      <div class="px-2 mt-3 text-center">Termes et conditions</div>
+      <div class="px-2 mt-2 text-center">
+        Copyright 2023 - Moon Energy. All rights reserved.
+      </div>
     </div>
   </div>
 </template>

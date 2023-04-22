@@ -1,5 +1,7 @@
 <template>
-  <div class="border h-20 w-full flex px-0 sm:px-2 lg:px-4 justify-center">
+  <div
+    class="fixed sm:pt-2 lg:pt-4 border h-20 w-full flex px-0 sm:px-2 lg:px-4 justify-center"
+  >
     <div class="max-w-[952px] inline-flex border w-full">
       {{ loading }}
       <div v-if="loading">Loading user data...</div>

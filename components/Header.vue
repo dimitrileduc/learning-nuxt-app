@@ -1,7 +1,7 @@
 <template>
   <div class="global_header w-full">
-    <div class="container p-0 sm:p-2 lg:p-4">
-      <div class="bg mb-[112px] sm:mb-[106px] lg:mb-[56px]">
+    <div class="container px-0 sm:px-2 lg:px-4">
+      <div class="bg mb-[112px] sm:mb-[106px] lg:mb-[56px] pt-20">
         <div class="container_overlay w-full flex inline-flex justify-between">
           <div class="bg-overlay-left">
             <img src="../static/left.svg" />
@@ -11,7 +11,7 @@
           </div>
         </div>
       </div>
-      <div class="hero mt-20 border border-red-400"><Hero /></div>
+      <div class="hero border border-red-400 pt-20"><Hero /></div>
       <div class="products"><ProductsSection /></div>
     </div>
   </div>
