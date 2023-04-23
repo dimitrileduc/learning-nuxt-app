@@ -1,18 +1,12 @@
 <template>
   <Modal @close="$emit('close')">
     <div class="bg-slate-200 p-8 rounded-xl w-full">
-      {{ showPayment }}
+      <div v-if="verifying">Verifiying payment ...</div>
       <div
-        v-if="success"
+        v-else-if="success"
         class="flex flex-col justify-center items-center space-y-6"
       >
         <h2 class="text-xl font-bold">Thanks for buying the course!</h2>
-        <button
-          @click="login"
-          class="mt-4 w-full text-md text-black h-12 px-16 rounded focus:outline-none focus:shadow-outline flex items-center justify-center transition bg-blue-300 hover:bg-blue-200"
-        >
-          Login with Github to access
-        </button>
       </div>
       <form v-else @submit.prevent="handleSubmit">
         <h2 class="font-bold text-xl text-center">Buying</h2>
@@ -61,6 +55,7 @@ const email = ref("");
 const processingPayment = ref(false);
 const success = ref(false);
 const paymentElement = ref(null);
+const verifying = ref(false);
 
 const userSupa = useSupabaseUser();
 
@@ -199,6 +194,7 @@ const handleSubmit = async () => {
 };
 
 async function checkStatus(clientSecret) {
+  verifying.value = true;
   console.log("checkStatus", clientSecret);
   console.log("stripe in checkStatus", stripe.value);
   if (!clientSecret) {
@@ -247,6 +243,7 @@ async function checkStatus(clientSecret) {
 
       break;
   }
+  verifying.value = false;
   processingPayment.value = false;
 }
 

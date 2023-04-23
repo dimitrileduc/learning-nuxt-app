@@ -10,10 +10,24 @@
       <div
         class="pt-6 flex flex-col md:flex-row gap-4 justify-center content-center justify-items-center items-center"
       >
-        <VideoCard />
-        <VideoCard unlocked />
+        <VideoCard
+          :logged="lune.logged"
+          :title="lune.title"
+          description="lune.description"
+          :access="lune.access"
+          :thumbnail="lune.thumbnailUrl"
+          :videoUrl="lune.vidoUrl"
+        />
+        <VideoCard
+          :logged="demiLune.logged"
+          :title="demiLune.title"
+          description="demiLune.description"
+          :access="demiLune.access"
+          :thumbnail="demiLune.thumbnailUrl"
+          :videoUrl="demiLune.videoUrl"
+        />
       </div>
-      <div v-if="false">
+      <div v-if="true">
         <div class="mt-6" />
         <div v-if="user">Derniers tirage user logged {{ data }}</div>
         <div v-else>Derniers tirage guest {{ data }}</div>
@@ -31,6 +45,14 @@ import { useHomeVideos } from "~/stores/useHomeVideos";
 const { loading, user } = storeToRefs(useAuth());
 
 const { data } = storeToRefs(useHomeVideos());
+
+const lune = computed(() => {
+  return data.value.find((item) => item.title === "lune");
+});
+
+const demiLune = computed(() => {
+  return data.value.find((item) => item.title === "demiLune");
+});
 </script>
 
 <style scoped>

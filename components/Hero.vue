@@ -29,8 +29,8 @@
         <div
           class="buttons_container mt-8 flex flex-col md:flex-row gap-3 items-center"
         >
-          <Button primary label="Tirage" />
-          <Button label="Rendez-vous" />
+          <Button primary label="Tirage" @click="scrollToProducts" />
+          <Button label="Rendez-vous" @click="scrollToRDV" />
         </div>
       </div>
       <div class="image flex justify-center">
@@ -45,8 +45,19 @@
 </template>
 
 <script setup>
+const { smoothScrollTo } = useSmoothScroll();
 const user = useSupabaseUser();
 const name = computed(() => user.value?.user_metadata.full_name);
+
+const scrollToProducts = () => {
+  console.log("scrollToProducts");
+  smoothScrollTo("#section-products", 1000, -100);
+};
+
+const scrollToRDV = () => {
+  console.log("scrollToProducts");
+  smoothScrollTo("#section-rdv", 1000, -100);
+};
 </script>
 
 <style scoped>

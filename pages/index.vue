@@ -4,10 +4,11 @@
     <div v-if="false">
       {{ showPayment }}
     </div>
-
-    <PackCreditsSection />
+    <div id="section-packs">
+      <PackCreditsSection />
+    </div>
     <About />
-    <RdvSection />
+    <RdvSection id="section-rdv" />
     <ContactSection />
     <UserVideos v-if="false" />
     <ClientOnly>

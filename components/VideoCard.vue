@@ -8,7 +8,7 @@
           <img
             class="image w-full object-contain rounded"
             alt=""
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAAAQlBMVEX///+hoaGenp6ampr39/fHx8fOzs7j4+P8/Pyvr6/d3d3FxcX29va6urqYmJjs7OzU1NSlpaW1tbWtra3n5+e/v78TS0zBAAACkUlEQVR4nO3b63KCMBCGYUwUUVEO6v3fagWVY4LYZMbZnff51xaZ5jON7CZNEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQb5tvI8qzX4/nH84XG5Upfj2ir2V2E5fZ/XpIX9saMnhkYLIkiyRJjdgMoiEDMmiQgfwM8rSu77ew2wnPoLTmwdZBs0J2BuXrYckcQm4nOoP+WcmWAbcTnUHZPy9eA24nOoN7n0HI54ToDM5k8PjluwyqgNuJzqDoaugPg8gWZ4noDAYLwuIg75fLeeHHsjNIzrZJwWwW+0DNsmEWPjiEZ5AcD8ZUu8VZ8HyQMifvBdIz+PS33i8adu+7Qn4Gn1Tdupl7rlCfQb9seosK7RkcBy1o30iVZ5CPOtDW3WhQnsF13IV3v0p3BqfJRoSpXVepzmA/24+yqeMyzRm4tqOs44lSUwa3yfgOri25av5CPRnklR33VlPnrqSZV09qMsiqSWV082xOz1uPajJ49pTM/f115k6guWa6JGjJ4N1lt8fXN2rv/vysjFaSQdFXBc/KKF04ptFPliclGVR9Bu27XCyeVOkmy5OODAZN9rYyyip/AIPJ8qIig+PoXbf7YdPdncFoSdCQQT4ZceV+MhiFMBy0hgyu0yGvOLI17KwpyGBaHK5jtt0N5GcwLw7XZdB31sRn8O+ziqYro8Vn4CwOV+k6a9Iz+PwRsKC7h+gMfMXhKu/OmuwM/MXhKq8yWnYG/uJw5Uxoy2jRGZTBZ/jboxuSM1guDtdNhKazJjiDbNMe0AxzKUVnkO+jEJxBxNtJzWCTxlNLzSB8KehJ/H+mJGYAjaDjzj9SnHZRuXZiAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAECXP1XDHv7U4SNFAAAAAElFTkSuQmCC"
+            :src="props.thumbnail"
           />
         </div>
         <div class="overlay w-full h-full rounded"></div>
@@ -23,38 +23,125 @@
 
       <div class="text-container mt-3 my-6 mx-3 sm:mx-4">
         <div class="flex flex-col sm:flex-row sm:gap-2">
-          <div class="title font-bold">Titre de la vidéo Youtube</div>
-          <div class="date font-bold">05/04/2023</div>
+          <div class="title font-bold">{{ props.title }}</div>
+          <div class="date font-bold">date field</div>
         </div>
         <div class="description mt-3 leading-tight text-justify font-normal">
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-          volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-          ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat
+          {{ props.description }}
         </div>
       </div>
       <div class="button-container w-full flex justify-center">
-        <Button primary :label="buttonLabel" @click="buyCredits" />
+        <Button
+          primary
+          :label="buttonLabel"
+          @click="unlocked ? playVideo() : displayModalAction()"
+        />
       </div>
+
+      <ActionModal
+        v-if="showModal"
+        @close="closeModal"
+        :title="modalTitle"
+        :subTitle="modalSubtitle"
+        :primaryLabel="primaryLabelModal"
+      />
     </div>
   </div>
 </template>
 
 <script setup>
+const userSupa = useSupabaseUser();
+
+const { credits, loading } = await useCredits();
+
+console.log("supaUser", userSupa.value);
 const props = defineProps({
-  unlocked: {
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    default: "Default description",
+  },
+  access: {
     type: Boolean,
     default: false,
   },
+  logged: {
+    type: Boolean,
+    default: false,
+  },
+  thumbnail: {
+    type: String,
+  },
+  videoUrl: {
+    type: String,
+  },
+});
+
+const unlocked = computed(() => {
+  return props.access && props.logged;
 });
 
 const buttonLabel = computed(() => {
-  if (props.unlocked) {
+  if (unlocked.value) {
     return "Regarder la vidéo";
   } else {
     return "Débloquer la vidéo";
   }
 });
+
+const showModal = ref(false);
+
+const closeModal = () => {
+  console.log("closeModal");
+  showModal.value = false;
+};
+
+const modalTitle = computed(() => {
+  console.log(!userSupa.value && !unlocked.value);
+  console.log(!unlocked.value);
+  if (!userSupa.value && !unlocked.value) {
+    return "Vous devez achetez des credits pour debloquez cette video ( et etre connecte )";
+  }
+  if (userSupa.value && !unlocked.value) {
+    return "vous avez actuellement " + credits.value + " credits. ";
+  }
+});
+
+const modalSubtitle = computed(() => {
+  if (!userSupa.value && !unlocked.value) {
+    return "Vous devez vous connectez et achetez 3 credits pour debloquez cette video";
+  }
+  if (userSupa.value && !unlocked.value) {
+    return credits.value > 3
+      ? "Vous pouvez debloquez cette video, cliker sur '" +
+          primaryLabelModal.value +
+          "' cette video' pour confirmer'"
+      : "Vous n'avez pas assez de credits. Vous devez achetez des credits pour debloquez cette video";
+  }
+});
+
+const primaryLabelModal = computed(() => {
+  if (!userSupa.value && !unlocked.value) {
+    return "Achetez des credits et connectez vous";
+  }
+  if (userSupa.value && !unlocked.value) {
+    return credits.value > 3
+      ? "Achetez cette video"
+      : "Achetez des credits ( vous etes deja connecte)";
+  }
+});
+
+const displayModalAction = () => {
+  console.log("displayModalAction");
+  showModal.value = true;
+};
+
+const playVideo = () => {
+  console.log("playVideo");
+};
 </script>
 
 <style scoped>
