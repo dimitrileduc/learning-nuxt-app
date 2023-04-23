@@ -52,6 +52,7 @@
 </template>
 
 <script setup>
+import { useAuth } from "~/stores/useAuth";
 import { usePayment } from "~~/stores/usePayment";
 const config = useRuntimeConfig();
 const stripe = ref(null);
@@ -61,11 +62,18 @@ const processingPayment = ref(false);
 const success = ref(false);
 const paymentElement = ref(null);
 
+const userSupa = useSupabaseUser();
+
+console.log("supaUser", userSupa.value);
+
 const { refetch } = await useCredits();
 
 const { showPayment, setShowPayment, amount, setAmount } = usePayment();
 
 const status = ref("idle");
+
+// Access the current route
+const route = useRoute();
 
 // The tab is closed and reopened (we're still in the same session)
 console.log("cached", amount, typeof amount);
@@ -117,8 +125,23 @@ const setupStripe = async () => {
   }
 };
 
+watch(
+  route,
+  async (value) => {
+    console.log("route changed", value);
+    const clientSecret = value.query.payment_intent_client_secret;
+    if (clientSecret) {
+      console.log("clientSecret from route:", clientSecret);
+      // Call the checkStatus function with the retrieved clientSecret value
+      await setupStripe();
+      await checkStatus(clientSecret);
+    }
+  },
+  { deep: true, immediate: true }
+);
+
 const handleSubmit = async () => {
-  if (email.value === "") {
+  if (!userSupa.value) {
     return;
   }
 
@@ -137,7 +160,7 @@ const handleSubmit = async () => {
     const response = await $fetch("/api/stripe/paymentIntent", {
       method: "POST",
       body: {
-        email: email.value,
+        email: userSupa.value.email,
         amount: amount,
       },
     });
@@ -155,6 +178,7 @@ const handleSubmit = async () => {
     confirmParams: {
       return_url: "http://localhost:3000/",
     },
+    receipt_email: userSupa.value.email,
     //Uncomment below if you only want redirect for redirect-based payments
     redirect: "if_required",
   });
@@ -171,17 +195,32 @@ const handleSubmit = async () => {
     processingPayment.value = false;
     return;
   }
+  checkStatus(secret);
+};
 
-  const { paymentIntent } = await stripe.value.retrievePaymentIntent(secret);
+async function checkStatus(clientSecret) {
+  console.log("checkStatus", clientSecret);
+  console.log("stripe in checkStatus", stripe.value);
+  if (!clientSecret) {
+    return;
+  }
+
+  const { paymentIntent } = await stripe.value.retrievePaymentIntent(
+    clientSecret
+  );
+
+  console.log("paymentIntent in check status", paymentIntent);
 
   switch (paymentIntent.status) {
     case "succeeded":
+      console.log("Payment succeed ! ");
       status.value = "Payment success ! ";
       success.value = true;
+      console.log(userSupa.value.email, amount, paymentIntent.id);
       await $fetch("/api/local/updatePurchase", {
         method: "POST",
         body: {
-          email: email.value,
+          email: userSupa.value.email,
           amount: parseInt(amount),
           verified: true,
           stripeId: paymentIntent.id,
@@ -201,15 +240,15 @@ const handleSubmit = async () => {
       status.value = "Your payment was not successful, please try again.";
 
       break;
+
     default:
       console.log("Something went wrong.");
       status.value = "Something went wrong.";
 
       break;
   }
-
   processingPayment.value = false;
-};
+}
 
 useHead({
   script: [
