@@ -81,78 +81,43 @@ const handleBlurInput = (e) => {
 </script>
 
 <template>
-  <div class="TextInput text-sm">
-    <label v-if="false" :for="name">{{ label }}</label>
-    <input
-      class="input_field"
-      :name="name"
-      :id="name"
-      :type="type"
-      :value="inputValue"
-      :placeholder="placeholder"
-      @input="handleChange"
-      @blur="handleBlurInput"
-      @focus="showExixstingEmailIcon = false"
-      :class="{
-        error: meta.touched && !meta.valid,
-      }"
-    />
-    <Icon v-if="showExixstingEmailIcon" name="uil:github" />
-
-    <div v-if="false" class="m-8">
-      <p
-        class="help-message"
-        :class="{
-          'text-red-400': meta.touched && !meta.valid,
-          'text-black': !meta.touched || meta.valid,
-        }"
+  <div class="TextInput text-sm py-4">
+    <div class="">
+      <label
+        :for="name"
+        class="pointer-events-none text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
+        >{{ placeholder }}</label
       >
-        {{ showErrorMessage ? errorMessage : successMessage }}
-      </p>
+      <input
+        :id="name"
+        :name="name"
+        :type="type"
+        :value="inputValue"
+        :placeholder="placeholder"
+        @input="handleChange"
+        @blur="handleBlurInput"
+        :class="{
+          error: meta.touched && !meta.valid,
+        }"
+        class="input px-2 mt-1 w-full h-10 text-gray-900 placeholder-transparent border rounded border-gray-300 peer focus:outline-none focus:border-gray-600"
+      />
+
+      <div v-if="true" class="m-8">
+        <p
+          class="help-message"
+          :class="{
+            'text-red-400': meta.touched && !meta.valid,
+            'text-black': !meta.touched || meta.valid,
+          }"
+        >
+          {{ showErrorMessage ? errorMessage : successMessage }}
+        </p>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.icon {
-  position: absolute;
-  top: 60%;
-  right: 10px;
-
-  color: #63c4a0;
-  font-size: 22px;
-}
-.TextInput {
-  position: relative;
-
-  width: 100%;
-}
-
-label {
-  display: block;
-
-  width: 100%;
-}
-
-.input_field {
-  background-color: #eaf4f4;
-}
-
-input {
-  border-radius: 5px;
-
-  padding: 10px 15px;
-  outline: none;
-
-  width: 100%;
-  transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out,
-    background-color 0.3s ease-in-out;
-}
-
-input:focus {
-  border-color: rgb(154, 154, 154);
-}
-
 .help-message {
   position: absolute;
   bottom: calc(-1.5 * 1em);
@@ -163,24 +128,5 @@ input:focus {
 
 .error {
   border-color: red;
-}
-
-.TextInput.error input:focus {
-  border: 1px solid #000000;
-}
-
-.TextInput.error .help-message {
-}
-
-.TextInput.success input {
-  border-color: #07e092;
-}
-
-.TextInput.success input:focus {
-  border-color: #07e092;
-}
-
-.TextInput.success .help-message {
-  color: var(--success-color);
 }
 </style>

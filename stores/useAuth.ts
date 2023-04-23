@@ -56,7 +56,7 @@ export const useAuth = defineStore("useAuth", () => {
       console.error(error);
       return { success: false, error };
     } else {
-      setShowPayment(true);
+      //setShowPayment(true);
       return { success: true, data };
     }
   }

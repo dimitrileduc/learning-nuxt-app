@@ -8,17 +8,28 @@
       <div class="font-medium">{{ name }}</div>
       <div v-if="loading">loading</div>
       <div v-if="credits">Credits: {{ credits }}</div>
-      <button class="text-blue-500" @click="logout">Logout</button>
+      <button class="text-blue-500" @click="logoutUser">Logout</button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { useAuth } from "~/stores/useAuth";
 import { storeToRefs } from "pinia";
+import { useAuth } from "~/stores/useAuth";
+import { usePayment } from "~~/stores/usePayment";
+
 const { user } = storeToRefs(useAuth());
+const { setShowPayment } = usePayment();
+
+const emits = defineEmits(["hideAuth"]);
 
 const { logout } = useAuth();
+
+const logoutUser = () => {
+  logout();
+  emits("hideAuth");
+  setShowPayment(false);
+};
 
 const name = computed(() => user.value?.user_metadata.full_name);
 const profile = computed(() => user.value?.user_metadata.avatar_url);

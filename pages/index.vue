@@ -10,7 +10,9 @@
     <RdvSection />
     <ContactSection />
     <UserVideos v-if="false" />
-    <ConfirmPurchase v-if="showPayment" @close="hidePayment" />
+    <ClientOnly>
+      <ConfirmPurchase v-if="showPayment" @close="hidePayment" />
+    </ClientOnly>
   </div>
 </template>
 

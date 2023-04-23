@@ -1,7 +1,7 @@
 <template>
   <div class="global_header w-full">
     <div class="container px-0 sm:px-2 lg:px-4">
-      <div class="bg mb-[112px] sm:mb-[106px] lg:mb-[56px] pt-20">
+      <div class="bg mb-[112px] sm:mb-[106px] lg:mb-[56px]">
         <div class="container_overlay w-full flex inline-flex justify-between">
           <div class="bg-overlay-left">
             <img src="../static/left.svg" />

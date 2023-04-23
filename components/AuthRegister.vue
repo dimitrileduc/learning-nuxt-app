@@ -51,7 +51,7 @@ async function handleSignUp(data: any) {
     } else console.log(error);
   } else {
     if (props.toPayment) {
-      //setShowPayment(true);
+      setShowPayment(true);
     }
     console.log("please confirm email");
     getEmailProviderUrl(data.email);

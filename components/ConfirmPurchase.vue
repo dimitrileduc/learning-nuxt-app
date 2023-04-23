@@ -28,18 +28,20 @@
               required
             />
           </div>
-
-          <div class="w-full h-6" id="card-element"></div>
+          {{ status }}
+          <div class="w-full" id="payment-element">
+            <!-- Mount the Payment Element here -->
+          </div>
         </div>
 
         <button
           class="font-sans mt-4 w-full text-lg text-black h-12 px-16 rounded focus:outline-none focus:shadow-outline font-bold flex items-center justify-center transition"
           :class="
-            processingPayment || email === ''
+            processingPayment
               ? 'bg-gray-300 cursor-not-allowed'
               : 'bg-yellow-300 hover:bg-yellow-200 cursor-pointer'
           "
-          :disabled="processingPayment || email === ''"
+          :disabled="processingPayment"
         >
           <Loading v-if="processingPayment" class="h-5 w-5" />
           <div v-else>Pay {{ amount }}</div>
@@ -57,11 +59,13 @@ const card = ref(null);
 const email = ref("");
 const processingPayment = ref(false);
 const success = ref(false);
-const cardElement = ref(null);
+const paymentElement = ref(null);
 
 const { refetch } = await useCredits();
 
 const { showPayment, setShowPayment, amount, setAmount } = usePayment();
+
+const status = ref("idle");
 
 // The tab is closed and reopened (we're still in the same session)
 console.log("cached", amount, typeof amount);
@@ -77,8 +81,13 @@ const formStyle = {
     },
   },
 };
+const options = {
+  mode: "payment",
+  currency: "eur",
+  amount: 1099,
+};
 
-const elements = computed(() => stripe.value?.elements());
+const elements = computed(() => stripe.value?.elements(options));
 
 const setupStripe = async () => {
   if (!config.public.stripeKey) {
@@ -92,6 +101,7 @@ const setupStripe = async () => {
   }
 
   if (typeof Stripe === "undefined") {
+    console.log("stripeundifned");
     await new Promise((resolve) => setTimeout(resolve, 100));
     return await setupStripe();
   }
@@ -100,12 +110,10 @@ const setupStripe = async () => {
 
   if (elements.value && !card.value) {
     // Update the cardElement variable to reference the cardElement ref in the component's scope
-    cardElement.value = elements.value.create("card", {
-      style: formStyle,
-    });
+    paymentElement.value = elements.value.create("payment");
     // Mount the card element to the DOM using the cardElement ref
-    cardElement.value.mount("#card-element");
-    card.value = cardElement.value;
+    paymentElement.value.mount("#payment-element");
+    card.value = paymentElement.value;
   }
 };
 
@@ -114,7 +122,14 @@ const handleSubmit = async () => {
     return;
   }
 
+  const { error: submitError } = await elements.value.submit();
+  status.value = "processing";
   processingPayment.value = true;
+  if (submitError) {
+    console.log("error stripe in form");
+    handleError(submitError);
+    return;
+  }
   let secret;
 
   try {
@@ -131,35 +146,69 @@ const handleSubmit = async () => {
     console.log(e);
   }
 
-  try {
-    const response = await stripe.value.confirmCardPayment(secret, {
-      payment_method: {
-        card: card.value,
-      },
-      receipt_email: email.value,
-    });
+  console.log("elements before confirm", elements.value);
+  console.log("stripe", stripe.value);
 
-    if (response.paymentIntent.status === "succeeded") {
+  const { error } = await stripe.value.confirmPayment({
+    elements: elements.value,
+    clientSecret: secret,
+    confirmParams: {
+      return_url: "http://localhost:3000/",
+    },
+    //Uncomment below if you only want redirect for redirect-based payments
+    redirect: "if_required",
+  });
+
+  if (error?.type === "card_error" || error?.type === "validation_error") {
+    console.log("error stripe in confirme", error);
+    status.value = error?.message;
+    processingPayment.value = false;
+    return;
+  } else if (error) {
+    console.log("An unexpected error occured.", error);
+
+    status.value = error?.message;
+    processingPayment.value = false;
+    return;
+  }
+
+  const { paymentIntent } = await stripe.value.retrievePaymentIntent(secret);
+
+  switch (paymentIntent.status) {
+    case "succeeded":
+      status.value = "Payment success ! ";
       success.value = true;
-
-      // test purpose as webhook dont work on localhost
       await $fetch("/api/local/updatePurchase", {
         method: "POST",
         body: {
           email: email.value,
           amount: parseInt(amount),
           verified: true,
-          stripeId: response.paymentIntent.id,
+          stripeId: paymentIntent.id,
         },
       });
+      // reset defaut pack amount
       setAmount(10);
       await refetch();
-    }
-  } catch (e) {
-    console.log(e);
-  } finally {
-    processingPayment.value = false;
+      break;
+    case "processing":
+      console.log("Your payment is processing.");
+      status.value = "Your payment is processing.";
+
+      break;
+    case "requires_payment_method":
+      console.log("Your payment was not successful, please try again.");
+      status.value = "Your payment was not successful, please try again.";
+
+      break;
+    default:
+      console.log("Something went wrong.");
+      status.value = "Something went wrong.";
+
+      break;
   }
+
+  processingPayment.value = false;
 };
 
 useHead({

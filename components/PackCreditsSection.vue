@@ -13,7 +13,7 @@
       <SwiperBox />
     </div>
 
-    <div v-if="false">
+    <div>
       <div v-if="loading">Loading...</div>
       <div v-else-if="user">
         <div>BUY CREDITS DIRECT</div>
@@ -25,10 +25,7 @@
             {{ pack.label }}
           </option>
         </select>
-        <div class="flex inline-flex">
-          <Button small primary label="Débloquer small" @click="buyCredits" />
-          <Button label="Débloquer la video" @click="buyCredits" />
-        </div>
+
         <button
           class="bg-yellow-400 hover:bg-yellow-500 transition px-4 py-2 font-bold rounded-lg"
           @click="buyCredits"

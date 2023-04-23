@@ -7,7 +7,7 @@
     <div class="body w-full">
       <div class="bg-green-100 w-screen relative">
         <div
-          class="dropdown-container fixed top-0 z-10 flex items-center justify-center"
+          class="dropdown-container fixed top-0 z-10 w-full pt-20 md:pt-22 lg:pt-24 px-0 sm:px-2 lg:px-4"
           :class="{ hidden: !isMenuOpen }"
         >
           <div class="">
@@ -44,10 +44,7 @@ const { isMenuOpen } = storeToRefs(useNav());
 /* Add CSS for the DropdownMenu component */
 .dropdown-container {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+
   z-index: 10;
   /* Add other styles for the dropdown container */
 }

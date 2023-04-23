@@ -3,7 +3,7 @@
     class="modal backdrop-blur-xl backdrop-brightness-50 w-100vw h-100vh flex flex-col justify-center items-center fixed inset-0"
   >
     <div
-      class="text-white text-2xl w-12 h-12 bg-slate-600 hover:bg-slate-500 transition rounded-full flex justify-center items-center cursor-pointer absolute top-4 right-4"
+      class="text-white mt-44 text-2xl w-12 h-12 bg-slate-600 hover:bg-slate-500 transition rounded-full flex justify-center items-center cursor-pointer absolute top-4 right-4"
       @click="$emit('close')"
     >
       &#10005;
@@ -30,5 +30,6 @@ onBeforeUnmount(() => {
 <style scoped>
 .modal {
   z-index: 75;
+  background-color: rgb(16, 75, 81, 0.7);
 }
 </style>
