@@ -3,8 +3,6 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
-  console.log("home videos get endpoint called ");
-
   const userEmail = event.context.user?.email;
 
   // Get the last 2 videos based on the `videoUpdated` field
@@ -15,7 +13,6 @@ export default defineEventHandler(async (event) => {
     take: 2,
   });
 
-  console.log(videos);
   // user not logged in , return placeholder images and video infos without link
   if (!userEmail) {
     return [
@@ -37,7 +34,6 @@ export default defineEventHandler(async (event) => {
       },
     ];
   } else {
-    console.log("userEmail in home videosHook", userEmail);
     // Check if the user has purchased each video
     const videoPurchases = await prisma.videoPurchase.findMany({
       where: {
@@ -58,6 +54,7 @@ export default defineEventHandler(async (event) => {
       const isVideoPurchased = purchasedVideoIds.includes(video.id);
 
       return {
+        id: video.id,
         logged: true,
         title: video.title,
         description: video.description,
@@ -69,7 +66,6 @@ export default defineEventHandler(async (event) => {
       };
     });
 
-    console.log("isPurchased", isPurchased);
     return isPurchased;
   }
 });

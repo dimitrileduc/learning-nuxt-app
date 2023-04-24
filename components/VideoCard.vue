@@ -44,18 +44,24 @@
         :title="modalTitle"
         :subTitle="modalSubtitle"
         :primaryLabel="primaryLabelModal"
+        @primaryAction="primaryActionModal"
       />
     </div>
   </div>
 </template>
 
 <script setup>
+const { smoothScrollTo } = useSmoothScroll();
 const userSupa = useSupabaseUser();
 
 const { credits, loading } = await useCredits();
 
 console.log("supaUser", userSupa.value);
 const props = defineProps({
+  id: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
@@ -99,40 +105,86 @@ const closeModal = () => {
   showModal.value = false;
 };
 
-const modalTitle = computed(() => {
-  console.log(!userSupa.value && !unlocked.value);
-  console.log(!unlocked.value);
+const modalState = computed(() => {
   if (!userSupa.value && !unlocked.value) {
-    return "Vous devez achetez des credits pour debloquez cette video ( et etre connecte )";
+    return "notLogged";
   }
   if (userSupa.value && !unlocked.value) {
-    return "vous avez actuellement " + credits.value + " credits. ";
+    return credits.value > 3
+      ? "loggedsufficientCredit"
+      : loggedInsufficientCredit;
+  }
+  if (userSupa.value && unlocked.value) {
+    return "unlocked";
+  }
+});
+
+const modalTitle = computed(() => {
+  switch (modalState.value) {
+    case "notLogged":
+      return "Vous devez achetez des credits pour debloquez cette video ( et etre connecte )";
+    case "loggedsufficientCredit":
+      return "vous avez actuellement " + credits.value + " credits. ";
+    case "loggedInsufficientCredit":
+      return "Vous n'avez pas assez de credits. Vous devez achetez des credits pour debloquez cette video";
+    case "unlocked":
+      return null;
   }
 });
 
 const modalSubtitle = computed(() => {
-  if (!userSupa.value && !unlocked.value) {
-    return "Vous devez vous connectez et achetez 3 credits pour debloquez cette video";
-  }
-  if (userSupa.value && !unlocked.value) {
-    return credits.value > 3
-      ? "Vous pouvez debloquez cette video, cliker sur '" +
-          primaryLabelModal.value +
-          "' cette video' pour confirmer'"
-      : "Vous n'avez pas assez de credits. Vous devez achetez des credits pour debloquez cette video";
+  switch (modalState.value) {
+    case "notLogged":
+      return "Vous devez vous connectez et achetez 3 credits pour debloquez cette video";
+    case "loggedsufficientCredit":
+      return "Vous pouvez debloquez cette video, cliker sur 'Achetez cette video' pour confirmer";
+    case "loggedInsufficientCredit":
+      return "Vous n'avez pas assez de credits. Vous devez achetez des credits pour debloquez cette video";
+    case "unlocked":
+      return null;
   }
 });
 
 const primaryLabelModal = computed(() => {
-  if (!userSupa.value && !unlocked.value) {
-    return "Achetez des credits et connectez vous";
-  }
-  if (userSupa.value && !unlocked.value) {
-    return credits.value > 3
-      ? "Achetez cette video"
-      : "Achetez des credits ( vous etes deja connecte)";
+  switch (modalState.value) {
+    case "notLogged":
+      return "Achetez des credits et connectez vous";
+    case "loggedsufficientCredit":
+      return "Achetez cette video";
+    case "loggedInsufficientCredit":
+      return "Achetez des credits ";
+    case "unlocked":
+      return null;
   }
 });
+
+const primaryActionModal = async () => {
+  switch (modalState.value) {
+    case "notLogged":
+      console.log("primaryActionModal, user not logged ");
+      closeModal();
+      smoothScrollTo("#section-packs", 1000, -100);
+      break;
+    case "loggedsufficientCredit":
+      console.log("primaryActionModal, buy video ");
+      await $fetch("/api/videoPurchase/createVideoPurchase", {
+        method: "POST",
+        body: {
+          videoID: props.id,
+          creditAmount: 3,
+        },
+      });
+      break;
+    case "loggedInsufficientCredit":
+      console.log("primaryActionModal, logged,buy credits ");
+      closeModal();
+      smoothScrollTo("#section-packs", 1000, -100);
+      break;
+    case "unlocked":
+      console.log("primaryActionModal , playvideo");
+      break;
+  }
+};
 
 const displayModalAction = () => {
   console.log("displayModalAction");

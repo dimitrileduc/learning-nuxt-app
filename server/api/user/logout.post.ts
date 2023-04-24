@@ -1,6 +1,4 @@
 export default defineEventHandler(async (event) => {
-  console.log("logout endpoint called");
-
   // Clear the user's session cookie
   console.log("logout", event.context.user?.email);
 

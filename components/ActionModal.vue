@@ -18,7 +18,6 @@
 </template>
 
 <script setup>
-const { smoothScrollTo } = useSmoothScroll();
 const props = defineProps({
   title: {
     type: String,
@@ -36,10 +35,9 @@ const props = defineProps({
   },
 });
 
-const emits = defineEmits(["close"]);
+const emits = defineEmits(["close,primaryAction"]);
 
 const handlePrimaryClick = () => {
-  emits("close");
-  smoothScrollTo("#section-packs", 1000, -100);
+  emits("primaryAction");
 };
 </script>

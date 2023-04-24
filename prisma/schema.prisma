@@ -37,7 +37,6 @@ model VideoPurchase {
   updatedAt  DateTime @updatedAt
   userEmail  String
   videoId    Int
-  stripeId   String
   creditUsed Int      @default(0)
 
   @@unique([userEmail, videoId])

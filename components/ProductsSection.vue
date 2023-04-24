@@ -11,6 +11,7 @@
         class="pt-6 flex flex-col md:flex-row gap-4 justify-center content-center justify-items-center items-center"
       >
         <VideoCard
+          :id="lune.id"
           :logged="lune.logged"
           :title="lune.title"
           description="lune.description"
@@ -19,6 +20,7 @@
           :videoUrl="lune.vidoUrl"
         />
         <VideoCard
+          :id="demiLune.id"
           :logged="demiLune.logged"
           :title="demiLune.title"
           description="demiLune.description"
@@ -26,13 +28,6 @@
           :thumbnail="demiLune.thumbnailUrl"
           :videoUrl="demiLune.videoUrl"
         />
-      </div>
-      <div v-if="true">
-        <div class="mt-6" />
-        <div v-if="user">Derniers tirage user logged {{ data }}</div>
-        <div v-else>Derniers tirage guest {{ data }}</div>
-
-        <div>products subtitle</div>
       </div>
     </div>
   </ClientOnly>
