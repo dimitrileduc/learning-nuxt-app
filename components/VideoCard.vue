@@ -5,11 +5,15 @@
     <div class="image-container w-full">
       <div class="container">
         <div class="image-container">
-          <img
-            class="image w-full object-contain rounded"
-            alt=""
-            :src="props.thumbnail"
-          />
+          <div v-if="unlocked"><VimeoPlayer videoId="814000175" /></div>
+
+          <div v-else>
+            <img
+              class="image w-full object-contain rounded"
+              alt=""
+              :src="props.thumbnail"
+            />
+          </div>
         </div>
         <div class="overlay w-full h-full rounded"></div>
         <div class="iconContainer mr-4 mt-4">
@@ -46,15 +50,26 @@
         :primaryLabel="primaryLabelModal"
         @primaryAction="primaryActionModal"
       />
+      <StatusModal
+        :message="statusModalMessage"
+        v-if="showStatusModal"
+        @close="closeStatusModal"
+      />
     </div>
   </div>
 </template>
 
 <script setup>
+import { storeToRefs } from "pinia";
+import { useHomeVideos } from "~/stores/useHomeVideos";
 const { smoothScrollTo } = useSmoothScroll();
 const userSupa = useSupabaseUser();
+const { refetch } = useHomeVideos();
+
+const { refetchCredits } = await useCredits();
 
 const { credits, loading } = await useCredits();
+console.log(credits);
 
 console.log("supaUser", userSupa.value);
 const props = defineProps({
@@ -100,6 +115,13 @@ const buttonLabel = computed(() => {
 
 const showModal = ref(false);
 
+const showStatusModal = ref(false);
+const statusModalMessage = ref("");
+
+const closeStatusModal = () => {
+  showStatusModal.value = false;
+};
+
 const closeModal = () => {
   console.log("closeModal");
   showModal.value = false;
@@ -112,7 +134,7 @@ const modalState = computed(() => {
   if (userSupa.value && !unlocked.value) {
     return credits.value > 3
       ? "loggedsufficientCredit"
-      : loggedInsufficientCredit;
+      : "loggedInsufficientCredit";
   }
   if (userSupa.value && unlocked.value) {
     return "unlocked";
@@ -167,13 +189,38 @@ const primaryActionModal = async () => {
       break;
     case "loggedsufficientCredit":
       console.log("primaryActionModal, buy video ");
-      await $fetch("/api/videoPurchase/createVideoPurchase", {
-        method: "POST",
-        body: {
-          videoID: props.id,
-          creditAmount: 3,
-        },
-      });
+      try {
+        const response = await $fetch(
+          "/api/videoPurchase/createVideoPurchase",
+          {
+            method: "POST",
+            body: {
+              videoID: props.id,
+              creditAmount: 3,
+            },
+          }
+        );
+
+        console.log("response", response);
+
+        if (response.statusCode === 200) {
+          // Success: handle response
+          refetchCredits();
+          refetch();
+          statusModalMessage.value = "Felicitation vous avea achetez la video";
+        } else {
+          // Error: handle response
+
+          statusModalMessage.value = "Il y a eu une erreur lors l'achat";
+          console.log("Error:", errorData.error);
+        }
+      } catch (error) {
+        // Catch error from endpoint request
+        statusModalMessage.value = "Il y a eu une erreur lors l'achat";
+        console.error("Endpoint request error:", error);
+      }
+      closeModal();
+      showStatusModal.value = true;
       break;
     case "loggedInsufficientCredit":
       console.log("primaryActionModal, logged,buy credits ");

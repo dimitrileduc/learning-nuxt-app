@@ -40,7 +40,6 @@ import { useHomeVideos } from "~/stores/useHomeVideos";
 const { loading, user } = storeToRefs(useAuth());
 
 const { data } = storeToRefs(useHomeVideos());
-
 const lune = computed(() => {
   return data.value.find((item) => item.title === "lune");
 });

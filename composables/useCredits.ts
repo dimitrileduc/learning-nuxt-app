@@ -11,6 +11,6 @@ export default async () => {
     credits: data,
     error,
     loading: pending,
-    refetch: refresh,
+    refetchCredits: refresh,
   };
 };

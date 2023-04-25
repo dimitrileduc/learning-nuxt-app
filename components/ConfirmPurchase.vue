@@ -61,7 +61,7 @@ const userSupa = useSupabaseUser();
 
 console.log("supaUser", userSupa.value);
 
-const { refetch } = await useCredits();
+const { refetchCredits } = await useCredits();
 
 const { showPayment, setShowPayment, amount, setAmount } = usePayment();
 
@@ -224,7 +224,7 @@ async function checkStatus(clientSecret) {
       });
       // reset defaut pack amount
       setAmount(10);
-      await refetch();
+      await refetchCredits();
       break;
     case "processing":
       console.log("Your payment is processing.");
