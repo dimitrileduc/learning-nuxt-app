@@ -3,10 +3,12 @@
     <div class="bg-white rounded flex flex-col items-center">
       <div class="container-image flex flex-col items-center w-full pt-4">
         <img src="../static/lunepack.svg" />
-        <div class="mb-2 text-center font-bold text-sm text-white">Lune</div>
+        <div class="mb-2 text-center font-bold text-sm text-white">
+          {{ priceLabel }}
+        </div>
       </div>
       <div class="text-center px-10 pb-8 w-full flex flex-col items-center">
-        <div class="w-full py-4 font-black text-[22px]">9,90 €</div>
+        <div class="w-full py-4 font-black text-[22px]">{{ pack.price }} €</div>
         <div class="separator_container">
           <img src="../static/separator.svg" />
         </div>
@@ -20,7 +22,7 @@
           </div>
           <div class="details">
             <span class="font-normal">Crédit pour</span>&nbsp
-            <span class="font-bold">1 videos</span>
+            <span class="font-bold">{{ pack.creditsValue }} videos</span>
           </div>
         </div>
         <div class="separator_container">
@@ -34,14 +36,32 @@
           <img src="../static/separator.svg" />
         </div>
         <div class="button-container w-full pt-4">
-          <Button primary label="Acheter ce pack" />
+          <Button primary label="Acheter ce pack" @click="buyPack" />
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps({
+  pack: {
+    type: Object,
+    required: true,
+  },
+});
+
+const emits = defineEmits(["buy"]);
+
+const buyPack = () => {
+  console.log("buy pack", props.pack.price);
+  emits("buy", props.pack.price);
+};
+
+const priceLabel = computed(() => {
+  return `${props.pack.price.toFixed(2)} €`;
+});
+</script>
 
 <style scoped>
 .global {

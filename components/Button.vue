@@ -1,9 +1,12 @@
 <template>
   <div class="global">
     <button
-      :class="[primary ? 'primary' : 'secondary']"
       :disabled="disabled"
-      class="xs:w-56 px-5 xs:px-0"
+      class="px-5 xs:px-0"
+      :class="[
+        primary ? 'primary' : 'secondary',
+        noMaxWidth ? 'w-full' : 'xs:w-56',
+      ]"
       @click="handleClick"
     >
       <div class="label">{{ label }}</div>
@@ -26,6 +29,10 @@ const props = defineProps({
     default: false,
   },
   small: {
+    type: Boolean,
+    default: false,
+  },
+  noMaxWidth: {
     type: Boolean,
     default: false,
   },

@@ -6,6 +6,10 @@ const supabase = useSupabaseAuthClient();
 const { loginWithEmail } = useAuth();
 const { showPayment, setShowPayment, amount, setAmount } = usePayment();
 
+const emit = defineEmits(["close"]);
+
+const errorMessage = ref("");
+
 const message = ref("");
 
 const props = defineProps({
@@ -22,13 +26,17 @@ const props = defineProps({
 
 async function submit(data: any) {
   console.log("submit", data);
-  if (props.toPayment) {
-    setShowPayment(true);
-  }
+
   const { success, error } = await loginWithEmail(data.email, data.password);
   if (success) {
+    if (props.toPayment) {
+      setShowPayment(true);
+      emit("close");
+    }
     console.log("log in success");
-  } else {
+  }
+  if (error) {
+    errorMessage.value = "Email ou mot de passe incorrect";
     console.log("log in failed");
   }
 }
@@ -36,13 +44,18 @@ async function submit(data: any) {
 
 <template>
   <div class="">
-    <div class="text-3xl pb-9 flex justify-center">Connexion</div>
-    propsTopayment LOGIN : {{ props.toPayment }}
     <AuthForm
       @submit="submit"
       type="logIn"
       :existingEmail="props?.existingEmail"
     />
     <div>{{ message }}</div>
+    <div v-if="errorMessage" class="error-box py-4">
+      <div class="error-message">
+        <div class="text-red-400 p-2 rounded text-sm">
+          {{ errorMessage }}
+        </div>
+      </div>
+    </div>
   </div>
 </template>

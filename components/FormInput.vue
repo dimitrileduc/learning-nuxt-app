@@ -81,13 +81,11 @@ const handleBlurInput = (e) => {
 </script>
 
 <template>
-  <div class="TextInput text-sm py-4">
+  <div class="TextInput text-sm">
     <div class="">
-      <label
-        :for="name"
-        class="pointer-events-none text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
-        >{{ placeholder }}</label
-      >
+      <label class="label pointer-events-none" :for="name">{{
+        placeholder
+      }}</label>
       <input
         :id="name"
         :name="name"
@@ -99,7 +97,7 @@ const handleBlurInput = (e) => {
         :class="{
           error: meta.touched && !meta.valid,
         }"
-        class="input px-2 mt-1 w-full h-10 text-gray-900 placeholder-transparent border rounded border-gray-300 peer focus:outline-none focus:border-gray-600"
+        class="input p-2 px-4 mt-2 w-full placeholder-transparent border rounded border-[#7093976d] peer focus:outline-none focus:border-[#104B51]"
       />
 
       <div v-if="true" class="m-8">
@@ -128,5 +126,14 @@ const handleBlurInput = (e) => {
 
 .error {
   border-color: red;
+}
+
+.label {
+  font-family: "Lato";
+
+  font-weight: 500;
+  font-size: 16px;
+
+  color: #104b51;
 }
 </style>

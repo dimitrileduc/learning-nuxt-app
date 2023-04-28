@@ -111,6 +111,8 @@ const setupStripe = async () => {
 
   stripe.value = Stripe(config.public.stripeKey);
 
+  console.log("stripe", stripe.value);
+
   if (elements.value && !card.value) {
     // Update the cardElement variable to reference the cardElement ref in the component's scope
     paymentElement.value = elements.value.create("payment");
@@ -152,11 +154,12 @@ const handleSubmit = async () => {
 
   try {
     // Create a PaymentIntent with the order amount and currency
+    console.log(email, amount, typeof amount);
     const response = await $fetch("/api/stripe/paymentIntent", {
       method: "POST",
       body: {
         email: userSupa.value.email,
-        amount: amount,
+        amount: parseInt(amount),
       },
     });
     secret = response;

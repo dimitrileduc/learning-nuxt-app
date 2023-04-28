@@ -17,7 +17,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["switch-registered", "setExistingEmail"]);
+const emit = defineEmits(["switch-registered", "setExistingEmail", "close"]);
 
 const emailProviderUrl = ref("");
 
@@ -57,11 +57,13 @@ async function handleSignUp(data: any) {
     getEmailProviderUrl(data.email);
     showEmailButton.value = true;
     listenVerifiedEmail();
+
     // Redirect to another page or do something else
   }
 }
 
 function redirectToEmail() {
+  emit("close");
   // Redirect to the user's email provider here
   window.location.href = emailProviderUrl.value;
 }
@@ -74,7 +76,6 @@ function redirectLogin() {
 
 <template>
   <div class="">
-    <div class="text-3xl pb-9">Sign up</div>
     <AuthForm
       @submit="handleSignUp"
       type="register"
@@ -83,9 +84,15 @@ function redirectLogin() {
     <button v-if="showEmailButton" @click="redirectToEmail">
       Go to Email Provider {{ emailProviderUrl }}
     </button>
-    <button v-if="emailExist" @click="redirectLogin">
-      An account with this email already exists. Please log in with your
-      existing account
-    </button>
+    <div v-if="existingEmail" class="error-box py-4">
+      <div class="error-message">
+        <div class="text-red-400 p-2 mt-2 rounded">
+          <button class="" v-if="emailExist" @click="redirectLogin">
+            An account with this email already exists. Please
+            <span class="underline">log in</span> with your existing account
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>

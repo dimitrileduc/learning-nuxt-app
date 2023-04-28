@@ -8,63 +8,28 @@
       nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut
       wisi enim ad minim veniam.
     </div>
-
     <div class="w-full sm:max-w-[644px] lg:max-w-[944px]">
-      <SwiperBox />
+      <SwiperBox :packs="packs" />
     </div>
 
     <div>
       <div v-if="loading">Loading...</div>
-      <div v-else-if="user">
-        <div>BUY CREDITS DIRECT</div>
-      </div>
-      <div v-else>
-        selected pack: {{ selectedPack }}
-        <select v-model="selectedPack">
-          <option v-for="pack in packs" :key="pack.id" :value="pack.value">
-            {{ pack.label }}
-          </option>
-        </select>
-
-        <button
-          class="bg-yellow-400 hover:bg-yellow-500 transition px-4 py-2 font-bold rounded-lg"
-          @click="buyCredits"
-        >
-          Buy credits pack (login before)
-        </button>
-        <Auth
-          :toPayment="true"
-          v-if="showAuthForm"
-          @close="showAuthForm = false"
-        />
-      </div>
+      <div v-else></div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { useAuth } from "~/stores/useAuth";
-import { usePayment } from "~~/stores/usePayment";
 import { storeToRefs } from "pinia";
-const showAuthForm = ref(false);
+import { useAuth } from "~/stores/useAuth";
 
 const { login, loading, user } = storeToRefs(useAuth());
-const { showPayment, setShowPayment, amount, setAmount } = usePayment();
 
 const packs = [
-  { id: 1, value: 10, label: "10" },
-  { id: 2, value: 20, label: "20" },
-  { id: 3, value: 30, label: "30" },
+  { id: 1, creditsValue: 1, price: 9.9, label: "Lune" },
+  { id: 2, creditsValue: 2, price: 17.9, label: "Univers" },
+  { id: 3, creditsValue: 3, price: 25.9, label: "30" },
 ];
-
-const selectedPack = ref(packs[0].value);
-
-const buyCredits = () => {
-  // Get our synced ref
-  setAmount(selectedPack.value);
-
-  showAuthForm.value = !showAuthForm.value;
-};
 </script>
 
 <style scoped>

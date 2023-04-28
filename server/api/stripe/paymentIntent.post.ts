@@ -4,7 +4,8 @@ import stripe from "./stripe";
 const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
-  const { email, amount } = await readBody(event);
+  const userEmail = event.context.user?.email;
+  const { amount } = await readBody(event);
 
   // We only have one course for now, so we have the price hard-coded
   let paymentIntent;
@@ -16,7 +17,7 @@ export default defineEventHandler(async (event) => {
         enabled: true,
       },
       metadata: {
-        email,
+        email: userEmail,
       },
     });
   } catch (error) {

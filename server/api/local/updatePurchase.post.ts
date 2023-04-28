@@ -22,10 +22,11 @@ export default defineEventHandler(async (event) => {
       },
     };
   } catch (error) {
+    console.log("tricky", error);
     return {
       statusCode: 500,
       body: {
-        error: "Error creating credit purchase",
+        error: error,
       },
     };
   }

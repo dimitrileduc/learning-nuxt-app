@@ -9,18 +9,8 @@
       :modules="[SwiperController, SwiperNavigation, SwiperPagination]"
       class="rounded"
     >
-      <SwiperSlide class="rounded flex flex-col">
-        <PackCard />
-        <div class="shadow_container px-10 mt-4">
-          <img src="../static/pack_shadow.svg" /></div
-      ></SwiperSlide>
-      <SwiperSlide class="rounded flex flex-col">
-        <PackCard />
-        <div class="shadow_container px-10 mt-4">
-          <img src="../static/pack_shadow.svg" /></div
-      ></SwiperSlide>
-      <SwiperSlide class="rounded flex flex-col">
-        <PackCard />
+      <SwiperSlide v-for="pack in packs" class="rounded flex flex-col">
+        <PackCard :pack="pack" @buy="buyPack" />
         <div class="shadow_container px-10 mt-4">
           <img src="../static/pack_shadow.svg" /></div
       ></SwiperSlide>
@@ -29,9 +19,48 @@
     <div
       class="mt-4 pagination flex flex-row items-center justify-center gap-4"
     ></div>
+    <button
+      class="bg-yellow-400 hover:bg-yellow-500 transition px-4 py-2 font-bold rounded-lg"
+      @click="buyCredits"
+    >
+      Buy credits pack (login before)
+    </button>
+    <Auth :toPayment="true" v-if="showAuthForm" @close="closeAuth" />
   </div>
 </template>
 <script setup>
+import { storeToRefs } from "pinia";
+import { usePayment } from "~~/stores/usePayment";
+import { useAuth } from "~/stores/useAuth";
+
+const showAuthForm = ref(false);
+const { showPayment, setShowPayment, amount, setAmount } = usePayment();
+const { login, loading, user } = storeToRefs(useAuth());
+
+const props = defineProps({
+  packs: {
+    type: Array,
+    required: true,
+  },
+});
+
+const closeAuth = () => {
+  console.log("Close auth");
+  showAuthForm.value = false;
+};
+
+const buyPack = (price) => {
+  showAuthForm.value = false;
+  setShowPayment(false);
+  setAmount(price);
+  if (user.value) {
+    setShowPayment(true);
+  } else {
+    showAuthForm.value = true;
+  }
+};
+
+//setShowPayment(true);
 const breakpoints = {
   320: {
     slidesPerView: 1,

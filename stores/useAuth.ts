@@ -47,7 +47,6 @@ export const useAuth = defineStore("useAuth", () => {
   }
 
   async function loginWithEmail(email: string, password: string) {
-    loading.value = true;
     const { data, error } = await supabase.auth.signInWithPassword({
       email: email,
       password: password,
@@ -57,6 +56,7 @@ export const useAuth = defineStore("useAuth", () => {
       return { success: false, error };
     } else {
       //setShowPayment(true);
+      loading.value = true;
       return { success: true, data };
     }
   }
