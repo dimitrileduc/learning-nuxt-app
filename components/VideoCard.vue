@@ -34,7 +34,10 @@
           {{ props.description }}
         </div>
       </div>
-      <div class="button-container w-full flex justify-center">
+      <div
+        v-show="!unlocked"
+        class="button-container w-full flex justify-center"
+      >
         <Button
           primary
           :label="buttonLabel"

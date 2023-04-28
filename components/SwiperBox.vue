@@ -19,12 +19,7 @@
     <div
       class="mt-4 pagination flex flex-row items-center justify-center gap-4"
     ></div>
-    <button
-      class="bg-yellow-400 hover:bg-yellow-500 transition px-4 py-2 font-bold rounded-lg"
-      @click="buyCredits"
-    >
-      Buy credits pack (login before)
-    </button>
+
     <Auth :toPayment="true" v-if="showAuthForm" @close="closeAuth" />
   </div>
 </template>
