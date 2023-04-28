@@ -11,7 +11,7 @@
           </div>
         </div>
       </div>
-      <div class="hero border border-red-400 pt-20"><Hero /></div>
+      <div class="hero pt-20"><Hero /></div>
       <div id="section-products" class="products"><ProductsSection /></div>
     </div>
   </div>

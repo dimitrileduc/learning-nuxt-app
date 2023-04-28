@@ -1,8 +1,6 @@
 <template>
   <ClientOnly>
-    <div
-      class="container border w-full flex flex-col items-center px-8 sm:px-0"
-    >
+    <div class="container w-full flex flex-col items-center px-8 sm:px-0">
       <div class="text-2xl text-white font-bold mt-4 text-center">
         Découvre tout de suite les extensions des derniers tirages
       </div>

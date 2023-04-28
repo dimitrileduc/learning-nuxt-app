@@ -75,7 +75,7 @@ const handleBlurInput = (e) => {
 </script>
 
 <template>
-  <div class="TextInput text-sm">
+  <div class="TextInput text-sm w-full">
     <div class="">
       <label class="label pointer-events-none" :for="name">{{
         placeholder
