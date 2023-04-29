@@ -1,10 +1,12 @@
 <template>
-  <div
-    class="modal backdrop-blur-l backdrop-brightness-50 w-100vw h-100vh flex flex-col justify-center items-center fixed inset-0 z-50"
-    @click.self="$emit('close')"
-  >
-    <slot />
-  </div>
+  <Teleport to="body">
+    <div
+      class="modal backdrop-blur-l backdrop-brightness-50 w-100vw h-100vh flex flex-col justify-center items-center fixed inset-0 z-50"
+      @click.self="$emit('close')"
+    >
+      <slot />
+    </div>
+  </Teleport>
 </template>
 
 <script setup lang="ts">
@@ -24,7 +26,7 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .modal {
-  z-index: 999;
+  z-index: 100;
   background-color: rgb(16, 75, 81, 0.7);
 }
 </style>

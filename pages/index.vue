@@ -1,9 +1,7 @@
 <template>
   <div class="global">
     <Header />
-    <div v-if="false">
-      {{ showPayment }}
-    </div>
+
     <div id="section-packs">
       <PackCreditsSection />
     </div>
@@ -44,7 +42,4 @@ useHead({
 });
 </script>
 
-<style scoped>
-.global {
-}
-</style>
+<style scoped></style>

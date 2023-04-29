@@ -1,48 +1,52 @@
 <template>
-  <Modal @close="$emit('close')">
-    <div class="bg-slate-200 p-8 rounded-xl w-full">
-      <div v-if="verifying">Verifiying payment ...</div>
-      <div
-        v-else-if="success"
-        class="flex flex-col justify-center items-center space-y-6"
-      >
-        <h2 class="text-xl font-bold">Thanks for buying the course!</h2>
-      </div>
-      <form v-else @submit.prevent="handleSubmit">
-        <h2 class="font-bold text-xl text-center">Buying</h2>
-        <div class="mt-8 text-base width bg-white py-6 px-8 rounded shadow-md">
-          <div class="w-full flex justify-between items-center mb-8">
-            <label class="font-bold"> Email </label>
-            <input
-              class="input ml-6 focus:outline-none text-left w-full"
-              type="email"
-              autocomplete="email"
-              v-model="email"
-              placeholder="your@email.com"
-              required
-            />
-          </div>
-          {{ status }}
-          <div class="w-full" id="payment-element">
-            <!-- Mount the Payment Element here -->
-          </div>
-        </div>
-
-        <button
-          class="font-sans mt-4 w-full text-lg text-black h-12 px-16 rounded focus:outline-none focus:shadow-outline font-bold flex items-center justify-center transition"
-          :class="
-            processingPayment
-              ? 'bg-gray-300 cursor-not-allowed'
-              : 'bg-yellow-300 hover:bg-yellow-200 cursor-pointer'
-          "
-          :disabled="processingPayment"
+  <Teleport to="body">
+    <Modal @close="$emit('close')">
+      <div class="bg-slate-200 p-8 rounded-xl w-full">
+        <div v-if="verifying">Verifiying payment ...</div>
+        <div
+          v-else-if="success"
+          class="flex flex-col justify-center items-center space-y-6"
         >
-          <Loading v-if="processingPayment" class="h-5 w-5" />
-          <div v-else>Pay {{ amount }}</div>
-        </button>
-      </form>
-    </div>
-  </Modal>
+          <h2 class="text-xl font-bold">Thanks for buying the course!</h2>
+        </div>
+        <form v-else @submit.prevent="handleSubmit">
+          <h2 class="font-bold text-xl text-center">Buying</h2>
+          <div
+            class="mt-8 text-base width bg-white py-6 px-8 rounded shadow-md"
+          >
+            <div class="w-full flex justify-between items-center mb-8">
+              <label class="font-bold"> Email </label>
+              <input
+                class="input ml-6 focus:outline-none text-left w-full"
+                type="email"
+                autocomplete="email"
+                v-model="email"
+                placeholder="your@email.com"
+                required
+              />
+            </div>
+            {{ status }}
+            <div class="w-full" id="payment-element">
+              <!-- Mount the Payment Element here -->
+            </div>
+          </div>
+
+          <button
+            class="font-sans mt-4 w-full text-lg text-black h-12 px-16 rounded focus:outline-none focus:shadow-outline font-bold flex items-center justify-center transition"
+            :class="
+              processingPayment
+                ? 'bg-gray-300 cursor-not-allowed'
+                : 'bg-yellow-300 hover:bg-yellow-200 cursor-pointer'
+            "
+            :disabled="processingPayment"
+          >
+            <Loading v-if="processingPayment" class="h-5 w-5" />
+            <div v-else>Pay {{ amount }}</div>
+          </button>
+        </form>
+      </div>
+    </Modal>
+  </Teleport>
 </template>
 
 <script setup>
