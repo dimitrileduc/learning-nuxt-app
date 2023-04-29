@@ -40,7 +40,6 @@
       </div>
       <div class="image flex justify-center">
         <nuxt-img
-          format="webp"
           class="justify-center max-w-[144px] sm:max-w-[200px] lg:max-w-sm"
           src="/hero.svg"
           alt="hero"

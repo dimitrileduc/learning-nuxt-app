@@ -34,9 +34,9 @@ export default defineNuxtConfig({
     },
   },
   image: {
-    provider: "ipx",
     // Options
   },
+
   compilerOptions: {
     types: ["@nuxt/types", "@nuxt/image"],
   },
