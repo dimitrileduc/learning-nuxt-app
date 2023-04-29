@@ -4,7 +4,7 @@
       class="container-interne flex flex-col items-center pt-12 lg:pt-14 pb-6 md:pb-8"
     >
       <div>
-        <nuxt-img format="webp" alt="footer" src="/footer_center.svg" />
+        <nuxt-img alt="footer" src="/footer_center.svg" />
       </div>
       <div class="mt-12 flex flex-row items-center justify-items-center gap-4">
         <div class="text-center text-sm">Accueil</div>

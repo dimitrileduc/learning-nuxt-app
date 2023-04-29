@@ -4,10 +4,10 @@
       <div class="bg mb-[112px] sm:mb-[106px] lg:mb-[56px]">
         <div class="container_overlay w-full flex inline-flex justify-between">
           <div class="bg-overlay-left">
-            <nuxt-img alt="header_left" format="webp" src="/left.svg" />
+            <nuxt-img alt="header_left" src="/left.svg" />
           </div>
           <div class="bg-overlay-right">
-            <nuxt-img alt="header_right" format="webp" src="/right.svg" />
+            <nuxt-img alt="header_right" src="/right.svg" />
           </div>
         </div>
       </div>

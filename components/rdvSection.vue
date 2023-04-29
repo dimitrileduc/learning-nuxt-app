@@ -22,7 +22,6 @@
           <div class="container_image">
             <nuxt-img
               alt="rdv"
-              format="webp"
               class="max-h-[116px]"
               src="/guidance_classique.svg"
             />
@@ -45,7 +44,6 @@
           <div class="container_image max-h-[116px]">
             <nuxt-img
               alt="guidance"
-              format="webp"
               class="max-h-[116px]"
               src="/guidance_direct.svg"
             />

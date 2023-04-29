@@ -11,12 +11,7 @@
           <div>hero subtitle</div>
         </div>
         <div class="container_logo">
-          <nuxt-img
-            alt="logo"
-            format="webp"
-            class="justify-center"
-            src="/logo.svg"
-          />
+          <nuxt-img alt="logo" class="justify-center" src="/logo.svg" />
         </div>
         <div class="title text-2xl font-bold text-justify mt-8">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
