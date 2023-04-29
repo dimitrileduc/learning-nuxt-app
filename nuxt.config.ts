@@ -37,6 +37,10 @@ export default defineNuxtConfig({
     // Options
   },
 
+  meta: {
+    title: "Moon energy",
+  },
+
   compilerOptions: {
     types: ["@nuxt/types", "@nuxt/image"],
   },

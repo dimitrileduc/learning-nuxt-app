@@ -31,6 +31,17 @@ const { setShowPayment } = usePayment();
 const hidePayment = () => {
   setShowPayment(false);
 };
+
+useHead({
+  title: "Moon app",
+  meta: [{ name: "description", content: "My amazing site." }],
+  bodyAttrs: {
+    class: "test",
+  },
+  htmlAttrs: {
+    lang: "fr",
+  },
+});
 </script>
 
 <style scoped>
