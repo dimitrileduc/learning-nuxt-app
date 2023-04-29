@@ -12,12 +12,7 @@
       <SwiperSlide v-for="pack in packs" class="rounded flex flex-col">
         <PackCard :pack="pack" @buy="buyPack" />
         <div class="shadow_container px-10 mt-4">
-          <nuxt-img
-            loading="lazy"
-            alt="shadow"
-            format="webp"
-            src="/pack_shadow.svg"
-          /></div
+          <nuxt-img alt="shadow" format="webp" src="/pack_shadow.svg" /></div
       ></SwiperSlide>
     </Swiper>
 

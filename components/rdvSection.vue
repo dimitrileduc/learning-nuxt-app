@@ -21,7 +21,6 @@
         <div class="option1 w-full flex flex-col items-center">
           <div class="container_image">
             <nuxt-img
-              loading="lazy"
               alt="rdv"
               format="webp"
               class="max-h-[116px]"
@@ -45,7 +44,6 @@
         <div class="option1 w-full flex flex-col items-center">
           <div class="container_image max-h-[116px]">
             <nuxt-img
-              loading="lazy"
               alt="guidance"
               format="webp"
               class="max-h-[116px]"

@@ -9,7 +9,6 @@
 
           <div v-else-if="props.thumbnail">
             <nuxt-img
-              loading="lazy"
               alt="thumbnail"
               format="webp"
               class="image w-full object-contain rounded"
@@ -18,7 +17,6 @@
           </div>
           <div v-else>
             <nuxt-img
-              loading="lazy"
               alt="sthumbnail"
               format="webp"
               class="image w-full object-contain rounded"
