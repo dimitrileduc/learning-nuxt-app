@@ -25,8 +25,9 @@ export default defineNuxtConfig({
     "@nuxtjs/google-fonts",
     "nuxt-icons",
     "nuxt-swiper",
+    "@nuxt/image-edge",
   ],
-  buildModules: ["@nuxt/image"],
+
   googleFonts: {
     families: {
       Lato: [300, 400, 500, 600, 700, 900],

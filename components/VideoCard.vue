@@ -7,11 +7,22 @@
         <div class="image-container">
           <div v-if="unlocked"><VimeoPlayer videoId="814000175" /></div>
 
-          <div v-else>
-            <img
+          <div v-else-if="props.thumbnail">
+            <nuxt-img
+              loading="lazy"
+              alt="thumbnail"
+              format="webp"
               class="image w-full object-contain rounded"
-              alt=""
               :src="props.thumbnail"
+            />
+          </div>
+          <div v-else>
+            <nuxt-img
+              loading="lazy"
+              alt="sthumbnail"
+              format="webp"
+              class="image w-full object-contain rounded"
+              src="https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-network-placeholder-png-image_3416659.jpg"
             />
           </div>
         </div>

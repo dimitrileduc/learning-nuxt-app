@@ -84,7 +84,7 @@ const handleBlurInput = (e) => {
         <input
           :id="name"
           :name="name"
-          :type="type === 'email' || passwordVisible ? 'text' : 'password'"
+          :type="type !== 'password' || passwordVisible ? 'text' : 'password'"
           :value="inputValue"
           :placeholder="placeholder"
           @input="handleChange"

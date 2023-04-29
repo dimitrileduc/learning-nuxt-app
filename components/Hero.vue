@@ -11,7 +11,12 @@
           <div>hero subtitle</div>
         </div>
         <div class="container_logo">
-          <img alt="logo" class="justify-center" src="../static/logo.svg" />
+          <nuxt-img
+            alt="logo"
+            format="webp"
+            class="justify-center"
+            src="/logo.svg"
+          />
         </div>
         <div class="title text-2xl font-bold text-justify mt-8">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -34,9 +39,10 @@
         </div>
       </div>
       <div class="image flex justify-center">
-        <img
+        <nuxt-img
+          format="webp"
           class="justify-center max-w-[144px] sm:max-w-[200px] lg:max-w-sm"
-          src="../static/hero.svg"
+          src="/hero.svg"
           alt="hero"
         />
       </div>

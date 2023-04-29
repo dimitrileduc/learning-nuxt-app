@@ -1,10 +1,15 @@
 <template>
-  <div class="lg:px-4 lg:pb-4">
+  <div class="lg:px-4 lg:pb-4 bg-white">
     <div
       class="container-interne flex flex-col items-center pt-12 lg:pt-14 pb-6 md:pb-8"
     >
       <div>
-        <img src="../static/footer_center.svg" />
+        <nuxt-img
+          loading="lazy"
+          format="webp"
+          alt="footer"
+          src="/footer_center.svg"
+        />
       </div>
       <div class="mt-12 flex flex-row items-center justify-items-center gap-4">
         <div class="text-center text-sm">Accueil</div>

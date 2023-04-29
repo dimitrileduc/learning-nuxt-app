@@ -44,7 +44,13 @@
       <div
         class="image w-full px-10 pb-12 lg:pb-0 lg:p-0 flex flex-col lg:flex-row items-center lg:w-6/12"
       >
-        <img class="w-full max-w-[464px]" src="../static/about.png" />
+        <nuxt-img
+          loading="lazy"
+          alt="about"
+          format="webp"
+          class="w-full max-w-[464px]"
+          src="/about.png"
+        />
       </div>
     </div>
   </div>

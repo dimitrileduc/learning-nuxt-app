@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container px-10 pt-12 lg:pt-10 pb-14 border border-red-400 w-full flex flex-col items-center"
+    class="container px-10 pt-12 lg:pt-10 pb-14 w-full flex flex-col items-center"
   >
     <div class="flex flex-col items-center sm:max-w-[552px] lg:max-w-[944px]">
       <div><nuxt-icon class="text-[32px]" name="rdv" filled /></div>
@@ -20,7 +20,13 @@
       >
         <div class="option1 w-full flex flex-col items-center">
           <div class="container_image">
-            <img class="max-h-[116px]" src="../static/guidance_classique.svg" />
+            <nuxt-img
+              loading="lazy"
+              alt="rdv"
+              format="webp"
+              class="max-h-[116px]"
+              src="/guidance_classique.svg"
+            />
           </div>
           <div class="mt-6 text-2xl font-bold text-center">
             Guidance classique (60')
@@ -38,7 +44,13 @@
         </div>
         <div class="option1 w-full flex flex-col items-center">
           <div class="container_image max-h-[116px]">
-            <img class="max-h-[116px]" src="../static/guidance_direct.svg" />
+            <nuxt-img
+              loading="lazy"
+              alt="guidance"
+              format="webp"
+              class="max-h-[116px]"
+              src="/guidance_direct.svg"
+            />
           </div>
           <div class="mt-6 text-2xl font-bold text-center">
             Guidance Directe (30’)

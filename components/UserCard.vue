@@ -1,6 +1,8 @@
 <template>
   <div v-if="user" class="rounded p-3 flex items-center space-x-3 bg-gray-100">
-    <img
+    <nuxt-img
+      alt="user-card"
+      format="webp"
       class="rounded-full w-10 h-10 border-2 border-blue-400"
       :src="profile"
     />

@@ -1,8 +1,7 @@
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
 import { Form } from "vee-validate";
 import * as Yup from "yup";
-
-//define emits onsubmit?
 
 const props = defineProps({
   type: {
@@ -19,6 +18,8 @@ const props = defineProps({
     default: false,
   },
 });
+
+const emailInput: any = ref(null); // define the ref for the email input field
 
 const labelButton = computed(() => {
   if (props.type === "logIn") {
@@ -56,11 +57,11 @@ const registerSchema = Yup.object().shape({
   password: Yup.string().min(6).required(),
 });
 
-console.log(props.type);
-
 const schema = computed(() => {
   return props.type === "logIn" ? logInSchema : registerSchema;
 });
+
+emailInput?.value?.$el.focus();
 </script>
 
 <template>
@@ -71,7 +72,10 @@ const schema = computed(() => {
       @invalid-submit="onInvalidSubmit"
     >
       <FormInput
+        ref="emailInput"
         name="email"
+        input
+        field
         :value="props?.existingEmail"
         type="email"
         label="E-mail"
@@ -90,5 +94,3 @@ const schema = computed(() => {
     </Form>
   </div>
 </template>
-
-<style></style>

@@ -15,7 +15,7 @@
         volutpat. Ut wisi enim ad minim veniam.
       </div>
       <div class="form mt-8 sm:mt-4 lg:mt-8 w-full">
-        <div class="flex flex-col items-center w-full gap-2">
+        <div class="flex flex-col items-center w-full">
           <FormInput
             name="name"
             label="name"

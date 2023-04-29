@@ -4,7 +4,12 @@
       class="bg-white p-8 py-14 container text-[#104B51] w-full sm:max-w-[375px] rounded"
     >
       <div class="image flex justify-center">
-        <img class="justify-center w-32" src="../static/hero.svg" alt="hero" />
+        <nuxt-img
+          alt="hero"
+          format="webp"
+          class="justify-center w-32"
+          src="/hero.svg"
+        />
       </div>
 
       <div class="flex justify-center pt-6">
