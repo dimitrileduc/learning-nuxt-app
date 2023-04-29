@@ -4,7 +4,7 @@
 <path d="M24 1V4.95" stroke="url(#paint2_linear_42_2402)" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
 <path d="M10 1V4.95" stroke="url(#paint3_linear_42_2402)" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
 <defs>
-<linearGradient id="paint0_linear_42_2402" x1="nan" y1="nan" x2="nan" y2="nan" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint0_linear_42_2402" x1="0" y1="0" x2="0" y2="0" gradientUnits="userSpaceOnUse">
 <stop stop-color="#84CAE5"/>
 <stop offset="1" stop-color="#91D6EB"/>
 </linearGradient>
@@ -12,11 +12,11 @@
 <stop stop-color="#84CAE5"/>
 <stop offset="1" stop-color="#91D6EB"/>
 </linearGradient>
-<linearGradient id="paint2_linear_42_2402" x1="nan" y1="nan" x2="nan" y2="nan" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint2_linear_42_2402" x1="0" y1="0" x2="0" y2="0" gradientUnits="userSpaceOnUse">
 <stop stop-color="#84CAE5"/>
 <stop offset="1" stop-color="#91D6EB"/>
 </linearGradient>
-<linearGradient id="paint3_linear_42_2402" x1="nan" y1="nan" x2="nan" y2="nan" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint3_linear_42_2402" x1="0" y1="0" x2="0" y2="0" gradientUnits="userSpaceOnUse">
 <stop stop-color="#84CAE5"/>
 <stop offset="1" stop-color="#91D6EB"/>
 </linearGradient>
