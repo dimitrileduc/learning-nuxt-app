@@ -39,7 +39,7 @@ const defaultVideo = {
   id: "",
   logged: false,
   title: "Video loading ",
-  description: "Description loading",
+  description: "Description loading...",
   access: "",
   thumbnailUrl: "",
   videoUrl: "",
