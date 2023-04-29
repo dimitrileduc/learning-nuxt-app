@@ -2,7 +2,7 @@
   <div class="global w-[304px] h-[448px]">
     <div class="bg-white rounded flex flex-col items-center">
       <div class="container-image flex flex-col items-center w-full pt-4">
-        <nuxt-img alt="pack" src="../static/lunepack.svg" />
+        <nuxt-img alt="pack" src="/lunepack.svg" />
         <div class="mb-2 text-center font-bold text-sm text-white">
           {{ priceLabel }}
         </div>
