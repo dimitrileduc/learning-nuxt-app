@@ -2,34 +2,38 @@
   <Teleport to="body">
     <Modal @close="$emit('close')">
       <div class="bg-white p-8 py-14 container text-[#104B51] w-full rounded">
-        <div v-if="verifying">Verifiying payment ...</div>
         <div
-          v-else-if="success"
+          v-if="success"
           class="flex flex-col justify-center items-center space-y-6"
         >
           <h2 class="text-xl font-bold">Thanks for buying !</h2>
         </div>
+
         <form v-else @submit.prevent="handleSubmit">
-          <h2 class="font-bold text-xl text-center">Buying {{ amount }}</h2>
-          <div class="mt-8 text-base width bg-white py-6">
-            <div class="w-full" id="payment-element">
+          <div
+            v-show="!stripeMounted"
+            class="mt-8 w-full flex items-center justify-center text-base width bg-white py-6"
+          >
+            <Loading dark class="w-6 h-6" />
+            <span class="ml-4">Stripe payment loading ...</span>
+          </div>
+          <div v-show="stripeMounted" class="text-base width bg-white py-6">
+            <h2 class="font-bold text-xl text-center">Buying {{ amount }}</h2>
+            <div class="mt-8 w-full" id="payment-element">
               <!-- Mount the Payment Element here -->
             </div>
-          </div>
-
-          <div>
-            <div class="w-full mt-4">
-              <Button
-                noMaxWidth
-                class="w-full"
-                primary
-                label="Pay"
-                :loading="processingPayment"
-              />
+            <div>
+              <div class="w-full mt-10">
+                <Button
+                  noMaxWidth
+                  class="w-full"
+                  primary
+                  label="Pay"
+                  :loading="processingPayment || verifying"
+                />
+              </div>
             </div>
           </div>
-
-          <div>{{ status }}</div>
         </form>
       </div>
     </Modal>
@@ -56,6 +60,8 @@ const { refetchCredits } = await useCredits();
 
 const { showPayment, setShowPayment, amount, setAmount } = usePayment();
 
+const stripeMounted = ref(false);
+
 const status = ref("idle");
 
 // Access the current route
@@ -63,7 +69,6 @@ const route = useRoute();
 
 // The tab is closed and reopened (we're still in the same session)
 console.log("cached", amount, typeof amount);
-
 const formStyle = {
   base: {
     width: "100px",
@@ -110,6 +115,11 @@ const setupStripe = async () => {
     // Mount the card element to the DOM using the cardElement ref
     paymentElement.value.mount("#payment-element");
     card.value = paymentElement.value;
+    card.value.on("ready", () => {
+      console.log("Stripe Elements has finished mounting!");
+      stripeMounted.value = true;
+      // Do something here when the card element is ready
+    });
   }
 };
 
@@ -134,12 +144,14 @@ const handleSubmit = async () => {
   }
 
   const { error: submitError } = await elements.value.submit();
-  status.value = "processing";
-  processingPayment.value = true;
+
   if (submitError) {
     console.log("error stripe in form");
-    handleError(submitError);
+
     return;
+  } else {
+    status.value = "processing";
+    processingPayment.value = true;
   }
   let secret;
 

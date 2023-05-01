@@ -9,8 +9,7 @@
     <RdvSection id="section-rdv" />
     <ContactSection />
     <UserVideos v-if="false" />
-    {{ showPayment }}
-    {{ user }}
+
     <ClientOnly>
       <Checkout v-if="showPayment && user" @close="hidePayment" />
     </ClientOnly>

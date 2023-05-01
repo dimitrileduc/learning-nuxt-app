@@ -1,11 +1,20 @@
 <template>
-  <div class="lds-ring">
+  <div class="lds-ring" :class="props.dark ? 'dark' : 'light'">
     <div></div>
     <div></div>
     <div></div>
     <div></div>
   </div>
 </template>
+
+<script setup>
+const props = defineProps({
+  dark: {
+    type: Boolean,
+    default: false,
+  },
+});
+</script>
 
 <style scoped>
 .lds-ring {
@@ -21,7 +30,13 @@
   border: 2px solid #fff;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.light div {
   border-color: #fff transparent transparent transparent;
+}
+.dark div {
+  border-color: #104b51 transparent transparent transparent;
 }
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
