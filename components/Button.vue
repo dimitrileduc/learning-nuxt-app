@@ -1,7 +1,7 @@
 <template>
   <div class="global">
     <button
-      :disabled="disabled"
+      :disabled="loading"
       class="px-5 xs:px-0"
       :class="[
         primary ? 'primary' : 'secondary',
@@ -9,7 +9,10 @@
       ]"
       @click="handleClick"
     >
-      <div class="label">{{ label }}</div>
+      <div v-if="loading" class="flex justify-center items-center">
+        <Loading class="w-5 h-5 mr-6" /> Loading ...
+      </div>
+      <div v-else class="label">{{ label }}</div>
     </button>
   </div>
 </template>
@@ -33,6 +36,10 @@ const props = defineProps({
     default: false,
   },
   noMaxWidth: {
+    type: Boolean,
+    default: false,
+  },
+  loading: {
     type: Boolean,
     default: false,
   },
