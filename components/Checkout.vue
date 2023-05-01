@@ -178,7 +178,7 @@ const handleSubmit = async () => {
     elements: elements.value,
     clientSecret: secret,
     confirmParams: {
-      return_url: "http://localhost:3000/",
+      return_url: "https://moonenergy.netlify.app/",
     },
     receipt_email: userSupa.value.email,
     //Uncomment below if you only want redirect for redirect-based payments
@@ -221,7 +221,7 @@ async function checkStatus(clientSecret) {
       success.value = true;
       console.log(userSupa.value.email, amount, paymentIntent.id);
 
-      // for test - desactive when use webhook stripe 
+      // for test - desactive when use webhook stripe
       await $fetch("/api/local/updatePurchase", {
         method: "POST",
         body: {

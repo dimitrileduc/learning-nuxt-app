@@ -50,7 +50,7 @@ export const useAuth = defineStore("useAuth", () => {
 
   async function resetPassword(email: string) {
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: "http://localhost:3000/?resetPassword=true",
+      redirectTo: "https://moonenergy.netlify.app/?resetPassword=true",
     });
     if (error) {
       console.error(error);
