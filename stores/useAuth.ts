@@ -11,6 +11,8 @@ export const useAuth = defineStore("useAuth", () => {
   const loading = markRaw(ref(false));
   const supabase = useSupabaseAuthClient();
   const supabaseClient = useSupabaseClient();
+
+  const authEvent = ref("");
   const user = computed(() => {
     const userSupa = useSupabaseUser();
     return userSupa.value;
@@ -44,6 +46,18 @@ export const useAuth = defineStore("useAuth", () => {
       console.error(error);
     } else {
     }
+  }
+
+  async function resetPassword(email: string) {
+    const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: "http://localhost:3000/?resetPassword=true",
+    });
+    if (error) {
+      console.error(error);
+    } else {
+      console.log(data);
+    }
+    return { data, error };
   }
 
   async function loginWithEmail(email: string, password: string) {
@@ -89,18 +103,21 @@ export const useAuth = defineStore("useAuth", () => {
     return { auth: data, error: authError };
   }
 
-  async function listenVerifiedEmail() {
+  async function updatePassword(password: string) {
+    const { data, error } = await supabase.auth.updateUser({
+      password: password,
+    });
+    console.log(data);
+    console.log(error);
+    return { data, error };
+  }
+
+  listenAuthEvent();
+
+  async function listenAuthEvent() {
     supabase.auth.onAuthStateChange((event, session) => {
-      if (event === "SIGNED_IN" && session?.user) {
-        // Check if the user's email has been verified
-        const { app_metadata } = session.user;
-        if (app_metadata && app_metadata.email_verified) {
-          // The user has verified their email, so redirect them to a new page
-          console.log("Email verified, redirecting to dashboard...");
-        } else {
-          console.log("Please verify your email to access the dashboard.");
-        }
-      }
+      console.log(event);
+      authEvent.value = event;
     });
   }
 
@@ -158,8 +175,10 @@ export const useAuth = defineStore("useAuth", () => {
     logout,
     loading,
     registerUser,
-    listenVerifiedEmail,
     checkUserExist,
     loginWithEmail,
+    resetPassword,
+    authEvent,
+    updatePassword,
   };
 });

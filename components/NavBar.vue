@@ -13,7 +13,7 @@
         >
           Log/sign
         </button>
-        <Auth v-if="showAuth" @close="showAuth = false" />
+        <AuthModal v-if="showAuth" @close="showAuth = false" />
       </div>
     </div>
   </div>

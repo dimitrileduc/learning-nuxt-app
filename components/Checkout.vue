@@ -220,6 +220,8 @@ async function checkStatus(clientSecret) {
       status.value = "Payment success ! ";
       success.value = true;
       console.log(userSupa.value.email, amount, paymentIntent.id);
+
+      // for test - desactive when use webhook stripe 
       await $fetch("/api/local/updatePurchase", {
         method: "POST",
         body: {

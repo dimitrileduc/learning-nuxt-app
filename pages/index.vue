@@ -10,8 +10,11 @@
     <ContactSection />
     <UserVideos v-if="false" />
     <ClientOnly>
-      <ConfirmPurchase v-if="showPayment" @close="hidePayment" />
+      <Checkout v-if="showPayment && user" @close="hidePayment" />
     </ClientOnly>
+    <div v-if="showPasswordRecover">
+      <ResetPasswordModal @close="showPasswordRecover = false" />
+    </div>
   </div>
 </template>
 
@@ -19,12 +22,26 @@
 import { useAuth } from "~/stores/useAuth";
 import { usePayment } from "~~/stores/usePayment";
 
+const { loading, user, authEvent } = storeToRefs(useAuth());
+
+const showPasswordRecover = ref(false);
+
+watchEffect(() => {
+  if (authEvent.value) {
+    if (authEvent.value === "PASSWORD_RECOVERY") {
+      showPasswordRecover.value = true;
+    }
+    console.log("authEvent listen in index", authEvent.value);
+  }
+});
+
+const { setShowPayment } = usePayment();
+
 import { storeToRefs } from "pinia";
 
 const { query } = useRoute();
 
 const { showPayment } = storeToRefs(usePayment());
-const { setShowPayment } = usePayment();
 
 const hidePayment = () => {
   setShowPayment(false);

@@ -50,9 +50,6 @@ const { isMenuOpen } = storeToRefs(useNav());
 }
 
 /* Add CSS for the Body content */
-.body {
-  /* Add styles for the body component */
-}
 
 /* Add CSS for the Content component */
 .content {

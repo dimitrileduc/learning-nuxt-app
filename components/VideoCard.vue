@@ -305,6 +305,4 @@ const playVideo = () => {
   align-self: start;
   grid-area: 1 / 1 / 3 / 3;
 }
-.icon {
-}
 </style>

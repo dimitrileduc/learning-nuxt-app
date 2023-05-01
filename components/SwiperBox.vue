@@ -20,7 +20,7 @@
       class="mt-4 pagination flex flex-row items-center justify-center gap-4"
     ></div>
 
-    <Auth :toPayment="true" v-if="showAuthForm" @close="closeAuth" />
+    <AuthModal :toPayment="true" v-if="showAuthForm" @close="closeAuth" />
   </div>
 </template>
 <script setup>

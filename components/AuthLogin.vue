@@ -25,6 +25,7 @@ const props = defineProps({
 });
 
 async function submit(data: any) {
+  setShowPayment(false);
   console.log("submit", data);
 
   const { success, error } = await loginWithEmail(data.email, data.password);
@@ -36,7 +37,7 @@ async function submit(data: any) {
     console.log("log in success");
   }
   if (error) {
-    errorMessage.value = "Email ou mot de passe incorrect";
+    errorMessage.value = error.message;
     console.log("log in failed");
   }
 }
@@ -49,6 +50,11 @@ async function submit(data: any) {
       type="logIn"
       :existingEmail="props?.existingEmail"
     />
+    <div class="mt-2 w-full flex items-center text-center text-sm">
+      <button class="label_button w-full" @click="$emit('resetPassword')">
+        Mot de passe oublié ?
+      </button>
+    </div>
     <div>{{ message }}</div>
     <div v-if="errorMessage" class="error-box py-4">
       <div class="error-message">
@@ -59,3 +65,9 @@ async function submit(data: any) {
     </div>
   </div>
 </template>
+
+<style scoped>
+.label_button {
+  text-decoration-line: underline;
+}
+</style>

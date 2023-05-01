@@ -1,10 +1,12 @@
 <template>
   <div v-if="user" class="rounded p-3 flex items-center space-x-3 bg-gray-100">
-    <nuxt-img
-      alt="user-card"
-      class="rounded-full w-10 h-10 border-2 border-blue-400"
-      :src="profile"
-    />
+    <div v-if="user.profile">
+      <nuxt-img
+        alt="user-card"
+        class="rounded-full w-10 h-10 border-2 border-blue-400"
+        :src="profile"
+      />
+    </div>
     <div class="text-right">
       <div class="font-medium">{{ name }}</div>
       <div v-if="loading">loading</div>

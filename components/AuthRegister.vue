@@ -3,9 +3,9 @@ import { useAuth } from "~/stores/useAuth";
 import { usePayment } from "~~/stores/usePayment";
 const user = useSupabaseUser();
 const { registerUser } = useAuth();
-const { showPayment, setShowPayment, amount, setAmount } = usePayment();
-const { listenVerifiedEmail } = useAuth();
-const showEmailButton = ref(false);
+
+const {} = useAuth();
+
 const emailExist = ref(false);
 const existingEmail = ref("");
 
@@ -17,11 +17,17 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["switch-registered", "setExistingEmail", "close"]);
+const emit = defineEmits([
+  "switch-registered",
+  "setExistingEmail",
+  "switch-confirm-email-modal",
+  "setEmailProviderLink",
+  "close",
+]);
 
 const emailProviderUrl = ref("");
 
-function getEmailProviderUrl(email) {
+function getEmailProviderUrl(email: any) {
   console.log("get email provider", email);
   const emailDomain = email.split("@")[1];
   console.log("emailDomain", emailDomain);
@@ -37,7 +43,7 @@ function getEmailProviderUrl(email) {
     // add more email providers here as needed
     default:
       console.log("email is not gmail or yahoo");
-      emailProviderUrl.value = "";
+      emailProviderUrl.value = "unknowProvider";
   }
 }
 
@@ -51,21 +57,17 @@ async function handleSignUp(data: any) {
     } else console.log(error);
   } else {
     if (props.toPayment) {
-      setShowPayment(true);
+      //  setShowPayment(true);
     }
     console.log("please confirm email");
     getEmailProviderUrl(data.email);
-    showEmailButton.value = true;
-    listenVerifiedEmail();
+    emit("switch-confirm-email-modal");
+    console.log("emailProviderUrl", emailProviderUrl.value);
+
+    emit("setEmailProviderLink", emailProviderUrl.value);
 
     // Redirect to another page or do something else
   }
-}
-
-function redirectToEmail() {
-  emit("close");
-  // Redirect to the user's email provider here
-  window.location.href = emailProviderUrl.value;
 }
 
 function redirectLogin() {
@@ -81,9 +83,6 @@ function redirectLogin() {
       type="register"
       :toPayment="props.toPayment"
     />
-    <button v-if="showEmailButton" @click="redirectToEmail">
-      Go to Email Provider {{ emailProviderUrl }}
-    </button>
     <div v-if="existingEmail" class="error-box py-4">
       <div class="error-message">
         <div class="text-red-400 p-2 mt-2 rounded">
