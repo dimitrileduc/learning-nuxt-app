@@ -55,6 +55,5 @@ const { isMenuOpen } = storeToRefs(useNav());
 .content {
   position: relative;
   z-index: 0;
-  /* Add other styles for the content component */
 }
 </style>
