@@ -51,12 +51,14 @@
         <div class="mt-6 w-full items-center pt-1 text-center">
           Votre nouveau mot de passe à bien été enregistré.
         </div>
-        <Button
-          class="mt-6"
-          primary
-          label="Go to app"
-          @click="$emit('close')"
-        />
+        <div class="w-full">
+          <Button
+            class="mt-6 w-full"
+            primary
+            label="Go to app"
+            @click="$emit('close')"
+          />
+        </div>
       </div>
     </div>
   </Modal>
