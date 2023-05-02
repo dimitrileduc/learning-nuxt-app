@@ -7,6 +7,10 @@
         <div class="text-2xl font-semibold flex justify-center text-center">
           Hello {{ user?.email }}
         </div>
+        <div class="w-full items-center pt-1">
+          Veuillez entrer votre adresse email afin de recevoir un lien pour
+          créer un nouveau mot de passe.
+        </div>
 
         <Form
           class="mt-8"

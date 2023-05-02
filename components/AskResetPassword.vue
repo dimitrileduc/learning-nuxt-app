@@ -1,8 +1,15 @@
 <template>
   <div class="bg-white container text-[#104B51]">
     <div v-if="!formSubmitted">
-      <div class="text-2xl font-semibold flex justify-center text-center">
+      <div class="image flex justify-center">
+        <nuxt-img alt="hero" class="justify-center w-32" src="/hero.svg" />
+      </div>
+      <div class="mt-6 text-2xl font-semibold flex justify-center text-center">
         Mot de passe oublié ?
+      </div>
+      <div class="mt-6 w-full items-center pt-1 text-center">
+        Veuillez entrer votre adresse email afin de recevoir un lien pour créer
+        un nouveau mot de passe.
       </div>
 
       <Form
@@ -27,8 +34,15 @@
       </Form>
     </div>
     <div v-if="formSubmitted">
-      <div class="text-2xl font-semibold flex justify-center text-center">
-        Un email pour reinitialiser votre mot de passe vous a été envoyé.
+      <div class="image flex justify-center">
+        <nuxt-img alt="hero" class="justify-center w-32" src="/hero.svg" />
+      </div>
+      <div class="mt-6 text-2xl font-semibold flex justify-center text-center">
+        Email envoyé.
+      </div>
+      <div class="mt-6 w-full items-center pt-1 text-center">
+        Un email à été envoyé à cette adresse. Cliquez sur le lien pour choisir
+        un nouveau mot de passe.
       </div>
     </div>
   </div>
@@ -38,7 +52,7 @@
 import { useAuth } from "~/stores/useAuth";
 import { Form } from "vee-validate";
 import * as Yup from "yup";
-const labelButton = "Reset my password";
+const labelButton = "Envoyer le lien";
 
 const { resetPassword } = useAuth();
 
