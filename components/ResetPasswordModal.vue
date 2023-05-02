@@ -4,12 +4,16 @@
       class="bg-white p-8 py-14 container text-[#104B51] w-full sm:max-w-[375px] rounded"
     >
       <div v-if="!wasReset">
-        <div class="text-2xl font-semibold flex justify-center text-center">
-          Hello {{ user?.email }}
+        <div class="image flex justify-center">
+          <nuxt-img alt="hero" class="justify-center w-32" src="/hero.svg" />
         </div>
-        <div class="w-full items-center pt-1">
-          Veuillez entrer votre adresse email afin de recevoir un lien pour
-          créer un nouveau mot de passe.
+        <div
+          class="mt-6 text-2xl font-semibold flex justify-center text-center"
+        >
+          Nouveau mot de passe
+        </div>
+        <div class="mt-6 w-full items-center pt-1 text-center">
+          Choisissez votre nouveau mot de passe.
         </div>
 
         <Form
@@ -22,13 +26,13 @@
             name="password"
             type="password"
             label="Votre nouveau mot de passe"
-            placeholder="Votre nouveau mot de passe"
+            placeholder="Mot de passe"
           />
 
           <div class="w-full">
             <Button noMaxWidth class="w-full" primary :label="labelButton" />
           </div>
-          <div class="mt-4 text-opacity-30 text-sm">
+          <div class="mt-4 text-opacity-30 text-sm text-center">
             A request has been made to reset your password. If you did not make
             this request, please
             <button class="underline" @clik="$emit('close')">cancel</button>
@@ -51,7 +55,7 @@ import * as Yup from "yup";
 import { useAuth } from "~/stores/useAuth";
 
 const { user } = storeToRefs(useAuth());
-const labelButton = "Reset  my password";
+const labelButton = "Enregistrer le nouveau mot de passe";
 
 const wasReset = ref(false);
 

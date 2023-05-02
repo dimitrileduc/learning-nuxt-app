@@ -13,7 +13,7 @@
     <ClientOnly>
       <Checkout v-if="showPayment && user" @close="hidePayment" />
     </ClientOnly>
-    <div v-if="showPasswordRecover">
+    <div v-if="true">
       <ResetPasswordModal @close="showPasswordRecover = false" />
     </div>
   </div>
