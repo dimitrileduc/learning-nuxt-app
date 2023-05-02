@@ -40,8 +40,23 @@
         </Form>
       </div>
       <div v-if="wasReset">
-        <div>You password was succes reset you can no use this app</div>
-        <Button primary label="Go to app" @click="$emit('close')" />
+        <div class="image flex justify-center">
+          <nuxt-img alt="hero" class="justify-center w-32" src="/hero.svg" />
+        </div>
+        <div
+          class="mt-6 text-2xl font-semibold flex justify-center text-center"
+        >
+          Felicitations !
+        </div>
+        <div class="mt-6 w-full items-center pt-1 text-center">
+          Votre nouveau mot de passe à bien été enregistré.
+        </div>
+        <Button
+          class="mt-6"
+          primary
+          label="Go to app"
+          @click="$emit('close')"
+        />
       </div>
     </div>
   </Modal>
@@ -55,7 +70,7 @@ import * as Yup from "yup";
 import { useAuth } from "~/stores/useAuth";
 
 const { user } = storeToRefs(useAuth());
-const labelButton = "Enregistrer le nouveau mot de passe";
+const labelButton = "Enregistrer";
 
 const wasReset = ref(false);
 
