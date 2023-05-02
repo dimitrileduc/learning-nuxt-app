@@ -10,9 +10,6 @@
         <div
           class="mt-6 text-2xl font-semibold flex justify-center text-center"
         >
-          Nouveau mot de passe
-        </div>
-        <div class="mt-6 w-full items-center pt-1 text-center">
           Choisissez votre nouveau mot de passe.
         </div>
 
