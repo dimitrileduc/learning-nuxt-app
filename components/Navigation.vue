@@ -12,15 +12,16 @@
         >
           <div class="flex flex-row justify-between items-center h-full">
             <div class="icones_group flex items-center justify-center">
-              <button @click="switchMenu">
-                <nuxt-icon
-                  v-if="isMenuOpen"
-                  class="text-[32px]"
-                  name="close"
-                  filled
-                />
-                <nuxt-icon v-else class="text-[32px]" name="menu" filled />
-              </button>
+              <div v-if="isMenuOpen">
+                <button @click="closeMenu">
+                  <nuxt-icon class="text-[32px]" name="close" filled />
+                </button>
+              </div>
+              <div v-else>
+                <button @click="switchMenu">
+                  <nuxt-icon class="text-[32px]" name="menu" filled />
+                </button>
+              </div>
             </div>
 
             <div class="user_container">
@@ -51,7 +52,7 @@ import { storeToRefs } from "pinia";
 import { useNav } from "~/stores/useNav";
 import { useAuth } from "~/stores/useAuth";
 
-const { switchMenu } = useNav();
+const { switchMenu, closeMenu } = useNav();
 const { user, loading } = storeToRefs(useAuth());
 const { isMenuOpen } = storeToRefs(useNav());
 

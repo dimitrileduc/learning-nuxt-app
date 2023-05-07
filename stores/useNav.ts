@@ -8,8 +8,14 @@ export const useNav = defineStore("useNav", () => {
     isMenuOpen.value = !isMenuOpen.value;
   };
 
+  const openMenu = () => {
+    console.log("openMenu");
+    isMenuOpen.value = true;
+  };
+
   return {
     isMenuOpen,
     switchMenu,
+    openMenu,
   };
 });
