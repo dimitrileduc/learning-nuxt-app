@@ -1,13 +1,13 @@
 <template>
-  <div class="global">
+  <div class="global" id="section-acceuil">
     <Header />
 
     <div id="section-packs">
       <PackCreditsSection />
     </div>
-    <About />
+    <About id="section-about" />
     <RdvSection id="section-rdv" />
-    <ContactSection />
+    <ContactSection id="section-contact" />
     <UserVideos v-if="false" />
 
     <ClientOnly>

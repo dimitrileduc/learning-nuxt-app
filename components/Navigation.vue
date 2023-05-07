@@ -1,32 +1,49 @@
 <template>
-  <div class="top-border h-0 sm:h-2 lg:h-4 w-full"></div>
-  <div
-    class="container-nav w-full px-0 sm:px-2 lg:px-4 border border-red-500 h-20"
-    id="app"
-  >
-    <div
-      class="nav flex flex-row justify-between items-center border border-green-400 h-full"
-      :style="{
-        background: isMenuOpen
-          ? 'rgb(16, 75, 81, 0.9)'
-          : 'rgb(16, 75, 81, 0.9)',
-      }"
-    >
-      <div class="menu_button_container">
-        <button @click="switchMenu">button</button>
-      </div>
-      <div class="user_container">
-        <div v-if="loading">Loading user data...</div>
-        <div v-else-if="user"><UserCard @hideAuth="hideAuth" /></div>
-        <div v-else>
-          <button
-            class="bg-yellow-400 hover:bg-yellow-500 transition px-2 py-1 font-bold rounded-lg"
-            @click="() => (showAuth = !showAuth)"
-          >
-            Log/sign
-          </button>
-          {{ showAuth }}
-          <AuthModal v-if="showAuth" @close="showAuth = false" />
+  <div class="content">
+    <div class="top-border h-0 sm:h-2 lg:h-4 w-full"></div>
+    <div class="sm:px-2 lg:px-4">
+      <div
+        class="w-full flex items-center justify-center"
+        :style="{
+          background: isMenuOpen
+            ? 'rgb(16, 75, 81, 1)'
+            : 'rgb(16, 75, 81, 0.9)',
+        }"
+      >
+        <div
+          class="container-nav w-full px-8 h-20 lg:max-w-[944px] lg:px-0"
+          id="app"
+        >
+          <div class="nav flex flex-row justify-between items-center h-full">
+            <div class="icones_group flex items-center justify-center">
+              <button @click="switchMenu">
+                <nuxt-icon
+                  v-if="isMenuOpen"
+                  class="text-[32px]"
+                  name="close"
+                  filled
+                />
+                <nuxt-icon v-else class="text-[32px]" name="menu" filled />
+              </button>
+            </div>
+
+            <div class="user_container">
+              <div v-if="user"><UserCard @hideAuth="hideAuth" /></div>
+              <div v-else class="flex flex-row">
+                <button @click="() => (showAuth = !showAuth)">
+                  <div class="flex items-center justify-center gap-4">
+                    <div class="text-white hover:font-bold">Connexion</div>
+
+                    <div>
+                      <nuxt-icon class="text-[40px]" name="user" filled />
+                    </div>
+                  </div>
+                </button>
+
+                <AuthModal v-if="showAuth" @close="showAuth = false" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -38,8 +55,9 @@ import { storeToRefs } from "pinia";
 import { useNav } from "~/stores/useNav";
 import { useAuth } from "~/stores/useAuth";
 
-const { isMenuOpen, switchMenu } = useNav();
+const { switchMenu } = useNav();
 const { user, loading } = storeToRefs(useAuth());
+const { isMenuOpen } = storeToRefs(useNav());
 
 const showAuth = ref(false);
 const { logout } = useAuth();
@@ -50,6 +68,11 @@ const hideAuth = () => {
 };
 </script>
 <style scoped>
+.content {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
 .top-border {
   background-color: #eaf4f4;
 }

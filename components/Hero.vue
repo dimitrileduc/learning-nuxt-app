@@ -1,6 +1,6 @@
 <template>
   <div
-    class="global_hero flex justify-center px-8 sm:px-[136px] lg:px-0 pt-4 md:pt-10 pb-14"
+    class="global_hero flex justify-center px-10 sm:px-[136px] lg:px-0 pt-4 md:pt-10 pb-14"
   >
     <div class="container">
       <div class="content">

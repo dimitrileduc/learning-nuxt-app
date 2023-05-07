@@ -1,5 +1,9 @@
 <template>
-  <div v-if="user" class="rounded p-3 flex items-center space-x-3 bg-gray-100">
+  <div v-if="user" class="rounded p-3 flex items-center space-x-3">
+    <div class="text-right flex flex-row gap-6">
+      <div class="credits" v-if="credits">{{ credits }} credits</div>
+      <div class="name font-medium">{{ name }}</div>
+    </div>
     <div v-if="user.profile">
       <nuxt-img
         alt="user-card"
@@ -7,11 +11,8 @@
         :src="profile"
       />
     </div>
-    <div class="text-right">
-      <div class="font-medium">{{ name }}</div>
-      <div v-if="loading">loading</div>
-      <div v-if="credits">Credits: {{ credits }}</div>
-      <button class="text-blue-500" @click="logoutUser">Logout</button>
+    <div else>
+      <nuxt-icon class="text-[40px]" name="avatar" filled />
     </div>
   </div>
 </template>
@@ -34,8 +35,28 @@ const logoutUser = () => {
   setShowPayment(false);
 };
 
-const name = computed(() => user.value?.user_metadata.full_name);
+const name = computed(() => user.value?.user_metadata.full_name ?? "Name");
 const profile = computed(() => user.value?.user_metadata.avatar_url);
 const { credits, loading } = await useCredits();
 console.log(credits, "credits");
 </script>
+
+<style scoped>
+.name {
+  font-style: normal;
+  font-weight: 700;
+
+  text-align: right;
+
+  color: #cfe4ba;
+}
+
+.credits {
+  font-style: normal;
+  font-weight: 700;
+
+  text-align: right;
+
+  color: #ffffff;
+}
+</style>
