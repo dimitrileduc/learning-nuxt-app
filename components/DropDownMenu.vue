@@ -38,7 +38,7 @@
           <div class="item item_right py-2 hover:font-bold">Mes crédits</div>
           <div class="item item_right py-2 hover:font-bold">Mes vidéos</div>
           <div class="item item_right py-2 hover:font-bold">
-            <button @click="logout">Se déconnecter</button>
+            <button @click="logoutAndSwitchMenu">Se déconnecter</button>
           </div>
         </div>
         <div
@@ -61,6 +61,11 @@ const { switchMenu } = useNav();
 const { smoothScrollTo } = useSmoothScroll();
 const { logout } = useAuth();
 const { user } = storeToRefs(useAuth());
+
+const logoutAndSwitchMenu = () => {
+  logout();
+  switchMenu();
+};
 
 const goTo = (id) => {
   switchMenu();
