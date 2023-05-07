@@ -3,18 +3,14 @@
     <div class="top-border h-0 sm:h-2 lg:h-4 w-full"></div>
     <div class="sm:px-2 lg:px-4">
       <div
-        class="w-full flex items-center justify-center"
-        :style="{
-          background: isMenuOpen
-            ? 'rgb(16, 75, 81, 1)'
-            : 'rgb(16, 75, 81, 0.9)',
-        }"
+        class="nav w-full flex items-center justify-center"
+        :class="navBgClass"
       >
         <div
           class="container-nav w-full px-8 h-20 lg:max-w-[944px] lg:px-0"
           id="app"
         >
-          <div class="nav flex flex-row justify-between items-center h-full">
+          <div class="flex flex-row justify-between items-center h-full">
             <div class="icones_group flex items-center justify-center">
               <button @click="switchMenu">
                 <nuxt-icon
@@ -59,6 +55,8 @@ const { switchMenu } = useNav();
 const { user, loading } = storeToRefs(useAuth());
 const { isMenuOpen } = storeToRefs(useNav());
 
+const { isScrolledToTop } = useScroll();
+
 const showAuth = ref(false);
 const { logout } = useAuth();
 
@@ -66,6 +64,16 @@ const hideAuth = () => {
   console.log("hide auth from child");
   showAuth.value = false;
 };
+
+const navBgClass = computed(() => {
+  if (isMenuOpen.value) {
+    return "nav-solid";
+  } else if (isScrolledToTop.value) {
+    return "nav-transparent";
+  } else {
+    return "nav-alpha";
+  }
+});
 </script>
 <style scoped>
 .content {
@@ -75,5 +83,17 @@ const hideAuth = () => {
 }
 .top-border {
   background-color: #eaf4f4;
+}
+
+.nav {
+  transition: background-color 0.5s ease;
+}
+
+.nav-solid {
+  background-color: rgb(16, 75, 81, 1);
+}
+
+.nav-alpha {
+  background-color: rgb(16, 75, 81, 0.9);
 }
 </style>

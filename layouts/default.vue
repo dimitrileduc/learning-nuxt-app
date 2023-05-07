@@ -6,14 +6,16 @@
 
     <div class="body w-full">
       <div class="bg-green-100 w-screen relative">
-        <div
-          class="dropdown-container fixed top-0 z-10 w-full pt-20 md:pt-22 lg:pt-24 px-0 sm:px-2 lg:px-4"
-          :class="{ hidden: !isMenuOpen }"
-        >
-          <div class="">
-            <DropDownMenu />
+        <Transition>
+          <div
+            class="dropdown-container fixed top-0 z-10 w-full pt-20 md:pt-22 lg:pt-24 px-0 sm:px-2 lg:px-4"
+            v-if="isMenuOpen"
+          >
+            <div class="">
+              <DropDownMenu />
+            </div>
           </div>
-        </div>
+        </Transition>
         <div class="content relative z-0 flex-1">
           <slot />
           <Footer />
@@ -55,5 +57,15 @@ const { isMenuOpen } = storeToRefs(useNav());
 .content {
   position: relative;
   z-index: 0;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>

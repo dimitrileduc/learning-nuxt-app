@@ -69,7 +69,7 @@ const goTo = (id) => {
 </script>
 <style scoped>
 .dropdown_container {
-  background: rgb(16, 75, 81, 1);
+  background-color: rgb(16, 75, 81, 1);
   color: #ffffff;
 
   font-family: Lato;
