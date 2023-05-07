@@ -11,7 +11,7 @@
             class="dropdown-container fixed top-0 z-10 w-full pt-20 md:pt-22 lg:pt-24 px-0 sm:px-2 lg:px-4"
             v-if="isMenuOpen"
           >
-            <div class="">
+            <div ref="dropdown" class="">
               <DropDownMenu />
             </div>
           </div>
@@ -28,8 +28,14 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { useNav } from "~/stores/useNav";
+import { onClickOutside } from "@vueuse/core";
 
 const { isMenuOpen } = storeToRefs(useNav());
+const { switchMenu } = useNav();
+
+const dropdown = ref(null);
+
+onClickOutside(dropdown, (event) => switchMenu());
 </script>
 
 <style scoped>
