@@ -5,7 +5,7 @@
     </div>
 
     <div class="body w-full">
-      <div class="bg-green-100 w-screen relative">
+      <div class="bg-green-100 w-screen">
         <Transition>
           <div
             class="dropdown-container fixed top-0 z-10 w-full pt-20 md:pt-22 lg:pt-24 px-0 sm:px-2 lg:px-4"

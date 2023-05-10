@@ -28,8 +28,10 @@
               <div v-if="user"><UserCard @hideAuth="hideAuth" /></div>
               <div v-else class="flex flex-row">
                 <button @click="() => (showAuth = !showAuth)">
-                  <div class="flex items-center justify-center gap-4">
-                    <div class="text-white hover:font-bold">Connexion</div>
+                  <div
+                    class="flex items-center justify-center gap-4 opacity-80 hover:opacity-100"
+                  >
+                    <div class="text-white font-bold">Connexion</div>
 
                     <div>
                       <nuxt-icon class="text-[40px]" name="user" filled />

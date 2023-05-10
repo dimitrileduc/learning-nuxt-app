@@ -16,8 +16,8 @@
       <div
         class="icones_group mt-10 flex flex-row items-center justify-items-center gap-4"
       >
-        <nuxt-icon class="text-[24px]" name="youtube" filled />
-        <nuxt-icon class="text-[24px]" name="tiktok" filled />
+        <nuxt-icon class="text-[40px]" name="youtube" filled />
+        <nuxt-icon class="text-[40px]" name="tiktok" filled />
       </div>
       <div class="px-2 mt-3 text-center">Termes et conditions</div>
       <div class="px-2 mt-2 text-center">

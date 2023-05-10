@@ -21,6 +21,9 @@
 import { storeToRefs } from "pinia";
 import { useAuth } from "~/stores/useAuth";
 import { usePayment } from "~~/stores/usePayment";
+import { useNav } from "~/stores/useNav";
+
+const { switchMenu } = useNav();
 
 const { user } = storeToRefs(useAuth());
 const { setShowPayment } = usePayment();
@@ -35,7 +38,7 @@ const logoutUser = () => {
   setShowPayment(false);
 };
 
-const name = computed(() => user.value?.user_metadata.full_name ?? "Name");
+const name = computed(() => user.value?.user_metadata.full_name ?? "");
 const profile = computed(() => user.value?.user_metadata.avatar_url);
 const { credits, loading } = await useCredits();
 console.log(credits, "credits");
