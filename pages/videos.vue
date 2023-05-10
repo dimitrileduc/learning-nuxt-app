@@ -6,11 +6,19 @@
           <div v-if="title" class="text-3xl">{{ title }}</div>
           <div v-if="subtitle" class="mt-2">{{ subtitle }}</div>
           <div class="mt-10">
-            <Button primary :label="ctaLabel" />
+            <Button
+              primary
+              :label="ctaLabel"
+              @click="smoothScrollTo('#videos', 1000, -80)"
+            />
           </div>
         </div>
       </PageHeader>
-      <PageSection :title="sectionTitle" :subtitle="sectionSubtitle">
+      <PageSection
+        id="videos"
+        :title="sectionTitle"
+        :subtitle="sectionSubtitle"
+      >
         <UserVideos />
       </PageSection>
     </div>
@@ -18,6 +26,7 @@
 </template>
 
 <script setup>
+const { smoothScrollTo } = useSmoothScroll();
 const title = "Consulter l’historique de vos tirages";
 const sectionTitle = "Vos vidéos";
 const ctaLabel = "Voir mes vidéos";

@@ -24,8 +24,18 @@ import { useAuth } from "~/stores/useAuth";
 import { usePayment } from "~~/stores/usePayment";
 
 const { loading, user, authEvent } = storeToRefs(useAuth());
+const { smoothScrollTo } = useSmoothScroll();
+const route = useRoute();
 
 const showPasswordRecover = ref(false);
+
+console.log("route", route);
+console.log("route.query", route.query);
+
+watchEffect(() => {
+  if (route.query.section) {
+  }
+});
 
 watchEffect(() => {
   if (authEvent.value) {

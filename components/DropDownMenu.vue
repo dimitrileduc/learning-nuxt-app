@@ -8,28 +8,28 @@
           class="item py-2 hover:font-bold"
           @click="goTo('#section-acceuil')"
         >
-          Accueil
+          <NuxtLink to="/">Acceuil</NuxtLink>
         </div>
         <div
           class="item py-2 hover:font-bold"
           @click="goTo('#section-products')"
         >
-          Tirages
+          <NuxtLink to="/">Tirages</NuxtLink>
         </div>
         <div class="item py-2 hover:font-bold" @click="goTo('#section-packs')">
-          Crédits
+          <NuxtLink to="/">Credits</NuxtLink>
         </div>
         <div class="item py-2 hover:font-bold" @click="goTo('#section-about')">
-          About
+          <NuxtLink to="/">About</NuxtLink>
         </div>
         <div class="item py-2 hover:font-bold" @click="goTo('#section-rdv')">
-          Rendez-vous
+          <NuxtLink to="/">Rendez-vous</NuxtLink>
         </div>
         <div
           class="item py-2 hover:font-bold"
           @click="goTo('#section-contact')"
         >
-          Contact
+          <NuxtLink to="/">Contacts</NuxtLink>
         </div>
       </div>
       <div class="md:mt-0 md:text-right w-full flex flex-col">
@@ -57,6 +57,8 @@
 import { storeToRefs } from "pinia";
 import { useAuth } from "~/stores/useAuth";
 import { useNav } from "~/stores/useNav";
+const route = useRoute();
+const router = useRouter();
 const { switchMenu } = useNav();
 const { smoothScrollTo } = useSmoothScroll();
 const { logout } = useAuth();
@@ -69,7 +71,8 @@ const logoutAndSwitchMenu = () => {
 
 const goTo = (id) => {
   switchMenu();
-  smoothScrollTo(id);
+  console.log(id);
+  if (route.name === "index") return smoothScrollTo(id, 1000);
 };
 </script>
 <style scoped>
