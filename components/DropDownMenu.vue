@@ -14,7 +14,9 @@
           class="item py-2 hover:font-bold"
           @click="goTo('#section-products')"
         >
-          <NuxtLink to="/">Tirages</NuxtLink>
+          <NuxtLink :to="{ path: '/', query: { section: 'tirages' } }"
+            >Tirages</NuxtLink
+          >
         </div>
         <div class="item py-2 hover:font-bold" @click="goTo('#section-packs')">
           <NuxtLink to="/">Credits</NuxtLink>
@@ -72,7 +74,7 @@ const logoutAndSwitchMenu = () => {
 const goTo = (id) => {
   switchMenu();
   console.log(id);
-  if (route.name === "index") return smoothScrollTo(id, 1000);
+  // if (route.name === "index") return smoothScrollTo(id, 1000);
 };
 </script>
 <style scoped>

@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="hero pt-20"><Hero /></div>
-      <div id="section-products" class="products"><ProductsSection /></div>
+      <div id="tirages" class="products"><ProductsSection /></div>
     </div>
   </div>
 </template>
