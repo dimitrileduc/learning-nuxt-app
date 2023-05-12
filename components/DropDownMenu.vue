@@ -4,42 +4,49 @@
       class="w-full h-screen md:h-auto flex flex-col md:flex-row px-8 lg:max-w-[944px] lg:px-0 md:pb-10"
     >
       <div class="w-full flex flex-col">
-        <div
-          class="item py-2 hover:font-bold"
-          @click="goTo('#section-acceuil')"
-        >
-          <NuxtLink to="/">Acceuil</NuxtLink>
+        <div class="item py-2 hover:font-bold" @click="switchMenu">
+          <NuxtLink :to="{ path: '/', query: { section: 'home' } }"
+            >Acceuil</NuxtLink
+          >
         </div>
-        <div
-          class="item py-2 hover:font-bold"
-          @click="goTo('#section-products')"
-        >
+        <div class="item py-2 hover:font-bold" @click="switchMenu">
           <NuxtLink :to="{ path: '/', query: { section: 'tirages' } }"
             >Tirages</NuxtLink
           >
         </div>
-        <div class="item py-2 hover:font-bold" @click="goTo('#section-packs')">
-          <NuxtLink to="/">Credits</NuxtLink>
+        <div class="item py-2 hover:font-bold" @click="switchMenu">
+          <NuxtLink :to="{ path: '/', query: { section: 'credits' } }"
+            >Credits</NuxtLink
+          >
         </div>
-        <div class="item py-2 hover:font-bold" @click="goTo('#section-about')">
-          <NuxtLink to="/">About</NuxtLink>
+        <div class="item py-2 hover:font-bold" @click="switchMenu">
+          <NuxtLink :to="{ path: '/', query: { section: 'about' } }"
+            >About</NuxtLink
+          >
         </div>
-        <div class="item py-2 hover:font-bold" @click="goTo('#section-rdv')">
-          <NuxtLink to="/">Rendez-vous</NuxtLink>
+        <div class="item py-2 hover:font-bold" @click="switchMenu">
+          <NuxtLink :to="{ path: '/', query: { section: 'rdv' } }"
+            >Rendez-vous</NuxtLink
+          >
         </div>
-        <div
-          class="item py-2 hover:font-bold"
-          @click="goTo('#section-contact')"
-        >
-          <NuxtLink to="/">Contacts</NuxtLink>
+        <div class="item py-2 hover:font-bold" @click="switchMenu">
+          <NuxtLink :to="{ path: '/', query: { section: 'contacts' } }"
+            >Contacts</NuxtLink
+          >
         </div>
       </div>
       <div class="md:mt-0 md:text-right w-full flex flex-col">
         <div v-if="user">
-          <div class="item item_right py-2 hover:font-bold">Mon profil</div>
-          <div class="item item_right py-2 hover:font-bold">Mes crédits</div>
-          <div class="item item_right py-2 hover:font-bold">Mes vidéos</div>
-          <div class="item item_right py-2 hover:font-bold">
+          <div class="item item_right py-2 hover:font-bold" @click="switchMenu">
+            <NuxtLink :to="{ path: '/' }">Mon profil</NuxtLink>
+          </div>
+          <div class="item item_right py-2 hover:font-bold" @click="switchMenu">
+            <NuxtLink :to="{ path: 'credits' }">Mes crédits</NuxtLink>
+          </div>
+          <div class="item item_right py-2 hover:font-bold" @click="switchMenu">
+            <NuxtLink :to="{ path: 'videos' }">Mes videos</NuxtLink>
+          </div>
+          <div class="item item_right py-2 hover:font-bold" @click="switchMenu">
             <button @click="logoutAndSwitchMenu">Se déconnecter</button>
           </div>
         </div>

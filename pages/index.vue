@@ -1,14 +1,15 @@
 <template>
-  <div class="global" id="section-acceuil">
-    <Header />
+  <div class="global" id="home">
+    <div>
+      <Header />
+    </div>
 
-    <div id="section-packs">
+    <div id="credits">
       <PackCreditsSection />
     </div>
-    <About id="section-about" />
-    <RdvSection id="section-rdv" />
-    <ContactSection id="section-contact" />
-    <UserVideos v-if="false" />
+    <About id="about" />
+    <RdvSection id="rdv" />
+    <ContactSection id="contacts" />
 
     <ClientOnly>
       <Checkout v-if="showPayment && user" @close="hidePayment" />
@@ -35,18 +36,6 @@ const showPasswordRecover = ref(false);
 console.log("route", route);
 console.log("route.query", route.query);
 
-/*
-watch(
-  () => route.query.section,
-  (newSection, oldSection) => {
-    if (route.name === "index") {
-      const id = "#" + newSection;
-      smoothScrollTo(id, 1000);
-    }
-  }
-);
-*/
-
 watch(
   route,
   async (newRoute, oldRoute) => {
@@ -56,7 +45,7 @@ watch(
       if (oldRoute?.name === "index" && newRoute?.name === "index") {
         console.log("direct to section");
         const id = "#" + newRoute.query.section;
-        smoothScrollTo(id, 1000);
+        smoothScrollTo(id, 1000, -100);
       }
     }
   },
@@ -71,31 +60,6 @@ onMounted(() => {
     smoothScrollTo(id, 0);
   }
 });
-
-/*
-watchEffect(() => {
-  if (route.query.section) {
-    console.log("watch");
-    const sectionId = route.query.section;
-    console.log(sectionId);
-
-    if (route.name === "index") {
-      const id = "#" + sectionId;
-      smoothScrollTo(id, 1000);
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        window.scrollTo(0, element.offsetTop);
-      }
-    }
-
-    router.push({
-      name: "index",
-      query: { section: "home" },
-    });
-  }
-});
-*/
 
 watchEffect(() => {
   if (authEvent.value) {
