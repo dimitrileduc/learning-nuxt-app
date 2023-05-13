@@ -10,32 +10,44 @@
           <div v-else>guest</div>
           <div>hero subtitle</div>
         </div>
-        <div class="container_logo">
-          <nuxt-img alt="logo" class="justify-center" src="/logo.svg" />
+        <div class="container_logo mt-6 md:mt-8 lg:mt-0">
+          <nuxt-img alt="logo" class="justify-center w-48" src="/logo.svg" />
         </div>
         <div class="title text-2xl font-bold text-justify mt-8">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Tout est énergie
         </div>
-        <div class="description text-justify mt-4 leading-tight">
-          Lorem ipsum dolor sit amet, consectetuer ma chaine Youtube, sed diam
-          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-          volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-          ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-          Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-          molestie consequat, vel illum dolore eu feugiat nulla facilisis at
-          vero eros et accumsan et iusto odio dignissim qui blandit praesent
-          luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+        <div class="description mt-4 leading-tight">
+          Bienvenue sur ce site, si vous êtes arrivés ici c'est probablement
+          grâce à mes vidéos gratuite sur
+          <a class="text-[#CFE4BA] font-bold">Youtube</a> que je partage avec
+          plaisir à chaque lunaison :
+          <span class="font-bold">Nouvelle Lune et Pleine Lune.</span>
+          <br /><br />
+          La dernière vidéo vous a justement interpellée ?<br />
+          <span class="font-bold"
+            >Vous vous sentez proche des énergies du moment
+          </span>
+          et voudriez en savoir plus pour mieux aborder les prochains jours et
+          les prochaines semaines?<br /><br />
+          <span class="font-bold"
+            >Alors ces extensions de lectures intuitives sont faites pour vous
+            !</span
+          >
         </div>
         <div
           class="buttons_container mt-8 flex flex-col md:flex-row gap-3 items-center"
         >
-          <Button primary label="Tirage" @click="scrollToProducts" />
-          <Button label="Rendez-vous" @click="scrollToRDV" />
+          <Button
+            primary
+            label="Découvrir le tirage"
+            @click="scrollToProducts"
+          />
+          <Button label="Prendre rendez-vous" @click="scrollToRDV" />
         </div>
       </div>
       <div class="image flex justify-center">
         <nuxt-img
-          class="justify-center max-w-[144px] sm:max-w-[200px] lg:max-w-sm"
+          class="justify-center w-96 max-w-[144px] sm:max-w-[200px] lg:max-w-sm"
           src="/hero.svg"
           alt="hero"
         />

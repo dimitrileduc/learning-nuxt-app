@@ -10,9 +10,9 @@
       </div>
       <div class="title text-2xl font-bold mt-4 text-center">Contactez-moi</div>
       <div class="description mt-4 leading-tight text-center max-w-[712px]">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-        nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-        volutpat. Ut wisi enim ad minim veniam.
+        N’hésitez pas à m’envoyer vos questions via ce formulaire.<br />Pour
+        prendre rendez-vous, merci de vous rendre sur l’onglet prévu à cet
+        effet.
       </div>
       <div class="form mt-8 sm:mt-4 lg:mt-8 w-full">
         <div class="flex flex-col items-center w-full">

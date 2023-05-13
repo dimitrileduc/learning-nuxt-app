@@ -27,7 +27,7 @@
         <div class="overlay w-full h-full rounded"></div>
         <div class="iconContainer mr-4 mt-4">
           <nuxt-icon
-            class="text-2xl sm:text-[32px]"
+            class="text-2xl sm:text-[40px]"
             :name="unlocked ? 'unlocked' : 'locked'"
             filled
           />

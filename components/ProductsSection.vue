@@ -1,7 +1,7 @@
 <template>
   <div class="container w-full flex flex-col items-center px-8 sm:px-0">
     <div class="text-2xl text-white font-bold mt-4 text-center">
-      Découvre tout de suite les extensions des derniers tirages
+      Découvrez tout de suite les extensions de lectures intuitives
     </div>
 
     <div

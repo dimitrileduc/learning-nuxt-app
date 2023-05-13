@@ -2,9 +2,9 @@
   <div class="global w-[304px] h-[448px]">
     <div class="bg-white rounded flex flex-col items-center">
       <div class="container-image flex flex-col items-center w-full pt-4">
-        <nuxt-img alt="pack" src="/lunepack.svg" />
+        <nuxt-img alt="pack" class="w-52" :src="imgSrc" />
         <div class="mb-2 text-center font-bold text-sm text-white">
-          {{ priceLabel }}
+          {{ pack.title }}
         </div>
       </div>
       <div class="text-center px-10 pb-8 w-full flex flex-col items-center">
@@ -35,7 +35,7 @@
         <div class="separator_container">
           <nuxt-img alt="separator" src="/separator.svg" />
         </div>
-        <div class="button-container w-full pt-4">
+        <div class="leading-6 w-full pt-4 flex flex-col justify-center">
           <Button primary label="Acheter ce pack" @click="buyPack" />
         </div>
       </div>
@@ -49,6 +49,10 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+});
+
+const imgSrc = computed(() => {
+  return `/${props.pack.type}.svg`;
 });
 
 const emits = defineEmits(["buy"]);

@@ -6,7 +6,7 @@
       <div>
         <nuxt-img alt="footer" src="/footer_center.svg" />
       </div>
-      <div class="mt-12 flex flex-row items-center justify-items-center gap-4">
+      <div class="mt-12 flex flex-row items-center justify-items-center gap-10">
         <div class="text-center text-sm">Accueil</div>
         <div class="text-center text-sm">Tirages</div>
         <div class="text-center text-sm">Credits</div>
@@ -19,8 +19,10 @@
         <nuxt-icon class="text-[40px]" name="youtube" filled />
         <nuxt-icon class="text-[40px]" name="tiktok" filled />
       </div>
-      <div class="px-2 mt-3 text-center">Termes et conditions</div>
-      <div class="px-2 mt-2 text-center">
+      <div class="px-2 mt-3 text-center text-xs text-white">
+        Termes et conditions
+      </div>
+      <div class="px-2 mt-2 text-center text-xs text-white">
         Copyright 2023 - Moon Energy. All rights reserved.
       </div>
     </div>

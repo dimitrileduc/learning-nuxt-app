@@ -57,7 +57,7 @@ onMounted(() => {
   if (route.query.section) {
     console.log("onMounted section", route.query.section);
     const id = "#" + route.query.section;
-    smoothScrollTo(id, 0);
+    smoothScrollTo(id, 0, -100);
   }
 });
 

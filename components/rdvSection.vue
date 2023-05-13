@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container px-10 pt-12 lg:pt-10 pb-14 w-full flex flex-col items-center"
+    class="container px-10 pt-12 lg:pt-10 pb-14 w-full flex flex-col items-center justify-start"
   >
     <div class="flex flex-col items-center sm:max-w-[552px] lg:max-w-[944px]">
       <div><nuxt-icon class="text-[32px]" name="rdv" filled /></div>
@@ -9,9 +9,12 @@
           Rendez-vous personnel
         </div>
         <div class="text-center mt-4 leading-tight">
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-          volutpat. Ut wisi enim ad minim veniam.
+          Bienvenue dans un espace sécurisé ou vous pourrez prendre le temps de
+          vous aligner à votre moi profond et à vos émotions.
+        </div>
+        <div class="text-center text-sm italic mt-2 leading-tight">
+          Si vous souffrez de problèmes de santé, il est essentiel de consulter
+          un médecin compétent.
         </div>
       </div>
 
@@ -26,21 +29,21 @@
               src="/guidance_classique.svg"
             />
           </div>
-          <div class="mt-6 text-2xl font-bold text-center">
-            Guidance classique (60')
+          <div class="mt-6 text-[20px] font-bold text-center">
+            Guidance personnalisé
           </div>
-          <div class="mt-4 leading-tight">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-            ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-            consequat.
+          <div class="mt-4 leading-tight md:min-h-[119px]">
+            Je vous accueille pour vous soutenir dans votre parcours de vie en
+            vous apportant les messages que vous êtes prêts à entendre, en
+            éclairant d’éventuelles zones d’ombres, en vous aidant à vous
+            connecter à vos ressources personnelles afin de suivre la voie de
+            votre âme
           </div>
-          <div class="container_button mt-6 md:mt-8 lg:mt-12">
+          <div class="container_button mt-0 md:mt-4 lg:mt-8">
             <Button primary label="Rendez-vous 1" />
           </div>
         </div>
-        <div class="option1 w-full flex flex-col items-center">
+        <div class="option1 w-full flex flex-col items-center justify-start">
           <div class="container_image max-h-[116px]">
             <nuxt-img
               alt="guidance"
@@ -48,17 +51,18 @@
               src="/guidance_direct.svg"
             />
           </div>
-          <div class="mt-6 text-2xl font-bold text-center">
-            Guidance Directe (30’)
+          <div class="mt-6 text-[20px] font-bold text-center">
+            Guidance Directe
           </div>
-          <div class="mt-4 leading-tight">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-            ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-            consequat.
+          <div class="mt-4 leading-tight md:min-h-[119px]">
+            Vous avez une question très précise à poser ? Lors de cette séance,
+            nous pouvons nous concentrer sur votre interrogation du moment pour
+            vous permettre d’éclairer les zones auxquelles vous n’avez pas
+            accès, pour mettre des mots et des images sur vos émotions et vos
+            ressentis mais aussi pour envisager les pistes qui vous permettront
+            d’avancer sur votre chemin de vie.
           </div>
-          <div class="container_button mt-6 md:mt-8 lg:mt-12">
+          <div class="container_button mt-0 md:mt-4 lg:mt-8">
             <Button primary label="Rendez-vous 1" />
           </div>
         </div>

@@ -1,12 +1,15 @@
 <template>
   <div class="container_packs border py-10 px-10 flex flex-col items-center">
     <div class="font-bold text-2xl text-center">
-      Recharge tes Moons maintenant
+      Packs extensions guidances intuitives lunaires
     </div>
     <div class="details mt-4 mb-8 text-center leading-tight max-w-[712px]">
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-      nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut
-      wisi enim ad minim veniam.
+      <span class="font-bold">Rechargez ici vos crédits</span> afin d'en savoir
+      plus sur les énergies du moment pour lever des blocages, éclairer des
+      zones d’ombres et pour recevoir les messages qui vous permettent de vous
+      <br /><span class="font-bold">
+        positionner concrètement dans votre vie.</span
+      >
     </div>
     <div class="w-full sm:max-w-[644px] lg:max-w-[944px]">
       <SwiperBox :packs="packs" />
@@ -26,9 +29,9 @@ import { useAuth } from "~/stores/useAuth";
 const { login, loading, user } = storeToRefs(useAuth());
 
 const packs = [
-  { id: 1, creditsValue: 1, price: 9.9, label: "Lune" },
-  { id: 2, creditsValue: 2, price: 17.9, label: "Univers" },
-  { id: 3, creditsValue: 3, price: 25.9, label: "30" },
+  { id: 1, creditsValue: 1, price: 11, type: "lune", title: "Lune" },
+  { id: 2, creditsValue: 2, price: 20, type: "univers", title: "Planète" },
+  { id: 3, creditsValue: 3, price: 27, type: "galaxie", title: "Galaxie" },
 ];
 </script>
 

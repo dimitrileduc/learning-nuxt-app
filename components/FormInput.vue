@@ -75,11 +75,13 @@ const handleBlurInput = (e) => {
 </script>
 
 <template>
-  <div class="TextInput text-sm w-full">
+  <div class="TextInput w-full">
     <div class="">
+      <!--
       <label class="label pointer-events-none" :for="name">{{
         placeholder
       }}</label>
+      -->
       <div class="relative">
         <input
           :id="name"
@@ -92,7 +94,7 @@ const handleBlurInput = (e) => {
           :class="{
             error: meta.touched && !meta.valid,
           }"
-          class="input p-2 px-4 mt-2 w-full placeholder-transparent border rounded border-[#7093976d] peer focus:outline-none focus:border-[#104B51]"
+          class="bg-[#EAF4F4] input p-2 px-4 mt-2 w-full border border-transparent rounded peer focus:outline-none focus:border-[#104B51]"
         />
 
         <div
@@ -108,7 +110,7 @@ const handleBlurInput = (e) => {
         </div>
       </div>
 
-      <div v-if="true" class="m-8">
+      <div v-if="false" class="m-4">
         <p
           class="help-message"
           :class="{
