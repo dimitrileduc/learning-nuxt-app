@@ -13,11 +13,11 @@
           <nuxt-img alt="separator" src="/separator.svg" />
         </div>
         <div
-          class="details-container w-full py-3 flex flex-col items-center gap-2"
+          class="details-container w-full py-3 flex flex-col items-center gap-0.5"
         >
-          <div class="container-icones">
-            <div class="">
-              <nuxt-icon class="text-2xl sm:text-[20px]" name="lune" filled />
+          <div class="container-icones flex flex-row gap-2">
+            <div v-for="index in pack.creditsValue" class="">
+              <nuxt-img class="h-5" alt="youtube" src="/lune.svg" />
             </div>
           </div>
           <div class="details">
