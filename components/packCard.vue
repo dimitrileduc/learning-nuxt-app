@@ -35,7 +35,7 @@
         <div class="separator_container">
           <nuxt-img alt="separator" src="/separator.svg" />
         </div>
-        <div class="leading-6 w-full pt-4 flex flex-col justify-center">
+        <div class="text-base w-full pt-7 flex flex-col justify-center">
           <Button primary label="Acheter ce pack" @click="buyPack" />
         </div>
       </div>
