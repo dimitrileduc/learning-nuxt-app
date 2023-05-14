@@ -82,7 +82,14 @@ function redirectLogin() {
       @submit="handleSignUp"
       type="register"
       :toPayment="props.toPayment"
-    />
+    >
+      <div class="legal text-sm pt-6 text-center text-opacity-60">
+        En m'inscrivant, j’accepte les
+        <span class="underline">conditions générales</span> et la
+        <span class="underline">politique de confidentialité</span>
+      </div>
+    </AuthForm>
+
     <div v-if="existingEmail" class="error-box py-4">
       <div class="error-message">
         <div class="text-red-400 p-2 mt-2 rounded">

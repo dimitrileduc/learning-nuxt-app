@@ -2,12 +2,16 @@
   <div class="bg-white container text-[#104B51]">
     <div v-if="!formSubmitted">
       <div class="image flex justify-center">
-        <nuxt-img alt="hero" class="justify-center w-32" src="/hero.svg" />
+        <nuxt-img
+          alt="hero"
+          class="justify-center w-28"
+          src="/modal_logo.svg"
+        />
       </div>
       <div class="mt-6 text-2xl font-semibold flex justify-center text-center">
         Mot de passe oublié ?
       </div>
-      <div class="mt-6 w-full items-center pt-1 text-center">
+      <div class="mt-6 w-full items-center text-center">
         Veuillez entrer votre adresse email afin de recevoir un lien pour créer
         un nouveau mot de passe.
       </div>
@@ -28,7 +32,7 @@
           placeholder="Adresse e-mail"
         />
 
-        <div class="w-full">
+        <div class="w-full mt-6">
           <Button noMaxWidth class="w-full" primary :label="labelButton" />
         </div>
       </Form>

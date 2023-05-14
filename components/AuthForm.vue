@@ -88,6 +88,8 @@ emailInput?.value?.$el.focus();
         placeholder="Mot de passe"
       />
 
+      <slot></slot>
+
       <div class="w-full mt-6">
         <Button noMaxWidth class="w-full" primary :label="labelButton" />
       </div>

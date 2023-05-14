@@ -49,8 +49,9 @@ async function submit(data: any) {
       @submit="submit"
       type="logIn"
       :existingEmail="props?.existingEmail"
-    />
-    <div class="mt-2 w-full flex items-center text-center text-sm">
+    >
+    </AuthForm>
+    <div class="mt-4 w-full flex items-center text-center text-sm">
       <button class="label_button w-full" @click="$emit('resetPassword')">
         Mot de passe oublié ?
       </button>
