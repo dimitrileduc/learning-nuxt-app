@@ -4,54 +4,145 @@
       class="w-full h-screen md:h-auto flex flex-col md:flex-row px-8 lg:max-w-[944px] lg:px-0 md:pb-10"
     >
       <div class="w-full flex flex-col">
-        <div class="item py-2 hover:font-bold" @click="switchMenu">
-          <NuxtLink :to="{ path: '/', query: { section: 'home' } }"
-            >Acceuil</NuxtLink
+        <div
+          class="w-full item pl-3 hover:font-bold h-full"
+          @click="switchMenu"
+        >
+          <NuxtLink
+            class="w-full h-full"
+            :to="{ path: '/', query: { section: 'home' } }"
+            ><div class="w-full h-full py-2">Acceuil</div></NuxtLink
           >
         </div>
-        <div class="item py-2 hover:font-bold" @click="switchMenu">
-          <NuxtLink :to="{ path: '/', query: { section: 'tirages' } }"
-            >Tirages</NuxtLink
+        <div class="separator_container w-full">
+          <nuxt-img
+            class="w-full"
+            alt="separator"
+            src="/menu_item_separator.svg"
+          />
+        </div>
+        <div class="item pl-3 hover:font-bold w-full" @click="switchMenu">
+          <NuxtLink
+            class="w-full"
+            :to="{ path: '/', query: { section: 'tirages' } }"
+            ><div class="w-full py-2">Tirages</div></NuxtLink
           >
         </div>
-        <div class="item py-2 hover:font-bold" @click="switchMenu">
-          <NuxtLink :to="{ path: '/', query: { section: 'credits' } }"
-            >Credits</NuxtLink
+        <div class="separator_container w-full">
+          <nuxt-img
+            class="w-full"
+            alt="separator"
+            src="/menu_item_separator.svg"
+          />
+        </div>
+        <div class="item pl-3 hover:font-bold w-full" @click="switchMenu">
+          <NuxtLink
+            class="w-full"
+            :to="{ path: '/', query: { section: 'credits' } }"
+            ><div class="w-full py-2">Credits</div></NuxtLink
           >
         </div>
-        <div class="item py-2 hover:font-bold" @click="switchMenu">
-          <NuxtLink :to="{ path: '/', query: { section: 'about' } }"
-            >About</NuxtLink
+        <div class="separator_container w-full">
+          <nuxt-img
+            class="w-full"
+            alt="separator"
+            src="/menu_item_separator.svg"
+          />
+        </div>
+        <div class="item pl-3 hover:font-bold w-full" @click="switchMenu">
+          <NuxtLink
+            class="w-full"
+            :to="{ path: '/', query: { section: 'about' } }"
+            ><div class="w-full py-2">About</div></NuxtLink
           >
         </div>
-        <div class="item py-2 hover:font-bold" @click="switchMenu">
-          <NuxtLink :to="{ path: '/', query: { section: 'rdv' } }"
-            >Rendez-vous</NuxtLink
+        <div class="separator_container w-full">
+          <nuxt-img
+            class="w-full"
+            alt="separator"
+            src="/menu_item_separator.svg"
+          />
+        </div>
+        <div class="item pl-3 hover:font-bold w-full" @click="switchMenu">
+          <NuxtLink
+            class="w-full"
+            :to="{ path: '/', query: { section: 'rdv' } }"
+            ><div class="w-full py-2">Rendez-vous</div></NuxtLink
           >
         </div>
-        <div class="item py-2 hover:font-bold" @click="switchMenu">
-          <NuxtLink :to="{ path: '/', query: { section: 'contacts' } }"
-            >Contacts</NuxtLink
+        <div class="separator_container w-full">
+          <nuxt-img
+            class="w-full"
+            alt="separator"
+            src="/menu_item_separator.svg"
+          />
+        </div>
+        <div class="item pl-3 hover:font-bold w-full" @click="switchMenu">
+          <NuxtLink
+            class="w-full"
+            :to="{ path: '/', query: { section: 'contacts' } }"
+            ><div class="w-full py-2">Contacts</div></NuxtLink
           >
         </div>
       </div>
       <div class="md:mt-0 md:text-right w-full flex flex-col">
         <div v-if="user">
-          <div class="item item_right py-2 hover:font-bold" @click="switchMenu">
-            <NuxtLink :to="{ path: '/' }">Mon profil</NuxtLink>
+          <div
+            class="item item_right pr-3 hover:font-bold w-full"
+            @click="switchMenu"
+          >
+            <NuxtLink class="w-full" :to="{ path: '/' }"
+              ><div class="w-full py-2">Mon profil</div></NuxtLink
+            >
           </div>
-          <div class="item item_right py-2 hover:font-bold" @click="switchMenu">
-            <NuxtLink :to="{ path: 'credits' }">Mes crédits</NuxtLink>
+          <div class="separator_container w-full">
+            <nuxt-img
+              class="w-full rotate-180"
+              alt="separator"
+              src="/menu_item_separator.svg"
+            />
           </div>
-          <div class="item item_right py-2 hover:font-bold" @click="switchMenu">
-            <NuxtLink :to="{ path: 'videos' }">Mes videos</NuxtLink>
+          <div
+            class="item item_right pr-3 hover:font-bold w-full"
+            @click="switchMenu"
+          >
+            <NuxtLink class="w-full" :to="{ path: 'credits' }"
+              ><div class="w-full py-2">Mes crédits</div></NuxtLink
+            >
           </div>
-          <div class="item item_right py-2 hover:font-bold" @click="switchMenu">
-            <button @click="logoutAndSwitchMenu">Se déconnecter</button>
+          <div class="separator_container w-full">
+            <nuxt-img
+              class="w-full rotate-180"
+              alt="separator"
+              src="/menu_item_separator.svg"
+            />
+          </div>
+          <div
+            class="item item_right pr-3 hover:font-bold w-full"
+            @click="switchMenu"
+          >
+            <NuxtLink class="w-full" :to="{ path: 'videos' }"
+              ><div class="w-full py-2">Mes vidéos</div></NuxtLink
+            >
+          </div>
+          <div class="separator_container w-full">
+            <nuxt-img
+              class="w-full rotate-180"
+              alt="separator"
+              src="/menu_item_separator.svg"
+            />
+          </div>
+          <div
+            class="item item_right pr-3 hover:font-bold w-full"
+            @click="switchMenu"
+          >
+            <button class="w-full flex" @click="logoutAndSwitchMenu">
+              <div class="w-full py-2 text-right">Se déconnecter</div>
+            </button>
           </div>
         </div>
         <div
-          class="icones_group h-full py-2 flex flex-row justify-start md:justify-end gap-2"
+          class="icones_group h-full py-2 pr-3 flex flex-row justify-start md:justify-end gap-2"
           :class="user ? 'items-end' : 'items-start'"
         >
           <nuxt-icon class="text-[40px]" name="youtube" filled />

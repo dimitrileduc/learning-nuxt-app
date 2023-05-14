@@ -34,7 +34,7 @@
                     <div class="text-white font-bold">Connexion</div>
 
                     <div>
-                      <nuxt-icon class="text-[40px]" name="user" filled />
+                      <nuxt-icon class="text-[32px]" name="user" filled />
                     </div>
                   </div>
                 </button>

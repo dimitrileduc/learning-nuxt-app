@@ -1,7 +1,7 @@
 <template>
   <div class="ex_container w-full">
     <div class="px-0 sm:px-2 lg:px-4 w-full">
-      <div class="border w-full flex items-center justify-center">
+      <div class="w-full flex items-center justify-center">
         <div class="slot_container w-full text-center pt-8 pb-9">
           <div class="px-8">
             <div v-if="props.title" class="title font-bold text-2xl">
@@ -13,7 +13,7 @@
             >
               <div class="max-w-[712px]">{{ props.subtitle }}</div>
             </div>
-            <div class="border mt-10"><slot></slot></div>
+            <div class="mt-10"><slot></slot></div>
           </div>
         </div>
       </div>

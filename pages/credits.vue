@@ -26,10 +26,10 @@
           </div>
         </div>
       </PageSection>
-      <PageSection id="credits" :title="historiqueSectionTile" class="border">
+      <PageSection id="credits" :title="historiqueSectionTile" class="">
         <div class="flex items-center justify-center">
-          <div class="w-full sm:max-w-[644px] lg:max-w-[944px]">
-            <div>historique</div>
+          <div class="w-full sm:max-w-[644px] lg:max-w-[944px] pt-6">
+            <CreditsTable />
           </div>
         </div>
       </PageSection>
@@ -50,9 +50,9 @@ const sectionSubtitle =
 const historiqueSectionTile = "Historique des derniers achats";
 
 const packs = [
-  { id: 1, creditsValue: 1, price: 9.9, label: "Lune" },
-  { id: 2, creditsValue: 2, price: 17.9, label: "Univers" },
-  { id: 3, creditsValue: 3, price: 25.9, label: "30" },
+  { id: 1, creditsValue: 1, price: 11, type: "lune", title: "Lune" },
+  { id: 2, creditsValue: 2, price: 20, type: "univers", title: "Planète" },
+  { id: 3, creditsValue: 3, price: 27, type: "galaxie", title: "Galaxie" },
 ];
 </script>
 <style scoped></style>

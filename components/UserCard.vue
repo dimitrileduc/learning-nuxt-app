@@ -12,7 +12,7 @@
       />
     </div>
     <div else>
-      <nuxt-icon class="text-[40px]" name="avatar" filled />
+      <nuxt-icon class="text-[32px]" name="avatar" filled />
     </div>
   </div>
 </template>
