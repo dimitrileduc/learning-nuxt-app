@@ -167,7 +167,6 @@ const { user } = storeToRefs(useAuth());
 
 const logoutAndSwitchMenu = () => {
   logout();
-  switchMenu();
 };
 
 const goTo = (id) => {

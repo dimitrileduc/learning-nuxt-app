@@ -1,5 +1,5 @@
 <template>
-  <div v-if="user" class="rounded p-3 flex items-center space-x-3">
+  <div v-if="user" class="rounded flex items-center space-x-3">
     <div class="text-right flex flex-row gap-6">
       <div class="credits" v-if="credits">{{ credits }} credits</div>
       <div class="name font-medium">{{ name }}</div>

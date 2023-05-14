@@ -7,7 +7,7 @@
         :class="navBgClass"
       >
         <div
-          class="container-nav w-full px-8 lg:max-w-[944px] lg:px-0 py-4"
+          class="container-nav w-full px-8 lg:max-w-[944px] lg:px-0 py-6"
           id="app"
         >
           <div class="flex flex-row justify-between items-center">
