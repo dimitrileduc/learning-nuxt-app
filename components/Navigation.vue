@@ -7,19 +7,25 @@
         :class="navBgClass"
       >
         <div
-          class="container-nav w-full px-8 h-20 lg:max-w-[944px] lg:px-0"
+          class="container-nav w-full px-8 lg:max-w-[944px] lg:px-0 py-4"
           id="app"
         >
-          <div class="flex flex-row justify-between items-center h-full">
-            <div class="icones_group flex items-center justify-center">
-              <div v-if="isMenuOpen">
-                <button @click="closeMenu">
-                  <nuxt-icon class="text-[32px]" name="close" filled />
+          <div class="flex flex-row justify-between items-center">
+            <div class="flex items-center justify-center">
+              <div class="flex items-center justify-center" v-if="isMenuOpen">
+                <button
+                  class="flex items-center justify-center"
+                  @click="closeMenu"
+                >
+                  <nuxt-img class="h-8" alt="youtube" src="/close_menu.svg" />
                 </button>
               </div>
-              <div v-else>
-                <button @click="switchMenu">
-                  <nuxt-icon class="text-[32px]" name="menu" filled />
+              <div class="flex items-center justify-center" v-else>
+                <button
+                  class="flex items-center justify-center"
+                  @click="switchMenu"
+                >
+                  <nuxt-img class="h-8" alt="youtube" src="/menu_icon.svg" />
                 </button>
               </div>
             </div>
@@ -33,8 +39,8 @@
                   >
                     <div class="text-white font-bold">Connexion</div>
 
-                    <div>
-                      <nuxt-icon class="text-[32px]" name="user" filled />
+                    <div class="flex items-center justify-center">
+                      <nuxt-img class="h-8" alt="youtube" src="/user.svg" />
                     </div>
                   </div>
                 </button>

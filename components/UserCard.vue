@@ -11,8 +11,8 @@
         :src="profile"
       />
     </div>
-    <div else>
-      <nuxt-icon class="text-[32px]" name="avatar" filled />
+    <div class="flex flex-center justify-center" else>
+      <nuxt-img class="h-8" alt="youtube" src="/avatar.svg" />
     </div>
   </div>
 </template>

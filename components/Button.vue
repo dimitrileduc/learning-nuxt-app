@@ -1,5 +1,5 @@
 <template>
-  <div class="global">
+  <div class="global_button">
     <button
       :disabled="loading"
       class="px-5 xs:px-0"
@@ -111,7 +111,7 @@ const handleClick = () => {
   opacity: 0; /* set the opacity of the mask to 0 on hover */
 }
 
-.global {
+.global_button {
   font-family: Lato;
   font-weight: 700;
   -webkit-font-smoothing: antialiased;

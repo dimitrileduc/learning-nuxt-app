@@ -145,8 +145,9 @@
           class="icones_group h-full py-2 pr-3 flex flex-row justify-start md:justify-end gap-2"
           :class="user ? 'items-end' : 'items-start'"
         >
-          <nuxt-icon class="text-[40px]" name="youtube" filled />
-          <nuxt-icon class="text-[40px]" name="tiktok" filled />
+          <nuxt-img class="h-8" alt="youtube" src="/youtube.svg" />
+
+          <nuxt-img class="h-8" alt="youtube" src="/tiktok.svg" />
         </div>
       </div>
     </div>
