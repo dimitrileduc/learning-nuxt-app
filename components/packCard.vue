@@ -21,16 +21,16 @@
             </div>
           </div>
           <div class="details">
-            <span class="font-normal">Crédit pour</span>&nbsp
-            <span class="font-bold">{{ pack.creditsValue }} videos</span>
+            <span class="font-normal">Crédit pour</span>
+            <span class="pl-1 font-bold">{{ pack.creditsValue }} videos</span>
           </div>
         </div>
         <div class="separator_container">
           <nuxt-img alt="separator" src="/separator.svg" />
         </div>
         <div class="w-full py-3">
-          <span class="font-normal">Valable</span>&nbsp
-          <span class="font-bold">1 an</span>
+          <span class="font-normal">Valable</span>
+          <span class="font-bold pl-1">1 an</span>
         </div>
         <div class="separator_container">
           <nuxt-img alt="separator" src="/separator.svg" />

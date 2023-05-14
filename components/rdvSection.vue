@@ -32,7 +32,8 @@
           <div class="mt-6 text-[20px] font-bold text-center">
             Guidance personnalisé
           </div>
-          <div class="mt-4 leading-tight md:min-h-[119px]">
+          <div class="mt-1 text-[14px] text-center">60 minutes /75€</div>
+          <div class="mt-4 leading-tight md:min-h-[119px] text-justify">
             Je vous accueille pour vous soutenir dans votre parcours de vie en
             vous apportant les messages que vous êtes prêts à entendre, en
             éclairant d’éventuelles zones d’ombres, en vous aidant à vous
@@ -40,7 +41,7 @@
             votre âme
           </div>
           <div class="container_button mt-0 md:mt-4 lg:mt-8">
-            <Button primary label="Rendez-vous 1" />
+            <Button primary label="Réserver 60'" />
           </div>
         </div>
         <div class="option1 w-full flex flex-col items-center justify-start">
@@ -54,7 +55,8 @@
           <div class="mt-6 text-[20px] font-bold text-center">
             Guidance Directe
           </div>
-          <div class="mt-4 leading-tight md:min-h-[119px]">
+          <div class="mt-1 text-[14px] text-center">30 minutes / 45€</div>
+          <div class="mt-4 leading-tight md:min-h-[119px] text-justify">
             Vous avez une question très précise à poser ? Lors de cette séance,
             nous pouvons nous concentrer sur votre interrogation du moment pour
             vous permettre d’éclairer les zones auxquelles vous n’avez pas
@@ -63,7 +65,7 @@
             d’avancer sur votre chemin de vie.
           </div>
           <div class="container_button mt-0 md:mt-4 lg:mt-8">
-            <Button primary label="Rendez-vous 1" />
+            <Button primary label="Réserver 30'" />
           </div>
         </div>
       </div>
