@@ -26,7 +26,16 @@
         Copyright 2023 - Moon Energy. All rights reserved.
       </div>
     </div>
-    <div class="absolute bottom-4 left-4">LEFT</div>
+    <div class="hidden md:flex absolute bottom-4 left-4">
+      <div>
+        <nuxt-img alt="footer" src="/footer_left.svg" />
+      </div>
+    </div>
+    <div class="hidden md:flex absolute bottom-4 right-4">
+      <div>
+        <nuxt-img alt="footer" src="/footer_right.svg" />
+      </div>
+    </div>
   </div>
 </template>
 
