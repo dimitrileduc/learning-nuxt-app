@@ -26,6 +26,7 @@
         Copyright 2023 - Moon Energy. All rights reserved.
       </div>
     </div>
+    <div class="absolute bottom-4 left-4">LEFT</div>
   </div>
 </template>
 
@@ -36,6 +37,7 @@ const user = useSupabaseUser();
 <style scoped>
 .container-interne {
   color: #cfe4ba;
+  position: relative;
 
   font-family: Lato;
 
@@ -45,5 +47,25 @@ const user = useSupabaseUser();
 
   background: radial-gradient(50% 50% at 50% 50%, #145661 0%, #104b51 100%);
   border-radius: 10px 10px 0px 0px;
+}
+
+.my-div::before,
+.my-div::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.my-div::before {
+  background-image: url(tiktok.svg);
+}
+
+.my-div::after {
+  background-image: url(image2.jpg);
 }
 </style>

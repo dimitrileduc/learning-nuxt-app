@@ -26,6 +26,7 @@ export default defineNuxtConfig({
     "nuxt-icons",
     "nuxt-swiper",
     "@nuxt/image-edge",
+    "nuxt-calendly",
   ],
 
   googleFonts: {

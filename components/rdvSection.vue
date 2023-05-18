@@ -41,7 +41,7 @@
             votre âme
           </div>
           <div class="container_button mt-4 md:mt-6 lg:mt-8">
-            <Button primary label="Réserver 60'" />
+            <Calendly60 />
           </div>
         </div>
         <div class="option1 w-full flex flex-col items-center justify-start">
@@ -65,7 +65,7 @@
             d’avancer sur votre chemin de vie.
           </div>
           <div class="container_button mt-4 md:mt-6 lg:mt-8">
-            <Button primary label="Réserver 30'" />
+            <Calendly30 />
           </div>
         </div>
       </div>

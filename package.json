@@ -22,6 +22,7 @@
     "cross-fetch": "^3.1.5",
     "nuxi": "^3.2.3",
     "nuxt": "3.3.0",
+    "nuxt-calendly": "^0.1.14",
     "nuxt-icon": "^0.3.3",
     "pinia": "^2.0.33",
     "prisma": "4.10.1",
