@@ -22,8 +22,14 @@
 
 <script setup>
 import { onMounted } from "vue";
+
+import { storeToRefs } from "pinia";
 import { useAuth } from "~/stores/useAuth";
 import { usePayment } from "~~/stores/usePayment";
+
+const { query } = useRoute();
+
+const { showPayment } = storeToRefs(usePayment());
 
 const { loading, user, authEvent } = storeToRefs(useAuth());
 const { smoothScrollTo } = useSmoothScroll();
@@ -71,12 +77,6 @@ watchEffect(() => {
 });
 
 const { setShowPayment } = usePayment();
-
-import { storeToRefs } from "pinia";
-
-const { query } = useRoute();
-
-const { showPayment } = storeToRefs(usePayment());
 
 const hidePayment = () => {
   setShowPayment(false);

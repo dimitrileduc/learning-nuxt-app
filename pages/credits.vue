@@ -34,23 +34,31 @@
         </div>
       </PageSection>
     </div>
+    <ClientOnly>
+      <Checkout v-if="showPayment" @close="setShowPayment(false)" />
+    </ClientOnly>
   </div>
 </template>
 
 <script setup>
+import { storeToRefs } from "pinia";
+import { usePayment } from "~~/stores/usePayment";
 const { smoothScrollTo } = useSmoothScroll();
+const { setShowPayment } = usePayment();
+const { showPayment } = storeToRefs(usePayment());
+
 const title = "Vous avez actuellement 1 crédit disponible";
 const subtitle = "Valable jusqu’au 10/04/2024";
 const ctaLabel = "Acheter des crédits";
-const sectionTitle = "Recharge tes Moons maintenant";
+const sectionTitle = "Packs extensions guidances intuitives lunaires";
 
 const sectionSubtitle =
-  "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.";
+  " Rechargez ici vos crédits afin d'en savoir plus sur les énergies du moment pour lever des blocages, éclairer des zones d’ombres et pour recevoir les messages qui vous permettent de vous positionner concrètement dans votre vie.";
 
 const historiqueSectionTile = "Historique des derniers achats";
 
 const packs = [
-  { id: 1, creditsValue: 1, price: 11, type: "lune", title: "Lune" },
+  { id: 1, creditsValue: 1, price: 11, type: "lune_pack", title: "Lune" },
   { id: 2, creditsValue: 2, price: 20, type: "univers", title: "Planète" },
   { id: 3, creditsValue: 3, price: 27, type: "galaxie", title: "Galaxie" },
 ];
