@@ -15,6 +15,7 @@
         </div>
       </PageHeader>
       <PageSection
+        v-if="user"
         id="videos"
         :title="sectionTitle"
         :subtitle="sectionSubtitle"
@@ -26,6 +27,9 @@
 </template>
 
 <script setup>
+import { storeToRefs } from "pinia";
+import { useAuth } from "~/stores/useAuth";
+const { user } = storeToRefs(useAuth());
 const { smoothScrollTo } = useSmoothScroll();
 const title = "Consulter l’historique de vos tirages";
 const sectionTitle = "Vos vidéos";
