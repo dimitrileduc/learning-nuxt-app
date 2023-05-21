@@ -246,7 +246,7 @@ async function checkStatus(clientSecret) {
       break;
 
     default:
-      console.log("Something went wrong.");
+      console.log("Somethi?ng went wrong.");
       status.value = "Something went wrong.";
 
       break;
