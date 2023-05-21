@@ -26,7 +26,12 @@
           </div>
         </div>
       </PageSection>
-      <PageSection id="credits" :title="historiqueSectionTile" class="">
+      <PageSection
+        v-if="user"
+        id="credits"
+        :title="historiqueSectionTile"
+        class=""
+      >
         <div class="flex items-center justify-center">
           <div class="w-full sm:max-w-[644px] lg:max-w-[944px] pt-6">
             <CreditsTable />
@@ -42,6 +47,9 @@
 
 <script setup>
 import { storeToRefs } from "pinia";
+
+import { useAuth } from "~/stores/useAuth";
+const { user } = storeToRefs(useAuth());
 import { usePayment } from "~~/stores/usePayment";
 const { smoothScrollTo } = useSmoothScroll();
 const { setShowPayment } = usePayment();

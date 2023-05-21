@@ -17,6 +17,12 @@ export default defineEventHandler(async (event) => {
     where: {
       userEmail,
     },
+    select: {
+      videoId: true,
+      id: true,
+      createdAt: true,
+      creditUsed: true,
+    },
   });
 
   if (!videosPurchase) {
