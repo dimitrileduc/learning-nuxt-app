@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
   // Get all VideoPurchase records for the user
   const videoPurchases = await prisma.videoPurchase.findMany({
     where: {
-      userEmail: userEmail,
+      userEmail,
     },
   });
 
