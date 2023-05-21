@@ -5,7 +5,9 @@
     <div class="image-container w-full">
       <div class="container">
         <div class="image-container">
-          <div v-if="unlocked"><VimeoPlayer videoId="814000175" /></div>
+          <div v-if="unlocked && vimeoID">
+            <VimeoPlayer :videoId="vimeoID" />
+          </div>
 
           <div v-else-if="props.thumbnail">
             <nuxt-img
@@ -111,6 +113,19 @@ const props = defineProps({
   videoUrl: {
     type: String,
   },
+});
+
+console.log("props video", props);
+
+const vimeoID = computed(() => {
+  if (!props?.videoUrl) return null;
+  const regex = /vimeo\.com\/(\d+)/;
+  const match = props?.videoUrl.match(regex);
+  if (match) {
+    console.log("match", match[1]);
+    return match[1];
+  }
+  return null;
 });
 
 const unlocked = computed(() => {

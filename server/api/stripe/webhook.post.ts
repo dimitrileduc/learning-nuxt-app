@@ -38,8 +38,6 @@ export default defineEventHandler(async (event) => {
 });
 
 async function handlePaymentIntentSucceeded(paymentIntent: PaymentIntent) {
-  console.log("paymentInten succeed", paymentIntent);
-
   /*
   // Verify the related course purchase
   try {
@@ -62,8 +60,6 @@ async function handlePaymentIntentSucceeded(paymentIntent: PaymentIntent) {
 }
 
 async function handlePaymentIntentFailed(paymentIntent: PaymentIntent) {
-  console.log("paymentIntent  failed", paymentIntent);
-
   /*
   // Clean up the course purchase
   try {

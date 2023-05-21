@@ -14,7 +14,7 @@
         :description="lune.description"
         :access="lune.access"
         :thumbnail="lune.thumbnailUrl"
-        :videoUrl="lune.vidoUrl"
+        :videoUrl="lune.videoUrl"
       />
       <VideoCard
         :id="demiLune.id"

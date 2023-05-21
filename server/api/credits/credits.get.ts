@@ -12,7 +12,6 @@ export default defineEventHandler(async (event) => {
     user: { email: userEmail },
   } = event.context;
 
-  console.log(userEmail, "context");
   const balance = await prisma.creditBalance.findFirst({
     where: {
       userEmail,
@@ -23,6 +22,5 @@ export default defineEventHandler(async (event) => {
     console.log("no balance found");
   }
 
-  console.log(balance?.balance);
   return balance?.balance;
 });

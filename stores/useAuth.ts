@@ -55,7 +55,6 @@ export const useAuth = defineStore("useAuth", () => {
     if (error) {
       console.error(error);
     } else {
-      console.log(data);
     }
     return { data, error };
   }
@@ -76,7 +75,6 @@ export const useAuth = defineStore("useAuth", () => {
   }
 
   async function registerUser(dataObj: any): Promise<any> {
-    console.log(dataObj);
     const { data, error } = await supabase.auth.signUp({
       email: dataObj.email,
       password: dataObj.password,
@@ -107,7 +105,7 @@ export const useAuth = defineStore("useAuth", () => {
     const { data, error } = await supabase.auth.updateUser({
       password: password,
     });
-    console.log(data);
+
     console.log(error);
     return { data, error };
   }
@@ -116,7 +114,6 @@ export const useAuth = defineStore("useAuth", () => {
 
   async function listenAuthEvent() {
     supabase.auth.onAuthStateChange((event, session) => {
-      console.log(event);
       authEvent.value = event;
     });
   }

@@ -52,6 +52,7 @@ export default defineEventHandler(async (event) => {
     // Map the videos to an array of objects with the correct access and URLs
     const isPurchased = videos.map((video) => {
       const isVideoPurchased = purchasedVideoIds.includes(video.id);
+      console.log(video?.url);
 
       return {
         id: video.id,

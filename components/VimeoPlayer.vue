@@ -1,8 +1,9 @@
 <template>
+  {{ props.videoID }}
   <div class="vimeo-player-container">
     <vueVimeoPlayer
       ref="player"
-      :video-id="videoID"
+      :video-id="props.videoId.toString()"
       @ready="onReady"
       :key="width"
       class="vimeo-player"
@@ -14,7 +15,13 @@
 <script setup>
 import { vueVimeoPlayer } from "vue-vimeo-player";
 
-const videoID = "814000175";
+const props = defineProps({
+  videoId: {
+    type: Number,
+    required: true,
+  },
+});
+
 const options = {
   responsive: true,
   title: false,

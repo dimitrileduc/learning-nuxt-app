@@ -7,8 +7,6 @@ export const useHomeVideos = defineStore("useHomeVideos", () => {
   const { data, error, pending, refresh } = useFetch<any>(videosUrl);
 
   function refetch() {
-    console.log("refetching home videos", auth);
-    console.log("data", data);
     refresh();
   }
 

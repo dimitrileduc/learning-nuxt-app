@@ -12,7 +12,6 @@ export default defineEventHandler(async (event) => {
     user: { email: userEmail },
   } = event.context;
 
-  console.log(userEmail, "context");
   const creditsPurchase = await prisma.creditPurchase.findMany({
     where: {
       userEmail,

@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 export default defineEventHandler(async (event) => {
   const userEmail = event.context.user?.email;
   const { videoID, creditAmount } = await readBody(event);
-  console.log("videoID", videoID);
+
   try {
     await prisma.videoPurchase.create({
       data: {
