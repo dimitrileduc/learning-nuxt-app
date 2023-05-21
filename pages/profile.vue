@@ -28,7 +28,43 @@
       <PageSection id="form" :title="sectionTitle" class="border">
         <div class="flex items-center justify-center">
           <div class="w-full sm:max-w-[644px] lg:max-w-[944px]">
-            <div>PRofile form</div>
+            <div class="form mt-8 sm:mt-4 lg:mt-8 w-full">
+              <div class="flex flex-col items-center w-full gap-y-1">
+                <FormInput
+                  name="name"
+                  label="name"
+                  placeholder="Nom"
+                  type="texte"
+                  bgWhite
+                />
+                <FormInput
+                  name="prenom"
+                  label="prenom"
+                  placeholder="Prénom"
+                  type="texte"
+                  bgWhite
+                />
+                <FormInput
+                  name="email"
+                  label="email"
+                  placeholder="Email"
+                  type="email"
+                  bgWhite
+                />
+
+                <FormInput
+                  name="phone"
+                  label="phone"
+                  placeholder="Phone"
+                  type="texte"
+                  bgWhite
+                />
+              </div>
+            </div>
+            <div class="button_container mt-8 sm:mt-4 lg:mt-8">
+              <Button primary label="Enregistrer" />
+              <div />
+            </div>
           </div>
         </div>
       </PageSection>

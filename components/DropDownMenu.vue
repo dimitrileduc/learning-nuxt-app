@@ -91,7 +91,7 @@
             class="item item_right pr-3 hover:font-bold w-full"
             @click="switchMenu"
           >
-            <NuxtLink class="w-full" :to="{ path: '/' }"
+            <NuxtLink class="w-full" :to="{ path: 'profile' }"
               ><div class="w-full py-2">Mon profil</div></NuxtLink
             >
           </div>

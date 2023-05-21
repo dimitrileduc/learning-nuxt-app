@@ -28,6 +28,10 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  bgWhite: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const name = toRef(props, "name");
@@ -93,8 +97,9 @@ const handleBlurInput = (e) => {
           @blur="handleBlurInput"
           :class="{
             error: meta.touched && !meta.valid,
+            bgblue: !props.bgWhite,
           }"
-          class="bg-[#EAF4F4] input p-2 px-4 mt-2 w-full border border-transparent rounded peer focus:outline-none focus:border-[#104B51]"
+          class="input p-2 px-4 mt-2 w-full border border-transparent rounded peer focus:outline-none focus:border-[#104B51]"
         />
 
         <div
@@ -145,5 +150,8 @@ const handleBlurInput = (e) => {
   font-size: 16px;
 
   color: #104b51;
+}
+.bgblue {
+  background-color: #eaf4f4;
 }
 </style>
