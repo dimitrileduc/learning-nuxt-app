@@ -63,12 +63,12 @@ const name = computed(() => user.value?.user_metadata.full_name);
 
 const scrollToProducts = () => {
   console.log("scrollToProducts");
-  smoothScrollTo("#section-products", 1000, -100);
+  smoothScrollTo("#tirages", 1000, -100);
 };
 
 const scrollToRDV = () => {
   console.log("scrollToProducts");
-  smoothScrollTo("#section-rdv", 1000, -100);
+  smoothScrollTo("#rdv", 1000, -100);
 };
 </script>
 
