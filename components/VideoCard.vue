@@ -57,6 +57,7 @@
       </div>
 
       <ActionModal
+        class="w-full sm:w-[400px]"
         v-if="showModal"
         @close="closeModal"
         :title="modalTitle"
@@ -64,10 +65,11 @@
         :primaryLabel="primaryLabelModal"
         @primaryAction="primaryActionModal"
       />
-      <StatusModal
-        :message="statusModalMessage"
+      <ActionModal
+        class="w-full sm:w-[400px]"
         v-if="showStatusModal"
         @close="closeStatusModal"
+        :title="statusModalMessage"
       />
     </div>
   </div>
@@ -234,12 +236,11 @@ const primaryActionModal = async () => {
           // Success: handle response
           refetchCredits();
           refetch();
-          statusModalMessage.value = "Felicitation vous avea achetez la video";
+          statusModalMessage.value = "Vidéo debloquée avec succès";
         } else {
           // Error: handle response
 
           statusModalMessage.value = "Il y a eu une erreur lors l'achat";
-          console.log("Error:", errorData.error);
         }
       } catch (error) {
         // Catch error from endpoint request
