@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
     return {
       statusCode: 500,
       body: {
-        error: "Error creating video purchase",
+        error: error,
       },
     };
   }
