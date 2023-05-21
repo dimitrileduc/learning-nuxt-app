@@ -1,5 +1,5 @@
 <template>
-  <div class="border border-red-600 flex items-center justify-center">
+  <div class="flex items-center justify-center">
     <div class="max-w-[944px]" v-if="user">
       <div
         class="flex flex-col md:flex-row flex-wrap gap-4 justify-center content-center justify-items-center items-center"
