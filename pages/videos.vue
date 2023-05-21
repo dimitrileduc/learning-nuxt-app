@@ -15,13 +15,16 @@
         </div>
       </PageHeader>
       <PageSection
-        v-if="user"
+        v-if="false"
         id="videos"
         :title="sectionTitle"
         :subtitle="sectionSubtitle"
       >
         <UserVideos />
       </PageSection>
+      <div v-if="user">
+        <ProductsSection />
+      </div>
     </div>
   </div>
 </template>
