@@ -49,6 +49,7 @@
 
 <script setup>
 import { storeToRefs } from "pinia";
+const { credits, loading } = await useCredits();
 
 import { useAuth } from "~/stores/useAuth";
 const { user } = storeToRefs(useAuth());
@@ -56,8 +57,15 @@ import { usePayment } from "~~/stores/usePayment";
 const { smoothScrollTo } = useSmoothScroll();
 const { setShowPayment } = usePayment();
 const { showPayment } = storeToRefs(usePayment());
-
-const title = "Vous avez actuellement 1 crédit disponible";
+const title = computed(() => {
+  if (credits.value === 1) {
+    return "Vous avez actuellement 1 crédit disponible";
+  } else if (credits.value > 1) {
+    return `Vous avez actuellement ${credits.value} crédits disponibles`;
+  } else {
+    return "Vous n'avez actuellement aucun crédit disponible";
+  }
+});
 const subtitle = "Valable jusqu’au 10/04/2024";
 const ctaLabel = "Acheter des crédits";
 const sectionTitle = "Packs extensions guidances intuitives lunaires";
