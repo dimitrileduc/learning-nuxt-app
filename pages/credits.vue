@@ -1,46 +1,48 @@
 <template>
   <div class="w-full">
-    <div class="w-full">
-      <PageHeader>
-        <div class="flex flex-col items-center justify-center text-center">
-          <div v-if="title" class="text-3xl">{{ title }}</div>
-          <div v-if="subtitle" class="mt-2">{{ subtitle }}</div>
-          <div class="mt-10">
-            <Button
-              primary
-              :label="ctaLabel"
-              @click="smoothScrollTo('#credits', 1000, -80)"
-            />
-          </div>
-        </div>
-      </PageHeader>
-      <PageSection
-        id="credits"
-        :title="sectionTitle"
-        :subtitle="sectionSubtitle"
-        class="border"
-      >
-        <div class="flex items-center justify-center">
-          <div class="w-full sm:max-w-[644px] lg:max-w-[944px]">
-            <SwiperBox :packs="packs" />
-          </div>
-        </div>
-      </PageSection>
-      <PageSection
-        v-if="user"
-        id="credits"
-        :title="historiqueSectionTile"
-        class=""
-      >
-        <div class="flex items-center justify-center">
-          <div class="w-full sm:max-w-[644px] lg:max-w-[944px] pt-6">
-            <CreditsTable />
-          </div>
-        </div>
-      </PageSection>
-    </div>
     <ClientOnly>
-      <Checkout v-if="showPayment" @close="setShowPayment(false)" />
+      <div class="w-full">
+        <PageHeader v-if="user">
+          <div class="flex flex-col items-center justify-center text-center">
+            <div v-if="title" class="text-3xl">{{ title }}</div>
+            <div v-if="subtitle" class="mt-2">{{ subtitle }}</div>
+            <div class="mt-10">
+              <Button
+                primary
+                :label="ctaLabel"
+                @click="smoothScrollTo('#credits', 1000, -80)"
+              />
+            </div>
+          </div>
+        </PageHeader>
+        <PageSection
+          v-if="user"
+          id="credits"
+          :title="sectionTitle"
+          :subtitle="sectionSubtitle"
+          class="border"
+        >
+          <div class="flex items-center justify-center">
+            <div class="w-full sm:max-w-[644px] lg:max-w-[944px]">
+              <SwiperBox :packs="packs" />
+            </div>
+          </div>
+        </PageSection>
+        <PageSection
+          v-if="user"
+          id="credits"
+          :title="historiqueSectionTile"
+          class=""
+        >
+          <div class="flex items-center justify-center">
+            <div class="w-full sm:max-w-[644px] lg:max-w-[944px] pt-6">
+              <CreditsTable />
+            </div>
+          </div>
+        </PageSection>
+      </div>
+
+      <Checkout v-if="showPayment && user" @close="setShowPayment(false)" />
     </ClientOnly>
   </div>
 </template>
