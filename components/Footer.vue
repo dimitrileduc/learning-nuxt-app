@@ -6,7 +6,9 @@
       <div>
         <nuxt-img alt="footer" src="/footer_center.svg" />
       </div>
-      <div class="mt-12 flex flex-row items-center justify-items-center gap-10">
+      <div
+        class="mt-12 flex flex-row items-center justify-items-center gap-4 md:gap-10"
+      >
         <div class="text-center text-sm">Accueil</div>
         <div class="text-center text-sm">Tirages</div>
         <div class="text-center text-sm">Credits</div>

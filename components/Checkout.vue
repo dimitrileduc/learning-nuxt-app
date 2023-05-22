@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <Modal @close="$emit('close')">
-      <div class="bg-white p-8 py-14 container text-[#104B51] w-full rounded">
+      <div class="bg-white container text-[#104B51] w-full rounded">
         <div
           v-if="success"
           class="flex flex-col justify-center items-center space-y-6"
@@ -17,22 +17,33 @@
             <Loading dark class="w-6 h-6" />
             <span class="ml-4">Stripe payment loading ...</span>
           </div>
-          <div v-show="stripeMounted" class="text-base width bg-white py-6">
-            <h2 class="font-bold text-xl text-center">Buying {{ amount }}</h2>
-            <div class="mt-8 w-full" id="payment-element">
-              <!-- Mount the Payment Element here -->
-            </div>
-            <div>
-              <div class="w-full mt-10">
-                <Button
-                  noMaxWidth
-                  class="w-full"
-                  primary
-                  label="Pay"
-                  :loading="processingPayment || verifying"
-                />
+          <div v-show="stripeMounted" class="text-base width bg-white">
+            <div class="w-full flex flex-col md:flex-row">
+              <div class="w-full bg-[#eaf4f4] p-16">
+                <div class="border w-full h-full">
+                  <PackCard :pack="selectedPack" @buy="buyPack" />
+                </div>
+              </div>
+              <div class="w-full border p-16">
+                <div class="h-full w-full">
+                  <div class="w-full h-full border" id="payment-element">
+                    <!-- Mount the Payment Element here -->
+                  </div>
+                  <div>
+                    <div class="w-full mt-4">
+                      <Button
+                        noMaxWidth
+                        class="w-full"
+                        primary
+                        label="Pay"
+                        :loading="processingPayment || verifying"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+            <h2 class="font-bold text-xl text-center">Buying {{ amount }}</h2>
           </div>
         </form>
       </div>
@@ -66,6 +77,16 @@ const status = ref("idle");
 
 // Access the current route
 const route = useRoute();
+
+const packs = [
+  { id: 1, creditsValue: 1, price: 11, type: "lune_pack", title: "Lune" },
+  { id: 2, creditsValue: 2, price: 20, type: "univers", title: "Planète" },
+  { id: 3, creditsValue: 3, price: 27, type: "galaxie", title: "Galaxie" },
+];
+
+const selectedPack = computed(() => {
+  return packs.find((pack) => pack.price === amount);
+});
 
 // The tab is closed and reopened (we're still in the same session)
 console.log("cached", amount, typeof amount);
