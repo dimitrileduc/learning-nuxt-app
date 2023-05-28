@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
   console.log("credit get endpoint called ");
-  protectRoute(event);
+  //protectRoute(event);
 
   // Get user email from the supabase user if there is one.
   const {
