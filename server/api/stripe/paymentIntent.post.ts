@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
     paymentIntent = await stripe.paymentIntents.create({
       amount: amount * 100,
       currency: "eur",
-      customer: userEmail,
+
       automatic_payment_methods: {
         enabled: true,
       },
