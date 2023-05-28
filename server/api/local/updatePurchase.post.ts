@@ -5,6 +5,13 @@ const prisma = new PrismaClient();
 export default defineEventHandler(async (event) => {
   const { amount, verified, stripeId } = await readBody(event);
   const userEmail = event.context.user?.email;
+  console.log(
+    "credit purchase endpoint called ",
+    userEmail,
+    amount,
+    verified,
+    stripeId
+  );
 
   try {
     await prisma.creditPurchase.create({
