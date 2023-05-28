@@ -98,7 +98,33 @@ export const useAuth = defineStore("useAuth", () => {
         message: error.message,
       };
 
+    // Call the function to create a username
+    if (!authError) {
+      await createUsername(dataObj);
+    }
+
     return { auth: data, error: authError };
+  }
+
+  async function createUsername(dataObj: any) {
+    console.log("create username in auth ");
+    try {
+      const response = await $fetch("/api/user/username", {
+        method: "POST",
+        body: {
+          email: dataObj.email,
+          username: "testusername",
+        },
+      });
+      console.log(response);
+      if (response?.status === 200) {
+        console.log("Username created successfully");
+      } else {
+        console.log("Failed to create username");
+      }
+    } catch (error) {
+      console.log("Error creating username:", error);
+    }
   }
 
   async function updatePassword(password: string) {

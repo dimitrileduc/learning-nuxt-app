@@ -46,3 +46,12 @@ model CreditBalance {
   userEmail String @unique
   balance   Int    @default(0)
 }
+
+model userData {
+  userEmail String @unique
+  username  String
+  name      String
+  firstName String
+  country   String
+  phone     String
+}

@@ -82,11 +82,6 @@ const { smoothScrollTo } = useSmoothScroll();
 const userSupa = useSupabaseUser();
 const { refetch } = useHomeVideos();
 
-const { refetchCredits } = await useCredits();
-
-const { credits, loading } = await useCredits();
-console.log(credits);
-
 console.log("supaUser", userSupa.value);
 const props = defineProps({
   id: {
@@ -156,11 +151,12 @@ const closeModal = () => {
   showModal.value = false;
 };
 
-const modalState = computed(() => {
+const modalState = computed(async () => {
   if (!userSupa.value && !unlocked.value) {
     return "notLogged";
   }
   if (userSupa.value && !unlocked.value) {
+    const { credits, loading } = await useCredits();
     return credits.value > 3
       ? "loggedsufficientCredit"
       : "loggedInsufficientCredit";
@@ -234,6 +230,7 @@ const primaryActionModal = async () => {
 
         if (response.statusCode === 200) {
           // Success: handle response
+          const { refetchCredits } = await useCredits();
           refetchCredits();
           refetch();
           statusModalMessage.value = "Vidéo debloquée avec succès";
