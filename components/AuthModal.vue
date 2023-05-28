@@ -79,7 +79,7 @@ const label = ref("Pas encore inscrit ?");
 const labelButton = ref("Inscrivez-vous");
 const title = ref("Connectez-vous");
 const subtitle = ref(
-  "Veuillez entrer vos identifiant pour vous connecter à votre compte."
+  "Veuillez entrer vos identifiants pour vous connecter à votre compte."
 );
 const existingEmail = ref("");
 const showEmailConfirmModal = ref(false);
@@ -117,7 +117,7 @@ function switchRegistered() {
   label.value = registered.value ? "Pas encore de compte ?" : "Déja inscrit ?";
   title.value = registered.value ? "Connectez-vous" : "Inscrivez-vous";
   subtitle.value = registered.value
-    ? "Veuillez entrer vos identifiant pour vous connecter à votre compte."
+    ? "Veuillez entrer vos identifiants pour vous connecter à votre compte."
     : "Veuillez remplir les champs ci-dessous afin de créer votre compte.";
   labelButton.value = registered.value ? "Inscrivez-vous" : "Connectez-vous";
 }
