@@ -45,6 +45,7 @@ const closeAuth = () => {
 };
 
 const buyPack = (price) => {
+  console.log("buy pack", price);
   showAuthForm.value = false;
   setShowPayment(false);
   setAmount(price);

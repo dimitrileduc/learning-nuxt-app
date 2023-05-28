@@ -1,5 +1,5 @@
 <template>
-  <div class="global w-[304px] h-[448px]">
+  <div class="global w-[304px]">
     <div class="bg-white rounded flex flex-col items-center">
       <div class="container-image flex flex-col items-center w-full pt-4">
         <nuxt-img alt="pack" class="w-52" :src="imgSrc" />
@@ -7,7 +7,10 @@
           {{ pack.title }}
         </div>
       </div>
-      <div class="text-center px-10 pb-8 w-full flex flex-col items-center">
+      <div
+        class="text-center px-10 w-full flex flex-col items-center"
+        :class="noButton ? 'pb-3' : 'pb-8'"
+      >
         <div class="w-full py-4 font-black text-[22px]">{{ pack.price }} €</div>
         <div class="separator_container">
           <nuxt-img alt="separator" src="/separator.svg" />
@@ -32,10 +35,13 @@
           <span class="font-normal">Valable</span>
           <span class="font-bold pl-1">1 an</span>
         </div>
-        <div class="separator_container">
+        <div v-if="!noButton" class="separator_container">
           <nuxt-img alt="separator" src="/separator.svg" />
         </div>
-        <div class="text-base w-full pt-7 flex flex-col justify-center">
+        <div
+          v-if="!noButton"
+          class="text-base w-full pt-7 flex flex-col justify-center"
+        >
           <Button primary label="Acheter ce pack" @click="buyPack" />
         </div>
       </div>
@@ -49,6 +55,11 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  noButton: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 });
 
 const imgSrc = computed(() => {
@@ -59,7 +70,7 @@ const emits = defineEmits(["buy"]);
 
 const buyPack = () => {
   console.log("buy pack", props.pack.price);
-  emits("buy", props.pack.price);
+  emits("buy", props.pack.creditsValue);
 };
 
 const priceLabel = computed(() => {

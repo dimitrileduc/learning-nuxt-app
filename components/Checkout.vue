@@ -21,7 +21,7 @@
             <div class="w-full flex flex-col md:flex-row">
               <div class="w-full bg-[#eaf4f4] p-16">
                 <div class="border w-full h-full">
-                  <PackCard :pack="selectedPack" @buy="buyPack" />
+                  <PackCard noButton :pack="selectedPack" @buy="buyPack" />
                 </div>
               </div>
               <div class="w-full border p-16">
@@ -85,7 +85,7 @@ const packs = [
 ];
 
 const selectedPack = computed(() => {
-  return packs.find((pack) => pack.price === amount);
+  return packs.find((pack) => pack.creditsValue === amount);
 });
 
 // The tab is closed and reopened (we're still in the same session)
