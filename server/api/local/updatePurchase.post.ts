@@ -3,12 +3,13 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
-  const { email, amount, verified, stripeId } = await readBody(event);
+  const { amount, verified, stripeId } = await readBody(event);
+  const userEmail = event.context.user?.email;
 
   try {
     await prisma.creditPurchase.create({
       data: {
-        userEmail: email,
+        userEmail: userEmail,
         amount,
         verified,
         stripeId,

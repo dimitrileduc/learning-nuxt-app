@@ -232,9 +232,6 @@ async function checkStatus(clientSecret) {
     clientSecret
   );
 
-  const customerEmail = paymentIntent.customer_email;
-
-  console.log("customerEmail", customerEmail);
   console.log("paymentIntent in check status", paymentIntent);
 
   switch (paymentIntent.status) {
@@ -248,7 +245,6 @@ async function checkStatus(clientSecret) {
       await $fetch("/api/local/updatePurchase", {
         method: "POST",
         body: {
-          email: customerEmail,
           amount: parseInt(amount),
           verified: true,
           stripeId: paymentIntent.id,
