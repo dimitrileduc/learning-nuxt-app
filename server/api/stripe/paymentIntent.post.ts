@@ -13,6 +13,7 @@ export default defineEventHandler(async (event) => {
     paymentIntent = await stripe.paymentIntents.create({
       amount: amount * 100,
       currency: "eur",
+      email: userEmail,
       automatic_payment_methods: {
         enabled: true,
       },
@@ -26,25 +27,6 @@ export default defineEventHandler(async (event) => {
       statusMessage: "Error creating payment intent",
     });
   }
-
-  /*
-  // Create a course purchase record
-  try {
-    await prisma.coursePurchase.create({
-      data: {
-        userEmail: email,
-        // Hard code this value for now
-        courseId: 1,
-        paymentId: paymentIntent.id,
-      },
-    });
-  } catch (error) {
-    throw createError({
-      statusCode: 500,
-      statusMessage: "Error creating course purchase",
-    });
-  }
-  */
 
   // Only return the secret
   return paymentIntent.client_secret;
