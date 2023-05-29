@@ -32,6 +32,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  textArea: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const name = toRef(props, "name");
@@ -88,6 +92,7 @@ const handleBlurInput = (e) => {
       -->
       <div class="relative">
         <input
+          v-if="!textArea"
           :id="name"
           :name="name"
           :type="type !== 'password' || passwordVisible ? 'text' : 'password'"
@@ -100,6 +105,21 @@ const handleBlurInput = (e) => {
             bgblue: !props.bgWhite,
           }"
           class="input p-2 px-4 mt-2 w-full border border-transparent rounded peer focus:outline-none focus:border-[#104B51]"
+        />
+        <textarea
+          v-if="textArea"
+          :id="name"
+          :name="name"
+          :type="type !== 'password' || passwordVisible ? 'text' : 'password'"
+          :value="inputValue"
+          :placeholder="placeholder"
+          @input="handleChange"
+          @blur="handleBlurInput"
+          :class="{
+            error: meta.touched && !meta.valid,
+            bgblue: !props.bgWhite,
+          }"
+          class="input h-24 p-2 px-4 mt-2 w-full border border-transparent rounded peer focus:outline-none focus:border-[#104B51]"
         />
 
         <div

@@ -39,6 +39,7 @@
             label="message"
             placeholder="Message*"
             type="texte"
+            textArea
           />
         </div>
       </div>
