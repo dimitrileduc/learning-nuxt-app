@@ -98,11 +98,13 @@ const breakpoints = {
   width: 12px;
   height: 12px;
   opacity: 1;
+  cursor: pointer;
   /* Your styles for each pagination bullet */
 }
 
 .swiper-pagination-bullet-active {
   background-color: #104b51;
+
   /* Your styles for the active pagination bullet */
 }
 </style>

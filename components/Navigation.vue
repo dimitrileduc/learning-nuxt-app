@@ -11,7 +11,9 @@
           id="app"
         >
           <div class="flex flex-row justify-between items-center">
-            <div class="flex items-center justify-center">
+            <div
+              class="flex items-center justify-center opacity-80 hover:opacity-100"
+            >
               <div class="flex items-center justify-center" v-if="isMenuOpen">
                 <button
                   class="flex items-center justify-center"
