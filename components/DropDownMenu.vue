@@ -150,7 +150,9 @@
           class="icones_group h-full py-2 px-3 flex flex-row justify-start md:justify-end gap-2"
           :class="user ? 'items-end' : 'items-start'"
         >
-          <nuxt-img class="h-8" alt="youtube" src="/youtube.svg" />
+          <button class="cursor-pointer" @click="goYoutbe">
+            <nuxt-img class="h-8" alt="youtube" src="/youtube.svg" />
+          </button>
 
           <nuxt-img class="h-8" alt="youtube" src="/tiktok.svg" />
         </div>
@@ -169,6 +171,10 @@ const { switchMenu } = useNav();
 const { smoothScrollTo } = useSmoothScroll();
 const { logout } = useAuth();
 const { user } = storeToRefs(useAuth());
+
+const goYoutbe = () => {
+  window.open("https://www.youtube.com/@moonenergy3259");
+};
 
 const logoutAndSwitchMenu = () => {
   logout();

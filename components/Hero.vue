@@ -18,8 +18,10 @@
           <div class="description mt-4 leading-tight">
             Bienvenue sur ce site, si vous êtes arrivés ici c'est probablement
             grâce à mes vidéos gratuite sur
-            <a class="text-[#CFE4BA] font-bold">Youtube</a> que je partage avec
-            plaisir à chaque lunaison :
+            <button class="text-[#CFE4BA] font-bold" @click="goYoutbe">
+              Youtube
+            </button>
+            que je partage avec plaisir à chaque lunaison :
             <span class="font-bold">Nouvelle Lune et Pleine Lune.</span>
             <br /><br />
             La dernière vidéo vous a justement interpellée ?<br />
@@ -60,6 +62,10 @@
 const { smoothScrollTo } = useSmoothScroll();
 const user = useSupabaseUser();
 const name = computed(() => user.value?.user_metadata.full_name);
+
+const goYoutbe = () => {
+  window.open("https://www.youtube.com/@moonenergy3259");
+};
 
 const scrollToProducts = () => {
   console.log("scrollToProducts");

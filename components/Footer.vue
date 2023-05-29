@@ -18,7 +18,9 @@
       <div
         class="icones_group mt-10 flex flex-row items-center justify-items-center gap-4"
       >
-        <nuxt-img class="h-8" alt="youtube" src="/youtube.svg" />
+        <button class="cursor-pointer" @click="goYoutbe">
+          <nuxt-img class="h-8" alt="youtube" src="/youtube.svg" />
+        </button>
         <nuxt-img class="h-8" alt="youtube" src="/tiktok.svg" />
       </div>
       <div class="px-2 mt-3 text-center text-xs text-white">
@@ -43,6 +45,10 @@
 
 <script setup>
 const user = useSupabaseUser();
+
+const goYoutbe = () => {
+  window.open("https://www.youtube.com/@moonenergy3259");
+};
 </script>
 
 <style scoped>
