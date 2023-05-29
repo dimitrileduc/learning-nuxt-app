@@ -40,7 +40,7 @@
             connecter à vos ressources personnelles afin de suivre la voie de
             votre âme
           </div>
-          <div class="container_button mt-4 md:mt-6 lg:mt-8">
+          <div class="container_button mt-6 md:mt-6 lg:mt-8">
             <Calendly60 />
           </div>
         </div>
@@ -64,7 +64,7 @@
             ressentis mais aussi pour envisager les pistes qui vous permettront
             d’avancer sur votre chemin de vie.
           </div>
-          <div class="container_button mt-4 md:mt-6 lg:mt-8">
+          <div class="container_button mt-6 md:mt-6 lg:mt-8">
             <Calendly30 />
           </div>
         </div>

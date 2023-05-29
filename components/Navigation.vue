@@ -31,7 +31,16 @@
             </div>
 
             <div class="user_container">
-              <div v-if="user"><UserCard @hideAuth="hideAuth" /></div>
+              <div
+                v-if="user"
+                class="cursor-pointer"
+                :class="
+                  isMenuOpen ? 'pointer-events-none' : 'pointer-events-auto'
+                "
+                @click="switchMenuFromRight"
+              >
+                <UserCard @hideAuth="hideAuth" />
+              </div>
               <div v-else class="flex flex-row">
                 <button @click="() => (showAuth = !showAuth)">
                   <div
@@ -60,7 +69,7 @@ import { storeToRefs } from "pinia";
 import { useNav } from "~/stores/useNav";
 import { useAuth } from "~/stores/useAuth";
 
-const { switchMenu, closeMenu } = useNav();
+const { switchMenu, closeMenu, openMenu } = useNav();
 const { user, loading } = storeToRefs(useAuth());
 const { isMenuOpen } = storeToRefs(useNav());
 
@@ -83,6 +92,15 @@ const navBgClass = computed(() => {
     return "nav-alpha";
   }
 });
+
+const switchMenuFromRight = () => {
+  console.log(isMenuOpen.value, "isMenuOpen");
+  if (isMenuOpen.value) {
+  } else {
+    console.log("switchMenuFromRight");
+    switchMenu();
+  }
+};
 </script>
 <style scoped>
 .content {

@@ -35,7 +35,7 @@ const title = "Consulter l’historique de vos tirages";
 const sectionTitle = "Vos vidéos";
 const ctaLabel = "Voir mes vidéos";
 const sectionSubtitle =
-  "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.";
+  "Consulter ici toutes les videos achetées préalablement";
 </script>
 
 <style scoped></style>
