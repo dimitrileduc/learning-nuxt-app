@@ -1,7 +1,9 @@
 <template>
   <div v-if="user" class="rounded flex items-center space-x-3">
     <div class="text-right flex flex-row gap-6">
-      <div class="credits" v-if="credits">{{ credits }} credits</div>
+      <div class="credits" v-if="credits">
+        {{ creditsDiplayed }} {{ labelCredits }}
+      </div>
       <div class="name font-medium">{{ data }}</div>
     </div>
     <div v-if="user.profile">
@@ -45,6 +47,23 @@ const logoutUser = () => {
 const name = computed(() => user.value?.user_metadata.full_name ?? "");
 const profile = computed(() => user.value?.user_metadata.avatar_url);
 const { credits, loading } = await useCredits();
+
+const creditsDiplayed = computed(() => {
+  if (credits.value && credits.value > 0) {
+    return credits.value;
+  } else {
+    return 0;
+  }
+});
+
+const labelCredits = computed(() => {
+  if (credits.value && credits.value > 0) {
+    return "credits";
+  } else {
+    return "credit";
+  }
+});
+
 console.log(credits, "credits");
 </script>
 
