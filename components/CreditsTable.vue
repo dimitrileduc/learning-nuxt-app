@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
-    <div class="separator_container w-full pb-2">
-      <nuxt-img class="w-full" alt="separator" src="/separator_big.svg" />
+    <div class="separator_container w-full h-2 pb-2">
+      <nuxt-img class="w-full h-2" alt="separator" src="/separator_big.svg" />
     </div>
     <div v-if="loading">Loading...</div>
     <div v-else-if="loading.length === 0">No transactions</div>
@@ -43,8 +43,8 @@
           </tr>
         </tbody>
       </table>
-      <div class="separator_container w-full pt-2">
-        <nuxt-img class="w-full" alt="separator" src="/separator_big.svg" />
+      <div class="separator_container w-full pt-2 h-2">
+        <nuxt-img class="w-full h-2" alt="separator" src="/separator_big.svg" />
       </div>
     </div>
   </div>

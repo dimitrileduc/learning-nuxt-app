@@ -16,6 +16,8 @@ export const useHomeVideos = defineStore("useHomeVideos", () => {
     }
   });
 
+  console.log("DATA IN COMPSABLE HOME VIDEOS ", data);
+
   return {
     data,
     error,

@@ -15,6 +15,7 @@
         :access="lune.access"
         :thumbnail="lune.thumbnailUrl"
         :videoUrl="lune.videoUrl"
+        :date="currentMonth"
       />
       <VideoCard
         :id="demiLune.id"
@@ -24,6 +25,7 @@
         :access="demiLune.access"
         :thumbnail="demiLune.thumbnailUrl"
         :videoUrl="demiLune.videoUrl"
+        :date="previousMonth"
       />
     </div>
   </div>
@@ -46,12 +48,31 @@ const defaultVideo = {
 };
 
 const { data } = storeToRefs(useHomeVideos());
+
+const currentMonth = computed(() => {
+  const currentDate = new Date();
+  const formattedDate = `${currentDate.toLocaleDateString("en", {
+    month: "2-digit",
+  })}/${currentDate.getFullYear()}`;
+  return formattedDate;
+});
+
+const previousMonth = computed(() => {
+  const currentDate = new Date();
+  currentDate.setMonth(currentDate.getMonth() - 1); // Set the date to the previous month
+  const formattedDate = `${currentDate.toLocaleDateString("en", {
+    month: "2-digit",
+  })}/${currentDate.getFullYear()}`;
+  return formattedDate;
+});
+
+console.log("data in products sections", data);
 const lune = computed(() => {
-  return data?.value?.find((item) => item.title === "lune") || defaultVideo;
+  return data?.value?.find((item) => item.id === 8) || defaultVideo;
 });
 
 const demiLune = computed(() => {
-  return data?.value?.find((item) => item.title === "demiLune") || defaultVideo;
+  return data?.value?.find((item) => item.title === 9) || defaultVideo;
 });
 </script>
 
