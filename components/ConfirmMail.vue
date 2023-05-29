@@ -42,9 +42,9 @@ const props = defineProps({
   },
 });
 
-const title = "Please verify your email adress";
+const title = "Veuillez vérifier votre adresse e-mail";
 const subTitle = computed(() => {
-  return "In order to start using Moon app, you need to confirm your email adress";
+  return "Afin de commencer à utiliser l'application Moon, vous devez confirmer votre adresse e-mail.";
 });
 </script>
 

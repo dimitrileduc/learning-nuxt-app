@@ -53,6 +53,7 @@ const logInSchema = Yup.object().shape({
   password: Yup.string().min(6).required(),
 });
 const registerSchema = Yup.object().shape({
+  username: Yup.string().required(),
   email: Yup.string().email().required(),
   password: Yup.string().min(6).required(),
 });
@@ -71,6 +72,17 @@ emailInput?.value?.$el.focus();
       :validation-schema="schema"
       @invalid-submit="onInvalidSubmit"
     >
+      <div v-if="props.type !== 'logIn'">
+        <FormInput
+          ref="usernameInput"
+          name="username"
+          input
+          field
+          type="email"
+          label="texte"
+          placeholder="Nom d'utilisateur"
+        />
+      </div>
       <FormInput
         ref="emailInput"
         name="email"
