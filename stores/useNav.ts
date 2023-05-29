@@ -12,6 +12,7 @@ export const useNav = defineStore("useNav", () => {
     console.log("openMenu");
     isMenuOpen.value = true;
   };
+  
 
   return {
     isMenuOpen,

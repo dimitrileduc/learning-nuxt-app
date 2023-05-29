@@ -17,7 +17,7 @@
     </Swiper>
 
     <div
-      class="mt-4 pagination flex flex-row items-center justify-center gap-4"
+      class="mt-4 pagination flex flex-row items-center justify-center gap-2"
     ></div>
 
     <AuthModal :toPayment="true" v-if="showAuthForm" @close="closeAuth" />
@@ -86,5 +86,23 @@ const breakpoints = {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.pagination {
+  /* Your styles for the pagination container */
+}
+
+.swiper-pagination-bullet {
+  background: none;
+  border: 1px solid #104b51;
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  /* Your styles for each pagination bullet */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #104b51;
+  /* Your styles for the active pagination bullet */
 }
 </style>
