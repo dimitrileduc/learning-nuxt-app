@@ -2,7 +2,7 @@
   <div v-if="user" class="rounded flex items-center space-x-3">
     <div class="text-right flex flex-row gap-6">
       <div class="credits" v-if="credits">{{ credits }} credits</div>
-      <div class="name font-medium">{{ name }}</div>
+      <div class="name font-medium">{{ data }}</div>
     </div>
     <div v-if="user.profile">
       <nuxt-img
@@ -19,9 +19,13 @@
 
 <script setup>
 import { storeToRefs } from "pinia";
+import { useUsername } from "~/stores/useUsername";
 import { useAuth } from "~/stores/useAuth";
 import { usePayment } from "~~/stores/usePayment";
 import { useNav } from "~/stores/useNav";
+
+const { data } = storeToRefs(useUsername());
+console.log("USERNAME", data);
 
 const { switchMenu } = useNav();
 

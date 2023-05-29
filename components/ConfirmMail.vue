@@ -24,7 +24,7 @@
         <div class="flex justify-center text-center">
           <Button
             primary
-            label="Confirm my email"
+            label="Confirmer mon email"
             :href="emailProviderLink"
             @click="$emit('goToMail')"
           />

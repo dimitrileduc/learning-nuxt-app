@@ -113,7 +113,7 @@ export const useAuth = defineStore("useAuth", () => {
         method: "POST",
         body: {
           email: dataObj.email,
-          username: "testusername",
+          username: dataObj.username,
         },
       });
       console.log(response);
