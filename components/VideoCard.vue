@@ -39,7 +39,7 @@
       <div class="text-container mt-3 my-6 mx-3 sm:mx-4">
         <div class="flex flex-col sm:flex-row sm:gap-2">
           <div class="title font-bold">{{ props.title }}</div>
-          <div class="date font-bold">date field</div>
+          <div v-if="props.date" class="date font-bold">{{ props.date }}</div>
         </div>
         <div class="description mt-3 leading-tight text-justify font-normal">
           {{ decriptionTruncate }}
@@ -108,6 +108,9 @@ const props = defineProps({
     type: String,
   },
   videoUrl: {
+    type: String,
+  },
+  date: {
     type: String,
   },
 });
