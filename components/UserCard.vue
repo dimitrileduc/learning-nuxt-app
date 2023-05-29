@@ -7,12 +7,12 @@
     <div v-if="user.profile">
       <nuxt-img
         alt="user-card"
-        class="rounded-full w-10 h-10 border-2 border-blue-400"
+        class="rounded-full w-9 h-9 border-2 border-blue-400"
         :src="profile"
       />
     </div>
     <div class="flex flex-center justify-center" else>
-      <nuxt-img class="h-8" alt="youtube" src="/avatar.svg" />
+      <nuxt-img class="h-9" alt="youtube" src="/avatar.svg" />
     </div>
   </div>
 </template>

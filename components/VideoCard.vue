@@ -1,6 +1,6 @@
 <template>
   <div
-    class="global border w-full xs:w-[328px] sm:w-[360px] lg:w-[464px] bg-white px-3 pt-3 py-6 rounded"
+    class="global w-full xs:w-[328px] sm:w-[360px] lg:w-[464px] bg-white px-3 pt-3 py-6 rounded"
   >
     <div class="image-container w-full">
       <div class="container">

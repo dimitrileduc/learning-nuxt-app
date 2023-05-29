@@ -1,5 +1,5 @@
 <template>
-  <div class="container_packs border py-10 px-10 flex flex-col items-center">
+  <div class="container_packs py-10 px-10 flex flex-col items-center">
     <div class="font-bold text-2xl text-center">
       Packs extensions guidances intuitives lunaires
     </div>

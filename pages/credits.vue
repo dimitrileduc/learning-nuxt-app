@@ -20,7 +20,7 @@
           id="credits"
           :title="sectionTitle"
           :subtitle="sectionSubtitle"
-          class="border"
+          class=""
         >
           <div class="flex items-center justify-center">
             <div class="w-full sm:max-w-[644px] lg:max-w-[944px]">

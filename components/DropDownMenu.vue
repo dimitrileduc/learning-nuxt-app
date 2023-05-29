@@ -88,7 +88,10 @@
       <div class="md:mt-0 md:text-right w-full flex flex-col">
         <div v-if="user">
           <div
-            class="item item_right pr-3 hover:font-bold w-full"
+            class="md:hidden my-2 separation w-full h-0.5 bg-[#0C3C41]"
+          ></div>
+          <div
+            class="item item_right px-3 hover:font-bold w-full"
             @click="switchMenu"
           >
             <NuxtLink class="w-full" :to="{ path: 'profile' }"
@@ -97,13 +100,13 @@
           </div>
           <div class="separator_container w-full">
             <nuxt-img
-              class="w-full rotate-180"
+              class="w-full md:rotate-180"
               alt="separator"
               src="/menu_item_separator.svg"
             />
           </div>
           <div
-            class="item item_right pr-3 hover:font-bold w-full"
+            class="item item_right px-3 hover:font-bold w-full"
             @click="switchMenu"
           >
             <NuxtLink class="w-full" :to="{ path: 'credits' }"
@@ -112,13 +115,13 @@
           </div>
           <div class="separator_container w-full">
             <nuxt-img
-              class="w-full rotate-180"
+              class="w-full md:rotate-180"
               alt="separator"
               src="/menu_item_separator.svg"
             />
           </div>
           <div
-            class="item item_right pr-3 hover:font-bold w-full"
+            class="item item_right px-3 hover:font-bold w-full"
             @click="switchMenu"
           >
             <NuxtLink class="w-full" :to="{ path: 'videos' }"
@@ -127,22 +130,24 @@
           </div>
           <div class="separator_container w-full">
             <nuxt-img
-              class="w-full rotate-180"
+              class="w-full md:rotate-180"
               alt="separator"
               src="/menu_item_separator.svg"
             />
           </div>
           <div
-            class="item item_right pr-3 hover:font-bold w-full"
+            class="item item_right px-3 hover:font-bold w-full"
             @click="switchMenu"
           >
             <button class="w-full flex" @click="logoutAndSwitchMenu">
-              <div class="w-full py-2 text-right">Se déconnecter</div>
+              <div class="w-full py-2 text-left md:text-right">
+                Se déconnecter
+              </div>
             </button>
           </div>
         </div>
         <div
-          class="icones_group h-full py-2 pr-3 flex flex-row justify-start md:justify-end gap-2"
+          class="icones_group h-full py-2 px-3 flex flex-row justify-start md:justify-end gap-2"
           :class="user ? 'items-end' : 'items-start'"
         >
           <nuxt-img class="h-8" alt="youtube" src="/youtube.svg" />
