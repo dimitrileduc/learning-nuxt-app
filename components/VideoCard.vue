@@ -42,7 +42,7 @@
           <div class="date font-bold">date field</div>
         </div>
         <div class="description mt-3 leading-tight text-justify font-normal">
-          {{ props.description }}
+          {{ decriptionTruncate }}
         </div>
       </div>
       <div
@@ -113,6 +113,18 @@ const props = defineProps({
 });
 
 console.log("props video", props);
+
+const decriptionTruncate = computed(() => {
+  const maxChars = 350; // Maximum number of characters
+  const ellipsis = "(...)"; // Ellipsis to add at the end
+  const text = props.description;
+
+  if (text.length > maxChars) {
+    return text.substring(0, maxChars) + ellipsis;
+  } else {
+    return text;
+  }
+});
 
 const vimeoID = computed(() => {
   if (!props?.videoUrl) return null;
