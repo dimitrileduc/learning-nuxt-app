@@ -3,7 +3,7 @@ export default async () => {
 
   const { data, error, pending } = useFetch<any>(url);
 
-  console.log(data, error, "username");
+  console.log(data, error, "username ????");
 
   return {
     username: data,
