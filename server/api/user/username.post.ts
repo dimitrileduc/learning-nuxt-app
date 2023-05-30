@@ -35,4 +35,4 @@ export default async function defineEventHandler(event: any) {
       },
     };
   }
-});
+}
