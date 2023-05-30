@@ -48,6 +48,7 @@ model CreditBalance {
 }
 
 model userData {
+  id        Int    @id @default(autoincrement())
   userEmail String @unique
   username  String
   name      String
