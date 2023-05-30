@@ -12,15 +12,15 @@
 <script setup lang="ts">
 //backdrop-blur-xl backdrop-brightness-50
 const previousOverflow = ref("");
+const emits = defineEmits(["close"]);
 onMounted(() => {
   // Lock the scrollbar by removing overflow if we have any
   previousOverflow.value = document.body.style.overflow;
   document.body.style.overflow = "hidden";
-});
-
-onBeforeUnmount(() => {
-  // Restore the overflow and position
-  document.body.style.overflow = previousOverflow.value;
+  onBeforeUnmount(() => {
+    // Restore the overflow and position
+    document.body.style.overflow = previousOverflow.value;
+  });
 });
 </script>
 

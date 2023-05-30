@@ -58,7 +58,7 @@
 
       <ActionModal
         class="w-full sm:w-[400px]"
-        v-if="showModal"
+        v-if="showModal && !pending"
         @close="closeModal"
         :title="modalTitle"
         :subTitle="modalSubtitle"
@@ -81,6 +81,8 @@ import { useHomeVideos } from "~/stores/useHomeVideos";
 const { smoothScrollTo } = useSmoothScroll();
 const userSupa = useSupabaseUser();
 const { refetch } = useHomeVideos();
+
+const { pending } = storeToRefs(useHomeVideos());
 
 console.log("supaUser", userSupa.value);
 const props = defineProps({
@@ -116,6 +118,8 @@ const props = defineProps({
 });
 
 console.log("props video", props);
+
+const { credits, loading } = await useCredits();
 
 const decriptionTruncate = computed(() => {
   const maxChars = 350; // Maximum number of characters
@@ -166,13 +170,15 @@ const closeModal = () => {
   showModal.value = false;
 };
 
-const modalState = computed(async () => {
+const modalState = computed(() => {
   if (!userSupa.value && !unlocked.value) {
     return "notLogged";
   }
+
+  console.log("credits", credits);
+
   if (userSupa.value && !unlocked.value) {
-    const { credits, loading } = await useCredits();
-    return credits.value > 3
+    return credits?.value > 3
       ? "loggedsufficientCredit"
       : "loggedInsufficientCredit";
   }
@@ -236,7 +242,7 @@ const primaryActionModal = async () => {
             method: "POST",
             body: {
               videoID: props.id,
-              creditAmount: 3,
+              creditAmount: 1,
             },
           }
         );

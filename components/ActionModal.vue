@@ -49,7 +49,7 @@ const props = defineProps({
   },
 });
 
-const emits = defineEmits(["close,primaryAction"]);
+const emits = defineEmits(["close", "primaryAction"]);
 
 const handlePrimaryClick = () => {
   emits("primaryAction");
