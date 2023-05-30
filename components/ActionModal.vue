@@ -4,7 +4,11 @@
       class="bg-white p-8 py-14 container text-[#104B51] w-full sm:w-[400px] rounded"
     >
       <div class="image flex justify-center">
-        <nuxt-img alt="hero" class="justify-center w-32" src="/hero.svg" />
+        <nuxt-img
+          alt="hero"
+          class="justify-center w-32"
+          src="/modal_logo.svg"
+        />
       </div>
       <div class="mt-6 text-2xl font-semibold flex justify-center text-center">
         <div>{{ props.title }}</div>

@@ -1,9 +1,7 @@
 <template>
   <div v-if="user" class="rounded flex items-center space-x-3">
     <div class="text-right flex flex-row gap-6">
-      <div class="credits" v-if="credits">
-        {{ creditsDiplayed }} {{ labelCredits }}
-      </div>
+      <div class="credits">{{ creditsDiplayed }} {{ labelCredits }}</div>
       <div class="name font-medium">{{ username }}</div>
     </div>
     <div v-if="user.profile">

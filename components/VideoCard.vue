@@ -178,7 +178,7 @@ const modalState = computed(() => {
   console.log("credits", credits);
 
   if (userSupa.value && !unlocked.value) {
-    return credits?.value > 3
+    return credits?.value > 0
       ? "loggedsufficientCredit"
       : "loggedInsufficientCredit";
   }
@@ -192,9 +192,11 @@ const modalTitle = computed(() => {
     case "notLogged":
       return "Vous devez achetez des credits pour debloquez cette video ( et etre connecte )";
     case "loggedsufficientCredit":
-      return "vous avez actuellement " + credits.value + " credits. ";
+      return (
+        "Vous avez actuellement " + credits.value + " credits disponibles. "
+      );
     case "loggedInsufficientCredit":
-      return "Vous n'avez pas assez de credits. Vous devez achetez des credits pour debloquez cette video";
+      return "Vous n'avez pas assez de credits pour débloquer cette vidéo";
     case "unlocked":
       return null;
   }
@@ -207,7 +209,7 @@ const modalSubtitle = computed(() => {
     case "loggedsufficientCredit":
       return "Vous pouvez debloquez cette video, cliker sur 'Achetez cette video' pour confirmer";
     case "loggedInsufficientCredit":
-      return "Vous n'avez pas assez de credits. Vous devez achetez des credits pour debloquez cette video";
+      return "Veuillez achetez 1 crédit pour accéder à cette vidéo";
     case "unlocked":
       return null;
   }

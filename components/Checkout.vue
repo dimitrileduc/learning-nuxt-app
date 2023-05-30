@@ -6,7 +6,22 @@
           v-if="success"
           class="flex flex-col justify-center items-center space-y-6"
         >
-          <h2 class="text-xl font-bold">Thanks for buying !</h2>
+          <div
+            class="bg-white p-8 py-14 container text-[#104B51] w-full sm:w-[400px] rounded"
+          >
+            <div class="image flex justify-center">
+              <nuxt-img
+                alt="hero"
+                class="justify-center w-32"
+                src="/modal_logo.svg"
+              />
+            </div>
+            <div
+              class="mt-6 text-2xl font-semibold flex justify-center text-center"
+            >
+              <div>Merci pour votre achat</div>
+            </div>
+          </div>
         </div>
 
         <form v-else @submit.prevent="handleSubmit">
