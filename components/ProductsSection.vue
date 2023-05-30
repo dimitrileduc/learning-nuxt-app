@@ -3,7 +3,6 @@
     <div class="text-2xl text-white font-bold mt-4 text-center">
       Découvrez tout de suite les extensions de lectures intuitives
     </div>
-
     <div
       class="pt-6 flex flex-col md:flex-row gap-4 justify-center content-center justify-items-center items-center"
     >
@@ -25,7 +24,7 @@
         :access="demiLune.access"
         :thumbnail="demiLune.thumbnailUrl"
         :videoUrl="demiLune.videoUrl"
-        :date="previousMonth"
+        date="previousMonth"
       />
     </div>
   </div>
@@ -47,7 +46,7 @@ const defaultVideo = {
   videoUrl: "",
 };
 
-const { data } = storeToRefs(useHomeVideos());
+const { data } = await storeToRefs(useHomeVideos());
 
 const currentMonth = computed(() => {
   const currentDate = new Date();
@@ -72,7 +71,7 @@ const lune = computed(() => {
 });
 
 const demiLune = computed(() => {
-  return data?.value?.find((item) => item.title === 9) || defaultVideo;
+  return data?.value?.find((item) => item.id === 9) || defaultVideo;
 });
 </script>
 
