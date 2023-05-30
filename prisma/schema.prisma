@@ -43,6 +43,7 @@ model VideoPurchase {
 }
 
 model CreditBalance {
+  id        Int    @id @default(autoincrement())
   userEmail String @unique
   balance   Int    @default(0)
 }
