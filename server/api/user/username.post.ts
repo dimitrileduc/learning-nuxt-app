@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export default defineEventHandler(async (event) => {
+export default async function defineEventHandler(event: any) {
   const { email, username } = await readBody(event);
 
   console.log("user create endpoint called ", email, username);
