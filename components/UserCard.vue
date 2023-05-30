@@ -4,7 +4,7 @@
       <div class="credits" v-if="credits">
         {{ creditsDiplayed }} {{ labelCredits }}
       </div>
-      <div class="name font-medium">{{ data }}</div>
+      <div class="name font-medium">{{ username }}</div>
     </div>
     <div v-if="user.profile">
       <nuxt-img
@@ -21,13 +21,13 @@
 
 <script setup>
 import { storeToRefs } from "pinia";
-import { useUsername } from "~/stores/useUsername";
+
 import { useAuth } from "~/stores/useAuth";
 import { usePayment } from "~~/stores/usePayment";
 import { useNav } from "~/stores/useNav";
 
-const { data } = storeToRefs(useUsername());
-console.log("USERNAME", data);
+const { username } = await useUsername();
+console.log("USERNAME", username);
 
 const { switchMenu } = useNav();
 
