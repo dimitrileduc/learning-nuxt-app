@@ -67,17 +67,22 @@ const title = computed(() => {
   }
 });
 const subtitle = computed(() => {
-  // Create a new Date object
   const currentDate = new Date();
 
   // Get the current year
   const currentYear = currentDate.getFullYear();
 
+  // Get the current month (zero-based)
+  const currentMonth = currentDate.getMonth();
+
+  // Get the current day
+  const currentDay = currentDate.getDate();
+
   // Add 1 to the current year to get the next year
   const nextYear = currentYear + 1;
 
   // Create a new Date object for the next year
-  const nextYearDate = new Date(nextYear, 0, 1); // Month is zero-based, so 0 represents January
+  const nextYearDate = new Date(nextYear, currentMonth, currentDay);
 
   // Extract the day, month, and year from the next year date
   const nextYearDay = nextYearDate.getDate();
