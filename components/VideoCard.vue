@@ -273,7 +273,7 @@ const primaryActionModal = async () => {
     case "loggedInsufficientCredit":
       console.log("primaryActionModal, logged,buy credits ");
       closeModal();
-      smoothScrollTo("#section-packs", 1000, -100);
+      smoothScrollTo("#credits", 1000, -100);
       break;
     case "unlocked":
       console.log("primaryActionModal , playvideo");
