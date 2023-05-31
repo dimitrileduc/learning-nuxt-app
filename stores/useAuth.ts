@@ -48,7 +48,7 @@ export const useAuth = defineStore("useAuth", () => {
     }
   }
 
-  async function resetPassword(email: string) {
+  async function resetPassword(email) {
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: "https://moonenergy.netlify.app/?resetPassword=true",
     });
@@ -59,7 +59,7 @@ export const useAuth = defineStore("useAuth", () => {
     return { data, error };
   }
 
-  async function loginWithEmail(email: string, password: string) {
+  async function loginWithEmail(email, password) {
     const { data, error } = await supabase.auth.signInWithPassword({
       email: email,
       password: password,
@@ -74,7 +74,7 @@ export const useAuth = defineStore("useAuth", () => {
     }
   }
 
-  async function registerUser(dataObj: any): Promise<any> {
+  async function registerUser(dataObj) {
     const { data, error } = await supabase.auth.signUp({
       email: dataObj.email,
       password: dataObj.password,
@@ -98,15 +98,37 @@ export const useAuth = defineStore("useAuth", () => {
         message: error.message,
       };
 
-    // Call the function to create a username
+    // Call the function to create a username & create mailchimp user
     if (!authError) {
       await createUsername(dataObj);
+      await createMailchimpUser(dataObj);
     }
 
     return { auth: data, error: authError };
   }
 
-  async function createUsername(dataObj: any) {
+  async function createMailchimpUser(dataObj) {
+    console.log("create mailchimp user in auth ");
+    try {
+      const response = await $fetch("/api/user/mchimp", {
+        method: "POST",
+        body: {
+          email: dataObj.email,
+          username: dataObj.username,
+        },
+      });
+      console.log(response);
+      if (response?.status === 200) {
+        console.log("Mailchimp user created successfully");
+      } else {
+        console.log("Failed to create mailchimp user");
+      }
+    } catch (error) {
+      console.log("Error creating mailchimp user:", error);
+    }
+  }
+
+  async function createUsername(dataObj) {
     console.log("create username in auth ");
     try {
       const response = await $fetch("/api/user/username", {
@@ -127,7 +149,7 @@ export const useAuth = defineStore("useAuth", () => {
     }
   }
 
-  async function updatePassword(password: string) {
+  async function updatePassword(password) {
     const { data, error } = await supabase.auth.updateUser({
       password: password,
     });
@@ -144,7 +166,7 @@ export const useAuth = defineStore("useAuth", () => {
     });
   }
 
-  async function checkUserExist(email: string): Promise<any> {
+  async function checkUserExist(email) {
     const { data, error } = await supabase.auth.signUp({
       email: email,
       password: "123456",

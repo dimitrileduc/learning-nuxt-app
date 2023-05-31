@@ -33,24 +33,45 @@
             <span class="ml-4">Stripe payment loading ...</span>
           </div>
           <div v-show="stripeMounted" class="text-base width bg-white">
-            <div class="w-full flex flex-col md:flex-row">
+            <div class="w-full h-full flex flex-col md:flex-row">
               <div class="w-full bg-[#eaf4f4] p-16">
-                <div class="border w-full h-full">
+                <div class="w-full items-center justify-center hidden md:flex">
                   <PackCard noButton :pack="selectedPack" @buy="buyPack" />
                 </div>
+
+                <div class="table w-full">
+                  <div
+                    class="flex w-full flex-rows justify-between mt-8 font-semibold pb-3"
+                  >
+                    <div>Pack</div>
+                    <div>{{ htvaPrice.toFixed(2) }} €</div>
+                  </div>
+                  <div
+                    class="flex w-full border-t-2 flex-rows justify-between text-gray-500 py-3"
+                  >
+                    <div>Tva(21%)</div>
+                    <div>{{ tva }} €</div>
+                  </div>
+                  <div
+                    class="flex w-full border-t-2 flex-rows justify-between font-semibold py-3"
+                  >
+                    <div>Total</div>
+                    <div>{{ selectedPack.price }}.00 €</div>
+                  </div>
+                </div>
               </div>
-              <div class="w-full border p-16">
-                <div class="h-full w-full">
-                  <div class="w-full h-full border" id="payment-element">
+              <div class="w-full h-full flex items-center justify-center p-16">
+                <div class="h-full w-full md:pt-16">
+                  <div class="w-full" id="payment-element">
                     <!-- Mount the Payment Element here -->
                   </div>
                   <div>
-                    <div class="w-full mt-4">
+                    <div class="w-full mt-4 md:pt-16">
                       <Button
                         noMaxWidth
                         class="w-full"
                         primary
-                        label="Pay"
+                        :label="buttonLabel"
                         :loading="processingPayment || verifying"
                       />
                     </div>
@@ -58,7 +79,6 @@
                 </div>
               </div>
             </div>
-            <h2 class="font-bold text-xl text-center">Buying {{ amount }}</h2>
           </div>
         </form>
       </div>
@@ -101,6 +121,18 @@ const packs = [
 
 const selectedPack = computed(() => {
   return packs.find((pack) => pack.creditsValue === amount);
+});
+
+const htvaPrice = computed(() => {
+  return selectedPack.value.price * 0.79;
+});
+
+const tva = computed(() => {
+  return selectedPack.value.price * 0.21;
+});
+
+const buttonLabel = computed(() => {
+  return "payer" + " " + selectedPack.value.price + " " + "€";
 });
 
 // The tab is closed and reopened (we're still in the same session)

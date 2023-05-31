@@ -43,6 +43,9 @@ export default defineNuxtConfig({
   },
 
   compilerOptions: {
+    paths: {
+      "*": ["types/*"],
+    },
     types: ["@nuxt/types", "@nuxt/image"],
   },
 });
