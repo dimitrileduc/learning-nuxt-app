@@ -15,12 +15,12 @@
         effet.
       </div>
       <Form
-        class="w-full"
+        class="w-full flex flex-col items-center"
         @submit="onSubmit"
         :validation-schema="schema"
         @invalid-submit="onInvalidSubmit"
       >
-        <div class="form mt-8 sm:mt-4 lg:mt-8 w-full">
+        <div class="form mt-8 sm:mt-4 lg:mt-8 w-full flex items-center">
           <div class="flex flex-col items-center w-full">
             <FormInput
               name="name"
