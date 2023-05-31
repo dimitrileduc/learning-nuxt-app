@@ -12,10 +12,11 @@
         :title="lune.title"
         :description="lune.description"
         :access="lune.access"
-        :thumbnail="lune.thumbnailUrl"
+        thumbnail="https://i.vimeocdn.com/video/1667518871-2228ca55bdf568194df096c6876503c07d9248133ff0827160642caa79a48803-d_295x166?r=pad"
         :videoUrl="lune.videoUrl"
         :date="currentMonth"
       />
+
       <VideoCard
         :id="demiLune.id"
         :logged="demiLune.logged"
@@ -67,11 +68,11 @@ const previousMonth = computed(() => {
 
 console.log("data in products sections", data);
 const lune = computed(() => {
-  return data?.value?.find((item) => item.id === 8) || defaultVideo;
+  return data?.value?.[1] || defaultVideo;
 });
 
 const demiLune = computed(() => {
-  return data?.value?.find((item) => item.id === 9) || defaultVideo;
+  return data?.value?.[0] || defaultVideo;
 });
 </script>
 
