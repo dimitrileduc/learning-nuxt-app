@@ -16,6 +16,21 @@ export default defineNuxtConfig({
     server: false,
   },
   modules: [
+    [
+      "nuxt-mail",
+      {
+        message: {
+          to: "foo@bar.de",
+        },
+        smtp: {
+          service: "gmail",
+          auth: {
+            user: "foo@gmail.com",
+            pass: "<app-specific password>",
+          },
+        },
+      },
+    ],
     "@nuxtjs/tailwindcss",
     "@vueuse/nuxt",
     "@nuxtjs/supabase",

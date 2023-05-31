@@ -233,7 +233,7 @@ const primaryActionModal = async () => {
     case "notLogged":
       console.log("primaryActionModal, user not logged ");
       closeModal();
-      smoothScrollTo("#section-packs", 1000, -100);
+      smoothScrollTo("#credits", 1000, -100);
       break;
     case "loggedsufficientCredit":
       console.log("primaryActionModal, buy video ");

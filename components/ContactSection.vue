@@ -14,44 +14,82 @@
         prendre rendez-vous, merci de vous rendre sur l’onglet prévu à cet
         effet.
       </div>
-      <div class="form mt-8 sm:mt-4 lg:mt-8 w-full">
-        <div class="flex flex-col items-center w-full">
-          <FormInput
-            name="name"
-            label="name"
-            placeholder="Fullname"
-            type="texte"
-          />
-          <FormInput
-            name="email"
-            label="email"
-            placeholder="Email*"
-            type="email"
-          />
-          <FormInput
-            name="sujet"
-            label="sujet"
-            placeholder="Sujet"
-            type="texte"
-          />
-          <FormInput
-            name="message"
-            label="message"
-            placeholder="Message*"
-            type="texte"
-            textArea
-          />
+      <Form
+        @submit="onSubmit"
+        :validation-schema="schema"
+        @invalid-submit="onInvalidSubmit"
+      >
+        <div class="form mt-8 sm:mt-4 lg:mt-8 w-full">
+          <div class="flex flex-col items-center w-full">
+            <FormInput
+              name="name"
+              label="name"
+              placeholder="Fullname"
+              type="texte"
+            />
+            <FormInput
+              name="email"
+              label="email"
+              placeholder="Email*"
+              type="email"
+            />
+            <FormInput
+              name="sujet"
+              label="sujet"
+              placeholder="Sujet"
+              type="texte"
+            />
+            <FormInput
+              name="message"
+              label="message"
+              placeholder="Message*"
+              type="texte"
+              textArea
+            />
+          </div>
         </div>
-      </div>
-      <div class="button_container mt-8 sm:mt-4 lg:mt-8">
-        <Button primary label="Envoyer" />
-        <div />
-      </div>
+        <div class="button_container mt-8 sm:mt-4 lg:mt-8">
+          <Button primary label="Envoyer" />
+          <div />
+        </div>
+      </Form>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { Form } from "vee-validate";
+import * as Yup from "yup";
+const mail = useMail();
+
+const schema = Yup.object().shape({
+  name: Yup.string().required(),
+  email: Yup.string().required(),
+  sujet: Yup.string().required(),
+  message: Yup.string().required(),
+});
+function onSubmit(values) {
+  mail.send({
+    from: "John Doe",
+    subject: "Incredible",
+    text: "This is an incredible test message",
+  });
+  /*
+  schema.value.validate(values).then((valid) => {
+    if (!valid) {
+      console.log("Form is not valid.");
+    }
+    console.log("Form is valid.");
+  });
+  */
+}
+
+function onInvalidSubmit(values) {
+  props.type === "logIn"
+    ? console.log("Login failed")
+    : console.log("Register failed");
+}
+</script>
 
 <style scoped>
 .container_contacts {
