@@ -28,7 +28,7 @@
               {{ transaction.id }}
             </td>
             <td class="px-2 md:px-4 py-2 text-left font-bold">
-              {{ transaction.amount ? "Credit Purchase" : "Video Purchase" }}
+              {{ transaction.amount ? "achat credits" : "achat video" }}
             </td>
             <td class="px-2 md:px-4 py-2 text-left">
               {{ new Date(transaction.createdAt).toLocaleDateString("en-GB") }}

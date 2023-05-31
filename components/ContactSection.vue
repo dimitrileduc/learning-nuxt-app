@@ -15,6 +15,7 @@
         effet.
       </div>
       <Form
+        class="w-full"
         @submit="onSubmit"
         :validation-schema="schema"
         @invalid-submit="onInvalidSubmit"
