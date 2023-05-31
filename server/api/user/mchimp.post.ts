@@ -4,14 +4,14 @@ export default async function defineEventHandler(event: any) {
   const { email, username } = await readBody(event);
 
   MailchimpMarketing.setConfig({
-    apiKey: "c3333b38ec9e6821244d4f90581fd5bf-us10",
-    server: "us10",
+    apiKey: "a8fa444f14add11e519c69c9af71afc9-us21",
+    server: "us21",
   });
 
   const run = async () => {
     try {
       const response = await MailchimpMarketing.lists.addListMember(
-        "5154b36d2d",
+        "b4b2f71909",
         {
           email_address: email,
           status: "subscribed",
