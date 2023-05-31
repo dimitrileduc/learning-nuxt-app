@@ -5,7 +5,7 @@
 const calendly = useCalendly();
 const handleClick = () => {
   calendly.initPopupWidget({
-    url: "https://calendly.com/moonenergy/60-minutes-rdv",
+    url: "https://calendly.com/moonenergy/rdv-60-minutes",
   });
 };
 </script>
