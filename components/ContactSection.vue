@@ -25,7 +25,7 @@
             <FormInput
               name="name"
               label="name"
-              placeholder="Nom complet"
+              placeholder="Nom et prénom"
               type="texte"
             />
             <FormInput
