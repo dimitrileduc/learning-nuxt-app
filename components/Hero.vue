@@ -16,8 +16,8 @@
         <div class="text-center lg:text-justify">
           <div class="title text-2xl font-bold mt-8">Tout est énergie</div>
           <div class="description mt-4 leading-tight">
-            Bienvenue sur ce site, si vous êtes arrivés ici c'est probablement
-            grâce à mes vidéos gratuite sur
+            Bienvenue sur ce site, si vous êtes arrivés ici, c'est probablement
+            grâce à mes vidéos gratuites sur
             <button class="text-[#CFE4BA] font-bold" @click="goYoutbe">
               Youtube
             </button>
@@ -26,12 +26,12 @@
             <br /><br />
             La dernière vidéo vous a justement interpellée ?<br />
             <span class="font-bold"
-              >Vous vous sentez proche des énergies du moment
+              >Vous vous sentez proches des énergies du moment
             </span>
-            et voudriez en savoir plus pour mieux aborder les prochains jours et
-            les prochaines semaines?<br /><br />
+            et vous voudriez en savoir plus pour mieux aborder les prochains
+            jours et les prochaines semaines?<br /><br />
             <span class="font-bold"
-              >Alors ces extensions de lectures intuitives sont faites pour vous
+              >Alors ces extensions de lecture intuitive sont faites pour vous
               !</span
             >
           </div>

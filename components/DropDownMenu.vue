@@ -39,7 +39,7 @@
           <NuxtLink
             class="w-full"
             :to="{ path: '/', query: { section: 'credits' } }"
-            ><div class="w-full py-2">Credits</div></NuxtLink
+            ><div class="w-full py-2">Crédits</div></NuxtLink
           >
         </div>
         <div class="separator_container w-full">
@@ -53,7 +53,7 @@
           <NuxtLink
             class="w-full"
             :to="{ path: '/', query: { section: 'about' } }"
-            ><div class="w-full py-2">About</div></NuxtLink
+            ><div class="w-full py-2">Qui suis-je</div></NuxtLink
           >
         </div>
         <div class="separator_container w-full">
@@ -81,7 +81,7 @@
           <NuxtLink
             class="w-full"
             :to="{ path: '/', query: { section: 'contacts' } }"
-            ><div class="w-full py-2">Contacts</div></NuxtLink
+            ><div class="w-full py-2">Contact</div></NuxtLink
           >
         </div>
       </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="container w-full flex flex-col items-center px-8 sm:px-0">
     <div class="text-2xl text-white font-bold mt-4 text-center">
-      Découvrez tout de suite les extensions de lectures intuitives
+      Découvrez ci-dessous les extensions de lecture intuitive
     </div>
     <div
       class="pt-6 flex flex-col md:flex-row gap-4 justify-center content-center justify-items-center items-center"
@@ -40,7 +40,7 @@ const { loading, user } = storeToRefs(useAuth());
 const defaultVideo = {
   id: "",
   logged: false,
-  title: "Video loading ",
+  title: "Vidéo loading ",
   description: "Description loading...",
   access: "",
   thumbnailUrl: "",

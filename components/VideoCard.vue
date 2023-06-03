@@ -190,7 +190,7 @@ const modalState = computed(() => {
 const modalTitle = computed(() => {
   switch (modalState.value) {
     case "notLogged":
-      return "Vous devez achetez des credits pour debloquez cette video ( et etre connecte )";
+      return "Vous devez achetez des credits pour debloquez cette vidéo ( et etre connecte )";
     case "loggedsufficientCredit":
       return (
         "Vous avez actuellement " + credits.value + " credits disponibles. "
@@ -205,9 +205,9 @@ const modalTitle = computed(() => {
 const modalSubtitle = computed(() => {
   switch (modalState.value) {
     case "notLogged":
-      return "Vous devez vous connectez et achetez 3 credits pour debloquez cette video";
+      return "Vous devez vous connectez et achetez 3 credits pour debloquez cette vidéo";
     case "loggedsufficientCredit":
-      return "Vous pouvez debloquez cette video, cliker sur 'Achetez cette video' pour confirmer";
+      return "Vous pouvez debloquez cette vidéo, cliker sur 'Achetez cette vidéo' pour confirmer";
     case "loggedInsufficientCredit":
       return "Veuillez achetez 1 crédit pour accéder à cette vidéo";
     case "unlocked":
@@ -220,7 +220,7 @@ const primaryLabelModal = computed(() => {
     case "notLogged":
       return "Achetez des credits et connectez vous";
     case "loggedsufficientCredit":
-      return "Achetez cette video";
+      return "Achetez cette vidéo";
     case "loggedInsufficientCredit":
       return "Achetez des credits ";
     case "unlocked":
@@ -236,7 +236,7 @@ const primaryActionModal = async () => {
       smoothScrollTo("#credits", 1000, -100);
       break;
     case "loggedsufficientCredit":
-      console.log("primaryActionModal, buy video ");
+      console.log("primaryActionModal, buy vidéo ");
       try {
         const response = await $fetch(
           "/api/videoPurchase/createVideoPurchase",

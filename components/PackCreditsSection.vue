@@ -1,12 +1,12 @@
 <template>
   <div class="container_packs py-10 px-10 flex flex-col items-center">
     <div class="font-bold text-2xl text-center">
-      Packs extensions guidances intuitives lunaires
+      Packs extension(s) de lecture intuitive
     </div>
     <div class="details mt-4 mb-8 text-center leading-tight max-w-[712px]">
       <span class="font-bold">Rechargez ici vos crédits</span> afin d'en savoir
       plus sur les énergies du moment pour lever des blocages, éclairer des
-      zones d’ombres et pour recevoir les messages qui vous permettent de vous
+      zones d’ombre et pour recevoir les messages qui vous permettent de vous
       <br /><span class="font-bold">
         positionner concrètement dans votre vie.</span
       >

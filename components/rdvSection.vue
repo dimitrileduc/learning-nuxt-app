@@ -9,7 +9,7 @@
           Rendez-vous personnel
         </div>
         <div class="text-center mt-4 leading-tight">
-          Bienvenue dans un espace sécurisé ou vous pourrez prendre le temps de
+          Bienvenue dans un espace sécurisé où vous pourrez prendre le temps de
           vous aligner à votre moi profond et à vos émotions.
         </div>
         <div class="text-center text-sm italic mt-2 leading-tight">
@@ -30,15 +30,15 @@
             />
           </div>
           <div class="mt-6 text-[20px] font-bold text-center">
-            Guidance personnalisé
+            Guidance personnalisée
           </div>
           <div class="mt-1 text-[14px] text-center">60 minutes /75€</div>
           <div class="mt-4 leading-tight md:min-h-[119px] text-justify">
             Je vous accueille pour vous soutenir dans votre parcours de vie en
             vous apportant les messages que vous êtes prêts à entendre, en
-            éclairant d’éventuelles zones d’ombres, en vous aidant à vous
+            éclairant d’éventuelles zones d’ombre, en vous aidant à vous
             connecter à vos ressources personnelles afin de suivre la voie de
-            votre âme
+            votre âme.
           </div>
           <div class="container_button mt-6 md:mt-6 lg:mt-8">
             <Calendly60 />
@@ -53,7 +53,7 @@
             />
           </div>
           <div class="mt-6 text-[20px] font-bold text-center">
-            Guidance Directe
+            Guidance directe
           </div>
           <div class="mt-1 text-[14px] text-center">30 minutes / 45€</div>
           <div class="mt-4 leading-tight md:min-h-[119px] text-justify">

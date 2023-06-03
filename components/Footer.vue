@@ -11,9 +11,9 @@
       >
         <div class="text-center text-sm">Accueil</div>
         <div class="text-center text-sm">Tirages</div>
-        <div class="text-center text-sm">Credits</div>
-        <div class="text-center text-sm">About</div>
-        <div class="text-center text-sm">Contacts</div>
+        <div class="text-center text-sm">Crédits</div>
+        <div class="text-center text-sm">Qui suis-je</div>
+        <div class="text-center text-sm">Contact</div>
       </div>
       <div
         class="icones_group mt-10 flex flex-row items-center justify-items-center gap-4"

@@ -29,7 +29,9 @@
           </div>
           <div class="details">
             <span class="font-normal">Crédit pour</span>
-            <span class="pl-1 font-bold">{{ pack.creditsValue }} videos</span>
+            <span class="pl-1 font-bold"
+              >{{ pack.creditsValue }} {{ videosLabel }}</span
+            >
           </div>
         </div>
         <div class="separator_container">
@@ -79,6 +81,10 @@ const buyPack = () => {
 
 const priceLabel = computed(() => {
   return `${props.pack.price.toFixed(2)} €`;
+});
+
+const videosLabel = computed(() => {
+  props.packs.creditsValue === 1 ? "vidéo" : "vidéos";
 });
 </script>
 

@@ -94,7 +94,7 @@ const ctaLabel = "Acheter des crédits";
 const sectionTitle = "Packs extensions guidances intuitives lunaires";
 
 const sectionSubtitle =
-  " Rechargez ici vos crédits afin d'en savoir plus sur les énergies du moment pour lever des blocages, éclairer des zones d’ombres et pour recevoir les messages qui vous permettent de vous positionner concrètement dans votre vie.";
+  " Rechargez ici vos crédits afin d'en savoir plus sur les énergies du moment pour lever des blocages, éclairer des zones d’ombre et pour recevoir les messages qui vous permettent de vous positionner concrètement dans votre vie.";
 
 const historiqueSectionTile = "Historique des derniers achats";
 
