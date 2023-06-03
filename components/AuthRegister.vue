@@ -85,8 +85,17 @@ function redirectLogin() {
     >
       <div class="legal text-sm pt-6 text-center text-opacity-60">
         En m'inscrivant, j’accepte les
-        <span class="underline">conditions générales</span> et la
-        <span class="underline">politique de confidentialité</span>
+        <span class="underline">
+          <NuxtLink class="w-full h-full pt-3" :to="{ path: '/cgv' }"
+            >Termes et conditions</NuxtLink
+          >
+        </span>
+        et la
+        <span class="underline">
+          <NuxtLink class="w-full h-full" :to="{ path: '/confidentialite' }"
+            >Politique de confidentialité</NuxtLink
+          >
+        </span>
       </div>
     </AuthForm>
 
