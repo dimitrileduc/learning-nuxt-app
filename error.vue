@@ -1,23 +1,21 @@
 <template>
-  <NuxtLayout>
-    <h1 class="text-4xl font-bold">404</h1>
-    <p class="text-xl">Custom error page</p>
-    <p>
-      <code>{{ error.message }}</code>
-    </p>
-    <p>
-      Go to the
-      <a class="hover:cursor-pointer" @click="handleError"> first lesson. </a>
-    </p>
-  </NuxtLayout>
+  <div class="bg-[#104B51] w-full h-screen flex items-center justify-center">
+    <div class="flex flex-col justify-center items-center w-full">
+      <nuxt-img alt="hero" class="justify-center w-64" src="/hero.svg" />
+      <div class="mt-10 text-center uppercase text-[#CFE4BA]">Erreur 404</div>
+      <div class="text-2xl text-center mt-3 text-white">Page non trouvée</div>
+      <div class="text-center mt-3 text-white">
+        Désolé, cette page s’est perdue dans l’univers.
+      </div>
+      <div class="mt-6">
+        <Button primary label="Retour à l'accueil" @click="goToHome" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
-const error = useError();
-const handleError = () => {
-  clearError({
-    redirect:
-      "/course/chapter/1-chapter-1/lesson/1-introduction-to-typescript-with-vue-js-3",
-  });
+const goToHome = () => {
+  window.location.href = "https://moon-energy.net";
 };
 </script>
