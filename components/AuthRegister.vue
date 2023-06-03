@@ -86,14 +86,14 @@ function redirectLogin() {
       <div class="legal text-sm pt-6 text-center text-opacity-60">
         En m'inscrivant, j’accepte les
         <span class="underline">
-          <NuxtLink class="w-full h-full pt-3" :to="{ path: '/cgv' }"
-            >Termes et conditions</NuxtLink
+          <a class="w-full h-full pt-3" href="/cgv" target="_blank"
+            >Termes et conditions</a
           >
         </span>
         et la
         <span class="underline">
-          <NuxtLink class="w-full h-full" :to="{ path: '/confidentialite' }"
-            >Politique de confidentialité</NuxtLink
+          <a class="w-full h-full" href="/confidentialite" target="_blank"
+            >Politique de confidentialité</a
           >
         </span>
       </div>
