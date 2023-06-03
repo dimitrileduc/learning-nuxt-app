@@ -23,8 +23,15 @@
         </button>
         <nuxt-img class="h-8" alt="youtube" src="/tiktok.svg" />
       </div>
-      <div class="px-2 mt-3 text-center text-xs text-white">
-        Termes et conditions
+      <div class="px-2 mt-3 text-center text-xs text-white flex flex-col">
+        <NuxtLink class="w-full h-full pt-3" :to="{ path: '/cgv' }"
+          ><div class="w-full h-full">Termes et conditions</div></NuxtLink
+        >
+        <NuxtLink class="w-full h-full" :to="{ path: '/confidentialite' }"
+          ><div class="w-full h-full pb-3 pt-1">
+            Politique de confidentialité
+          </div></NuxtLink
+        >
       </div>
       <div class="px-2 mt-2 text-center text-xs text-white">
         Copyright 2023 - Moon Energy. All rights reserved.
