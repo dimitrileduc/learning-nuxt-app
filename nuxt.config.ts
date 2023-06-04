@@ -56,7 +56,9 @@ export default defineNuxtConfig({
     isControlButtonEnabled: false,
     colors: {
       checkboxActiveBackground: "#00A34A", // text-green-600
+      barButtonHoverColor: "#fff",
     },
+
     closeModalOnClickOutside: true,
     cookies: {
       necessary: [
