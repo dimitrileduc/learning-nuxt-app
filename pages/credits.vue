@@ -35,7 +35,7 @@
           class=""
         >
           <div class="flex items-center justify-center">
-            <div class="w-full sm:max-w-[644px] lg:max-w-[944px] pt-6">
+            <div class="w-full sm:max-w-[644px] lg:max-w-[944px] py-2 pb-10">
               <CreditsTable />
             </div>
           </div>
