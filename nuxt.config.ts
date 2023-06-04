@@ -30,9 +30,9 @@ export default defineNuxtConfig({
           to: "hello@moon-energy.net",
         },
         smtp: {
-          host: "in-vu3.mailjet.com",
-          port: 587,
-          secure: true, // Enable secure connection using TLS/SSL
+          host: "in-v3.mailjet.com",
+          port: 465,
+          secure: false,
         },
         auth: {
           user: "dd296b2a38a2698b50550d4203113738",
