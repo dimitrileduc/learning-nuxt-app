@@ -27,14 +27,15 @@ export default defineNuxtConfig({
       "nuxt-mail",
       {
         message: {
-          to: "foo@bar.de",
+          to: "hello@moon-energy.net",
         },
         smtp: {
-          service: "gmail",
-          auth: {
-            user: "foo@gmail.com",
-            pass: "<app-specific password>",
-          },
+          host: "in-vu3.mailjet.com",
+          port: 465,
+        },
+        auth: {
+          user: "dd296b2a38a2698b50550d4203113738",
+          pass: "3be3675f65babdcfa3638fc7fa911b04",
         },
       },
     ],

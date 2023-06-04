@@ -4,12 +4,6 @@
   >
     <div class="container">
       <div class="content">
-        <div v-if="false">
-          <div>Welcolme</div>
-          <div v-if="user">{{ name }}</div>
-          <div v-else>guest</div>
-          <div>hero subtitle</div>
-        </div>
         <div class="container_logo mt-6 md:mt-8 lg:mt-0">
           <nuxt-img alt="logo" class="justify-center w-48" src="/logo.svg" />
         </div>
@@ -79,6 +73,19 @@ const scrollToRDV = () => {
 </script>
 
 <style scoped>
+.content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/images/lune_gradient.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /*  opacity: 0.5; Adjust the opacity value as desired */
+}
 .global_hero {
   font-family: Lato;
   color: white;
