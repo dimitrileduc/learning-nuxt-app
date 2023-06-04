@@ -93,7 +93,7 @@ function redirectLogin() {
         et la
         <span class="underline">
           <a class="w-full h-full" href="/confidentialite" target="_blank"
-            >Politique de confidentialité</a
+            >Politique de confidentialité.</a
           >
         </span>
       </div>

@@ -7,13 +7,50 @@
         <nuxt-img alt="footer" src="/footer_center.svg" />
       </div>
       <div
-        class="mt-12 flex flex-row items-center justify-items-center gap-4 md:gap-10"
+        class="mt-12 flex flex-col md:flex-row items-center justify-items-center gap-2 md:gap-10"
       >
-        <div class="text-center text-sm">Accueil</div>
-        <div class="text-center text-sm">Tirages</div>
-        <div class="text-center text-sm">Crédits</div>
-        <div class="text-center text-sm">Qui suis-je</div>
-        <div class="text-center text-sm">Contact</div>
+        <div class="text-center text-sm">
+          <NuxtLink
+            class="w-full h-full"
+            :to="{ path: '/', query: { section: 'home' } }"
+            ><div class="w-full h-full py-2">Acceuil</div></NuxtLink
+          >
+        </div>
+        <div class="text-center text-sm">
+          <NuxtLink
+            class="w-full"
+            :to="{ path: '/', query: { section: 'tirages' } }"
+            ><div class="w-full py-2">Tirages</div></NuxtLink
+          >
+        </div>
+        <div class="text-center text-sm">
+          <NuxtLink
+            class="w-full"
+            :to="{ path: '/', query: { section: 'credits' } }"
+            ><div class="w-full py-2">Crédits</div></NuxtLink
+          >
+        </div>
+        <div class="text-center text-sm">
+          <NuxtLink
+            class="w-full"
+            :to="{ path: '/', query: { section: 'about' } }"
+            ><div class="w-full py-2">Qui suis-je</div></NuxtLink
+          >
+        </div>
+        <div class="text-center text-sm">
+          <NuxtLink
+            class="w-full"
+            :to="{ path: '/', query: { section: 'rdv' } }"
+            ><div class="w-full py-2">Rendez-vous</div></NuxtLink
+          >
+        </div>
+        <div class="text-center text-sm">
+          <NuxtLink
+            class="w-full"
+            :to="{ path: '/', query: { section: 'contacts' } }"
+            ><div class="w-full py-2">Contact</div></NuxtLink
+          >
+        </div>
       </div>
       <div
         class="icones_group mt-10 flex flex-row items-center justify-items-center gap-4"

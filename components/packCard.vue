@@ -29,9 +29,8 @@
           </div>
           <div class="details">
             <span class="font-normal">Crédit pour</span>
-            <span class="pl-1 font-bold"
-              >{{ pack.creditsValue }} {{ videosLabel }}</span
-            >
+            <span class="pl-1 font-bold">{{ pack.creditsValue }}</span>
+            {{ pack.creditsValue === 1 ? "vidéo" : "vidéos" }}
           </div>
         </div>
         <div class="separator_container">

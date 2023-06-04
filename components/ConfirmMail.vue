@@ -11,7 +11,7 @@
       <div class="text-2xl font-semibold flex justify-center text-center">
         {{ title }}
       </div>
-      <div class="flex justify-center pt-6">
+      <div v-if="false" class="flex justify-center pt-6">
         <div class="flex justify-center text-center">
           {{ subTitle }}
         </div>
@@ -42,9 +42,10 @@ const props = defineProps({
   },
 });
 
-const title = "Veuillez vérifier votre adresse e-mail";
+const title =
+  "Pour valider votre inscription, merci de confirmer votre adresse e-mail.";
 const subTitle = computed(() => {
-  return "Afin de commencer à utiliser l'application Moon, vous devez confirmer votre adresse e-mail.";
+  return "Pour valider votre inscription, merci de confirmer votre adresse e-mail.";
 });
 </script>
 

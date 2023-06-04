@@ -9,7 +9,9 @@
         class="content px-10 md:px-0 lg:p-0 flex flex-col items-center lg:w-6/12"
       >
         <div class="sm:max-w-[552px]">
-          <div class="text-2xl font-bold text-center">Qui suis-je ?</div>
+          <div class="text-2xl font-bold text-center lg:text-left">
+            Qui suis-je ?
+          </div>
           <div class="mt-10 leading-tight text-justify max-w-[712px]">
             Je m’appelle Delphine et je suis ravie de vous accueillir dans cet
             <span class="font-bold">espace de confiance.</span>
