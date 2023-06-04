@@ -81,15 +81,4 @@ const locale = ref<any>("fr");
 .cookieControl__BarButtons button:nth-child(3) {
   display: none;
 }
-.cookieControl__BarButtons button {
-  pointer-events: auto;
-}
-
-.cookieControl__BarButtons button:active {
-  pointer-events: auto;
-}
-
-.cookieControl__BarButtons button:hover {
-  pointer-events: none;
-}
 </style>
