@@ -10,6 +10,7 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
+    "@dargmuesli/nuxt-cookie-control": "^5.9.3",
     "@nuxt/image-edge": "^1.0.0-28020728.5df24eb",
     "@nuxt/types": "^2.16.0",
     "@nuxtjs/supabase": "^0.3.1",

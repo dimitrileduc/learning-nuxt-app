@@ -2,6 +2,9 @@
   <div class="container w-full">
     <div class="navigation z-20">
       <Navigation />
+      <div class="cookies_control">
+        <CookiesConsent />
+      </div>
     </div>
 
     <div class="body w-full">

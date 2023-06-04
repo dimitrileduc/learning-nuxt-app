@@ -94,4 +94,8 @@ useHead({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.cookies_control {
+  z-index: 500;
+}
+</style>
