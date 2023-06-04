@@ -31,7 +31,8 @@ export default defineNuxtConfig({
         },
         smtp: {
           host: "in-vu3.mailjet.com",
-          port: 465,
+          port: 587,
+          secure: true, // Enable secure connection using TLS/SSL
         },
         auth: {
           user: "dd296b2a38a2698b50550d4203113738",
