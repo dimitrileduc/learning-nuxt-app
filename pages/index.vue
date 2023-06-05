@@ -83,7 +83,7 @@ const hidePayment = () => {
 };
 
 useHead({
-  title: "Moon app",
+  title: "Moon Energy",
   meta: [{ name: "description", content: "My amazing site." }],
   bodyAttrs: {
     class: "test",

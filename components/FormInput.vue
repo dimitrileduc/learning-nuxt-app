@@ -130,7 +130,13 @@ const handleBlurInput = (e) => {
             class="h-full flex items-center justify-center text-opacity-50"
             @click="togglePasswordVisibility"
           >
-            {{ passwordVisible ? "Hide" : "Show" }}
+            <nuxt-img
+              v-if="!passwordVisible"
+              alt="show"
+              format="svg"
+              src="/show.svg"
+            />
+            <nuxt-img v-else alt="show" format="svg" src="/hide.svg" />
           </div>
         </div>
       </div>

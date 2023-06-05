@@ -73,13 +73,7 @@ const scrollToRDV = () => {
 </script>
 
 <style scoped>
-.content::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.content_test {
   background-image: url("/assets/images/lune_gradient.svg");
   background-repeat: no-repeat;
   background-size: cover;

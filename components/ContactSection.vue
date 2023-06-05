@@ -71,7 +71,10 @@ const schema = Yup.object().shape({
 });
 function onSubmit(values) {
   mail.send({
-    from: "John Doe",
+    from: {
+      name: "Moon Energy",
+      address: "hello@moon-energy.net",
+    },
     subject: "Incredible",
     text: "This is an incredible test message",
   });

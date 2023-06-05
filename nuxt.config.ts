@@ -30,13 +30,12 @@ export default defineNuxtConfig({
           to: "hello@moon-energy.net",
         },
         smtp: {
-          host: "in-v3.mailjet.com",
-          port: 465,
-          secure: false,
-        },
-        auth: {
-          user: "dd296b2a38a2698b50550d4203113738",
-          pass: "3be3675f65babdcfa3638fc7fa911b04",
+          host: "smtp-relay.sendinblue.com",
+          port: 587,
+          auth: {
+            user: "dimitri.leduc87@gmail.com",
+            pass: "hH4xpN3rZ9dcsQq0",
+          },
         },
       },
     ],

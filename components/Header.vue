@@ -5,6 +5,11 @@
         <div class="container_overlay w-full inline-flex justify-between">
           <div class="bg-overlay-left">
             <nuxt-img alt="header_left" src="/left.svg" />
+            <nuxt-img
+              alt="header_lune"
+              class="absolute -top-12 left-32 w-6/12"
+              src="/lune_gradient.svg"
+            />
           </div>
           <div class="bg-overlay-right">
             <nuxt-img alt="header_right" src="/right.svg" />
