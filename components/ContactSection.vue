@@ -16,6 +16,7 @@
       </div>
       <Form
         class="w-full flex flex-col items-center"
+        ref="form"
         @submit="onSubmit"
         :validation-schema="schema"
         @invalid-submit="onInvalidSubmit"
@@ -81,6 +82,7 @@ import { Form } from "vee-validate";
 import * as Yup from "yup";
 const mail = useMail();
 const status = ref(null);
+const form = ref(null);
 
 const namePlaceHolder = ref("Nom et prénom*");
 const emailPlaceHolder = ref("Email*");
@@ -115,6 +117,7 @@ async function onSubmit(values) {
       text: values.message,
     });
     status.value = "ok"; // Set status to "ok" when the form submission is successful
+    form.reset();
     namePlaceHolder.value = "Nom et prénom*";
     emailPlaceHolder.value = "Email*";
     sujetPlaceHolder.value = "Sujet*";

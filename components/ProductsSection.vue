@@ -7,17 +7,19 @@
       class="pt-6 flex flex-col md:flex-row gap-4 justify-center content-center justify-items-center items-center"
     >
       <VideoCard
+        v-if="lune"
         :id="lune.id"
         :logged="lune.logged"
         :title="lune.title"
         :description="lune.description"
         :access="lune.access"
-        thumbnail="https://i.vimeocdn.com/video/1667518871-2228ca55bdf568194df096c6876503c07d9248133ff0827160642caa79a48803-d_295x166?r=pad"
+        :thumbnail="lune.thumbnailUrl"
         :videoUrl="lune.videoUrl"
         :date="currentMonth"
       />
 
       <VideoCard
+        v-if="demiLune && !onlyOneVideo"
         :id="demiLune.id"
         :logged="demiLune.logged"
         :title="demiLune.title"
@@ -25,7 +27,7 @@
         :access="demiLune.access"
         :thumbnail="demiLune.thumbnailUrl"
         :videoUrl="demiLune.videoUrl"
-        date="previousMonth"
+        :date="currentMonth"
       />
     </div>
   </div>
@@ -69,13 +71,17 @@ const previousMonth = computed(() => {
   return formattedDate;
 });
 
+const onlyOneVideo = computed(() => {
+  return data?.value?.length === 1;
+});
+
 console.log("data in products sections", data);
 const lune = computed(() => {
-  return data?.value?.[1] || defaultVideo;
+  return data?.value?.[0] || defaultVideo;
 });
 
 const demiLune = computed(() => {
-  return data?.value?.[0] || defaultVideo;
+  return data?.value?.[1] || defaultVideo;
 });
 </script>
 

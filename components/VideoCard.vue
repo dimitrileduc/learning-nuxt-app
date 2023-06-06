@@ -9,20 +9,11 @@
             <VimeoPlayer :videoId="vimeoID" />
           </div>
 
-          <div v-else-if="props.thumbnail">
-            <nuxt-img
-              alt="thumbnail"
-              format="webp"
-              class="image w-full object-contain rounded"
-              :src="props.thumbnail"
-            />
-          </div>
-          <div v-else>
+          <div v-else-if="props?.thumbnail">
             <nuxt-img
               alt="sthumbnail"
-              format="webp"
               class="image w-full object-contain rounded"
-              src="https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-network-placeholder-png-image_3416659.jpg"
+              :src="props.thumbnail"
             />
           </div>
         </div>
@@ -39,7 +30,9 @@
       <div class="text-container mt-3 my-6 mx-3 sm:mx-4">
         <div class="flex flex-col sm:flex-row sm:gap-2">
           <div class="title font-bold">{{ props.title }}</div>
-          <div v-if="props.date" class="date font-bold">{{ props.date }}</div>
+          <div v-if="props.date && false" class="date font-bold">
+            {{ props.date }}
+          </div>
         </div>
         <div class="description mt-3 leading-tight text-justify font-normal">
           {{ decriptionTruncate }}
@@ -324,7 +317,6 @@ const playVideo = () => {
 }
 
 .image {
-  height: 247px;
 }
 
 .overlay {

@@ -27,12 +27,66 @@ export default defineEventHandler(async (event) => {
 
       const videos = body.data; // Assuming the videos are stored in the 'data' property
 
+      // Sort videos by creation date in descending order
+      videos.sort(
+        (a, b) => new Date(b.created_time) - new Date(a.created_time)
+      );
+
+      // Retrieve the last two videos
+      const lastTwoVideos = videos.slice(0, 2);
+
       // Iterate through each video and log its details
-      videos.forEach((video) => {
-        console.log("Video:", video.video);
+      lastTwoVideos.forEach((video) => {
+        addVideoToDatabase(video);
+        console.log(video);
       });
 
       return body;
     }
   );
 });
+
+async function addVideoToDatabase(video) {
+  console.log("VIDEOOOOOOOOOOO", video.video);
+  try {
+    const existingVideos = await prisma.video.findMany({
+      where: {
+        url: video.link,
+      },
+    });
+
+    if (existingVideos.length > 0) {
+      console.log("Video with the same URL already exists");
+      return {
+        statusCode: 200,
+        body: {
+          message: "Video already exists",
+        },
+      };
+    }
+
+    await prisma.video.create({
+      data: {
+        title: video.name ?? "",
+        description: video.description ?? "",
+        url: video.link ?? "",
+        thumbnail: video?.pictures?.base_link ?? "",
+      },
+    });
+    console.log("Video added to database");
+    return {
+      statusCode: 200,
+      body: {
+        message: "Video added to database",
+      },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      statusCode: 500,
+      body: {
+        error: error,
+      },
+    };
+  }
+}

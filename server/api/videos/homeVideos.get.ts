@@ -15,24 +15,18 @@ export default defineEventHandler(async (event) => {
 
   // user not logged in , return placeholder images and video infos without link
   if (!userEmail) {
-    return [
-      {
+    const notLoggedVideos = videos.map((video) => {
+      return {
+        id: video.id,
         logged: false,
-        title: videos[0].title,
-        description: videos[0].description,
+        title: video.title,
+        description: video.description,
         access: false,
-        thumbnailUrl:
-          "https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-network-placeholder-png-image_3416659.jpg",
-      },
-      {
-        logged: false,
-        title: videos[1].title,
-        description: videos[1].description,
-        access: false,
-        thumbnailUrl:
-          "https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-network-placeholder-png-image_3416659.jpg",
-      },
-    ];
+        thumbnailUrl: video.thumbnail,
+        videoUrl: null,
+      };
+    });
+    return notLoggedVideos;
   } else {
     // Check if the user has purchased each video
     const videoPurchases = await prisma.videoPurchase.findMany({
@@ -60,9 +54,7 @@ export default defineEventHandler(async (event) => {
         title: video.title,
         description: video.description,
         access: isVideoPurchased,
-        thumbnailUrl: isVideoPurchased
-          ? null
-          : "https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-network-placeholder-png-image_3416659.jpg",
+        thumbnailUrl: video.thumbnail,
         videoUrl: isVideoPurchased ? video.url : null,
       };
     });
