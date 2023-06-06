@@ -71,9 +71,11 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { useHomeVideos } from "~/stores/useHomeVideos";
+import { useUserVideos } from "~/stores/useUserVideos";
 const { smoothScrollTo } = useSmoothScroll();
 const userSupa = useSupabaseUser();
 const { refetch } = useHomeVideos();
+const { refetchUserVideos } = useUserVideos();
 
 const { pending } = storeToRefs(useHomeVideos());
 
@@ -249,6 +251,7 @@ const primaryActionModal = async () => {
           const { refetchCredits } = await useCredits();
           refetchCredits();
           refetch();
+          refetchUserVideos();
           statusModalMessage.value = "Vidéo debloquée avec succès";
         } else {
           // Error: handle response
