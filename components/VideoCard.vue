@@ -80,7 +80,7 @@ const { pending } = storeToRefs(useHomeVideos());
 console.log("supaUser", userSupa.value);
 const props = defineProps({
   id: {
-    type: String,
+    type: String || Number,
     required: true,
   },
   title: {

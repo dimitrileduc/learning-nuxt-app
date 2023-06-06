@@ -6,29 +6,31 @@
     <div
       class="pt-6 flex flex-col md:flex-row gap-4 justify-center content-center justify-items-center items-center"
     >
-      <VideoCard
-        v-if="lune"
-        :id="lune.id"
-        :logged="lune.logged"
-        :title="lune.title"
-        :description="lune.description"
-        :access="lune.access"
-        :thumbnail="lune.thumbnailUrl"
-        :videoUrl="lune.videoUrl"
-        :date="currentMonth"
-      />
+      <ClientOnly>
+        <VideoCard
+          v-if="lune"
+          :id="lune.id"
+          :logged="lune.logged"
+          :title="lune.title"
+          :description="lune.description"
+          :access="lune.access"
+          :thumbnail="lune.thumbnailUrl"
+          :videoUrl="lune.videoUrl"
+          :date="currentMonth"
+        />
 
-      <VideoCard
-        v-if="demiLune && !onlyOneVideo"
-        :id="demiLune.id"
-        :logged="demiLune.logged"
-        :title="demiLune.title"
-        :description="demiLune.description"
-        :access="demiLune.access"
-        :thumbnail="demiLune.thumbnailUrl"
-        :videoUrl="demiLune.videoUrl"
-        :date="currentMonth"
-      />
+        <VideoCard
+          v-if="demiLune && !onlyOneVideo"
+          :id="demiLune.id"
+          :logged="demiLune.logged"
+          :title="demiLune.title"
+          :description="demiLune.description"
+          :access="demiLune.access"
+          :thumbnail="demiLune.thumbnailUrl"
+          :videoUrl="demiLune.videoUrl"
+          :date="currentMonth"
+        />
+      </ClientOnly>
     </div>
   </div>
 </template>
