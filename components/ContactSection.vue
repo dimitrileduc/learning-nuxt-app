@@ -25,32 +25,50 @@
             <FormInput
               name="name"
               label="name"
-              placeholder="Nom et prénom"
-              type="texte"
+              :placeholder="namePlaceHolder"
+              :value="nameValue"
+              type="text"
             />
             <FormInput
               name="email"
               label="email"
-              placeholder="Email*"
+              :placeholder="emailPlaceHolder"
+              :value="emailValue"
               type="email"
             />
             <FormInput
               name="sujet"
               label="sujet"
-              placeholder="Sujet"
-              type="texte"
+              :placeholder="sujetPlaceHolder"
+              :value="sujetValue"
+              type="text"
             />
             <FormInput
               name="message"
               label="message"
-              placeholder="Message*"
-              type="texte"
+              :placeholder="messagePlaceHolder"
+              :value="messageValue"
+              type="text"
               textArea
             />
           </div>
         </div>
         <div class="button_container mt-8 sm:mt-4 lg:mt-8">
           <Button primary label="Envoyer" />
+          <div class="mt-2 font-bold">
+            <div v-if="status === 'ok'" class="status_message text-[#104b51]">
+              Formulaire soumis avec succès !
+            </div>
+            <div
+              v-if="status === 'processing'"
+              class="status_message text-[#104b51]"
+            >
+              Traitement en cours...
+            </div>
+            <div v-if="status === 'error'" class="status_message text-red-500">
+              Une erreur s'est produite. Veuillez réessayer ultérieurement.
+            </div>
+          </div>
           <div />
         </div>
       </Form>
@@ -62,6 +80,17 @@
 import { Form } from "vee-validate";
 import * as Yup from "yup";
 const mail = useMail();
+const status = ref(null);
+
+const namePlaceHolder = ref("Nom et prénom*");
+const emailPlaceHolder = ref("Email*");
+const sujetPlaceHolder = ref("Sujet*");
+const messagePlaceHolder = ref("Message*");
+
+const nameValue = ref("");
+const emailValue = ref("");
+const sujetValue = ref("");
+const messageValue = ref("");
 
 const schema = Yup.object().shape({
   name: Yup.string().required(),
@@ -69,30 +98,44 @@ const schema = Yup.object().shape({
   sujet: Yup.string().required(),
   message: Yup.string().required(),
 });
-function onSubmit(values) {
-  mail.send({
-    from: {
-      name: "Moon Energy",
-      address: "hello@moon-energy.net",
-    },
-    subject: "Incredible",
-    text: "This is an incredible test message",
-  });
-  /*
-  schema.value.validate(values).then((valid) => {
-    if (!valid) {
-      console.log("Form is not valid.");
-    }
-    console.log("Form is valid.");
-  });
-  */
-}
 
+async function onSubmit(values) {
+  // schema.value.validate(values).then(async (valid) => {
+  // if (!valid) {
+  //  console.log("Form is not valid.");
+  // }
+  status.value = "processing"; // Set status to "processing" when the form is submitted
+  try {
+    await mail.send({
+      from: {
+        name: values.name,
+        address: values.email,
+      },
+      subject: values.sujet,
+      text: values.message,
+    });
+    status.value = "ok"; // Set status to "ok" when the form submission is successful
+    namePlaceHolder.value = "Nom et prénom*";
+    emailPlaceHolder.value = "Email*";
+    sujetPlaceHolder.value = "Sujet*";
+    messagePlaceHolder.value = "Message*";
+    nameValue.value = "";
+    emailValue.value = "";
+    sujetValue.value = "";
+    messageValue.value = "";
+  } catch (error) {
+    console.error(error);
+    status.value = "error"; // Set status to "error" when an error occurs during form submission
+  }
+  //});
+}
+/*
 function onInvalidSubmit(values) {
   props.type === "logIn"
     ? console.log("Login failed")
     : console.log("Register failed");
 }
+*/
 </script>
 
 <style scoped>

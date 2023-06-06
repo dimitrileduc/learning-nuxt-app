@@ -37,6 +37,9 @@ import { storeToRefs } from "pinia";
 import { useHomeVideos } from "~/stores/useHomeVideos";
 const { loading, user } = storeToRefs(useAuth());
 
+const videosSyncResult = useSyncVideos();
+console.log("videosSyncResult", videosSyncResult);
+
 const defaultVideo = {
   id: "",
   logged: false,
