@@ -133,10 +133,10 @@ const handleBlurInput = (e) => {
             <nuxt-img
               v-if="!passwordVisible"
               alt="show"
-              format="svg"
+              format="webp"
               src="/show.svg"
             />
-            <nuxt-img v-else alt="show" format="svg" src="/hide.svg" />
+            <nuxt-img v-else alt="show" format="webp" src="/hide.svg" />
           </div>
         </div>
       </div>
