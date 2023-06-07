@@ -247,7 +247,7 @@ const handleSubmit = async () => {
     elements: elements.value,
     clientSecret: secret,
     confirmParams: {
-      return_url: "https://moonenergy.netlify.app/",
+      return_url: "https://www.moon-energy.net",
     },
     receipt_email: userSupa.value.email,
     //Uncomment below if you only want redirect for redirect-based payments
