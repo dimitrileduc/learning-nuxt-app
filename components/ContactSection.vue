@@ -109,6 +109,37 @@ async function onSubmit(values) {
   status.value = "processing"; // Set status to "processing" when the form is submitted
   try {
     await mail.send({
+      config: "dimitri",
+      from: {
+        name: values.name,
+        address: values.email,
+      },
+      subject: "Moon energy contact form" + values.sujet,
+      text: values.message,
+    });
+  } catch (error) {
+    console.error(error);
+    status.value = "error"; // Set status to "error" when an error occurs during form submission
+  }
+
+  try {
+    await mail.send({
+      config: "moon",
+      from: {
+        name: values.name,
+        address: values.email,
+      },
+      subject: "Moon energy contact form" + values.sujet,
+      text: values.message,
+    });
+  } catch (error) {
+    console.error(error);
+    status.value = "error"; // Set status to "error" when an error occurs during form submission
+  }
+
+  try {
+    await mail.send({
+      config: "delphine",
       from: {
         name: values.name,
         address: values.email,
@@ -117,19 +148,11 @@ async function onSubmit(values) {
       text: values.message,
     });
     status.value = "ok"; // Set status to "ok" when the form submission is successful
-    //form.reset();
-    namePlaceHolder.value = "Nom et prénom*";
-    emailPlaceHolder.value = "Email*";
-    sujetPlaceHolder.value = "Sujet*";
-    messagePlaceHolder.value = "Message*";
-    nameValue.value = "";
-    emailValue.value = "";
-    sujetValue.value = "";
-    messageValue.value = "";
   } catch (error) {
     console.error(error);
     status.value = "error"; // Set status to "error" when an error occurs during form submission
   }
+
   //});
 }
 /*

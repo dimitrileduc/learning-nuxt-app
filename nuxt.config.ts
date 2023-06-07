@@ -26,9 +26,11 @@ export default defineNuxtConfig({
     [
       "nuxt-mail",
       {
-        message: {
-          to: "hello@moon-energy.net",
-        },
+        message: [
+          { name: "moon", to: "hello@moon-energy.net" },
+          { name: "dimitri", to: "dimitri.leduc87@gmail.com" },
+          { name: "delphine", to: "delphine.simon@fame-us.be" },
+        ],
         smtp: {
           host: "smtp-relay.sendinblue.com",
           port: 587,
