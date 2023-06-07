@@ -267,6 +267,7 @@ const handleSubmit = async () => {
     return;
   }
   checkStatus(secret);
+  stripeMounted.value = false;
 };
 
 async function checkStatus(clientSecret) {
