@@ -113,11 +113,11 @@ async function onSubmit(values) {
         name: values.name,
         address: values.email,
       },
-      subject: values.sujet,
+      subject: "Moon energy contact form" + values.sujet,
       text: values.message,
     });
     status.value = "ok"; // Set status to "ok" when the form submission is successful
-    form.reset();
+    //form.reset();
     namePlaceHolder.value = "Nom et prénom*";
     emailPlaceHolder.value = "Email*";
     sujetPlaceHolder.value = "Sujet*";

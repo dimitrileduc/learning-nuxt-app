@@ -4,7 +4,7 @@ export default async function defineEventHandler(event: any) {
   const { email, username } = await readBody(event);
 
   MailchimpMarketing.setConfig({
-    apiKey: "8c3b129557bce89151727bbcf3e892a3-us21",
+    apiKey: "1ea202fed37c0b50d2249cda563c8731-us21",
     server: "us21",
   });
 

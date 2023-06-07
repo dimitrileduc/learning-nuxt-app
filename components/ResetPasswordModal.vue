@@ -30,7 +30,7 @@
             placeholder="Mot de passe"
           />
 
-          <div class="w-full">
+          <div class="w-full mt-4">
             <Button noMaxWidth class="w-full" primary :label="labelButton" />
           </div>
           <div class="mt-4 text-opacity-30 text-sm text-center">
