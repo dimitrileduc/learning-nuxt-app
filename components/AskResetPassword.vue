@@ -39,7 +39,11 @@
     </div>
     <div v-if="formSubmitted">
       <div class="image flex justify-center">
-        <nuxt-img alt="hero" class="justify-center w-32" src="/hero.svg" />
+        <nuxt-img
+          alt="hero"
+          class="justify-center w-32"
+          src="/modal_logo.svg"
+        />
       </div>
       <div class="mt-6 text-2xl font-semibold flex justify-center text-center">
         Email envoyé.

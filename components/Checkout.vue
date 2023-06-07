@@ -134,7 +134,7 @@ const tva = computed(() => {
 });
 
 const buttonLabel = computed(() => {
-  return "payer" + " " + selectedPack.value.price + " " + "€";
+  return "payer" + " " + selectedPack.value.price + ",00" + " " + "€";
 });
 
 // The tab is closed and reopened (we're still in the same session)

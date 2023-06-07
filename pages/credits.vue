@@ -35,7 +35,7 @@
           class=""
         >
           <div class="flex items-center justify-center">
-            <div class="w-full sm:max-w-[644px] lg:max-w-[944px] py-2 pb-10">
+            <div class="w-full sm:max-w-[644px] lg:max-w-[944px] py-0 pb-10">
               <CreditsTable />
             </div>
           </div>
@@ -88,6 +88,9 @@ const subtitle = computed(() => {
   const nextYearDay = nextYearDate.getDate();
   const nextYearMonth = nextYearDate.getMonth() + 1; // Add 1 to the month to get the correct value
   const nextYearFormatted = `${nextYearDay}/${nextYearMonth}/${nextYear}`;
+  if (credits.value === 0) {
+    return null;
+  }
   return `Vos crédits sont valables jusqu'au ${nextYearFormatted}`;
 });
 const ctaLabel = "Acheter des crédits";
