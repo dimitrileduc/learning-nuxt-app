@@ -8,7 +8,9 @@
           <nuxt-img alt="logo" class="justify-center w-48" src="/logo.svg" />
         </div>
         <div class="text-center lg:text-justify">
-          <div class="title text-2xl font-bold mt-8">Tout est énergie</div>
+          <div class="title text-2xl font-bold mt-16 md:mt-8">
+            Tout est énergie
+          </div>
           <div class="description mt-4 leading-tight">
             Bienvenue sur ce site, si vous êtes arrivés ici, c'est probablement
             grâce à mes vidéos gratuites sur
