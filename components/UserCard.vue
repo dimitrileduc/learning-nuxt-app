@@ -1,7 +1,15 @@
 <template>
   <div v-if="user" class="rounded flex items-center space-x-3">
-    <div class="text-right flex flex-row gap-6">
-      <div class="credits">{{ creditsDiplayed }} {{ labelCredits }}</div>
+    <div class="text-right flex flex-row gap-6 items-center">
+      <div class="flex flex-row items-center gap-2">
+        <nuxt-icon class="text-[24px]" name="lune" filled />
+        <div class="credits flex flex-row">
+          <div>
+            {{ creditsDiplayed }}
+          </div>
+          <div class="hidden md:flex">{{ labelCredits }}</div>
+        </div>
+      </div>
       <div class="name font-medium">{{ username }}</div>
     </div>
     <div v-if="user.profile">
