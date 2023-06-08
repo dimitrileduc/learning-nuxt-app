@@ -202,7 +202,7 @@ const modalSubtitle = computed(() => {
     case "notLogged":
       return "Vous devez vous connectez et achetez 3 credits pour debloquez cette vidéo";
     case "loggedsufficientCredit":
-      return "Vous pouvez debloquez cette vidéo, cliker sur 'Achetez cette vidéo' pour confirmer";
+      return "Vous pouvez debloquez cette vidéo, cliquer sur 'Achetez cette vidéo' pour confirmer";
     case "loggedInsufficientCredit":
       return "Veuillez achetez 1 crédit pour accéder à cette vidéo";
     case "unlocked":

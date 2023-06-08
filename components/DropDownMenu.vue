@@ -154,7 +154,7 @@
             <nuxt-img class="h-8" alt="youtube" src="/youtube.svg" />
           </button>
 
-          <nuxt-img class="h-8" alt="youtube" src="/tiktok.svg" />
+          <nuxt-img v-if="false" class="h-8" alt="youtube" src="/tiktok.svg" />
         </div>
       </div>
     </div>

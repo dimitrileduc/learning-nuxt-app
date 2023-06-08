@@ -3,7 +3,7 @@
     <div class="text-right flex flex-row gap-6 items-center">
       <div class="flex flex-row items-center gap-2">
         <nuxt-icon class="text-[24px]" name="lune" filled />
-        <div class="credits flex flex-row">
+        <div class="credits flex flex-row gap-1">
           <div>
             {{ creditsDiplayed }}
           </div>
@@ -12,7 +12,7 @@
       </div>
       <div class="name font-medium">{{ username }}</div>
     </div>
-    <div v-if="user.profile">
+    <div class="flex flex-center justify-center" v-if="user.profile">
       <nuxt-img
         alt="user-card"
         class="rounded-full w-9 h-9 border-2 border-blue-400"
@@ -63,6 +63,7 @@ const creditsDiplayed = computed(() => {
 });
 
 const labelCredits = computed(() => {
+  console.log("credits", credits.value);
   if (credits.value && credits.value > 0) {
     return "crédits";
   } else {

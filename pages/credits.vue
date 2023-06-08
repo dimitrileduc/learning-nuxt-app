@@ -91,7 +91,7 @@ const subtitle = computed(() => {
   if (credits.value === 0) {
     return null;
   }
-  return `Vos crédits sont valables jusqu'au ${nextYearFormatted}`;
+  return `Tous vos crédits sont valables pour une durée d’un an à compter de la date de votre dernier achat `;
 });
 const ctaLabel = "Acheter des crédits";
 const sectionTitle = "Packs extensions guidances intuitives lunaires";

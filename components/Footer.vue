@@ -58,7 +58,7 @@
         <button class="cursor-pointer" @click="goYoutbe">
           <nuxt-img class="h-8" alt="youtube" src="/youtube.svg" />
         </button>
-        <nuxt-img class="h-8" alt="youtube" src="/tiktok.svg" />
+        <nuxt-img v-if="false" class="h-8" alt="youtube" src="/tiktok.svg" />
       </div>
       <div class="px-2 mt-3 text-center text-xs text-white flex flex-col">
         <NuxtLink class="w-full h-full pt-3" :to="{ path: '/cgv' }"
