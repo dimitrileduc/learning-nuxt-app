@@ -122,10 +122,11 @@ const packs = [
 ];
 
 const selectedPack = computed(() => {
-  return packs.find((pack) => pack.creditsValue === amount);
+  return packs.find((pack) => pack.price === amount);
 });
 
 const htvaPrice = computed(() => {
+  console.log("selectedPack", selectedPack.value);
   return selectedPack.value.price * 0.79;
 });
 
@@ -290,18 +291,22 @@ async function checkStatus(clientSecret) {
       status.value = "Payment success ! ";
       success.value = true;
       console.log(userSupa.value.email, amount, paymentIntent.id);
-
+      console.log(
+        "send to create credit ",
+        selectedPack,
+        parseInt(selectedPack.creditsValue)
+      );
       // for test - desactive when use webhook stripe
       await $fetch("/api/local/updatePurchase", {
         method: "POST",
         body: {
-          amount: parseInt(amount),
+          amount: selectedPack.value.creditsValue,
           verified: true,
           stripeId: paymentIntent.id,
         },
       });
       // reset defaut pack amount
-      setAmount(10);
+      setAmount(11);
       await refetchCredits();
       await refetchCreditsTransactions();
       await refetchVideosTransactions();

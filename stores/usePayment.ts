@@ -5,7 +5,7 @@ export const usePayment = defineStore(
   () => {
     const toPayment = ref(false);
     const showPayment = ref(false);
-    const amount = ref(10);
+    const amount = ref(11);
     const setShowPayment = (value: boolean) => {
       console.log("set show payment", value);
       showPayment.value = value;
