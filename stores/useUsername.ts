@@ -11,5 +11,6 @@ export const useUsername = defineStore("useUsername", () => {
     data,
     error,
     pending,
+    refresh,
   };
 });

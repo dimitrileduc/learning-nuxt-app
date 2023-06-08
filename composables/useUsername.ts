@@ -1,7 +1,7 @@
 export default async () => {
   const url = "/api/user/usernameData";
 
-  const { data, error, pending } = useFetch<any>(url);
+  const { data, error, pending, refresh } = useFetch<any>(url);
 
   console.log(data, error, "username ????");
 
@@ -9,5 +9,6 @@ export default async () => {
     username: data,
     error,
     loading: pending,
+    refresh,
   };
 };
