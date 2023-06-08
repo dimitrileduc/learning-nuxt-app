@@ -75,7 +75,7 @@ const emits = defineEmits(["buy"]);
 
 const buyPack = () => {
   console.log("buy pack", props.pack.price);
-  emits("buy", props.pack.creditsValue);
+  emits("buy", props.pack.price);
 };
 
 const priceLabel = computed(() => {
