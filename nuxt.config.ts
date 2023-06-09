@@ -53,7 +53,11 @@ export default defineNuxtConfig({
     "@nuxt/image-edge",
     "nuxt-calendly",
     "@dargmuesli/nuxt-cookie-control",
+    "nuxt-gtag",
   ],
+  gtag: {
+    id: 'G-27CHPQFYZJ'
+  }
 
   cookieControl: {
     isControlButtonEnabled: false,
