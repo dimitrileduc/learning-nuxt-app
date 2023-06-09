@@ -11,6 +11,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     stripeSecret: "",
+    mailchimpSecret: "",
     public: {
       stripeKey: "",
     },

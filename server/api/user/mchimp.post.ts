@@ -1,10 +1,13 @@
 import MailchimpMarketing from "@mailchimp/mailchimp_marketing";
 
 export default async function defineEventHandler(event: any) {
+  const config = useRuntimeConfig();
+  const mailchimpKey = config.mailchimpSecret;
+
   const { email, username } = await readBody(event);
 
   MailchimpMarketing.setConfig({
-    apiKey: "1ea202fed37c0b50d2249cda563c8731-us21",
+    apiKey: mailchimpKey,
     server: "us21",
   });
 
