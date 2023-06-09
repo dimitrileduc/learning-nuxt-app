@@ -185,7 +185,7 @@ const modalState = computed(() => {
 const modalTitle = computed(() => {
   switch (modalState.value) {
     case "notLogged":
-      return "Vous devez achetez des credits pour debloquez cette vidéo ( et etre connecte )";
+      return "Vous devez achetez des credits pour debloquez cette vidéo";
     case "loggedsufficientCredit":
       return (
         "Vous avez actuellement " + credits.value + " credits disponibles. "
@@ -200,7 +200,7 @@ const modalTitle = computed(() => {
 const modalSubtitle = computed(() => {
   switch (modalState.value) {
     case "notLogged":
-      return "Vous devez vous connectez et achetez 3 credits pour debloquez cette vidéo";
+      return "";
     case "loggedsufficientCredit":
       return "Vous pouvez debloquez cette vidéo, cliquer sur 'Achetez cette vidéo' pour confirmer";
     case "loggedInsufficientCredit":
@@ -213,7 +213,7 @@ const modalSubtitle = computed(() => {
 const primaryLabelModal = computed(() => {
   switch (modalState.value) {
     case "notLogged":
-      return "Achetez des credits et connectez vous";
+      return "Achetez des credits";
     case "loggedsufficientCredit":
       return "Achetez cette vidéo";
     case "loggedInsufficientCredit":
