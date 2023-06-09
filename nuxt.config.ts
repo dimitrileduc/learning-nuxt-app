@@ -56,8 +56,8 @@ export default defineNuxtConfig({
     "nuxt-gtag",
   ],
   gtag: {
-    id: 'G-27CHPQFYZJ'
-  }
+    id: "G-27CHPQFYZJ",
+  },
 
   cookieControl: {
     isControlButtonEnabled: false,
