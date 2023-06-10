@@ -11,7 +11,7 @@
           <NuxtLink
             class="w-full h-full"
             :to="{ path: '/', query: { section: 'home' } }"
-            ><div class="w-full h-full py-2">Acceuil</div></NuxtLink
+            ><div class="w-full h-full py-2">Accueil</div></NuxtLink
           >
         </div>
         <div class="separator_container w-full">

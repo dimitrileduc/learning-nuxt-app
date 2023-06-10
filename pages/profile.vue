@@ -45,7 +45,7 @@
                   <FormInput
                     name="nom"
                     label="nom"
-                    placeholder="nom"
+                    placeholder="Nom"
                     type="texte"
                     bgWhite
                   />

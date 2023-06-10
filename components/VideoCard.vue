@@ -187,11 +187,11 @@ const modalTitle = computed(() => {
     case "notLogged":
       return "Vous devez acheter des crédits pour debloquez cette vidéo";
     case "loggedsufficientCredit":
-      return (
-        "Vous avez actuellement " + credits.value + " credits disponibles. "
-      );
+      return credits?.value < 2
+        ? "Vous avez actuellement " + credits.value + " crédits disponible. "
+        : "Vous avez actuellement " + credits.value + " crédits disponibles. ";
     case "loggedInsufficientCredit":
-      return "Vous n'avez pas assez de credits pour débloquer cette vidéo";
+      return "Vous n'avez pas assez de crédits pour débloquer cette vidéo";
     case "unlocked":
       return null;
   }
@@ -204,7 +204,7 @@ const modalSubtitle = computed(() => {
     case "loggedsufficientCredit":
       return "Vous pouvez debloquez cette vidéo, cliquer sur 'Achetez cette vidéo' pour confirmer";
     case "loggedInsufficientCredit":
-      return "Veuillez achetez 1 crédit pour accéder à cette vidéo";
+      return "Veuillez acheter 1 crédit pour accéder à cette vidéo";
     case "unlocked":
       return null;
   }
