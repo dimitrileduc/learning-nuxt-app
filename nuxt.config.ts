@@ -4,6 +4,12 @@ import vsharp from "vite-plugin-vsharp";
 export default defineNuxtConfig({
   app: {
     head: {
+      script: [
+        {
+          src: "cdn.mouseflow.com/projects/0533fffb-29d6-4f0b-9645-0ca28410892c.js",
+          defer: true,
+        },
+      ],
       charset: "utf-8",
       viewport:
         "width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no",
