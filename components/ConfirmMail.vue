@@ -43,7 +43,7 @@ const props = defineProps({
 });
 
 const title =
-  "Pour valider votre inscription, merci de confirmer votre adresse e-mail.";
+  "Pour valider votre inscription, veuillez cliquer sur le lien du mail de confirmation qui vous a été envoyé.";
 const subTitle = computed(() => {
   return "Pour valider votre inscription, merci de confirmer votre adresse e-mail.";
 });

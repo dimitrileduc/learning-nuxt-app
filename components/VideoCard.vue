@@ -185,7 +185,7 @@ const modalState = computed(() => {
 const modalTitle = computed(() => {
   switch (modalState.value) {
     case "notLogged":
-      return "Vous devez achetez des credits pour debloquez cette vidéo";
+      return "Vous devez acheter des crédits pour debloquez cette vidéo";
     case "loggedsufficientCredit":
       return (
         "Vous avez actuellement " + credits.value + " credits disponibles. "
