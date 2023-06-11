@@ -1,7 +1,7 @@
 <template>
   <div v-if="user" class="rounded flex items-center space-x-3">
     <div class="text-right flex flex-row gap-6 items-center">
-      <div class="flex flex-row items-center gap-2">
+      <div class="flex flex-row items-center justify-center gap-2">
         <nuxt-icon class="text-[24px]" name="lune" filled />
         <div class="credits flex flex-row gap-1">
           <div>
@@ -10,8 +10,10 @@
           <div class="hidden md:flex">{{ labelCredits }}</div>
         </div>
       </div>
+      <nuxt-img alt="hero" class="justify-center" src="/vertical.svg" />
       <div class="name font-medium">{{ username }}</div>
     </div>
+
     <div class="flex flex-center justify-center" v-if="user.profile">
       <nuxt-img
         alt="user-card"
