@@ -27,10 +27,14 @@
         <form v-else @submit.prevent="handleSubmit">
           <div
             v-show="!stripeMounted"
-            class="mt-8 w-full flex items-center justify-center text-base width bg-white py-6"
+            class="w-full flex items-center justify-center text-base width bg-white p-12 gap-6"
           >
             <Loading dark class="w-6 h-6" />
-            <span class="ml-4">Stripe payment loading ...</span>
+            <nuxt-img
+              alt="hero"
+              class="justify-center w-24"
+              src="/stripe.svg"
+            />
           </div>
           <div v-show="stripeMounted" class="text-base width bg-white">
             <div class="w-full h-full flex flex-col md:flex-row">

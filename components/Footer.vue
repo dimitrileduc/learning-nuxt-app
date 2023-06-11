@@ -11,42 +11,42 @@
       >
         <div class="text-center text-sm">
           <NuxtLink
-            class="w-full h-full"
+            class="w-full h-full opacity-90 hover:opacity-100"
             :to="{ path: '/', query: { section: 'home' } }"
             ><div class="w-full h-full py-2">Accueil</div></NuxtLink
           >
         </div>
         <div class="text-center text-sm">
           <NuxtLink
-            class="w-full"
+            class="w-full opacity-90 hover:opacity-100"
             :to="{ path: '/', query: { section: 'tirages' } }"
             ><div class="w-full py-2">Tirages</div></NuxtLink
           >
         </div>
         <div class="text-center text-sm">
           <NuxtLink
-            class="w-full"
+            class="w-full opacity-90 hover:opacity-100"
             :to="{ path: '/', query: { section: 'credits' } }"
             ><div class="w-full py-2">Crédits</div></NuxtLink
           >
         </div>
         <div class="text-center text-sm">
           <NuxtLink
-            class="w-full"
+            class="w-full opacity-90 hover:opacity-100"
             :to="{ path: '/', query: { section: 'about' } }"
             ><div class="w-full py-2">Qui suis-je</div></NuxtLink
           >
         </div>
         <div class="text-center text-sm">
           <NuxtLink
-            class="w-full"
+            class="w-full opacity-90 hover:opacity-100"
             :to="{ path: '/', query: { section: 'rdv' } }"
             ><div class="w-full py-2">Rendez-vous</div></NuxtLink
           >
         </div>
         <div class="text-center text-sm">
           <NuxtLink
-            class="w-full"
+            class="w-full opacity-90 hover:opacity-100"
             :to="{ path: '/', query: { section: 'contacts' } }"
             ><div class="w-full py-2">Contact</div></NuxtLink
           >
@@ -60,12 +60,14 @@
         </button>
         <nuxt-img v-if="false" class="h-8" alt="youtube" src="/tiktok.svg" />
       </div>
-      <div class="px-2 mt-3 text-center text-xs text-white flex flex-col">
-        <NuxtLink class="w-full h-full pt-3" :to="{ path: '/cgv' }"
+      <div
+        class="p-2 mt-3 text-center text-xs text-white justify-center items-center flex flex-col md:flex-row gap-2"
+      >
+        <NuxtLink class="w-full h-full" :to="{ path: '/cgv' }"
           ><div class="w-full h-full">Termes et conditions</div></NuxtLink
         >
         <NuxtLink class="w-full h-full" :to="{ path: '/confidentialite' }"
-          ><div class="w-full h-full pb-3 pt-1">
+          ><div class="w-full h-full whitespace-nowrap">
             Politique de confidentialité
           </div></NuxtLink
         >

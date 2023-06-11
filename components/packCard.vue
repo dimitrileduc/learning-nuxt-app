@@ -11,9 +11,13 @@
         class="text-center px-10 w-full flex flex-col items-center"
         :class="noButton ? 'pb-3' : 'pb-8'"
       >
-        <div class="flex flex-rows w-full py-4 items-center justify-center">
-          <div class="font-black text-[22px]">{{ pack.price }},00 €</div>
-          <div class="pb-2 pl-1.5 ordinal text-[10px] text-slate-300">TTC</div>
+        <div class="flex flex-row w-full py-4 items-center justify-center">
+          <div class="flex justify-center w-full">
+            <div class="ml-8 font-black text-[22px]">{{ pack.price }},00 €</div>
+            <div class="pb-2 pl-1.5 ordinal text-[10px] text-slate-300">
+              TTC
+            </div>
+          </div>
         </div>
 
         <div class="separator_container">
