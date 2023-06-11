@@ -88,7 +88,7 @@
       <div class="md:mt-0 md:text-right w-full flex flex-col">
         <div v-if="user">
           <div
-            class="md:hidden my-2 separation w-8/12 h-0.5 opacity-70 bg-[#0C3C41]"
+            class="md:hidden my-2 separation w-12/12 h-[2px] opacity-50 bg-[#0C3C41]"
           ></div>
           <div
             class="item item_right px-3 hover:font-bold w-full"
