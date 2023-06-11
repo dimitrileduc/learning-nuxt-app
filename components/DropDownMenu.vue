@@ -116,7 +116,7 @@
             >
           </div>
           <div
-            class="separator_container w-full flex justify-start md:justify-endd"
+            class="separator_container w-full flex justify-start md:justify-end"
           >
             <nuxt-img
               class="md:rotate-180 w-8/12"
