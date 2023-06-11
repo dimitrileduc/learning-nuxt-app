@@ -16,7 +16,7 @@
         </div>
         <div class="separator_container w-full">
           <nuxt-img
-            class="w-full"
+            class="w-8/12"
             alt="separator"
             src="/menu_item_separator.svg"
           />
@@ -30,7 +30,7 @@
         </div>
         <div class="separator_container w-full">
           <nuxt-img
-            class="w-full"
+            class="w-8/12"
             alt="separator"
             src="/menu_item_separator.svg"
           />
@@ -44,7 +44,7 @@
         </div>
         <div class="separator_container w-full">
           <nuxt-img
-            class="w-full"
+            class="w-8/12"
             alt="separator"
             src="/menu_item_separator.svg"
           />
@@ -58,7 +58,7 @@
         </div>
         <div class="separator_container w-full">
           <nuxt-img
-            class="w-full"
+            class="w-8/12"
             alt="separator"
             src="/menu_item_separator.svg"
           />
@@ -72,7 +72,7 @@
         </div>
         <div class="separator_container w-full">
           <nuxt-img
-            class="w-full"
+            class="w-8/12"
             alt="separator"
             src="/menu_item_separator.svg"
           />
@@ -88,7 +88,7 @@
       <div class="md:mt-0 md:text-right w-full flex flex-col">
         <div v-if="user">
           <div
-            class="md:hidden my-2 separation w-full h-0.5 bg-[#0C3C41]"
+            class="md:hidden my-2 separation w-8/12 h-0.5 opacity-70 bg-[#0C3C41]"
           ></div>
           <div
             class="item item_right px-3 hover:font-bold w-full"
@@ -98,9 +98,11 @@
               ><div class="w-full py-2">Mon profil</div></NuxtLink
             >
           </div>
-          <div class="separator_container w-full">
+          <div
+            class="separator_container w-full flex justify-start md:justify-end"
+          >
             <nuxt-img
-              class="w-full md:rotate-180"
+              class="md:rotate-180 w-8/12"
               alt="separator"
               src="/menu_item_separator.svg"
             />
@@ -113,9 +115,11 @@
               ><div class="w-full py-2">Mes crédits</div></NuxtLink
             >
           </div>
-          <div class="separator_container w-full">
+          <div
+            class="separator_container w-full flex justify-start md:justify-endd"
+          >
             <nuxt-img
-              class="w-full md:rotate-180"
+              class="md:rotate-180 w-8/12"
               alt="separator"
               src="/menu_item_separator.svg"
             />
@@ -128,9 +132,11 @@
               ><div class="w-full py-2">Mes vidéos</div></NuxtLink
             >
           </div>
-          <div class="separator_container w-full">
+          <div
+            class="separator_container w-full flex justify-start md:justify-end"
+          >
             <nuxt-img
-              class="w-full md:rotate-180"
+              class="md:rotate-180 w-8/12"
               alt="separator"
               src="/menu_item_separator.svg"
             />
