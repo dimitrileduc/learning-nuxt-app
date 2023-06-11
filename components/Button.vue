@@ -10,7 +10,7 @@
       @click="handleClick"
     >
       <div v-if="loading" class="flex justify-center items-center">
-        <Loading class="w-5 h-5 mr-6" /> Processing...
+        <Loading class="w-5 h-5 mr-6" /> Chargement...
       </div>
       <div v-else class="label">{{ label }}</div>
     </button>
