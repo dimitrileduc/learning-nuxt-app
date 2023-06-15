@@ -39,16 +39,6 @@ const router = useRouter();
 
 const showPasswordRecover = ref(false);
 
-const { $posthog } = useNuxtApp();
-
-if ($posthog) {
-  const posthog = $posthog();
-  posthog?.capture("index page custom event");
-}
-
-console.log("route", route);
-console.log("route.query", route.query);
-
 watch(
   route,
   async (newRoute, oldRoute) => {

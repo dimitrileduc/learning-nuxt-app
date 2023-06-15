@@ -3,6 +3,7 @@ import { useAuth } from "~/stores/useAuth";
 import { usePayment } from "~~/stores/usePayment";
 const user = useSupabaseUser();
 const { registerUser } = useAuth();
+const { $posthog } = useNuxtApp();
 
 const {} = useAuth();
 
@@ -52,7 +53,7 @@ async function handleSignUp(data: any) {
   if (error) {
     if ((error.message = "User already exists")) {
       console.log("User already exists");
-      console.log("identitied", auth.identities);
+      // console.log("identitied", auth.identities);
       (emailExist.value = true), (existingEmail.value = data.email);
     } else console.log(error);
   } else {
@@ -65,6 +66,11 @@ async function handleSignUp(data: any) {
     console.log("emailProviderUrl", emailProviderUrl.value);
 
     emit("setEmailProviderLink", emailProviderUrl.value);
+
+    if ($posthog) {
+      const posthog = $posthog();
+      posthog?.capture("user_registered");
+    }
 
     // Redirect to another page or do something else
   }
