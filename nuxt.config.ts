@@ -20,6 +20,8 @@ export default defineNuxtConfig({
     mailchimpSecret: "",
     public: {
       stripeKey: "",
+      posthogKey: "",
+      posthogHost: "",
     },
   },
   vite: {
