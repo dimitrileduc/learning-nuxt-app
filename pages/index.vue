@@ -43,7 +43,7 @@ watch(
   route,
   async (newRoute, oldRoute) => {
     console.log("route watching", newRoute.name);
-    console.log("old route", oldRoute?.name);
+    console.log("old route . ", oldRoute?.name);
     if (newRoute.query.section) {
       if (oldRoute?.name === "index" && newRoute?.name === "index") {
         console.log("direct to section");
