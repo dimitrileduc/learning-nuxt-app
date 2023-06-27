@@ -63,6 +63,18 @@ async function addVideoToDatabase(video) {
 
     if (existingVideo.length > 0) {
       console.log("Video with the same URL already exists");
+      console.log("existing video", existingVideo);
+
+      // Update the title and description of the existing video
+      await prisma.video.update({
+        where: { url: video.video.link },
+        data: {
+          title: video.video.name || existingVideo.title,
+          description: video.video.description || existingVideo.description,
+        },
+      });
+
+      console.log(`Video '${video.video.name}' updated in the database`);
       return;
     }
 

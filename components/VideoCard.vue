@@ -117,7 +117,7 @@ console.log("props video", props);
 const { credits, loading } = await useCredits();
 
 const decriptionTruncate = computed(() => {
-  const maxChars = 350; // Maximum number of characters
+  const maxChars = 355; // Maximum number of characters
   const ellipsis = "(...)"; // Ellipsis to add at the end
   const text = props.description;
 
