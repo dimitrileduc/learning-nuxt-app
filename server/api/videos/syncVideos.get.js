@@ -1,6 +1,5 @@
-// api/vimeo.js
-
 import { Vimeo } from "vimeo";
+import { PrismaClient } from "@prisma/client";
 
 const client = new Vimeo(
   "6151b4d672170573111c19f5d6bab685",
@@ -8,85 +7,77 @@ const client = new Vimeo(
   "7fcf03d6252e3805530064e105c64382"
 );
 
-import { PrismaClient } from "@prisma/client";
-
 const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
-  // Make requests to the Vimeo API using the client
-  client.request(
-    {
-      method: "GET",
-      path: "/me/projects/16472790/items",
-    },
-    function (error, body, status_code, headers) {
-      if (error) {
-        console.log(error);
-        return error;
+  return new Promise((resolve, reject) => {
+    client.request(
+      {
+        method: "GET",
+        path: "/me/projects/16472790/items",
+      },
+      async function (error, body, status_code, headers) {
+        if (error) {
+          console.log(error);
+          reject(error);
+          return;
+        }
+
+        const videos = body.data; // Assuming the videos are stored in the 'data' property
+
+        // Sort videos by creation date in descending order
+        videos.sort(
+          (a, b) => new Date(b.created_time) - new Date(a.created_time)
+        );
+
+        // Retrieve the last two videos
+        const lastTwoVideos = videos.slice(0, 2);
+
+        try {
+          // Create an array to store the promises
+          const promises = lastTwoVideos.map(addVideoToDatabase);
+
+          // Wait for all promises to resolve
+          await Promise.all(promises);
+
+          console.log("All videos added to the database");
+
+          resolve({
+            statusCode: 200,
+            body: { message: "Videos added to the database" },
+          });
+        } catch (error) {
+          console.log("Error:", error);
+          reject(error);
+        }
       }
-
-      const videos = body.data; // Assuming the videos are stored in the 'data' property
-
-      // Sort videos by creation date in descending order
-      videos.sort(
-        (a, b) => new Date(b.created_time) - new Date(a.created_time)
-      );
-
-      // Retrieve the last two videos
-      const lastTwoVideos = videos.slice(0, 2);
-
-      // Iterate through each video and log its details
-      lastTwoVideos.forEach((video) => {
-        addVideoToDatabase(video);
-        console.log(video);
-      });
-
-      return body;
-    }
-  );
+    );
+  });
 });
 
 async function addVideoToDatabase(video) {
-  console.log("VIDEOOOOOOOOOOO", video.video);
   try {
-    const existingVideos = await prisma.video.findMany({
-      where: {
-        url: video.link,
-      },
+    const existingVideo = await prisma.video.findMany({
+      where: { url: video.video.link },
     });
 
-    if (existingVideos.length > 0) {
+    if (existingVideo.length > 0) {
       console.log("Video with the same URL already exists");
-      return {
-        statusCode: 200,
-        body: {
-          message: "Video already exists",
-        },
-      };
+      return;
     }
 
     await prisma.video.create({
       data: {
-        title: video.name ?? "",
-        description: video.description ?? "",
-        url: video.link ?? "",
-        thumbnail: video?.pictures?.base_link ?? "",
+        title: video.video.name || "",
+        description: video.video.description || "",
+        url: video.video.link || "",
+        thumbnail: video.video.pictures?.base_link || "",
       },
     });
-    console.log("Video added to database");
-    return {
-      statusCode: 200,
-      body: {
-        message: "Video added to database",
-      },
-    };
+
+    console.log(`Video '${video.video.name}' added to the database`);
   } catch (error) {
-    console.log(error);
-    return {
-      statusCode: 500,
-      body: {
-        error: error,
-      },
-    };
+    console.log("add video error", error);
+    throw error;
   }
 }
