@@ -202,7 +202,7 @@ const modalSubtitle = computed(() => {
     case "notLogged":
       return "";
     case "loggedsufficientCredit":
-      return "Vous pouvez debloquez cette vidéo, cliquer sur 'Achetez cette vidéo' pour confirmer";
+      return "Vous pouvez debloquer cette vidéo, cliquez sur 'Acheter cette vidéo' pour confirmer";
     case "loggedInsufficientCredit":
       return "Veuillez acheter 1 crédit pour accéder à cette vidéo";
     case "unlocked":
@@ -213,11 +213,11 @@ const modalSubtitle = computed(() => {
 const primaryLabelModal = computed(() => {
   switch (modalState.value) {
     case "notLogged":
-      return "Achetez des credits";
+      return "Acheter des credits";
     case "loggedsufficientCredit":
-      return "Achetez cette vidéo";
+      return "Acheter cette vidéo";
     case "loggedInsufficientCredit":
-      return "Achetez des credits ";
+      return "Acheter des credits ";
     case "unlocked":
       return null;
   }
