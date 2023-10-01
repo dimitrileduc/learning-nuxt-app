@@ -17,6 +17,9 @@
     <div v-if="showPasswordRecover">
       <ResetPasswordModal @close="showPasswordRecover = false" />
     </div>
+    <div v-if="showContest">
+      <Contest @close="showContest = false" />
+    </div>
   </div>
 </template>
 
@@ -38,6 +41,8 @@ const route = useRoute();
 const router = useRouter();
 
 const showPasswordRecover = ref(false);
+
+const showContest = ref(true);
 
 watch(
   route,
