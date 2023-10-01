@@ -1,31 +1,38 @@
 <template>
-  <div>
-    <div class="relative border w-full">
+  <div class="container">
+    <div class="relative xs:w-[328px] sm:w-[360px] lg:w-[464px]">
       <!-- Dropdown toggle button -->
-      options : {{ options }}
+
       <button
         @click="isOpen"
-        class="flex items-center p-2 text-black bg-white rounded-md"
+        class="bg-white rounded-md w-full p-4 flex items-center justify-between"
       >
-        <span class="mr-4">{{ selectedValue }}</span>
+        <span class="mr-4 capitalize">{{ selectedValue }}</span>
+        <nuxt-img class="w-6" alt="select" src="/arrowSelect.svg" />
       </button>
 
       <!-- Dropdown menu -->
       <div
         v-show="show"
-        class="absolute right-0 py-2 mt-2 bg-white rounded-md shadow-xl w-44"
+        class="absolute right-0 pt-1 -mt-1 bg-white rounded-b-md shadow-xl w-full"
       >
         <div
           v-for="option in options"
           :key="option.value"
-          class="flex items-center p-2 hover:bg-gray-100 hover:cursor-pointer"
+          class="flex items-center"
         >
-          <div
+          <SelectItem
+            :option="option.tag"
+            @update="updateSelectedValue"
+            :access="option.access"
+            :isLast="option.isLast"
+          />
+          <!-- <div
             class="block px-4 py-2 text-sm"
             @click="updateSelectedValue(option)"
           >
             {{ option }}
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -51,3 +58,15 @@ const updateSelectedValue = (value) => {
   isOpen();
 };
 </script>
+
+<style scoped>
+.container {
+  max-width: 100%;
+  font-family: Lato;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color: #104b51;
+}
+</style>
