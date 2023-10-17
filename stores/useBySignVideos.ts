@@ -6,13 +6,13 @@ export const useBySignVideos = defineStore("useBySignVideos", () => {
   const auth = useAuth();
   const { data, error, pending, refresh } = useFetch<any>(videosUrl);
 
-  function refetch() {
+  function refetchBySigns() {
     refresh();
   }
 
   watchEffect(() => {
     if (auth.user) {
-      refetch();
+      refetchBySigns();
     }
   });
 
@@ -22,6 +22,6 @@ export const useBySignVideos = defineStore("useBySignVideos", () => {
     data,
     error,
     pending,
-    refetch,
+    refetchBySigns,
   };
 });

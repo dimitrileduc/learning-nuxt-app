@@ -4,48 +4,66 @@
       <div
         class="container w-full flex flex-col items-center justify-center rounded-md"
       >
-        <div class="w-3/5 containerInterne">
+        <div class="containerInterne px-3 sm:px-6 lg:max-w-[944px] lg:px-0">
           <div
             class="hero flex flex-col items-center justify-center rounded-t-md"
           >
             <div
-              class="w-full flex items-center justify-end p-4 z-50 cursor-pointer"
+              class="w-full flex items-center justify-end pt-4 pr-4 z-50 cursor-pointer"
               @click="closeModal"
             >
               <div class="flex items-center justify-center">
                 <nuxt-img class="w-6" alt="signe" src="/close_menu.svg" />
               </div>
             </div>
-            <div class="px-[120px] pb-12 pt-1">
+            <div class="px-[32px] md:px-[120px] pb-3 pt-1">
               <div class="w-full flex items-center justify-center">
-                <nuxt-img class="w-[392px]" alt="signe" src="/contest.svg" />
+                <nuxt-img
+                  class="w-[231px] md:w-[325px]"
+                  alt="signe"
+                  src="/contest.svg"
+                />
               </div>
-              <div class="text-[24px] text-white font-bold text-center">
-                Participez à mon concours !
+              <div
+                class="mt-4 md:mt-6 text-base md:text-[20px] text-white font-bold text-center uppercase"
+              >
+                CONCOURS !
               </div>
 
-              <div class="subTitle text-center">
-                Une guidance personnalisée de 60 minutes.
+              <div class="subTitle text-center text-base md:text-[20px]">
+                Tente ta chance de gagner une guidance personnalisée de 60
+                minutes
               </div>
-              <div class="mt-4 copy text-center">
-                Je vous accueille pour vous soutenir dans votre parcours de vie
-                en vous apportant les messages que vous êtes prêts à entendre,
-                en éclairant d’éventuelles zones d’ombres, en vous aidant à vous
-                connecter à vos ressources personnelles afin de suivre la voie
-                de votre âme.
+              <div
+                class="mt-4 copy text-[14px] md:text-base text-center md:px-6"
+              >
+                Lors des guidances personnalisées, je vous accueille pour vous
+                soutenir dans votre parcours de vie en vous apportant les
+                messages que vous êtes prêts à entendre, en éclairant
+                d’éventuelles zones d’ombre, en vous aidant à vous connecter à
+                vos ressources personnelles afin de suivre la voie de votre âme.
               </div>
-              <div class="mt-4 copy text-center">
-                <span class="font-bold text-[#CFE4BA]"
-                  >Inscrivez-vous à notre newsletter et prenez partie au tirage
-                  au sort
-                </span>
-                qui aura lieu le xx/xx/xx pour remportez une séance pour vous ou
-                la personne de votre choix..
+              <div class="mt-4 text-[14px] md:text-base copy text-center">
+                <div class="font-bold text-[#CFE4BA] text-[14px] md:text-base">
+                  Inscris-toi au concours avant le 22 décembre
+                </div>
+                <div
+                  class="md:px-0 mt-2 text-[14px] md:text-base flex flex-center justify-center"
+                >
+                  <div class="hidden md:flex text-center">
+                    Tirage au sort le 24 décembre. Le gagnant sera prévenu par
+                    mail
+                  </div>
+                  <div class="flex md:hidden flex-col">
+                    <div>Tirage au sort le 24 décembre.</div>
+                    Le gagnant sera prévenu par mail
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div
-            class="bg-white rounded-b-md py-8 flex flex-col items-center justify-center gap-y-6 px-[244px]"
+            class="bg-white rounded-b-md py-4 flex flex-col items-center justify-center gap-y-6 px-[32px] md:px-[244px]"
           >
             <FormInput
               name="email"
@@ -60,9 +78,25 @@
               <Button primary label="Je m'inscris" />
               <Button secondary :hasWhiteBg="true" label="Accéder au site" />
             </div>
-            <div class="cgv">
-              En m’inscrivant, j’accepte les conditions générales et la
-              politique de confidentialité du site et du concours.
+            <div class="cgv md:px-10">
+              <div class="legal text-[14px] text-center text-opacity-60">
+                En m'inscrivant, j’accepte les
+                <span class="underline">
+                  <a class="w-full h-full pt-3" href="/cgv" target="_blank"
+                    >Termes et conditions</a
+                  >
+                </span>
+                <span>
+                  et la
+
+                  <a
+                    class="w-full h-full"
+                    href="/confidentialite"
+                    target="_blank"
+                    >Politique de confidentialité.</a
+                  >
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -100,7 +134,6 @@ const closeModal = () => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: Lato;
-  font-size: 24px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -110,7 +143,7 @@ const closeModal = () => {
   color: #fff;
   text-align: center;
   font-family: Lato;
-  font-size: 16px;
+
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -127,5 +160,6 @@ const closeModal = () => {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  color: #104b51;
 }
 </style>
