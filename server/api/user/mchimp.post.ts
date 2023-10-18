@@ -4,12 +4,14 @@ export default async function defineEventHandler(event: any) {
   const config = useRuntimeConfig();
   const mailchimpKey = config.mailchimpSecret;
 
-  const { email, username } = await readBody(event);
+  const { email, username, tag } = await readBody(event);
 
   MailchimpMarketing.setConfig({
     apiKey: mailchimpKey,
     server: "us21",
   });
+
+  console.log("tag to ass in mchimp", tag);
 
   const run = async () => {
     try {
@@ -18,9 +20,7 @@ export default async function defineEventHandler(event: any) {
         {
           email_address: email,
           status: "subscribed",
-          merge_fields: {
-            TYPE: "Registered", // Set the value based on the user's registration status
-          },
+          tags: [tag],
         }
       );
       console.log(response);

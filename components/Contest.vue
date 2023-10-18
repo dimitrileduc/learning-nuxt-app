@@ -65,19 +65,70 @@
           <div
             class="bg-white rounded-b-md py-4 flex flex-col items-center justify-center gap-y-6 px-[32px] md:px-[244px]"
           >
-            <FormInput
-              name="email"
-              input
-              field
-              value=""
-              type="email"
-              label="E-mail"
-              placeholder="Entrez votre adresse email"
-            />
-            <div class="flex flex-col gap-y-2 items-center justify-center">
-              <Button primary label="Je m'inscris" />
-              <Button secondary :hasWhiteBg="true" label="Accéder au site" />
-            </div>
+            <Form
+              class="w-full flex flex-col items-center gap-y-6"
+              ref="form"
+              @submit="onSubmit"
+              :validation-schema="schema"
+              @invalid-submit="onInvalidSubmit"
+            >
+              <div class="w-full">
+                <div class="flex flex-col items-center w-full">
+                  <FormInput
+                    name="email"
+                    label="email"
+                    placeholder="Votre Email"
+                    :value="emailValue"
+                    type="email"
+                  />
+                </div>
+              </div>
+              <div class="flex flex-col gap-y-2 items-center justify-center">
+                <Button primary label="Je m'inscris" />
+                <Button secondary :hasWhiteBg="true" label="Accéder au site" />
+              </div>
+
+              <div class="font-medium text-sm">
+                <div
+                  v-if="requestStatus === 'ok'"
+                  class="status_message text-[#34be34]"
+                >
+                  Mailchimp user created successfully
+                </div>
+                <div
+                  v-if="requestStatus === 'error'"
+                  class="status_message text-red-500"
+                >
+                  Une erreur s'est produite. Veuillez réessayer ultérieurement.
+                </div>
+              </div>
+              <!-- <div class="button_container mt-8 sm:mt-4 lg:mt-8">
+                <Button primary label="Envoyer" />
+                <div class="mt-2 font-bold">
+                  <div
+                    v-if="status === 'ok'"
+                    class="status_message text-[#104b51]"
+                  >
+                    Formulaire soumis avec succès !
+                  </div>
+                  <div
+                    v-if="status === 'processing'"
+                    class="status_message text-[#104b51]"
+                  >
+                    Traitement en cours...
+                  </div>
+                  <div
+                    v-if="status === 'error'"
+                    class="status_message text-red-500"
+                  >
+                    Une erreur s'est produite. Veuillez réessayer
+                    ultérieurement.
+                  </div>
+                </div>
+                <div />
+              </div> -->
+            </Form>
+
             <div class="cgv md:px-10">
               <div class="legal text-[14px] text-center text-opacity-60">
                 En m'inscrivant, j’accepte les
@@ -106,11 +157,98 @@
 </template>
 
 <script setup>
+import { Form } from "vee-validate";
+import * as Yup from "yup";
+
+const emailValue = ref("");
+
+const schema = Yup.object().shape({
+  email: Yup.string().email().required(),
+});
+
 const emit = defineEmits(["close"]);
 const closeModal = () => {
   console.log("close modal");
   emit("close");
 };
+
+const requestStatus = ref(null);
+
+async function onSubmit(values) {
+  try {
+    const response = await $fetch("/api/user/mchimp", {
+      method: "POST",
+      body: {
+        email: values.email,
+        tag: "Contest",
+      },
+    });
+    console.log(response);
+    if (response?.status === "subscribed") {
+      console.log("Mailchimp user created successfully");
+      requestStatus.value = "ok";
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Emit the "close" event after the delay
+      emit("close");
+    } else {
+      console.log("response", response.status);
+      console.log("Failed to create mailchimp user");
+      requestStatus.value = "error";
+    }
+  } catch (error) {
+    console.log("Error creating mailchimp user:", error);
+    requestStatus.value = "error";
+  }
+
+  // status.value = "processing"; // Set status to "processing" when the form is submitted
+  // try {
+  //   await mail.send({
+  //     config: "dimitri",
+  //     from: {
+  //       name: values.name,
+  //       address: values.email,
+  //     },
+  //     subject: "Moon energy contact form" + values.sujet,
+  //     text: values.message,
+  //   });
+  // } catch (error) {
+  //   console.error(error);
+  //   status.value = "error"; // Set status to "error" when an error occurs during form submission
+  // }
+
+  // try {
+  //   await mail.send({
+  //     config: "moon",
+  //     from: {
+  //       name: values.name,
+  //       address: values.email,
+  //     },
+  //     subject: "Moon energy contact form" + values.sujet,
+  //     text: values.message,
+  //   });
+  // } catch (error) {
+  //   console.error(error);
+  //   status.value = "error"; // Set status to "error" when an error occurs during form submission
+  // }
+
+  // try {
+  //   await mail.send({
+  //     config: "delphine",
+  //     from: {
+  //       name: values.name,
+  //       address: values.email,
+  //     },
+  //     subject: "Moon energy contact form" + values.sujet,
+  //     text: values.message,
+  //   });
+  //   status.value = "ok"; // Set status to "ok" when the form submission is successful
+  // } catch (error) {
+  //   console.error(error);
+  //   status.value = "error"; // Set status to "error" when an error occurs during form submission
+  // }
+
+  //});
+}
 </script>
 
 <style scoped>

@@ -115,6 +115,7 @@ export const useAuth = defineStore("useAuth", () => {
         body: {
           email: dataObj.email,
           username: dataObj.username,
+          tag: "Registered",
         },
       });
       console.log(response);
