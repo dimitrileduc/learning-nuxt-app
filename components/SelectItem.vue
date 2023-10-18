@@ -14,7 +14,7 @@
 
       <div class="text-base capitalize">{{ option }}</div>
     </div>
-    <div v-if="true" class="flex items-center justify-end group-hover:hidden">
+    <div v-if="access" class="flex items-center justify-end group-hover:hidden">
       <div class="h-full flex items-center justify-center">
         <nuxt-img class="w-6" alt="check" src="/check.svg" />
       </div>

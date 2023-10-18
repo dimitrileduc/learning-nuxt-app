@@ -2,23 +2,19 @@
   <div
     class="container w-full flex flex-col items-center px-8 sm:px-0 z-50 py-12"
   >
-    <div class="text-2xl text-white font-bold mt-4 text-center">
-      <span class="text-[#CFE4BA]">Nouveau ! </span>
-      <span>Découvrez aussi la tendance 2024 par signe astrologique</span>
+    <div
+      class="text-[24px] text-white font-bold mt-4 text-center flex flex-col items-center justify-center"
+    >
+      <div class="text-[#CFE4BA]">Nouveau !</div>
+      <div>Découvrez ici les projections du 1er semestre 2024</div>
+      <div>Signe par signe</div>
     </div>
     <div class="mt-3 max-w-[710px] text-white text-base text-center">
-      <span class="font-bold"
-        >Envie d’en savoir plus sur un signe astrologique précis ?
-      </span>
-      Afin d'en savoir plus sur les énergies du moment pour lever des blocages,
-      éclairer des zones d’ombres et pour recevoir les messages qui vous
-      permettent de
-      <span class="font-bold"
-        >vous positionner concrètement dans votre vie.</span
-      >
+      Sélectionne le signe de ton choix et découvre les prévisions des 6
+      premiers mois 2024
     </div>
 
-    <div class="mt-10">
+    <div class="mt-4">
       <div class="hidden md:flex">
         <Select :options="signsOptions" @update="updateSelectedVideo" />
       </div>
@@ -27,7 +23,7 @@
       </div>
     </div>
     <div
-      class="pt-6 flex flex-col md:flex-row gap-4 justify-center content-center justify-items-center items-center"
+      class="mt-6 flex flex-col md:flex-row gap-4 justify-center content-center justify-items-center items-center"
     >
       <ClientOnly>
         <VideoCard
@@ -103,7 +99,7 @@ const defaultVideo = computed(() => {
   return data?.value?.[0] || defaultVideoData;
 });
 
-const selectedVideo = ref(defaultVideo.value);
+const selectedVideo = ref(null);
 
 const updateSelectedVideo = (value: AstroObject) => {
   console.log("updateSelectedVideo from emi", value);
