@@ -195,9 +195,9 @@ const modalTitle = computed(() => {
     case "notLogged":
       return "Vous devez acheter des crédits pour debloquez cette vidéo";
     case "loggedsufficientCredit":
-      return (
-        "Vous avez actuellement " + credits.value + " crédits disponible. "
-      );
+      const creditsLabels =
+        credits.value > 1 ? "crédits disponibles." : "crédit disponible.";
+      return "Vous avez actuellement " + credits.value + " " + creditsLabels;
     // return credits?.value < 2
     //   ? "Vous avez actuellement " + credits.value + " crédits disponible. "
     //   : "Vous avez actuellement " + credits.value + " crédits disponibles. ";
@@ -213,7 +213,15 @@ const modalSubtitle = computed(() => {
     case "notLogged":
       return "";
     case "loggedsufficientCredit":
-      return "Vous pouvez debloquer cette vidéo, cliquez sur 'Acheter cette vidéo' pour confirmer";
+      const creditsLabels = props.price > 1 ? "crédits" : "crédit";
+      return (
+        "Voulez-vous utiliser" +
+        " " +
+        props.price +
+        " " +
+        creditsLabels +
+        " pour debloquer cette vidéo ?"
+      );
     case "loggedInsufficientCredit":
       const neededCredits = props.price - credits.value;
       const creditString = neededCredits > 1 ? "crédits" : "crédit";
