@@ -55,7 +55,8 @@ const logoutUser = () => {
   setShowPayment(false);
 };
 
-const name = computed(() => user.value?.user_metadata.full_name ?? "");
+// const name = computed(() => user.value?.user_metadata.full_name ?? "");
+
 const profile = computed(() => user.value?.user_metadata.avatar_url);
 const { credits, loading } = await useCredits();
 
