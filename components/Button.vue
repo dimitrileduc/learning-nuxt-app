@@ -6,6 +6,7 @@
       :class="[
         primary ? 'primary' : 'secondary',
         noMaxWidth ? 'w-full' : 'xs:w-56',
+        :class="hasWhiteBg ? 'text-[#51BDDE] hover:text-white' : ''"
       ]"
       @click="handleClick"
     >
@@ -16,7 +17,7 @@
       <div
         v-else
         class="label"
-        :class="hasWhiteBg ? 'text-[#51BDDE] hover:text-white' : ''"
+        
       >
         {{ label }}
       </div>
