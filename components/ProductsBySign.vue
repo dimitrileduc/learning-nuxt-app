@@ -15,17 +15,21 @@
     </div>
 
     <div class="mt-4">
-      <div class="hidden md:flex">
-        <Select :options="signsOptions" @update="updateSelectedVideo" />
+      <div class="hidden md:flex z-50">
+        <Select :options="signsOptions" @update="updateSelectedVideoTag" />
       </div>
-      <div class="flex md:hidden">
-        <SelectMobile :options="signsOptions" @update="updateSelectedVideo" />
+      <div class="flex md:hidden z-50">
+        <SelectMobile
+          :options="signsOptions"
+          @update="updateSelectedVideoTag"
+        />
       </div>
     </div>
     <div
       class="mt-6 flex flex-col md:flex-row gap-4 justify-center content-center justify-items-center items-center"
     >
       <ClientOnly>
+        selected : {{ selectedVideo }}
         <VideoCard
           v-if="selectedVideo"
           :id="selectedVideo.id"
@@ -49,30 +53,50 @@ import { storeToRefs } from "pinia";
 import { useBySignVideos } from "~/stores/useBySignVideos";
 const { loading, user } = storeToRefs(useAuth());
 
-// type AstroObject = {
-//   tag: AstrologicalSign;
-//   access: Boolean;
-// };
+type AstroObject = {
+  tag: AstrologicalSign;
+  access: Boolean;
+};
 
-// type AstrologicalSign =
-//   | "belier"
-//   | "taureau"
-//   | "gemeaux"
-//   | "cancer"
-//   | "lion"
-//   | "vierge"
-//   | "balance"
-//   | "scorpion"
-//   | "sagittaire"
-//   | "capricorne"
-//   | "verseau"
-//   | "poisson";
+type AstrologicalSign =
+  | "belier"
+  | "taureau"
+  | "gemeaux"
+  | "cancer"
+  | "lion"
+  | "vierge"
+  | "balance"
+  | "scorpion"
+  | "sagittaire"
+  | "capricorne"
+  | "verseau"
+  | "poisson";
 
 const { data } = await storeToRefs(useBySignVideos());
 console.log("video by signs initialized from productsBySign component", data);
-const { signsOptions } = storeToRefs(useBySignVideos());
-const { selectedVideo } = storeToRefs(useBySignVideos());
-const { updateSelectedVideo } = useBySignVideos();
+
+const { selectedVideoTag } = storeToRefs(useBySignVideos());
+const { updateSelectedVideoTag } = useBySignVideos();
+
+const signsOptions = computed(() => {
+  const tagSet = new Set();
+  if (!data.value) return;
+  // Iterate through each item in the array and add its tag to the Set
+  data.value.forEach((item: AstroObject, index: number) => {
+    if (item.tag) {
+      const isLast = index === data.value.length - 1;
+      tagSet.add({ tag: item.tag, access: item.access, isLast: isLast });
+    }
+  });
+  // Convert the Set back to an array
+  return Array.from(tagSet);
+});
+
+// make a computed to get selectedVideo from selectedVideoTag
+const selectedVideo = computed(() => {
+  if (!data.value) return;
+  return data.value.find((item: any) => item.tag === selectedVideoTag.value);
+});
 
 // const signsOptions = computed(() => {
 //   const tagSet = new Set();

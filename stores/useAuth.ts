@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { useHomeVideos } from "./useHomeVideos";
 import { useUserVideos } from "./useUserVideos";
+import { useBySignVideos } from "./useBySignVideos";
 import { usePayment } from "./usePayment";
 
 export const useAuth = defineStore("useAuth", () => {
@@ -8,6 +9,7 @@ export const useAuth = defineStore("useAuth", () => {
   const { refetch } = useHomeVideos();
 
   const { refetchUserVideos } = useUserVideos();
+  const { refetchBySigns } = useBySignVideos();
   const loading = markRaw(ref(false));
   const supabase = useSupabaseAuthClient();
   const supabaseClient = useSupabaseClient();
@@ -211,6 +213,7 @@ export const useAuth = defineStore("useAuth", () => {
     }
     refetch();
     refetchUserVideos();
+    refetchBySigns();
     await navigateTo("/");
     loading.value = false;
   }

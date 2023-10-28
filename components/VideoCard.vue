@@ -30,7 +30,7 @@
       <div class="text-container mt-3 my-6 mx-3 sm:mx-4">
         <div class="flex flex-col sm:flex-row sm:gap-2">
           <div class="title font-bold">
-            {{ props.title }} price : {{ props.price }}
+            {{ props.title }} price : {{ props.videoUrl }}
           </div>
 
           <div v-if="props.date && false" class="date font-bold">
@@ -75,12 +75,14 @@
 import { storeToRefs } from "pinia";
 import { useHomeVideos } from "~/stores/useHomeVideos";
 import { useUserVideos } from "~/stores/useUserVideos";
+import { useBySignVideos } from "~/stores/useBySignVideos";
 const { smoothScrollTo } = useSmoothScroll();
 const userSupa = useSupabaseUser();
 const { refetch } = useHomeVideos();
 const { refetchUserVideos } = useUserVideos();
 
 const { pending } = storeToRefs(useHomeVideos());
+const { refetchBySigns } = useBySignVideos();
 
 console.log("supaUser", userSupa.value);
 const props = defineProps({
@@ -250,7 +252,7 @@ const primaryActionModal = async () => {
       break;
     case "loggedsufficientCredit":
       console.log("primaryActionModal, buy vidéo ");
-      const neededCredits = props.price - credits.value;
+
       try {
         const response = await $fetch(
           "/api/videoPurchase/createVideoPurchase",
@@ -258,7 +260,7 @@ const primaryActionModal = async () => {
             method: "POST",
             body: {
               videoID: props.id,
-              creditAmount: neededCredits,
+              creditAmount: props.price,
             },
           }
         );
@@ -271,6 +273,7 @@ const primaryActionModal = async () => {
           refetchCredits();
           refetch();
           refetchUserVideos();
+          refetchBySigns();
           statusModalMessage.value = "Vidéo debloquée avec succès";
         } else {
           // Error: handle response

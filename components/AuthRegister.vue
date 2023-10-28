@@ -3,7 +3,7 @@ import { useAuth } from "~/stores/useAuth";
 import { usePayment } from "~~/stores/usePayment";
 const user = useSupabaseUser();
 const { registerUser } = useAuth();
-const { $posthog } = useNuxtApp();
+// const { $posthog } = useNuxtApp();
 
 const {} = useAuth();
 
@@ -67,10 +67,10 @@ async function handleSignUp(data: any) {
 
     emit("setEmailProviderLink", emailProviderUrl.value);
 
-    if ($posthog) {
-      const posthog = $posthog();
-      posthog?.capture("user_registered");
-    }
+    // if ($posthog) {
+    //   const posthog = $posthog();
+    //   posthog?.capture("user_registered");
+    // }
 
     // Redirect to another page or do something else
   }

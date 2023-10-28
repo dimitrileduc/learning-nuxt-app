@@ -24,23 +24,12 @@ export const useBySignVideos = defineStore("useBySignVideos", () => {
   const videosUrl = "/api/videos/bySignVideos";
   const auth = useAuth();
   const { data, error, pending, refresh } = useFetch<any>(videosUrl);
-  const selectedVideo = ref(null);
+  const selectedVideoTag = ref(null);
 
-  const signsOptions = computed(() => {
-    const tagSet = new Set();
-
-    // Iterate through each item in the array and add its tag to the Set
-    data.value.forEach((item: AstroObject, index: number) => {
-      if (item.tag) {
-        const isLast = index === data.value.length - 1;
-        tagSet.add({ tag: item.tag, access: item.access, isLast: isLast });
-      }
-    });
-    // Convert the Set back to an array
-    return Array.from(tagSet);
-  });
+ 
 
   function refetchBySigns() {
+    console.log("refetch by signs")
     refresh();
   }
 
@@ -52,22 +41,25 @@ export const useBySignVideos = defineStore("useBySignVideos", () => {
 
   console.log("DATA IN COMPSABLE BY SIGNS HOME VIDEOS ", data);
 
-  const updateSelectedVideo = (value: AstroObject) => {
-    console.log("updateSelectedVideo from emi", value);
-    data.value.forEach((item: any) => {
-      if (item.tag === value) {
-        selectedVideo.value = item;
-      }
-    });
+  const updateSelectedVideoTag = (value: any) => {
+    // console.log("updateSelectedVideo from emi", value);
+    // data.value.forEach((item: any) => {
+    //   if (item.tag === value) {
+    //     selectedVideo.value = item;
+    //   }
+    // });
+    selectedVideoTag.value = value;
   };
+
+  
 
   return {
     data,
     error,
     pending,
     refetchBySigns,
-    signsOptions,
-    selectedVideo,
-    updateSelectedVideo
+  
+    selectedVideoTag,
+    updateSelectedVideoTag
   };
 });
