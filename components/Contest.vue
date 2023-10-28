@@ -35,7 +35,7 @@
                 minutes
               </div>
               <div
-                class="mt-4 copy text-[14px] md:text-base text-center md:px-6"
+                class="hidden md:flex mt-4 copy text-[14px] md:text-base text-center md:px-6"
               >
                 Lors des guidances personnalisées, je vous accueille pour vous
                 soutenir dans votre parcours de vie en vous apportant les
