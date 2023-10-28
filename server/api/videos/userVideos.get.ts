@@ -25,7 +25,15 @@ export default async function defineEventHandler(event: any) {
       },
     });
 
-    return videos;
+    const videosBySign = await prisma.videoBySigns.findMany({
+      where: {
+        id: { in: videoIds },
+      },
+    });
+
+    const allVideos = [...videos, ...videosBySign];
+
+    return allVideos;
   } else {
     return null;
   }

@@ -1,5 +1,6 @@
 <template>
   <div class="global" id="home">
+    show payment : {{ showPayment }} user : {{ user }}
     <div>
       <Header />
     </div>
@@ -12,6 +13,7 @@
     <ContactSection id="contacts" />
 
     <ClientOnly>
+      <div v-if="showPayment && user">SHOW PAYMENT ?</div>
       <Checkout v-if="showPayment && user" @close="hidePayment" />
     </ClientOnly>
     <div v-if="showPasswordRecover">

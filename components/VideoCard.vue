@@ -30,7 +30,7 @@
       <div class="text-container mt-3 my-6 mx-3 sm:mx-4">
         <div class="flex flex-col sm:flex-row sm:gap-2">
           <div class="title font-bold">
-            {{ props.title }} price : {{ props.videoUrl }}
+            {{ props.title }}
           </div>
 
           <div v-if="props.date && false" class="date font-bold">

@@ -24,6 +24,7 @@ export default defineNuxtConfig({
       posthogHost: "",
     },
   },
+  
   vite: {
     plugins: [vsharp()],
   },

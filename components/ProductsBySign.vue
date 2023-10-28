@@ -29,7 +29,6 @@
       class="mt-6 flex flex-col md:flex-row gap-4 justify-center content-center justify-items-center items-center"
     >
       <ClientOnly>
-        selected : {{ selectedVideo }}
         <VideoCard
           v-if="selectedVideo"
           :id="selectedVideo.id"

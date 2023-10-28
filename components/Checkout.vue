@@ -120,12 +120,13 @@ const status = ref("idle");
 const route = useRoute();
 
 const packs = [
-  { id: 1, creditsValue: 1, price: 11, type: "lune_pack", title: "Lune" },
-  { id: 2, creditsValue: 2, price: 20, type: "univers", title: "Planète" },
-  { id: 3, creditsValue: 3, price: 27, type: "galaxie", title: "Galaxie" },
+  { id: 1, creditsValue: 1, price: 10, type: "lune_pack", title: "Lune" },
+  { id: 2, creditsValue: 2, price: 18, type: "univers", title: "Planète" },
+  { id: 3, creditsValue: 3, price: 26, type: "galaxie", title: "Galaxie" },
 ];
 
 const selectedPack = computed(() => {
+  console.log("amount", amount);
   return packs.find((pack) => pack.price === amount);
 });
 
