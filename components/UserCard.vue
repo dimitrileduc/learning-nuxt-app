@@ -69,7 +69,7 @@ const creditsDiplayed = computed(() => {
 
 const labelCredits = computed(() => {
   console.log("credits", credits.value);
-  if (credits.value && credits.value > 0) {
+  if (credits.value && credits.value > 1) {
     return "crédits";
   } else {
     return "crédit";
