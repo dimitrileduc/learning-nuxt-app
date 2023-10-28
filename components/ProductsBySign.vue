@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container w-full flex flex-col items-center px-8 sm:px-0 z-50 py-12"
+    class="container w-full flex flex-col items-center px-8 sm:px-0 z-50 pb-12"
   >
     <div
       class="text-[24px] text-white font-bold mt-4 text-center flex flex-col items-center justify-center"
@@ -48,67 +48,69 @@ import { storeToRefs } from "pinia";
 import { useBySignVideos } from "~/stores/useBySignVideos";
 const { loading, user } = storeToRefs(useAuth());
 
-type AstroObject = {
-  tag: AstrologicalSign;
-  access: Boolean;
-};
+// type AstroObject = {
+//   tag: AstrologicalSign;
+//   access: Boolean;
+// };
 
-type AstrologicalSign =
-  | "belier"
-  | "taureau"
-  | "gemeaux"
-  | "cancer"
-  | "lion"
-  | "vierge"
-  | "balance"
-  | "scorpion"
-  | "sagittaire"
-  | "capricorne"
-  | "verseau"
-  | "poisson";
+// type AstrologicalSign =
+//   | "belier"
+//   | "taureau"
+//   | "gemeaux"
+//   | "cancer"
+//   | "lion"
+//   | "vierge"
+//   | "balance"
+//   | "scorpion"
+//   | "sagittaire"
+//   | "capricorne"
+//   | "verseau"
+//   | "poisson";
 
 const { data } = await storeToRefs(useBySignVideos());
+console.log("video by signs initialized from productsBySign component", data);
+const { signsOptions } = storeToRefs(useBySignVideos());
+const { selectedVideo } = storeToRefs(useBySignVideos());
+const { updateSelectedVideo } = useBySignVideos();
 
-const signsOptions = computed(() => {
-  const tagSet = new Set();
+// const signsOptions = computed(() => {
+//   const tagSet = new Set();
 
-  // Iterate through each item in the array and add its tag to the Set
-  data.value.forEach((item: AstroObject, index: number) => {
-    if (item.tag) {
-      const isLast = index === data.value.length - 1;
-      tagSet.add({ tag: item.tag, access: item.access, isLast: isLast });
-    }
-  });
-  // Convert the Set back to an array
-  return Array.from(tagSet);
-});
+//   // Iterate through each item in the array and add its tag to the Set
+//   data.value.forEach((item: AstroObject, index: number) => {
+//     if (item.tag) {
+//       const isLast = index === data.value.length - 1;
+//       tagSet.add({ tag: item.tag, access: item.access, isLast: isLast });
+//     }
+//   });
+//   // Convert the Set back to an array
+//   return Array.from(tagSet);
+// });
 
-console.log("video by signs from store in product by sign", data);
+// const defaultVideoData = {
+//   id: "",
+//   logged: false,
+//   title: "Vidéo loading ",
+//   description: "Description loading...",
+//   access: "",
+//   thumbnailUrl: "",
+//   videoUrl: "",
+// };
 
-const defaultVideoData = {
-  id: "",
-  logged: false,
-  title: "Vidéo loading ",
-  description: "Description loading...",
-  access: "",
-  thumbnailUrl: "",
-  videoUrl: "",
-};
+// const defaultVideo = computed(() => {
+//   return data?.value?.[0] || defaultVideoData;
+// });
 
-const defaultVideo = computed(() => {
-  return data?.value?.[0] || defaultVideoData;
-});
+// const selectedVideo = ref(null);
 
-const selectedVideo = ref(null);
-
-const updateSelectedVideo = (value: AstroObject) => {
-  console.log("updateSelectedVideo from emi", value);
-  data.value.forEach((item: any) => {
-    if (item.tag === value) {
-      selectedVideo.value = item;
-    }
-  });
-};
+// const updateSelectedVideo = (value: AstroObject) => {
+//   console.log("updateSelectedVideo from emi", value);
+//   data.value.forEach((item: any) => {
+//     if (item.tag === value) {
+//       selectedVideo.value = item;
+//     }
+//   });
+// };
 
 const currentMonth = computed(() => {
   const currentDate = new Date();

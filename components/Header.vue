@@ -8,7 +8,7 @@
       />
     </div>
     <div class="container px-0 sm:px-2 lg:px-4 border">
-      <div class="bg mb-[112px] sm:mb-[106px] lg:mb-[0px] border">
+      <div class="bg mb-[132px] sm:mb-[106px] lg:mb-[96px] border-red-400">
         <div class="container_overlay w-full inline-flex justify-between">
           <div class="bg-overlay-left">
             <nuxt-img alt="header_left" src="/left.svg" />
