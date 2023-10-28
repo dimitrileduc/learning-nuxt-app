@@ -93,7 +93,7 @@
                   v-if="requestStatus === 'ok'"
                   class="status_message text-[#34be34]"
                 >
-                  Mailchimp user created successfully
+                  Votre participation a bien été prise en compte !
                 </div>
                 <div
                   v-if="requestStatus === 'error'"
@@ -187,9 +187,6 @@ async function onSubmit(values) {
     if (response?.status === "subscribed") {
       console.log("Mailchimp user created successfully");
       requestStatus.value = "ok";
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      // Emit the "close" event after the delay
-      emit("close");
     } else {
       console.log("response", response.status);
       console.log("Failed to create mailchimp user");
@@ -199,6 +196,9 @@ async function onSubmit(values) {
     console.log("Error creating mailchimp user:", error);
     requestStatus.value = "error";
   }
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
+  emit("close");
 
   // status.value = "processing"; // Set status to "processing" when the form is submitted
   // try {

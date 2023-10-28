@@ -2,11 +2,10 @@
   <div class="global_button">
     <button
       :disabled="loading"
-      class="px-5 xs:px-0 opacity-90 hover:opacity-100"
+      class="px-5 xs:px-0 opacity-90 hover:opacity-100 group"
       :class="[
         primary ? 'primary' : 'secondary',
         noMaxWidth ? 'w-full' : 'xs:w-56',
-        :class="hasWhiteBg ? 'text-[#51BDDE] hover:text-white' : ''"
       ]"
       @click="handleClick"
     >
@@ -17,7 +16,7 @@
       <div
         v-else
         class="label"
-        
+        :class="hasWhiteBg ? 'text-[#51BDDE] group-hover:text-white' : ''"
       >
         {{ label }}
       </div>
