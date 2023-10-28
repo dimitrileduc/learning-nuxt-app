@@ -36,6 +36,7 @@
           :thumbnail="selectedVideo.thumbnailUrl"
           :videoUrl="selectedVideo.videoUrl"
           :date="currentMonth"
+          :price="2"
         />
       </ClientOnly>
     </div>

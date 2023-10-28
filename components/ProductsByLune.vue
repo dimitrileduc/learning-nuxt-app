@@ -17,6 +17,7 @@
           :thumbnail="lune.thumbnailUrl"
           :videoUrl="lune.videoUrl"
           :date="currentMonth"
+          :price="1"
         />
 
         <VideoCard
@@ -29,6 +30,7 @@
           :thumbnail="demiLune.thumbnailUrl"
           :videoUrl="demiLune.videoUrl"
           :date="currentMonth"
+          :price="1"
         />
       </ClientOnly>
     </div>

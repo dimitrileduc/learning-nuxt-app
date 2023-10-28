@@ -29,7 +29,10 @@
 
       <div class="text-container mt-3 my-6 mx-3 sm:mx-4">
         <div class="flex flex-col sm:flex-row sm:gap-2">
-          <div class="title font-bold">{{ props.title }}</div>
+          <div class="title font-bold">
+            {{ props.title }} price : {{ props.price }}
+          </div>
+
           <div v-if="props.date && false" class="date font-bold">
             {{ props.date }}
           </div>
@@ -110,6 +113,9 @@ const props = defineProps({
   date: {
     type: String,
   },
+  price: {
+    type: Number,
+  },
 });
 
 console.log("props video", props);
@@ -173,7 +179,7 @@ const modalState = computed(() => {
   console.log("credits", credits);
 
   if (userSupa.value && !unlocked.value) {
-    return credits?.value > 0
+    return credits?.value >= props.price
       ? "loggedsufficientCredit"
       : "loggedInsufficientCredit";
   }
@@ -187,9 +193,12 @@ const modalTitle = computed(() => {
     case "notLogged":
       return "Vous devez acheter des crédits pour debloquez cette vidéo";
     case "loggedsufficientCredit":
-      return credits?.value < 2
-        ? "Vous avez actuellement " + credits.value + " crédits disponible. "
-        : "Vous avez actuellement " + credits.value + " crédits disponibles. ";
+      return (
+        "Vous avez actuellement " + credits.value + " crédits disponible. "
+      );
+    // return credits?.value < 2
+    //   ? "Vous avez actuellement " + credits.value + " crédits disponible. "
+    //   : "Vous avez actuellement " + credits.value + " crédits disponibles. ";
     case "loggedInsufficientCredit":
       return "Vous n'avez pas assez de crédits pour débloquer cette vidéo";
     case "unlocked":
@@ -204,7 +213,16 @@ const modalSubtitle = computed(() => {
     case "loggedsufficientCredit":
       return "Vous pouvez debloquer cette vidéo, cliquez sur 'Acheter cette vidéo' pour confirmer";
     case "loggedInsufficientCredit":
-      return "Veuillez acheter 1 crédit pour accéder à cette vidéo";
+      const neededCredits = props.price - credits.value;
+      const creditString = neededCredits > 1 ? "crédits" : "crédit";
+      return (
+        "Veuillez acheter " +
+        neededCredits +
+        " " +
+        creditString +
+        " pour debloquer cette vidéo"
+      );
+
     case "unlocked":
       return null;
   }
@@ -232,6 +250,7 @@ const primaryActionModal = async () => {
       break;
     case "loggedsufficientCredit":
       console.log("primaryActionModal, buy vidéo ");
+      const neededCredits = props.price - credits.value;
       try {
         const response = await $fetch(
           "/api/videoPurchase/createVideoPurchase",
@@ -239,7 +258,7 @@ const primaryActionModal = async () => {
             method: "POST",
             body: {
               videoID: props.id,
-              creditAmount: 1,
+              creditAmount: neededCredits,
             },
           }
         );
