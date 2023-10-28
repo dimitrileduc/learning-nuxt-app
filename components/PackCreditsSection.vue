@@ -1,7 +1,7 @@
 <template>
   <div class="container_packs py-10 px-10 flex flex-col items-center">
     <div class="font-bold text-2xl text-center">
-      Packs extension(s) de lecture intuitive
+      Packs extensions guidances intuitives lunaires
     </div>
     <div class="details mt-4 mb-8 text-center leading-tight max-w-[712px]">
       <span class="font-bold">Rechargez ici vos crédits</span> afin d'en savoir
