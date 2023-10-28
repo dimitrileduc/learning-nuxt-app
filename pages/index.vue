@@ -1,6 +1,5 @@
 <template>
   <div class="global" id="home">
-    show payment : {{ showPayment }} user : {{ user }}
     <div>
       <Header />
     </div>

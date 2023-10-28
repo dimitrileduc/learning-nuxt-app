@@ -17,7 +17,17 @@
             />
           </div>
         </div>
-        <div class="overlay w-full h-full rounded"></div>
+        <div class="overlay h-full rounded"></div>
+        <div class="overlay_left flex">
+          <div v-if="!unlocked" class="pt-4 flex">
+            <div
+              class="flex bg-white py-1 pl-1 pr-2 flex flex-row gap-1 rounded-r-md items-center justify-center"
+            >
+              <nuxt-img class="w-6 h-6" alt="lune" src="/lune.svg" />
+              <div class="">{{ price }} {{ creditsLabel }}</div>
+            </div>
+          </div>
+        </div>
         <div class="iconContainer mr-4 mt-4">
           <nuxt-icon
             class="text-2xl sm:text-[40px]"
@@ -121,6 +131,10 @@ const props = defineProps({
 });
 
 console.log("props video", props);
+
+const creditsLabel = computed(() => {
+  return props.price > 1 ? "crédits" : "crédit";
+});
 
 const { credits, loading } = await useCredits();
 
@@ -359,6 +373,18 @@ const playVideo = () => {
     #104b51 0%,
     rgba(16, 75, 81, 0) 101.21%
   );
+}
+
+.overlay_left {
+  grid-area: 1 / 1 / 1/ 1;
+  justify-self: start;
+  align-self: start;
+  color: #104b51;
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .iconContainer {

@@ -2,7 +2,10 @@
   <div v-if="user" class="rounded flex items-center space-x-3">
     <div class="text-right flex flex-row gap-6 items-center">
       <div class="flex flex-row items-center justify-center gap-2">
-        <nuxt-icon class="text-[24px]" name="lune" filled />
+        <nuxt-img class="w-6 h-6" alt="lune" src="/lune.svg" />
+
+        <!-- <nuxt-icon class="text-[24px]" alt="lune" name="lune" filled /> -->
+
         <div class="credits flex flex-row gap-1">
           <div>
             {{ creditsDiplayed }}

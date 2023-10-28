@@ -6,11 +6,23 @@
   >
     <div class="h-full flex items-center justify-start gap-x-3">
       <div class="h-full flex items-center justify-center group-hover:hidden">
-        <nuxt-img class="w-8" alt="signe" src="/signe.svg" />
+        <nuxt-img class="w-6 h-6" alt="signe" :src="'/' + option + '.svg'" />
       </div>
       <div class="h-full hidden items-center justify-center group-hover:flex">
-        <nuxt-img class="w-8" alt="signe" src="/signewhite.svg" />
+        <nuxt-img
+          class="w-6 h-6"
+          alt="signe"
+          :src="'/' + option + '-white' + '.svg'"
+        />
       </div>
+
+      <!-- <div class="h-full flex items-center justify-center group-hover:hidden">
+        <nuxt-icon class="text-[32px]" :name="option" filled />
+       
+      </div>
+      <div class="h-full hidden items-center justify-center group-hover:flex">
+        <nuxt-icon class="text-[32px]" :name="option" color="white" />
+      </div> -->
 
       <div class="text-base capitalize">{{ option }}</div>
     </div>

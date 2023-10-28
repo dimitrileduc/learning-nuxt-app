@@ -26,6 +26,7 @@
     "nuxt-calendly": "^0.1.14",
     "nuxt-gtag": "^0.5.7",
     "nuxt-icon": "^0.3.3",
+    "nuxt-svgo": "^3.5.6",
     "pinia": "^2.0.33",
     "prisma": "4.10.1",
     "stripe": "^12.0.0",
