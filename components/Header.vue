@@ -7,12 +7,12 @@
         src="/lune_gradient.svg"
       />
     </div>
-    <div class="container px-0 sm:px-2 lg:px-4 border">
+    <div class="container px-0 sm:px-2 lg:px-4">
       <div
-        class="bg sm:mb-[106px] border-red-400"
+        class="bg sm:mb-[106px]"
         :class="
-          selectedVideo
-            ? 'mb-[132px] sm:mb-[106px] lg:mb-[96px] '
+          selectedVideoTag
+            ? 'mb-[132px] sm:mb-[106px] md:mb-[96px] '
             : 'mb-[0px] sm:mb-[106px] lg:mb-[0px]'
         "
       >
@@ -34,7 +34,7 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { useBySignVideos } from "~/stores/useBySignVideos";
-const { selectedVideo } = storeToRefs(useBySignVideos());
+const { selectedVideoTag } = storeToRefs(useBySignVideos());
 </script>
 
 <style scoped>
