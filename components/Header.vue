@@ -8,7 +8,14 @@
       />
     </div>
     <div class="container px-0 sm:px-2 lg:px-4 border">
-      <div class="bg mb-[132px] sm:mb-[106px] lg:mb-[96px] border-red-400">
+      <div
+        class="bg sm:mb-[106px] border-red-400"
+        :class="
+          selectedVideo
+            ? 'mb-[132px] sm:mb-[106px] lg:mb-[96px] '
+            : 'mb-[0px] sm:mb-[106px] lg:mb-[0px]'
+        "
+      >
         <div class="container_overlay w-full inline-flex justify-between">
           <div class="bg-overlay-left">
             <nuxt-img alt="header_left" src="/left.svg" />
@@ -24,7 +31,11 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { storeToRefs } from "pinia";
+import { useBySignVideos } from "~/stores/useBySignVideos";
+const { selectedVideo } = storeToRefs(useBySignVideos());
+</script>
 
 <style scoped>
 .global_header {
