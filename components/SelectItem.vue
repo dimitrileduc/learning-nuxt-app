@@ -32,8 +32,11 @@
       </div>
     </div>
     <div class="hidden items-center justify-end group-hover:flex">
-      <div class="h-full flex items-center justify-center">
+      <div v-if="!access" class="h-full flex items-center justify-center">
         <nuxt-img class="w-6" alt="add" src="/add.svg" />
+      </div>
+      <div v-else class="h-full flex items-center justify-center">
+        <nuxt-img class="w-6" alt="add" src="/checkwhite.svg" />
       </div>
     </div>
   </button>
