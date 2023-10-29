@@ -86,9 +86,9 @@ const priceLabel = computed(() => {
   return `${props.pack.price.toFixed(2)} €`;
 });
 
-const videosLabel = computed(() => {
-  props.pack.creditsValue === 1 ? "vidéo" : "vidéos";
-});
+// const videosLabel = computed(() => {
+//   props.pack.creditsValue === 1 ? "vidéo" : "vidéos";
+// });
 </script>
 
 <style scoped>
