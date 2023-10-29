@@ -88,15 +88,14 @@
               </div>
             </Form>
 
-            <div class="cgv md:px-10">
-              <div
-                class="flex flex-col gap-y-2 items-center justify-center mt-2"
-              >
+            <div class="md:px-10 mt-2">
+              <div class="flex flex-col gap-y-2 items-center justify-center">
                 <Button
                   secondary
                   @click="closeModal"
                   :hasWhiteBg="true"
                   label="Accéder au site"
+                  class="h-full"
                 />
               </div>
               <div class="font-medium text-sm pt-2">
@@ -113,7 +112,9 @@
                   Une erreur s'est produite. Veuillez réessayer ultérieurement.
                 </div>
               </div>
-              <div class="legal text-[14px] text-center text-opacity-60 mt-4">
+              <div
+                class="cgv legal text-[14px] text-center text-opacity-60 mt-4"
+              >
                 En m'inscrivant, j’accepte les
                 <span class="underline">
                   <a class="w-full h-full pt-3" href="/cgv" target="_blank"

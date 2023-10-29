@@ -18,8 +18,8 @@
     <div v-if="showPasswordRecover">
       <ResetPasswordModal @close="showPasswordRecover = false" />
     </div>
-    <div v-if="showContest">
-      <Contest @close="showContest = false" />
+    <div v-if="isModalContestOpen">
+      <Contest @close="closeIsModalContestOpen" />
     </div>
   </div>
 </template>
@@ -30,10 +30,13 @@ import { onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { useAuth } from "~/stores/useAuth";
 import { usePayment } from "~~/stores/usePayment";
+import { useShowContest } from "~~/stores/useShowContest";
 
 const { query } = useRoute();
 
 const { showPayment } = storeToRefs(usePayment());
+const { isModalContestOpen } = storeToRefs(useShowContest());
+const { closeIsModalContestOpen } = useShowContest();
 
 const { loading, user, authEvent } = storeToRefs(useAuth());
 const { smoothScrollTo } = useSmoothScroll();
@@ -42,8 +45,6 @@ const route = useRoute();
 const router = useRouter();
 
 const showPasswordRecover = ref(false);
-
-const showContest = ref(true);
 
 watch(
   route,

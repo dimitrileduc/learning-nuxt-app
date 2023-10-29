@@ -53,16 +53,17 @@
           {{ decriptionTruncate }}
         </div>
       </div>
-      <div
-        v-show="!unlocked"
-        class="button-container w-full flex justify-center"
-      >
+      <div v-if="!unlocked" class="button-container w-full flex justify-center">
         <Button
           primary
           :label="buttonLabel"
           @click="unlocked ? playVideo() : displayModalAction()"
         />
       </div>
+      <!-- <div
+        v-else
+        class="button-container w-full flex justify-center h-10"
+      ></div> -->
 
       <ActionModal
         class="w-full sm:w-[400px]"
@@ -133,6 +134,8 @@ const props = defineProps({
 });
 
 console.log("props video", props);
+
+const isVideoPlayed = ref(false);
 
 const creditsLabel = computed(() => {
   return props.price > 1 ? "crédits" : "crédit";
