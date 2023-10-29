@@ -31,10 +31,9 @@
               <nuxt-img class="h-5" alt="youtube" src="/lune.svg" />
             </div>
           </div>
-          <div class="details">
-            <span class="font-normal">Crédit pour</span>
-            <span class="pl-1 font-bold">{{ pack.creditsValue }}</span>
-            {{ pack.creditsValue === 1 ? "vidéo" : "vidéos" }}
+          <div class="details text-center">
+            <span class="font-bold">{{ pack.creditsValue }}</span>
+            {{ pack.creditsValue === 1 ? "crédit" : "crédits" }}
           </div>
         </div>
         <div class="separator_container">
