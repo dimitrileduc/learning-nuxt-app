@@ -48,7 +48,7 @@
           </div>
         </div>
         <div
-          class="description mt-3 leading-tight text-justify font-normal min-h-[199px] md:min-h-[139px]"
+          class="description mt-3 leading-tight text-justify font-normal md:min-h-[139px]"
         >
           {{ decriptionTruncate }}
         </div>

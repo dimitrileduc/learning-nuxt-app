@@ -92,7 +92,12 @@
               <div
                 class="flex flex-col gap-y-2 items-center justify-center mt-2"
               >
-                <Button secondary :hasWhiteBg="true" label="Accéder au site" />
+                <Button
+                  secondary
+                  @click="closeModal"
+                  :hasWhiteBg="true"
+                  label="Accéder au site"
+                />
               </div>
               <div class="font-medium text-sm pt-2">
                 <div
