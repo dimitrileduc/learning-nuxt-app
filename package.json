@@ -21,7 +21,7 @@
     "@vueuse/core": "^9.3.1",
     "@vueuse/nuxt": "^9.13.0",
     "cross-fetch": "^3.1.5",
-    "nuxi": "^3.2.3",
+    "nuxi": "^3.9.1",
     "nuxt": "3.3.0",
     "nuxt-calendly": "^0.1.14",
     "nuxt-gtag": "^0.5.7",
