@@ -3,11 +3,11 @@
     class="container w-full flex flex-col items-center px-8 sm:px-0 z-50 pb-12"
   >
     <div
-      class="text-[24px] text-white font-bold mt-4 text-center flex flex-col items-center justify-center"
+      class="text-[24px] text-white font-bold gap-0 mt-4 text-center flex flex-col items-center justify-center leading-tight"
     >
       <div class="text-[#CFE4BA]">Nouveau !</div>
-      <div>Découvrez ici les projections du 1er semestre 2024</div>
-      <div>Signe par signe</div>
+      <div class="pt-2">Découvrez ici les projections du 1er semestre 2024</div>
+      <div class="">Signe par signe</div>
     </div>
     <div class="mt-3 max-w-[710px] text-white text-base text-center">
       Sélectionne le signe de ton choix et découvre les prévisions des 6

@@ -7,7 +7,27 @@
         @click="isOpen"
         class="bg-white rounded-md w-full p-4 flex items-center justify-between"
       >
-        <span class="mr-4 capitalize">{{ selectedValue }}</span>
+        <div class="flex justify-start items-center gap-3">
+          <div
+            v-if="selectedValue !== 'Sélectionnez un signe astrologique'"
+            class="h-full flex items-center justify-center group-hover:hidden"
+          >
+            <nuxt-img
+              class="w-6 h-6"
+              alt="signe"
+              :src="'/' + selectedValue + '.svg'"
+            />
+          </div>
+          <span
+            class="mr-4"
+            :class="
+              selectedValue !== 'Sélectionnez un signe astrologique'
+                ? 'capitalize'
+                : 'normal-case'
+            "
+            >{{ selectedValue }}</span
+          >
+        </div>
         <nuxt-img class="w-6" alt="select" src="/arrowSelect.svg" />
       </button>
 
