@@ -98,7 +98,7 @@
                   class="h-full"
                 />
               </div>
-              <div class="font-medium text-sm pt-2">
+              <div class="font-medium text-sm pt-2 text-center">
                 <div
                   v-if="requestStatus === 'ok'"
                   class="status_message text-[#34be34]"
@@ -107,7 +107,7 @@
                 </div>
                 <div
                   v-if="requestStatus === 'error'"
-                  class="status_message text-red-500"
+                  class="status_message text-red-500 text-center"
                 >
                   Une erreur s'est produite. Veuillez réessayer ultérieurement.
                 </div>
