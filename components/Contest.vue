@@ -27,11 +27,11 @@
               <div
                 class="mt-4 md:mt-6 text-base md:text-[20px] text-white font-bold text-center uppercase"
               >
-                CONCOURS !
+                CONCOURS
               </div>
 
               <div class="subTitle text-center text-base md:text-[20px]">
-                Tente ta chance de gagner une guidance personnalisée de 60
+                Tentez votre chance de gagner une guidance personnalisée de 60
                 minutes
               </div>
               <div
@@ -41,22 +41,22 @@
                 soutenir dans votre parcours de vie en vous apportant les
                 messages que vous êtes prêts à entendre, en éclairant
                 d’éventuelles zones d’ombre, en vous aidant à vous connecter à
-                vos ressources personnelles afin de suivre la voie de votre âme.
+                vos ressources personnelles afin de suivre la voie de votre âme
               </div>
               <div class="mt-4 text-[14px] md:text-base copy text-center">
                 <div class="font-bold text-[#CFE4BA] text-[14px] md:text-base">
-                  Inscris-toi au concours avant le 22 décembre
+                  Inscrivez-vous au concours avant le 22 décembre
                 </div>
                 <div
                   class="md:px-0 mt-2 text-[14px] md:text-base flex flex-center justify-center"
                 >
                   <div class="hidden md:flex text-center">
-                    Tirage au sort le 24 décembre. Le gagnant sera prévenu par
-                    mail
+                    Tirage au sort le 24 décembre. Le(la) gagnant(e) sera
+                    prévenu(e) par mail
                   </div>
                   <div class="flex md:hidden flex-col">
                     <div>Tirage au sort le 24 décembre.</div>
-                    Le gagnant sera prévenu par mail
+                    Le(la) gagnant(e) sera prévenu(e) par mail
                   </div>
                 </div>
               </div>
