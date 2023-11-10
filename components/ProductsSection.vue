@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-y-16">
     <ProductsByLune />
-    <ProductsBySign />
+    <!-- <ProductsBySign /> -->
   </div>
 </template>
 
