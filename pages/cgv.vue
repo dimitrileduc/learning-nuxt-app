@@ -10,6 +10,33 @@
       <div class="w-full h-auto bg-white px-20 py-16">
         <div v-if="copy" class="mt-2 text-[#104b51]">
           <div v-html="copy"></div>
+          <div class="mt-8 flex flex-col gap-y-2">
+            <div class="font-bold uppercase">
+              Conditions Générales liées au concours (Novembre/Décembre 2023) :
+            </div>
+            <div>
+              <span class="font-semibold">Éligibilité au concours: </span>
+              Concours accessible à partir de 18 ans.
+            </div>
+            <div>
+              <span class="font-semibold">Modalités de participation :</span>
+              Pour participer au concours, il suffit de s'inscrire en ligne à
+              l'aide de votre adresse email.
+            </div>
+            <div>
+              <span class="font-semibold">Description du prix :</span> Le
+              gagnant remportera une séance de guidance personnalisée de 60
+              minutes selon le calendrier des rendez-vous disponibles sur le
+              site internet www.moon-energy.com. Séance à fixer avant le 31 mai
+              2024. Le gagnant recevra toutes les informations pratiques par
+              email.
+            </div>
+            <div>
+              <span class="font-semibold">Tirage au sort :</span> le gagnant
+              sera tiré au sort le 24 décembre 2023 et prévenu par email le 25
+              décembre 2023.
+            </div>
+          </div>
         </div>
       </div>
     </div>

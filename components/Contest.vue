@@ -127,7 +127,7 @@
                   et la
 
                   <a
-                    class="w-full h-full"
+                    class="w-full h-full underline"
                     href="/confidentialite"
                     target="_blank"
                     >Politique de confidentialité.</a
