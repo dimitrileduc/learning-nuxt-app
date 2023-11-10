@@ -6,7 +6,8 @@
     >
       <div class="modal-content">
         <slot />
-        <div class="close-arrow" @click="$emit('close')">
+
+        <div v-if="!hideCross" class="close-arrow" @click="$emit('close')">
           <Icon size="24px" name="mingcute:close-fill" color="#0D4247" />
         </div>
       </div>
@@ -16,6 +17,13 @@
 
 <script setup lang="ts">
 //backdrop-blur-xl backdrop-brightness-50
+
+const props = defineProps({
+  hideCross: {
+    type: Boolean,
+    default: false,
+  },
+});
 const previousOverflow = ref("");
 const emits = defineEmits(["close"]);
 onMounted(() => {

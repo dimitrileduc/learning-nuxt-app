@@ -1,6 +1,6 @@
 <template>
   <Teleport to="body">
-    <Modal @close="$emit('close')">
+    <Modal hideCross @close="$emit('close')">
       <div
         class="container w-full flex flex-col items-center justify-center rounded-md"
       >
