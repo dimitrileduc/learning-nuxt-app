@@ -33,11 +33,11 @@ export default defineEventHandler(async (event) => {
         console.log("videos from videos by signs in endpoint sync", videos);
 
         // Retrieve the last two videos
-        const lastTwoVideos = videos.slice(0, 2);
+        // const lastTwoVideos = videos.slice(0, 2);
 
         try {
           // Create an array to store the promises
-          const promises = lastTwoVideos.map(addVideoToDatabase);
+          const promises = videos.map(addVideoToDatabase);
 
           // Wait for all promises to resolve
           await Promise.all(promises);
@@ -62,6 +62,8 @@ async function addVideoToDatabase(video) {
     const existingVideo = await prisma.videoBySigns.findMany({
       where: { url: video.video.link },
     });
+
+    // if video exist in db but not in vimeo , remove it
 
     if (existingVideo.length > 0) {
       console.log("Video with the same URL already exists");

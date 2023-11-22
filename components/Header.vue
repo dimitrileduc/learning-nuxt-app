@@ -8,7 +8,14 @@
       />
     </div>
     <div class="container px-0 sm:px-2 lg:px-4">
-      <div class="bg mb-[112px] sm:mb-[106px] lg:mb-[56px]">
+      <div
+        class="bg sm:mb-[106px]"
+        :class="
+          selectedVideoTag
+            ? 'mb-[132px] sm:mb-[106px] md:mb-[96px] '
+            : 'mb-[0px] sm:mb-[106px] lg:mb-[0px]'
+        "
+      >
         <div class="container_overlay w-full inline-flex justify-between">
           <div class="bg-overlay-left">
             <nuxt-img alt="header_left" src="/left.svg" />
