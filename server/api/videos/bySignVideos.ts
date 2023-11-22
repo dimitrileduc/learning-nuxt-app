@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     orderBy: {
       createdAt: "desc",
     },
-    take: 2,
+    // take: 2,
   });
 
   // user not logged in , return placeholder images and video infos without link

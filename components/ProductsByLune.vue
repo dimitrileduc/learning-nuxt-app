@@ -46,12 +46,12 @@ const { loading, user } = storeToRefs(useAuth());
 const videosSyncResult = useSyncVideos();
 console.log("videosSyncResult", videosSyncResult);
 
-// const syncBySigns = useSyncBySigns();
-// console.log("syncBySigns", syncBySigns);
+const syncBySigns = useSyncBySigns();
+console.log("syncBySigns", syncBySigns);
 
-// // sync last bySigns videos
-// // const videosBySignsSyncResult = useSyncVideosBySign();
-// // console.log("videosBySignsSyncResult", videosBySignsSyncResult);
+// sync last bySigns videos
+// const videosBySignsSyncResult = useSyncVideosBySign();
+// console.log("videosBySignsSyncResult", videosBySignsSyncResult);
 
 const defaultVideo = {
   id: "",
