@@ -84,7 +84,11 @@
                 </div>
               </div>
               <div class="flex flex-col gap-y-2 items-center justify-center">
-                <Button primary label="Je m'inscris" />
+                <Button
+                  primary
+                  label="Je m'inscris"
+                  :isLoading="isRequesting"
+                />
               </div>
             </Form>
 
@@ -152,6 +156,8 @@ const schema = Yup.object().shape({
   email: Yup.string().email().required(),
 });
 
+const isRequesting = ref(false);
+
 const emit = defineEmits(["close"]);
 const closeModal = () => {
   console.log("close modal");
@@ -161,6 +167,7 @@ const closeModal = () => {
 const requestStatus = ref(null);
 
 async function onSubmit(values) {
+  isRequesting.value = true;
   try {
     const response = await $fetch("/api/user/mchimp", {
       method: "POST",
@@ -170,12 +177,12 @@ async function onSubmit(values) {
       },
     });
     console.log(response);
-    if (response?.status === "subscribed") {
+    if (response === "subscribed" || response === "updated") {
       console.log("Mailchimp user created successfully");
       requestStatus.value = "ok";
     } else {
-      console.log("response", response.status);
-      console.log("Failed to create mailchimp user");
+      console.log("response", response);
+      console.log("Failed to create mailchimp user", response);
       requestStatus.value = "error";
     }
   } catch (error) {
@@ -183,7 +190,7 @@ async function onSubmit(values) {
     requestStatus.value = "error";
   }
   await new Promise((resolve) => setTimeout(resolve, 2000));
-
+  isRequesting.value = false;
   emit("close");
 }
 </script>

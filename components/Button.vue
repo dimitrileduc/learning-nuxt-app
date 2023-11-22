@@ -54,6 +54,14 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  isLoading: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const label = computed(() => {
+  return props.isLoading ? "En cours..." : props.label;
 });
 
 const emits = defineEmits(["click"]);

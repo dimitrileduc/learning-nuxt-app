@@ -10,6 +10,8 @@ const {} = useAuth();
 const emailExist = ref(false);
 const existingEmail = ref("");
 
+const isRequesting = ref(false);
+
 const props = defineProps({
   toPayment: {
     type: Boolean,
@@ -49,6 +51,7 @@ function getEmailProviderUrl(email: any) {
 }
 
 async function handleSignUp(data: any) {
+  isRequesting.value = true;
   const { auth, error } = await registerUser(data);
   if (error) {
     if ((error.message = "User already exists")) {
@@ -66,6 +69,7 @@ async function handleSignUp(data: any) {
     console.log("emailProviderUrl", emailProviderUrl.value);
 
     emit("setEmailProviderLink", emailProviderUrl.value);
+    isRequesting.value = false;
 
     // if ($posthog) {
     //   const posthog = $posthog();
@@ -88,6 +92,7 @@ function redirectLogin() {
       @submit="handleSignUp"
       type="register"
       :toPayment="props.toPayment"
+      :isRequesting="isRequesting"
     >
       <div class="legal text-sm pt-6 text-center text-opacity-60">
         En m'inscrivant, j’accepte les

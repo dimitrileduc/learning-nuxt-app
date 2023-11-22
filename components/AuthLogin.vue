@@ -12,6 +12,8 @@ const errorMessage = ref("");
 
 const message = ref("");
 
+const isRequesting = ref(false);
+
 const props = defineProps({
   toPayment: {
     type: Boolean,
@@ -25,6 +27,7 @@ const props = defineProps({
 });
 
 async function submit(data: any) {
+  isRequesting.value = true;
   setShowPayment(false);
   console.log("submit", data);
 
@@ -40,6 +43,7 @@ async function submit(data: any) {
     errorMessage.value = error.message;
     console.log("log in failed");
   }
+  isRequesting.value = false;
 }
 </script>
 
@@ -49,6 +53,7 @@ async function submit(data: any) {
       @submit="submit"
       type="logIn"
       :existingEmail="props?.existingEmail"
+      :isRequesting="isRequesting"
     >
     </AuthForm>
     <div class="mt-4 w-full flex items-center text-center text-sm">

@@ -17,6 +17,11 @@ const props = defineProps({
     required: false,
     default: false,
   },
+  isRequesting: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 });
 
 const emailInput: any = ref(null); // define the ref for the email input field
@@ -103,7 +108,13 @@ emailInput?.value?.$el.focus();
       <slot></slot>
 
       <div class="w-full mt-6">
-        <Button noMaxWidth class="w-full" primary :label="labelButton" />
+        <Button
+          noMaxWidth
+          class="w-full"
+          primary
+          :label="labelButton"
+          :isLoading="isRequesting"
+        />
       </div>
     </Form>
   </div>
