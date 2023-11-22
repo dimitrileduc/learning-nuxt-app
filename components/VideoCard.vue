@@ -214,7 +214,7 @@ const modalState = computed(() => {
 const modalTitle = computed(() => {
   switch (modalState.value) {
     case "notLogged":
-      return "Vous devez acheter des crédits pour debloquez cette vidéo";
+      return "Vous devez acheter des crédits pour débloquez cette vidéo";
     case "loggedsufficientCredit":
       const creditsLabels =
         credits.value > 1 ? "crédits disponibles." : "crédit disponible.";
@@ -241,7 +241,7 @@ const modalSubtitle = computed(() => {
         props.price +
         " " +
         creditsLabels +
-        " pour debloquer cette vidéo ?"
+        " pour débloquer cette vidéo ?"
       );
     case "loggedInsufficientCredit":
       const neededCredits = props.price - credits.value;
@@ -251,7 +251,7 @@ const modalSubtitle = computed(() => {
         neededCredits +
         " " +
         creditString +
-        " pour debloquer cette vidéo"
+        " pour débloquer cette vidéo"
       );
 
     case "unlocked":
@@ -262,11 +262,11 @@ const modalSubtitle = computed(() => {
 const primaryLabelModal = computed(() => {
   switch (modalState.value) {
     case "notLogged":
-      return "Acheter des credits";
+      return "Acheter des crédits";
     case "loggedsufficientCredit":
       return "Acheter cette vidéo";
     case "loggedInsufficientCredit":
-      return "Acheter des credits ";
+      return "Acheter des crédits ";
     case "unlocked":
       return null;
   }
