@@ -7,18 +7,18 @@ type AstroObject = {
 };
 
 type AstrologicalSign =
-  | "belier"
-  | "taureau"
-  | "gemeaux"
-  | "cancer"
-  | "lion"
-  | "vierge"
-  | "balance"
-  | "scorpion"
-  | "sagittaire"
-  | "capricorne"
-  | "verseau"
-  | "poisson";
+  | "Bélier"
+  | "Taureau"
+  | "Gémeaux"
+  | "Cancer"
+  | "Lion"
+  | "Vierge"
+  | "Balance"
+  | "Scorpion"
+  | "Sagittaire"
+  | "Capricorne"
+  | "Verseau"
+  | "Poissons";
 
 export const useBySignVideos = defineStore("useBySignVideos", () => {
   const videosUrl = "/api/videos/bySignVideos";
