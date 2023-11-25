@@ -9,14 +9,14 @@
         <nuxt-img
           class="w-6 h-6"
           alt="signe"
-          :src="'/' + option.toLowerCase() + '.svg'"
+          :src="'/' + removeAccents(option) + '.svg'"
         />
       </div>
       <div class="h-full hidden items-center justify-center group-hover:flex">
         <nuxt-img
           class="w-6 h-6"
           alt="signe"
-          :src="'/' + option.toLowerCase() + '-white' + '.svg'"
+          :src="'/' + removeAccents(option) + '-white' + '.svg'"
         />
       </div>
 
@@ -66,6 +66,13 @@ const emit = defineEmits(["update"]);
 const updateSelectedValue = (value) => {
   emit("update", props.option);
 };
+
+function removeAccents(str) {
+  return str
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
 </script>
 
 <style scoped>
