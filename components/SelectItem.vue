@@ -16,7 +16,7 @@
         <nuxt-img
           class="w-6 h-6"
           alt="signe"
-          :src="'/' + option + '-white' + '.svg'"
+          :src="'/' + option.toLowerCase() + '-white' + '.svg'"
         />
       </div>
 
