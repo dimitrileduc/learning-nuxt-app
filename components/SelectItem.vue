@@ -6,7 +6,11 @@
   >
     <div class="h-full flex items-center justify-start gap-x-3">
       <div class="h-full flex items-center justify-center group-hover:hidden">
-        <nuxt-img class="w-6 h-6" alt="signe" :src="'/' + option + '.svg'" />
+        <nuxt-img
+          class="w-6 h-6"
+          alt="signe"
+          :src="'/' + option.toLowerCase() + '.svg'"
+        />
       </div>
       <div class="h-full hidden items-center justify-center group-hover:flex">
         <nuxt-img
