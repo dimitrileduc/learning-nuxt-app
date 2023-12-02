@@ -58,18 +58,33 @@ type AstroObject = {
 };
 
 type AstrologicalSign =
-  | "Bélier"
-  | "Taureau"
-  | "Gémeaux"
-  | "Cancer"
-  | "Lion"
-  | "Vierge"
-  | "Balance"
-  | "Scorpion"
-  | "Sagittaire"
-  | "Capricorne"
-  | "Verseau"
-  | "Poissons";
+  | "bélier"
+  | "taureau"
+  | "gémeaux"
+  | "cancer"
+  | "lion"
+  | "vierge"
+  | "balance"
+  | "scorpion"
+  | "sagittaire"
+  | "capricorne"
+  | "verseau"
+  | "poissons";
+
+const sortedSigns: AstrologicalSign[] = [
+  "bélier",
+  "taureau",
+  "gémeaux",
+  "cancer",
+  "lion",
+  "vierge",
+  "balance",
+  "scorpion",
+  "sagittaire",
+  "capricorne",
+  "verseau",
+  "poissons",
+];
 
 const { data } = await storeToRefs(useBySignVideos());
 console.log("video by signs initialized from productsBySign component", data);
@@ -87,8 +102,25 @@ const signsOptions = computed(() => {
       tagSet.add({ tag: item.tag, access: item.access, isLast: isLast });
     }
   });
+  const options = Array.from(tagSet);
+
+  console.log("options  ", options);
   // Convert the Set back to an array
-  return Array.from(tagSet);
+  // return Array.from(tagSet);
+
+  options.sort(function (a, b) {
+    var tagA = a.tag;
+    var tagB = b.tag;
+
+    // Find the index of the tags in the sortingArr
+    var indexA = sortedSigns.indexOf(tagA);
+    var indexB = sortedSigns.indexOf(tagB);
+
+    // Compare the indices to determine the sorting order
+    return indexA - indexB;
+  });
+  console.log("sorted  ", options);
+  return options;
 });
 
 // make a computed to get selectedVideo from selectedVideoTag

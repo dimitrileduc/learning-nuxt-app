@@ -15,7 +15,7 @@
             <nuxt-img
               class="w-6 h-6"
               alt="signe"
-              :src="'/' + selectedValue + '.svg'"
+              :src="'/' + removeAccents(selectedValue) + '.svg'"
             />
           </div>
           <span
@@ -77,6 +77,10 @@ const updateSelectedValue = (value) => {
   emit("update", value);
   isOpen();
 };
+
+function removeAccents(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
 </script>
 
 <style scoped>

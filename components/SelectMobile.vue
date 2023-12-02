@@ -7,7 +7,24 @@
         @click="isOpen"
         class="bg-white rounded-md w-full p-4 flex items-center justify-between"
       >
-        <span class="mr-4 capitalize">{{ selectedValue }}</span>
+        <div class="flex flex-row justify-center items-center gap-2">
+          <div v-if="selectedValue !== 'Sélectionnez un signe astrologique'">
+            <nuxt-img
+              class="w-6 h-6"
+              alt="signe"
+              :src="'/' + removeAccents(selectedValue) + '.svg'"
+            />
+          </div>
+          <span
+            class="mr-4 capitalize"
+            :class="
+              selectedValue !== 'Sélectionnez un signe astrologique'
+                ? 'capitalize'
+                : 'normal-case'
+            "
+            >{{ selectedValue }}</span
+          >
+        </div>
         <nuxt-img class="w-6" alt="select" src="/arrowSelect.svg" />
       </button>
 
@@ -21,9 +38,9 @@
                 @click="isOpen"
                 class="bg-white rounded-md w-full p-4 flex items-center justify-between"
               >
-                <span class="mr-4 capitalize text-[#104b51]">{{
-                  selectedValue
-                }}</span>
+                <span class="mr-4 text-[#104b51]">
+                  Sélectionnez un signe astrologique
+                </span>
                 <nuxt-img class="w-6" alt="select" src="/close_menu.svg" />
               </button>
               <div
@@ -73,6 +90,10 @@ const updateSelectedValue = (value) => {
   emit("update", value);
   isOpen();
 };
+
+function removeAccents(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
 </script>
 
 <style scoped>
