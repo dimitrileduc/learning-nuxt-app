@@ -71,6 +71,7 @@ async function addVideoToDatabase(video) {
         data: {
           title: video.video.name || existingVideo.title,
           description: video.video.description || existingVideo.description,
+          thumbnail: video.video.pictures?.base_link || existingVideo.thumbnail,
         },
       });
 
