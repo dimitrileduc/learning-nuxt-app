@@ -18,9 +18,9 @@
     <div v-if="showPasswordRecover">
       <ResetPasswordModal @close="showPasswordRecover = false" />
     </div>
-    <div v-if="isModalContestOpen">
+    <!-- <div v-if="isModalContestOpen">
       <Contest @close="closeIsModalContestOpen" />
-    </div>
+    </div> -->
   </div>
 </template>
 
