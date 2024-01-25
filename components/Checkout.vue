@@ -1,7 +1,9 @@
 <template>
   <Teleport to="body">
     <Modal @close="$emit('close')">
-      <div class="bg-white container text-[#104B51] w-full rounded">
+      <div
+        class="bg-white container text-[#104B51] w-full rounded h-[100vh] md:h-auto overflow-auto"
+      >
         <div
           v-if="success"
           class="flex flex-col justify-center items-center space-y-6"
