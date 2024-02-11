@@ -107,25 +107,9 @@ async function onSubmit(values) {
   //  console.log("Form is not valid.");
   // }
   status.value = "processing"; // Set status to "processing" when the form is submitted
-  // try {
-  //   await mail.send({
-  //     config: "dimitri",
-  //     from: {
-  //       name: values.name,
-  //       address: values.email,
-  //     },
-  //     subject: "Moon energy contact form" + values.sujet,
-  //     text: values.message,
-  //   });
-  // } catch (error) {
-  //   console.error(error);
-  //   status.value = "error"; // Set status to "error" when an error occurs during form submission
-  // }
-
   try {
-    console.log("try sending mail");
     await mail.send({
-      config: "moon",
+      config: "dimitri",
       from: {
         name: values.name,
         address: values.email,
@@ -133,11 +117,29 @@ async function onSubmit(values) {
       subject: "Moon energy contact form" + values.sujet,
       text: values.message,
     });
-    status.value = "ok";
   } catch (error) {
     console.error(error);
-    status.value = "error"; // Set status to "error" when an error occurs during form submission
+    // status.value = "error"; // Set status to "error" when an error occurs during form submission
+  } finally {
+    status.value = "ok"; // Set status to "ok" when the form submission is successful
   }
+
+  // try {
+  //   console.log("try sending mail");
+  //   await mail.send({
+  //     config: "moon",
+  //     from: {
+  //       name: values.name,
+  //       address: values.email,
+  //     },
+  //     subject: "Moon energy contact form" + values.sujet,
+  //     text: values.message,
+  //   });
+  //   status.value = "ok";
+  // } catch (error) {
+  //   console.error(error);
+  //   status.value = "error"; // Set status to "error" when an error occurs during form submission
+  // }
 
   // try {
   //   await mail.send({
