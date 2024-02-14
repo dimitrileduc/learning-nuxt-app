@@ -125,28 +125,10 @@ async function onSubmit(values) {
   //   status.value = "ok"; // Set status to "ok" when the form submission is successful
   // }
 
-  try {
-    console.log("try sending mail");
-    await mail.send({
-      config: "moon",
-      from: {
-        name: values.name,
-        address: values.email,
-      },
-      subject: "Moon energy contact form" + values.sujet,
-      text: values.message,
-    });
-    // status.value = "ok";
-  } catch (error) {
-    console.error(error);
-    // status.value = "error"; // Set status to "error" when an error occurs during form submission
-  } finally {
-    status.value = "ok"; // Set status to "ok" when the form submission is successful
-  }
-
   // try {
+  //   console.log("try sending mail");
   //   await mail.send({
-  //     config: "delphine",
+  //     config: "moon",
   //     from: {
   //       name: values.name,
   //       address: values.email,
@@ -154,13 +136,31 @@ async function onSubmit(values) {
   //     subject: "Moon energy contact form" + values.sujet,
   //     text: values.message,
   //   });
-  //   status.value = "ok"; // Set status to "ok" when the form submission is successful
+  //   // status.value = "ok";
   // } catch (error) {
   //   console.error(error);
-  //   status.value = "error"; // Set status to "error" when an error occurs during form submission
+  //   // status.value = "error"; // Set status to "error" when an error occurs during form submission
+  // } finally {
+  //   status.value = "ok"; // Set status to "ok" when the form submission is successful
   // }
 
-  //});
+  try {
+    await mail.send({
+      config: "delphine",
+      from: {
+        name: values.name,
+        address: values.email,
+      },
+      subject: "Moon energy contact form" + values.sujet,
+      text: values.message,
+    });
+    status.value = "ok"; // Set status to "ok" when the form submission is successful
+  } catch (error) {
+    console.error(error);
+    //status.value = "error"; // Set status to "error" when an error occurs during form submission
+  } finally {
+    status.value = "ok"; // Set status to "ok" when the form submission is successful
+  }
 }
 /*
 function onInvalidSubmit(values) {
