@@ -148,7 +148,7 @@ async function onSubmit(values) {
     await mail.send({
       config: "delphine",
       from: {
-        name: values.name,
+        name: values.name, //
         address: values.email,
       },
       subject: "Moon energy contact form" + values.sujet,
