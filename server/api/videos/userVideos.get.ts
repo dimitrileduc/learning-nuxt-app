@@ -8,15 +8,14 @@ export default async function defineEventHandler(event: any) {
   let videoPurchases: any = [];
 
   if (userEmail) {
-   videoPurchases = []
-    // videoPurchases = await prisma.videoPurchase.findMany({
-    //   where: {
-    //     userEmail,
-    //   },
-    //   select: {
-    //     videoId: true,
-    //   },
-    // });
+    videoPurchases = await prisma.videoPurchase.findMany({
+      where: {
+        userEmail,
+      },
+      select: {
+        videoId: true,
+      },
+    });
 
     const videoIds = videoPurchases.map((video: any) => video.videoId);
 
