@@ -7,34 +7,34 @@ export default async function defineEventHandler(event: any) {
 
   let videoPurchases: any = [];
 
-  if (userEmail) {
-    videoPurchases = await prisma.videoPurchase.findMany({
-      where: {
-        userEmail,
-      },
-      select: {
-        videoId: true,
-      },
-    });
+  // if (userEmail) {
+  //   videoPurchases = await prisma.videoPurchase.findMany({
+  //     where: {
+  //       userEmail,
+  //     },
+  //     select: {
+  //       videoId: true,
+  //     },
+  //   });
 
-    const videoIds = videoPurchases.map((video: any) => video.videoId);
+  //   const videoIds = videoPurchases.map((video: any) => video.videoId);
 
-    const videos = await prisma.video.findMany({
-      where: {
-        id: { in: videoIds },
-      },
-    });
+  //   const videos = await prisma.video.findMany({
+  //     where: {
+  //       id: { in: videoIds },
+  //     },
+  //   });
 
-    const videosBySign = await prisma.videoBySigns.findMany({
-      where: {
-        id: { in: videoIds },
-      },
-    });
+  //   const videosBySign = await prisma.videoBySigns.findMany({
+  //     where: {
+  //       id: { in: videoIds },
+  //     },
+  //   });
 
-    const allVideos = [...videos, ...videosBySign];
+  //   const allVideos = [...videos, ...videosBySign];
 
-    return allVideos;
-  } else {
+  //   return allVideos;
+  // } else {
     return null;
-  }
+  // }
 }
