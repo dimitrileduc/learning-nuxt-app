@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
   const userEmail = event.context.user?.email;
 
   // Get the last 2 videos based on the `videoUpdated` field
-  const videos = await prisma.video.findMany({
+  const videos = await prisma.video.findMany({//try node 20
     orderBy: {
       createdAt: "desc",
     },

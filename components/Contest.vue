@@ -2,7 +2,7 @@
   <Teleport to="body">
     <Modal hideCross @close="$emit('close')">
       <div class="w-full flex items-center justify-center">
-        <div class="w-3/6 h-full bg-white text-center">
+        <div class="w-3/6 h-full bg-white text-center p-4">
           Notre site est actuellement en maintenance en raison d'une erreur du
           fournisseur de serveur. Nous travaillons activement pour résoudre le
           problème et nous nous excusons pour tout inconvénient que cela
