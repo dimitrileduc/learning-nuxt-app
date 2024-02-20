@@ -1,7 +1,15 @@
 <template>
   <Teleport to="body">
     <Modal hideCross @close="$emit('close')">
-      <div
+      <div class="w-full flex items-center justify-center">
+        <div class="w-3/6 h-full bg-white text-center">
+          Notre site est actuellement en maintenance en raison d'une erreur du
+          fournisseur de serveur. Nous travaillons activement pour résoudre le
+          problème et nous nous excusons pour tout inconvénient que cela
+          pourrait causer. Merci de votre compréhension.
+        </div>
+      </div>
+      <!-- <div
         class="container w-full flex flex-col items-center justify-center rounded-md"
       >
         <div class="containerInterne px-3 sm:px-6 lg:max-w-[944px] lg:px-0">
@@ -141,7 +149,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </Modal>
   </Teleport>
 </template>
