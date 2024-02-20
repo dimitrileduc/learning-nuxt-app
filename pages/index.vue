@@ -32,7 +32,7 @@ import { useAuth } from "~/stores/useAuth";
 import { usePayment } from "~~/stores/usePayment";
 import { useShowContest } from "~~/stores/useShowContest";
 
-const { query } = useRoute();
+const { query } = useRoute(); //
 
 const { showPayment } = storeToRefs(usePayment());
 const { isModalContestOpen } = storeToRefs(useShowContest());
