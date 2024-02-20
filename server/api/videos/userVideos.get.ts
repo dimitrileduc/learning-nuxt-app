@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 export default async function defineEventHandler(event: any) {
   const userEmail = event.context.user?.email;
 
-  let videoPurchases: any = [];//
+  let videoPurchases: any = [];////
 
   // if (userEmail) {
   //   videoPurchases = await prisma.videoPurchase.findMany({
