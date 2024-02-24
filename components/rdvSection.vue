@@ -32,7 +32,7 @@
           <div class="mt-6 text-[20px] font-bold text-center">
             Guidance personnalisée
           </div>
-          <div class="mt-1 text-[14px] text-center">60 minutes / 75€</div>
+          <div class="mt-1 text-[14px] text-center">60 minutes / 85€</div>
           <div class="mt-4 leading-tight md:min-h-[119px] text-justify">
             Je vous accueille pour vous soutenir dans votre parcours de vie en
             vous apportant les messages que vous êtes prêts à entendre, en
@@ -55,7 +55,7 @@
           <div class="mt-6 text-[20px] font-bold text-center">
             Guidance directe
           </div>
-          <div class="mt-1 text-[14px] text-center">30 minutes / 45€</div>
+          <div class="mt-1 text-[14px] text-center">30 minutes / 50€</div>
           <div class="mt-4 leading-tight md:min-h-[119px] text-justify">
             Vous avez une question très précise à poser ? Lors de cette séance,
             nous pouvons nous concentrer sur votre interrogation du moment pour
