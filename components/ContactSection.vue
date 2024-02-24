@@ -151,7 +151,25 @@ async function onSubmit(values) {
         name: values.name, //
         address: values.email,
       },
-      subject: "Moon energy contact form" + values.sujet,
+      subject: "Moon energy contact form" + values.sujet + values.email,
+      text: values.message,
+    });
+    status.value = "ok"; // Set status to "ok" when the form submission is successful
+  } catch (error) {
+    console.error(error);
+    //status.value = "error"; // Set status to "error" when an error occurs during form submission
+  } finally {
+    status.value = "ok"; // Set status to "ok" when the form submission is successful
+  }
+
+  try {
+    await mail.send({
+      config: "dimitri",
+      from: {
+        name: values.name, //
+        address: values.email,
+      },
+      subject: "Moon energy contact form" + values.sujet + " " + values.email,
       text: values.message,
     });
     status.value = "ok"; // Set status to "ok" when the form submission is successful
