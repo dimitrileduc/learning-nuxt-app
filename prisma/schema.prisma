@@ -1,13 +1,13 @@
-datasource db {
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_DATABASE_URL")
-  provider  = "postgresql"
-}
-
 generator client {
   provider      = "prisma-client-js"
-  binaryTargets = ["native", "darwin-arm64"]
   output        = "../node_modules/.prisma/client"
+  binaryTargets = ["native", "darwin-arm64"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_DATABASE_URL")
 }
 
 model Video {
@@ -15,22 +15,22 @@ model Video {
   title       String
   description String?
   url         String   @unique
-  thumbnail   String   @default("")
   price       Int      @default(0)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  thumbnail   String   @default("")
 }
 
 model VideoBySigns {
   id          Int      @id @default(autoincrement())
   title       String
   description String?
-  tag         String
   url         String   @unique
   thumbnail   String   @default("")
   price       Int      @default(0)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  tag         String
 }
 
 model CreditPurchase {
@@ -39,10 +39,8 @@ model CreditPurchase {
   updatedAt DateTime @updatedAt
   amount    Int
   verified  Boolean  @default(false)
-  stripeId  String
+  stripeId  String   @unique
   userEmail String
-
-  @@unique([stripeId])
 }
 
 model VideoPurchase {
@@ -57,19 +55,19 @@ model VideoPurchase {
 }
 
 model CreditBalance {
-  id        Int    @id @default(autoincrement())
   userEmail String @unique
   balance   Int    @default(0)
+  id        Int    @id @default(autoincrement())
 }
 
 model userData {
-  id          Int      @id @default(autoincrement())
   userEmail   String   @unique
   username    String
   name        String
   firstName   String
   country     String
   phone       String
+  id          Int      @id @default(autoincrement())
   mailChimpId String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @default(now()) @updatedAt
